@@ -1,0 +1,996 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>弹出窗体页测试</title>
+
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+    <link href="../Styles/css.css" rel="stylesheet"/>
+    <link href="../Styles/dialog-column.css" rel="stylesheet"/>
+    <link href="../Scripts/uploadify/uploadify.css" rel="stylesheet"/>
+
+    <!--[if lte IE 9]>
+        <script src="/Scripts/respond.min.js"></script>
+        <script src="/Scripts/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.7.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <script src="/Scripts/My97DatePicker/WdatePicker.js"></script>
+    <script src="../Scripts/uploadify/jquery.uploadify-3.1.js"></script>
+
+    <script src="/Scripts/Hsp.js"></script>
+    <script src="/Scripts/Hsp.Common.js"></script>
+    <script src="/Scripts/placeholder.js"></script>
+
+    <style type="text/css">
+        * {
+            font-family: 微软雅黑;
+            font-size: 12px;
+        }
+
+        html, body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .window-div { width: 688px; }
+
+        .content-div {
+            background-color: #fbfbfb;
+            border: 1px solid silver;
+            margin: 2px;
+            overflow: hidden;
+        }
+
+        .btn-div {
+            margin-right: 2px;
+            margin-top: 0;
+            overflow: hidden;
+            text-align: right;
+        }
+
+
+
+        /* 页面元素尺寸 */
+
+        .row-line-div,
+        .row-title-div,
+        .row-block-div { width: 580px; }
+
+        .row-line-div > label,
+        .row-block-div > label { width: 80px; }
+
+        .quarter-input { width: 58.4px; }
+
+        select.quarter-input { width: 61.6px; }
+
+        .third-input { width: 105.5px; }
+
+        select.third-input { width: 108.8px; }
+
+        .half-input { width: 200px; }
+
+        .half-input-group { width: 203.5px; }
+
+        select.half-input { width: 203.5px; }
+
+        .half-icon-input { width: 179.5px; }
+
+        .full-input { width: 484px; }
+
+        .full-input-group { width: 487.5px; }
+
+        select.full-input { width: 487.5px; }
+
+        textarea.full-input { width: 483.5px; }
+
+        input.combo-text {
+            border: 0 !important;
+            height: 24px !important;
+            line-height: 24px !important;
+            width: 466.5px;
+        }
+
+        .row-line-div .combo { border: #a4bed4 1px solid !important; }
+
+        label.combo-arrow { height: 26px !important; }
+
+        .full-icon-input { width: 463px; }
+
+
+        .row-line-div:first-child { padding-top: 10px; }
+
+        .row-block-div textarea { height: 70px; }
+
+        .row-line-div img { padding: 5px 0 0 3px; }
+
+
+        .content-div { height: 350px; }
+
+
+
+
+        /*style="height: ' + (winHeight - 37) + 'px;"*/
+
+
+        .row-line-div,
+        .row-title-div,
+        .row-block-div { width: 1060px; }
+
+        .row-line-div > label,
+        .row-block-div > label {
+            border: 1px solid #00bfff;
+            width: 50px;
+        }
+
+        .half-input { width: 440px; }
+
+        .full-input { width: 968px; }
+
+
+
+    </style>
+
+</head>
+<body>
+
+
+<div style="overflow: hidden;">
+    <div class="easyui-layout" style="border: 1px solid #a52a2a; height: 600px; width: 1060px;">
+        <div region="center" border="false" style="overflow-x: hidden; padding: 10px;">
+            <div class="row-line-div">
+                <label for="txtTitle" class="required-field">标题：</label>
+                <input type="text" class="half-input" id="txtTitle" placeholder="文章标题，必填项...">
+                <label for="txtOrder">排序号：</label>
+                <input type="text" class="half-input" id="txtOrder" placeholder="排序号" value="999">
+            </div>
+            <div class="row-hide-div ">
+                <div class="row-title">
+                    <span class="row-header" style="width: 80px;">类别：&nbsp;</span></div>
+                <div class="row-content" style="width: 240px;" id="noticeTypeDiv">
+                    <input name="noticeType" type="radio" value="0" checked="checked"/>MSO
+                    <input name="noticeType" type="radio" value="1"/>创新平台
+                    <input name="noticeType" type="radio" value="2"/>网络大学
+                </div>
+                <div class="row-title">
+                    <span class="row-header">MSO二级类别：&nbsp;</span></div>
+                <div class="row-content" style="width: 320px;" id="noticeSecondTypeDiv">
+                    <input name="noticeSecondType" type="radio" value="0" checked="checked"/>公告类
+                    <input name="noticeSecondType" type="radio" value="1"/>公示类
+                    <input name="noticeSecondType" type="radio" value="2"/>领导日程类
+                    <input name="noticeSecondType" type="radio" value="3"/>月报类
+                </div>
+            </div>
+            <div class="row-hide-div">
+                <div class="row-title">
+                    <span class="row-header">范围：&nbsp;</span></div>
+                <div class="row-content">
+                    <input type="hidden" id="txtNoticeScopeId"/>
+                    <input type="text" id="txtNoticeScopeName" style="width: 912px;" readonly="readonly">
+                    <img id="imgNoticeScope" src="/Content/images/back-layer.png" title="选择发布范围" alt="选择发布范围"/>
+                </div>
+                &nbsp;&nbsp;
+                <span class="checkbox-title">高亮</span><input type="checkbox" id="chkd">
+                <span>&nbsp;|&nbsp;</span>
+                <span class="checkbox-title">消息</span><input type="checkbox" id="messageChk">
+                <span>&nbsp;|&nbsp;</span>
+                <span class="checkbox-title">置顶</span><input type="checkbox" id="topChk">
+            </div>
+            <div class="row-block-div" style="padding-top: 5px;">
+                <label class="row-header">内容：</label>
+                <div class="full-input">
+                    <textarea id="txtContent" style="height: 260px; width: 960px;" class="ckeditor"></textarea>
+                </div>
+            </div>
+            <div class="row-block-div attList">
+                <label>附件：</label>
+                <div class="full-input" style="height: 165px;">
+                    <table id="tbFileList"></table>
+                </div>
+            </div>
+            <div class="row-block-div attList">
+                <label class="row-header">图片：</label>
+                <div class="full-input" style="height: 165px;">
+                    <table id="tbImageList"></table>
+                </div>
+            </div>
+        </div>
+        <div region="south" split="true" border="false" style="height: 40px; overflow: hidden; padding: 0;">
+            <div id="label" style="float: left; margin: 5px;"></div>
+            <div class="button" style="float: right; margin: 5px;">
+                <a href="javascript:void(0);" id="btnAddFile" class="easyui-linkbutton" iconCls="icon-attachment">添加附件</a>
+                <a href="javascript:void(0);" id="btnAddImg" class="easyui-linkbutton" iconCls="icon-image">添加图片</a>
+                <a href="javascript:void(0);" id="btnPreview" class="easyui-linkbutton" iconCls="icon-preview">预览</a>
+                <a href="javascript:void(0);" id="btnPublish" class="easyui-linkbutton" iconCls="icon-save">保存</a>
+                <a href="javascript:void(0);" id="btnCancel" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
+<div id="editColumn" class="window-div">
+    <div class="content-div">
+        <div class="row-line-div">
+            <div class="row-line-div">
+                <label for="txtName" class="required-field">栏目名称：</label>
+                <input type="hidden" id="txtId"/>
+                <input type="text" class="full-input" id="txtName" placeholder="栏目名称..."/>
+            </div>
+            <div class="row-line-div">
+                <label for="txtUrl" class="required-field">栏目地址：</label>
+                <input type="text" class="full-input" id="txtUrl" placeholder="栏目地址..."/>
+            </div>
+            <div class="row-line-div">
+                <label for="txtIdx">排序号码：</label>
+                <input type="text" class="full-input ime-disabled" id="txtIdx" value="0"/>
+            </div>
+            <div class="row-line-div">
+                <label for="txtParentName">父级栏目：</label>
+                <div class="input-group full-input-group">
+                    <input type="hidden" id="txtParentId"/>
+                    <input type="text" class="full-icon-input" id="txtParentName" readonly="readonly" placeholder="父级栏目..."/>
+                    <img id="btnParentIdSelect" title="父级栏目选择" alt="父级栏目选择" src="/Content/images/Views_16x16.png"/>
+                </div>
+            </div>
+            <div class="row-line-div">
+                <label for="txtIcon">栏目图标：</label>
+                <div class="input-group full-input-group">
+                    <input type="text" class="full-icon-input" id="txtIcon" placeholder="栏目图标..."/>
+                    <img id="btnIconSelect" title="栏目图标选择" alt="栏目图标选择" src="/Content/images/File.png"/>
+                </div>
+            </div>
+            <div class="row-hide-div">
+                <label for="txtBanner">栏目横幅：</label>
+                <input type="text" class="full-input" id="txtBanner" placeholder="栏目横幅..."/>
+            </div>
+            <div class="row-hide-div">
+                <label for="txtCss">默认样式：</label>
+                <input type="text" class="full-input" id="txtCss" placeholder="默认样式..."/>
+            </div>
+            <div class="row-line-div">
+                <label for="target">打开方式：</label>
+                <select id="target" class="full-input">
+                    <option value="_self" selected="selected">当前窗口</option>
+                    <option value="_blank">新窗口</option>
+                </select>
+            </div>
+            <div class="row-block-div">
+                <label>&nbsp;</label>
+                <div class="input-group full-input-group">
+                    <input type="checkbox" id="cbxIsVisible" checked="checked"/>
+                    <label for="cbxIsVisible">是否可见</label>
+                    <img class="preview" title="图标预览" alt="图标预览" src="/Content/images/Views_16x16.png"/>
+                </div>
+            </div>
+            <div class="row-hide-div">
+                <label for="cbxHomeShow">首页显示：</label>
+                <input type="checkbox" id="cbxHomeShow"/>
+            </div>
+        </div>
+    </div>
+    <div class="btn-div">
+        <a href="#" id="btnSave" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+        <a href="#" id="btnExit" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+    </div>
+</div>
+-->
+
+<!--<div id="sqlExportDiv" class="window-div">
+    <div class="content-div">
+        <div class="row-block-div">
+            <div style="margin-right: 10px;">
+                <textarea id="sqlText"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="btn-div">
+        <div style="float: left;">
+            [Ctrl+A]全选
+        </div>
+        <div style="float: right;">
+            <a href="javascript:void(0);" id="btnSqlCopy" class="easyui-linkbutton" iconCls="icon-copy">全选并复制</a>
+            <a href="javascript:void(0);" id="btnSqlExit" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+        </div>
+    </div>
+</div>-->
+
+
+<!--<style type="text/css">
+    #sqlText {
+        border: 0;
+        display: block;
+        float: left;
+        height: 407px;
+        margin-top: 0;
+        width: 822px;
+    }
+</style>-->
+
+
+<!--<div id="editMenu" class="window-div">
+    <div class="content-div">
+        <div class="row-line-div">
+            <div class="row-line-div">
+                <label for="txtName" class="required-field">菜单名称：</label>
+                <input type="hidden" id="txtId"/>
+                <input type="text" class="full-input" id="txtName"/>
+            </div>
+            <div class="row-line-div">
+                <label for="txtUrl" class="required-field">菜单地址：</label>
+                <input type="text" class="full-input" id="txtUrl"/>
+            </div>
+            <div class="row-line-div">
+                <label for="txtIndex">排序号码：</label>
+                <input type="text" class="full-input ime-disabled" id="txtIndex" value="0"/>
+            </div>
+            <div class="row-line-div">
+                <label for="txtParentName">父级菜单：</label>
+                <div class="input-group full-input-group">
+                    <input type="hidden" id="txtParentId"/>
+                    <input type="text" class="full-icon-input" id="txtParentName" readonly="readonly"/>
+                    <img id="btnParentIdSelect" alt="父级菜单选择" title="父级菜单选择" src="/Content/images/Views_16x16.png"/>
+                </div>
+            </div>
+            <div class="row-line-div">
+                <label for="txtImg">菜单图标：</label>
+                <input type="text" class="full-icon-input" id="txtImg"/>
+                <img id="btnMenuIconSelect" alt="菜单图标选择" title="菜单图标选择" src="/Content/images/File.png"/>
+            </div>
+            <div class="row-block-div">
+                <label>&nbsp;</label>
+                <div class="input-group full-input-group">
+                    <input type="checkbox" class="easyui-checkbox" id="cbxIsVisible" checked="checked"/>
+                    <label for="cbxIsVisible">是否可见</label>
+                    <img class="preview" alt="图标预览" title="图标预览" src="/Content/images/Views_16x16.png"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-div">
+        <a href="#" id="btnSave" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+        <a href="#" id="btnExit" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+    </div>
+</div>-->
+
+<style type="text/css">
+    .preview {
+        float: right;
+        max-height: 64px;
+    }
+</style>
+
+<!--<div id="editArticlePanel" class="window-div" style="overflow: hidden;">
+    <div class="content-div">
+        <div class="row-line-div">
+            <label for="required-field" for="txtName">权限名称：</label>
+            <input id="txtName" type="text" class="full-input" placeholder="权限名称...">
+        </div>
+        <div class="row-line-div">
+            <label for="txtCode">权限代码：</label>
+            <input id="txtCode" type="text" class="full-input" placeholder="权限代码...">
+        </div>
+        <div class="row-line-div">
+            <label for="txtIdx">排序号码：</label>
+            <input id="txtIdx" type="text" class="full-input ime-disabled" onkeyup="this.value" =" this.value.replace(/D/gi," "") placeholder="排序号码...">
+        </div>
+        <div class="row-line-div">
+            <label for="chkAvailable">是否有效：</label>
+            <div class="input-group full-input-group">
+                <input type="checkbox" name="chkAvailable" id="chkAvailable"/>
+                <label for="chkAvailable">&nbsp;权限定义是否有效</label>
+            </div>
+        </div>
+        <div class="row-block-div">
+            <label for="txtRemark">权限备注：</label>
+            <textarea id="txtRemark" class="full-input" style="height: 45px;" placeholder="权限备注..."></textarea>
+        </div>
+    </div>
+    <div class="btn-div">
+        <input type="hidden" id="txtId" value=""/>
+        <a href="#" id="btnSave" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+        <a href="#" id="btnExit" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+    </div>
+</div>-->
+
+
+<!--<div id="AdvanceSearchDocument" class="window-div" style="overflow: hidden;">
+    <div class="content-div">
+        <div class="row-line-div" style="padding-top: 10px;">
+            <label for="documentNameSearch">名称：</label>
+            <input type="text" class="half-input" id="documentNameSearch"/>
+            <label for="extNameSearch">格式：</label>
+            <select class="half-input" id="extNameSearch">
+                <option value="">全部</option>
+                <option value="doc">Word文档</option>
+                <option value="xls">Excel文档</option>
+                <option value="ppt">PPT文档</option>
+                <option value="pdf">PDF文档</option>
+            </select>
+        </div>
+        <div class="row-line-div">
+            <label for="searchManager">审批人：</label>
+            <div class="input-group half-input-group">
+                <input type="text" class="half-icon-input" id="searchManager" readonly="readonly"/>
+                <img id="searchSelectManager" src="/Content/images/select_user.png" alt="选择审批人"/>
+            </div>
+            <label for="searchOrganName"> 所属部门：</label>
+            <div class="input-group half-input-group">
+                <input type="hidden" id="searchOrganID"/>
+                <input type="text" class="half-input" id="searchOrganName" readonly="readonly"/>
+                <img id="searchSelectOrgan" src="/Content/images/imgfolder.gif" alt="选择所属部门"/>
+            </div>
+        </div>
+        <div class="row-line-div">
+            <label for="searchCreator">编制者：</label>
+            <div class="input-group full-input-group">
+                <input type="text" class="full-icon-input" id="searchCreator"/>
+                <img id="searchSelectCreator" src="/Content/images/select_user.png" alt="选择编制者"/>
+            </div>
+        </div>
+        <div class="row-line-div">
+            <label for="versionSearch">版本：</label>
+            <input type="text" class="half-input" id="versionSearch"/>
+            <label for="statusSearch">状态：</label>
+            <select class="half-input" id="statusSearch">
+                <option value="-1"></option>
+                <option value="0">起草中</option>
+                <option value="2">发布申请中</option>
+                <option value="3">已审批</option>
+                <option value="4">已发布</option>
+                <option value="6">征求意见中</option>
+                <option value="7">征求意见完成</option>
+                <option value="8">送审中</option>
+                <option value="9">送审完成</option>
+                <option value="10">报批中</option>
+                <option value="11">报批完成</option>
+            </select>
+        </div>
+        <div class="row-line-div">
+            <label for="statusDateFrom">状态日期：</label>
+            <input type="text" class="half-input" id="statusDateFrom" onclick=" WdatePicker(); "/>
+            <label for="statusDateTo">到：</label>
+            <input type="text" class="half-input" id="statusDateTo" onclick=" WdatePicker(); "/>
+        </div>
+        <div class="row-line-div">
+            <label for="keywordSearch">关键字：</label>
+            <input type="text" class="half-input" id="keywordSearch"/>
+            <label for="documentCodeSearch">文档编码：</label>
+            <input type="text" class="half-input" id="documentCodeSearch"/>
+        </div>
+    </div>
+    <div class="btn-div">
+        <a href="#" id="btnSearchClear" class="easyui-linkbutton" iconCls="icon-clear">清空</a>
+        <a href="#" id="btnSearchSave" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+        <a href="#" id="btnSearchExit" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+    </div>
+</div>-->
+
+
+<!--<div id="documentBatchUpload" class="window-div">
+    <div class="content-div">
+        <div class="row-line-div">
+            <label for="batchUploadCreatorID">编制人：</label>
+            <div class="input-group">
+                <input type="hidden" id="batchUploadCreatorID"/>
+                <input type="text" class="half-icon-input" id="batchUploadCreatorName" readonly="readonly"/>
+                <img id="batchUploadSelectCreator" src="/Content/images/select_user.png" alt="选择"/>
+            </div>
+            <label for="batchUploadOrginName">所属部门：</label>
+            <div class="input-group">
+                <input type="hidden" id="batchUploadOrginID"/>
+                <input type="text" class="half-icon-input" id="batchUploadOrginName" readonly="readonly"/>
+                <img id="batchUploadSelectOrgin" src="/Content/images/imgfolder.gif" alt="选择"/>
+            </div>
+        </div>
+        <div class="row-line-div">
+            <label for="batchUploadResponsor">审核人：</label>
+            <input type="text" class="half-input" id="batchUploadResponsor"/>
+            <label for="batchUploadManagerName">审批人：</label>
+            <div class="input-group">
+                <input type="hidden" id="batchUploadManagerID"/>
+                <input type="text" class="half-icon-input" id="batchUploadManagerName" readonly="readonly"/>
+                <img id="batchUploadSelectManager" src="/Content/images/select_user.png" alt="选择"/>
+            </div>
+        </div>
+        <div class="row-line-div">
+            <label for="batchUploadEffectiveDate">生效日期：</label>
+            <input type="text" class="half-input" id="batchUploadEffectiveDate" onclick=" WdatePicker();"/>
+            <label>复制内容：</label>
+            <div class="input-group half-input-group">
+                <input id="isBatchNoCopy" type="checkbox"/><label for="isBatchNoCopy">不允许复制内容 </label>
+            </div>
+        </div>
+        <div class="row-line-div">
+            <label for="isMaster">类型：</label>
+            <select class="half-input" id="isMaster"></select>
+            <label for="standardType">标准类型：</label>
+            <select class="half-input" id="standardType">
+                <option value="999">请选择</option>
+                <option value="99">其他标准</option>
+                <option value="1">国家标准</option>
+                <option value="2">安全行业标准</option>
+                <option value="25">电力行业标准</option>
+                <option value="30">地方标准</option>
+                <option value="40">企业标准</option>
+                <option value="50">国际标准</option>
+                <option value="51">国际电工组织</option>
+                <option value="52">国际电信组织</option>
+                <option value="10">煤炭行业标准</option>
+                <option value="11">建筑材料行业标准</option>
+                <option value="12">环境保护行业标准</option>
+                <option value="13">机械行业标准</option>
+                <option value="14">水利行业标准</option>
+                <option value="15">化工行业标准</option>
+                <option value="16">物资行业标准</option>
+                <option value="17">档案行业标准</option>
+                <option value="18">劳动和劳动安全行业标准</option>
+                <option value="19">电子行业标准</option>
+                <option value="20">公共安全行业标准</option>
+                <option value="21">教育行业标准</option>
+                <option value="22">铁路运输行业标准</option>
+                <option value="23">交通行业标准</option>
+                <option value="24">土地管理行业标准</option>
+            </select>
+        </div>
+        <div class="row-block-div">
+            <label for="batchUploadMemo">描述：</label>
+            <textarea class="full-input" style="height: 75px;" id="batchUploadMemo" rows="3"></textarea>
+        </div>
+        <div style="height: 220px; overflow: auto; overflow-x: hidden; width: 480px;">
+            <div style="margin-left: 5px; width: 450px;" id="batchUploadDiv">
+                <div style="float: left; margin-left: 20px; margin-top: 6px;">
+                    <input id="file_upload_2" name="file_upload_2" type="file" style="border: 0; display: block;"/>
+                </div>
+                <div id="fileQueue2" style="float: left; margin-left: 20px; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-div">
+        <a href="#" id="btnBatchSave" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+        <a href="#" id="btnBatchExit" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+    </div>
+</div>-->
+
+
+<!--<div id="documentEdit" class="window-div" style="overflow: hidden;">
+    <div id="documentTab" class="easyui-tabs content-div" style="height: 420px; width: auto;" data-options="fit:true">
+        <div title="基本属性" style="overflow: hidden; padding: 0;">
+            <div class="row-block-div file_upload_div" style="height: 50px; margin-top: 10px;">
+                <div style="height: 50px; overflow: hidden; padding: 1px; width: 480px;">
+                    <input id="file_upload_1" name="file_upload_1" type="file"/>
+                    <div id="fileQueue"></div>
+                </div>
+            </div>
+            <div class="row-line-div">
+                <label for="documentName" class="required-field">标准名称：</label>
+                <input type="text" id="documentName" class="full-input" placeholder="标准名称，必填项..."/>
+            </div>
+            <div class="row-line-div">
+                <label for="CatalogName">标准目录：</label>
+                <div class="input-group">
+                    <input type="text" id="CatalogName" class="full-icon-input" readonly="readonly" placeholder="标准所属目录..."/>
+                    <img id="selectCatalog" src="/Content/images/imgfolder.gif" alt="选择所属目录" title="选择所属目录"/>
+                </div>
+            </div>
+            <div class="row-line-div">
+                <label for="documentCode">标准编码：</label>
+                <input type="text" id="documentCode" class="half-input" placeholder="标准编码" onpropertychange="changeStandardType(this.value)"/>
+                <label for="standardType">标准类型：</label>
+                <select class="half-input" id="standardType">
+                    <option value="999">请选择</option>
+                    <option value="99">其他标准</option>
+                    <option value="1">国家标准</option>
+                    <option value="2">安全行业标准</option>
+                    <option value="25">电力行业标准</option>
+                    <option value="30">地方标准</option>
+                    <option value="40">企业标准</option>
+                    <option value="50">国际标准</option>
+                    <option value="51">国际电工组织</option>
+                    <option value="52">国际电信组织</option>
+                    <option value="10">煤炭行业标准</option>
+                    <option value="11">建筑材料行业标准</option>
+                    <option value="12">环境保护行业标准</option>
+                    <option value="13">机械行业标准</option>
+                    <option value="14">水利行业标准</option>
+                    <option value="15">化工行业标准</option>
+                    <option value="16">物资行业标准</option>
+                    <option value="17">档案行业标准</option>
+                    <option value="18">劳动和劳动安全行业标准</option>
+                    <option value="19">电子行业标准</option>
+                    <option value="20">公共安全行业标准</option>
+                    <option value="21">教育行业标准</option>
+                    <option value="22">铁路运输行业标准</option>
+                    <option value="23">交通行业标准</option>
+                    <option value="24">土地管理行业标准</option>
+                </select>
+            </div>
+            <div class="row-line-div">
+                <label for="responsor">责任人：</label>
+                <input type="text" class="half-input" id="responsor" placeholder="责任人..."/>
+                <label for="organName">所属部门：</label>
+                <div class="input-group">
+                    <input type="hidden" id="organID"/>
+                    <input type="text" id="organName" class="half-icon-input" readonly="readonly" placeholder="所属部门..."/>
+                    <img id="selectOrgan" src="/Content/images/imgfolder.gif" alt="选择"/>
+                </div>
+            </div>
+            <div class="row-line-div">
+                <label for="auditor">审核人：</label>
+                <input type="text" class="half-input" id="auditor" placeholder="审核人..."/>
+                <label for="manager">审批人：</label>
+                <div class="input-group">
+                    <input type="hidden" id="managerID"/>
+                    <input type="text" id="manager" class="half-icon-input" readonly="readonly" placeholder="审批人..."/>
+                    <img id="selectManager" src="/Content/images/imgfolder.gif" alt="选择"/>
+                </div>
+            </div>
+            <div class="row-line-div">
+                <label for="effectiveDate">生效日期：</label>
+                <input type="text" class="half-input" id="effectiveDate" onclick="WdatePicker();" placeholder="生效日期..."/>
+                <label>文件下载：</label>
+                <div class="input-group">
+                    <input id="isNoCopy" type="checkbox"/>
+                    <label for="isNoCopy">不允许下载</label>
+                </div>
+            </div>
+            <div class="row-line-div">
+                <label for="savePlace">保存地点：</label>
+                <input type="text" class="half-input" id="savePlace" placeholder="保存地点..."/>
+                <label for="saveTerm">保存期限：</label>
+                <input type="text" class="half-input" id="saveTerm" placeholder="保存期限..."/>
+            </div>
+            <div class="row-line-div">
+                <label for="isMaster">标准类型：</label>
+                <select class="half-input" id="isMaster"></select>
+                <label for="sortNumber">排序号码：</label>
+                <input type="text" id="sortNumber" value="0" class="half-input ime-disabled" placeholder="排序号码，整数"/>
+            </div>
+            <div class="row-hide-div"></div>
+        </div>
+        <div title="高级属性" style="overflow: hidden; padding: 0;">
+            <div class="row-line-div" style="padding-top: 5px;">
+                <label for="version">文件版本：</label>
+                <input type="text" class="half-input" id="version" disabled="disabled"/>
+                <label for="creatorName">编制者：</label>
+                <div class="input-group">
+                    <input type="hidden" id="creatorID"/>
+                    <input type="text" class="half-icon-input" id="creatorName" readonly="readonly" placeholder="编制者..."/>
+                    <img id="selectCreator" src="/Content/images/imgfolder.gif" alt="选择"/>
+                </div>
+            </div>
+            <div class="row-line-div">
+                <label for="documentStatus">标准状态：</label>
+                <select class="half-input" id="documentStatus">
+                    <option value="0">起草中</option>
+                    <option value="6">征求意见中</option>
+                    <option value="7">征求意见完成</option>
+                    <option value="8">送审中</option>
+                    <option value="9">送审完成</option>
+                    <option value="10">报批中</option>
+                    <option value="11">报批完成</option>
+                    <option value="4">已发布</option>
+                    <option value="5">已作废</option>
+                </select>
+                <label for="statusDate">状态日期：</label>
+                <input type="text" class="half-input" id="statusDate" disabled="disabled"/>
+            </div>
+            <div class="row-line-div">
+                <label for="fileSizeShow">标准大小：</label>
+                <div class="input-group half-input-group">
+                    <input type="hidden" id="fileSize" value="0"/>
+                    <input type="text" style="width: 170px;" id="fileSizeShow" disabled="disabled">&nbsp(KB)
+                </div>
+                <label for="documentExtName">标准格式：</label>
+                <input type="text" class="half-input" id="documentExtName" disabled="disabled"/>
+            </div>
+            <div class="row-line-div">
+                <label for="createDate">创建日期：</label>
+                <input type="text" class="half-input" id="createDate" disabled="disabled"/>
+                <label for="itemName">项目编号：</label>
+                <div class="right-col-div">
+                    <input type="hidden" id="itemNumber"/>
+                    <input type="text" class="half-icon-input" id="itemName" disabled="disabled"/>
+                    <img id="selectItemNumber" src="/Content/images/imgfolder.gif" alt="选择"/>
+                </div>
+            </div>
+            <div class="row-line-div">
+                <label for="keyword-txt">关键字：</label>
+                <input type="text" class="full-input" id="keyword-txt" value="" placeholder="关键字，多个关键字请用空格分隔..."/>
+            </div>
+            <div class="row-block-div">
+                <label for="memo">标准描述：</label>
+                <textarea class="full-input" id="memo" rows="3" style="height: 58px;" placeholder="标准描述..."></textarea>
+            </div>
+            <div class="row-block-div">
+                <label for="nodePath">标准路径：</label>
+                <textarea class="full-input" id="nodePath" name="nodePath" maxlength="1024" style="height: 65px;" readonly="readonly"></textarea>
+            </div>
+        </div>
+        <div title="授权策略" style="overflow: hidden; padding: 0;">
+            <div class="row-line-div">
+                <label>授权策略：</label>
+                <div class="input-group">
+                    <input type="radio" name="accessPolicy" value="缺省允许所有人访问" id="AllowAccess" checked="checked"/><label for="AllowAccess">缺省允许所有人访问</label>
+                    <input type="radio" name="accessPolicy" value="缺省拒绝所有人访问" id="RefuseAccess"/><label for="RefuseAccess">缺省拒绝所有人访问</label>
+                </div>
+            </div>
+            <div class="row-block-div" style="padding-left: 20px;">
+                <a href="#" id="addAccessPosition" class="easyui-linkbutton" iconCls="icon-save">添加授权岗位</a>
+                <div tyle="padding-top: 5px;margin-top: 10px;">
+                    <table id="documentAccessGrid"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-div">
+        <a href="#" id="btnSave" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+        <a href="#" id="btnExit" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+    </div>
+</div>-->
+
+
+<style type="text/css"></style>
+
+<script type="text/javascript">
+
+    $(function() {
+        //var $tabs = $("#documentTab");
+
+        //// tabs的高度与宽度自适应处理
+        //$tabs.tabs();
+
+
+    });
+
+    //function addPanel() {
+    //    $('#user-tabs').tabs('add', {
+    //        width: 'auto',
+    //        height: 425,
+    //        title: '纪检信息2',
+    //        content: '<div title="纪检信息2" style="padding: 10px">abcdef</div>',
+    //        closable: false
+    //    });
+    //}
+
+    /// <summary>
+    /// 添加EasyUI Tab页
+    /// </summary>
+    function addTab(tabObj, title, height, content) {
+        if (tabObj.tabs('exists', title)) {
+            tabObj.tabs('select', title);
+        } else {
+            tabObj.tabs('add', {
+                width: 'auto',
+                height: height,
+                title: title,
+                closable: true,
+                content: content
+            });
+        }
+    }
+
+</script>
+
+<!--
+<div id="div_PositionMainWin" class="window-div">
+    <div class="content-div">
+        <div class="row-line-div">
+            <input type="hidden" id="hidOrganNo"/>
+            <label for="PostName"class="required-field">岗位名称：</label>
+            <input type="text" id="PostName" maxlength="50" class="half-input" placeholder="岗位名称，必填项"/>
+            <label>排序号码：</label>
+            <input type="text" id="orderIndex" maxlength="10" class="half-input ime-disabled" value="0"/>
+        </div>
+        <div class="row-hide-div">
+            <label>岗位代码：</label>
+            <input type="text" id="PostCode" maxlength="10" class="half-input ime-disabled" placeholder=""/>
+            <label for="PostFamily">职族：</label>
+            <select id="PostFamily" maxlength="50" class="half-input" placeholder="" value="0"></select>
+            <label for="PostType">职类：</label>
+            <select id="PostType" maxlength="50" class="half-input" placeholder="" value="0"></select>
+        </div>
+        <div class="row-line-div">
+            <label for="PostLevel">岗位类型：</label>
+            <select id="PostLevel" maxlength="50" class="half-input">
+                <option value="0">默认</option>
+                <option value="5">董事长</option>
+                <option value="4">总经理</option>
+                <option value="3">分管领导</option>
+                <option value="1">部门负责人</option>
+                <option value="6">部门副主任</option>
+                <option value="2">文秘</option>
+            </select>
+            <label for="ManagementLevel">管理层级：</label>
+            <select id="ManagementLevel" maxlength="50" class="half-input">
+                <option value="0">无</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+        </div>
+        <div class="row-line-div">
+            <label for="organName">所属部门：</label>
+            <input type="hidden" id="organID"/>
+            <input type="text" id="organName"class="full-icon-input" readonly="readonly"/>
+            <img id="selectPostOrgan" src="/Content/images/imgfolder.gif" title="选择"/>
+        </div>
+        <div class="row-block-div">
+            <label for="nodePath">岗位路径：</label>
+            <textarea id="nodePath" name="nodePath" class="full-input" readonly="readonly"></textarea>
+        </div>
+        <div class="row-hide-div">
+            <label id="warnMsglabel" style="color: red; font-family: 微软雅黑; font-size: 12px; font-weight: bold;"></label>
+        </div>
+        <div class="row-hide-div">
+            <label for="kpi">考核标准：</label>
+            <textarea name="kpi" maxlength="1024" id="kpi" class="full-input"></textarea>
+        </div>
+        <div class="row-hide-div">
+            <label for="memo">备注：</label>
+            <textarea name="memo" maxlength="1024" id="memo" class="full-input"></textarea>
+        </div>
+        <div class="row-hide-div">
+            <label for="description">岗位职责：</label>
+            <textarea name="description" maxlength="1024" id="description" class="full-input"></textarea>
+        </div>
+        <div class="row-hide-div">
+            <label for="Authority">岗位权限：</label>
+            <textarea name="Authority" maxlength="1024" id="Authority" class="full-input"></textarea>
+        </div>
+        <div class="row-hide-div">
+            <label for="Education">学历与职称：</label>
+            <textarea name="Education" maxlength="1024" id="Education" class="full-input"></textarea>
+        </div>
+        <div class="row-hide-div">
+            <label for="WorkExperience">工作经历：</label>
+            <textarea name="WorkExperience" maxlength="1024" id="WorkExperience" class="full-input"></textarea>
+        </div>
+        <div class="row-hide-div">
+            <label for="BusinessKnowledge">业务知识：</label>
+            <textarea name="BusinessKnowledge" maxlength="1024" id="BusinessKnowledge" class="full-input"></textarea>
+        </div>
+        <div class="row-hide-div">
+            <label for="WorkingAbility">工作能力：</label>
+            <textarea name="WorkingAbility" maxlength="1024" id="WorkingAbility" class="full-input"></textarea>
+        </div>
+    </div>
+    <div class="btn-div">
+        <a href="#" id="btnPostInfoSave" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+        <a href="#" id="cancel" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+    </div>
+</div>
+
+-->
+
+<br/>
+<br/>
+<br/>
+
+<!--<div id="divOrganEditWin" class="window-div">
+    <div class="content-div">
+        <div class="row-line-div">
+            <input type="hidden" id="hidOrganNo"/>
+            <label for="organName" class="required-field">部门名称：</label>
+            <input type="text" id="organName" class="full-input" placeholder="部门名称，必填项"/>
+        </div>
+        <div class="row-line-div">
+            <label for="remark">部门简称：</label>
+            <input type="text" id="remark" class="half-input" placeholder="部门简称"/>
+            <label for="isavailable">是否有效：</label>
+            <select id="isavailable" class="half-input">
+                <option value="1" selected="selected">有效</option>
+                <option value="0">无效</option>
+            </select>
+        </div>
+        <div class="row-line-div">
+            <label for="organCode">部门代码：</label>
+            <input type="text" id="organCode" class="half-input" placeholder="部门代码"/>
+            <label for="organorder">排&nbsp;&nbsp;序&nbsp;&nbsp;号：</label>
+            <input type="text" id="organorder" class="half-input" placeholder="排序号码，整数"/>
+        </div>
+        <div class="row-hide-div">
+            <label for="OrganType">机构属性：</label>
+            <select id="OrganType" maxlength="50" class="half-input">
+                <option value="0">无</option>
+                <option value="1">集团公司(1)</option>
+                <option value="2">子公司(2)</option>
+                <option value="3">集团总部(3)</option>
+                <option value="4">大区(4)</option>
+                <option value="6">职能部门(6)</option>
+                <option value="9">领导机构(9)</option>
+            </select>
+            <label for="CompanyLevel">公司层级：</label>
+            <select id="CompanyLevel" maxlength="50" class="half-input">
+                <option value="0">无</option>
+                <option value="1">一级</option>
+                <option value="2">二级</option>
+                <option value="3">三级</option>
+                <option value="4">四级</option>
+                <option value="5">五级</option>
+                <option value="6">六级</option>
+            </select>
+            <label for="AreaNo" style="display: none;">输出职责：</label>
+            <select id="AreaNo" maxlength="50" class="half-input" placeholder="" style="display: none; width: 189px;">
+                <option value="0">否</option>
+                <option value="1">是</option>
+            </select>
+        </div>
+        <div class="row-line-div">
+            <label for="remark">所属部门：</label>
+            <input type="hidden" id="parentOrganID"/>
+            <input type="hidden" id="hidEnterpriseID"/>
+            <input type="hidden" id="hidSysCode"/>
+            <input type="hidden" id="hidParentcode"/>
+            <input type="hidden" id="hidDefaultSpaceID"/>
+            <input type="text" id="parentOrganName" name="parentOrganName" class="full-icon-input" readOnly="readonly"/>
+            <img id="selectPostOrgan" src="/Content/images/imgfolder.gif" title="选择"/>
+        </div>
+        <div class="row-block-div">
+            <label for="remark">部门路径：</label>
+            <textarea name="nodePath" cols="45" rows="3" readonly="readonly" id="nodePath" class="full-input"></textarea>
+        </div>
+    </div>
+    <div class="btn-div">
+        <a href="#" id="btnOrganSave" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+        <a href="#" id="btnOrganExit" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+    </div>
+</div>
+-->
+
+<br/>
+<br/>
+<br/>
+
+
+<!--<div id="edit" class="window-div">
+    <div class="content-div">
+        <div class="row-line-div">
+            <label for="required-field" for="txtText">名称：</label>
+            <input type="hidden" id="txtId"/>
+            <input type="text" class="full-input" id="txtText"/>
+        </div>
+        <div class="row-line-div">
+            <label for="required-field" for="txtValue">值：</label>
+            <input type="text" class="full-input" id="txtValue"/>
+        </div>
+        <div class="row-line-div">
+            <label for="txtPName">上级分类：</label>
+            <input type="text" class="full-icon-input" id="txtPName" readonly="readonly"/>
+            <input type="hidden" id="txtPId"/>
+            <img id="btnPIdSelect" title="父编号选择" src="/Content/images/Views_16x16.png"/>
+        </div>
+        <div class="row-line-div">
+            <label for="txtSequenceNumber">排序号：</label>
+            <input type="text" class="full-input" id="txtSequenceNumber"/>
+        </div>
+        <div class="row-block-div">
+            <label for="txtRemark">描述：</label>
+            <textarea class="full-input" id="txtRemark"></textarea>
+        </div>
+        <div class="row-block-div">
+            <label for="NodePath">路径：</label>
+            <textarea class="full-input" id="NodePath" readonly="readonly"></textarea>
+        </div>
+
+    </div>
+    <div class="btn-div">
+        <a href="#" id="btnSave" class="easyui-linkbutton" iconCls="icon-save">确定</a>
+        <a href="#" id="btnExit" class="easyui-linkbutton" iconCls="icon-cancel">取消</a>
+    </div>
+</div>-->
+
+</body>
+</html>

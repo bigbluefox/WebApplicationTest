@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>bootstrap-file-input</title>
+
+    <link href="/Scripts/V1.5.3/themes/default/easyui.css" rel="stylesheet">
+    <link href="/Scripts/V1.5.3/themes/icon.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Bootstrap/v4/css/bootstrap.css" rel="stylesheet">
+    <link href="v3/css/bootstrap-filetypes.css" rel="stylesheet"/>
+    <link href="/Scripts/fileinput/css/fileinput.css" rel="stylesheet"/>
+    <link href="/Scripts/fileinput/themes/explorer-fa/theme.css" rel="stylesheet"/>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/Bootstrap/v3/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="/Scripts/respond.min.js"></script>
+        <script src="/Scripts/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/V1.5.3/jquery.easyui.min.js"></script>
+    <script src="/Scripts/V1.5.3/locale/easyui-lang-zh_CN.js"></script>
+
+    <script src="/Bootstrap/v4/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/Bootstrap/v4/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="../Scripts/fileinput/js/fileinput.js"></script>
+    <script src="../Scripts/fileinput/js/fileinput-zh-CN.js"></script>
+    <script src="../Scripts/fileinput/js/plugins/sortable.js"></script>
+    <script src="../Scripts/fileinput/themes/explorer-fa/theme.js"></script>
+    <script src="../Scripts/fileinput/themes/fa/theme.js"></script>
+
+    <style type="text/css">
+
+        body {
+            padding: 15px;
+            display: inline-block;
+        }
+
+    /*textarea{
+            margin-top: 10px;
+            width: 100%;
+            height: 300px;
+        }*/
+
+    </style>
+</head>
+<body>
+
+<!-- 主体区域 -->
+<div class="container-fluid">
+    <div class="row">
+
+        <input id="input-b2" name="input-b2" type="file" class="file" data-show-preview="false">
+
+        <div class="bs-section">
+            <div class="page-header bs-header">
+                <h1 class="display-4" id="basic-example-1">
+                    <a title="" class="kv-anchor" href="#basic-example-1" data-original-title="Permalink" data-toggle="tooltip">
+                        <span class="fa fa-link"></span></a>
+                    Basic Example 1 <small></small>
+
+                </h1>
+            </div>
+            Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file</code>. Note that a drag and drop zone is enabled by default for browsers like Chrome and Mozilla even for form based uploads (since release v4.4.8).
+            <div class="bs-example">
+                <div>
+                    <div class="file-input file-input-new">
+                        <div class="file-preview ">
+                            <button class="close fileinput-remove" aria-label="Close" type="button">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                            <div class="file-drop-disabled">
+                                <div class="file-preview-thumbnails">
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="file-preview-status text-center text-success"></div>
+                                <div class="kv-fileinput-error file-error-message" style="display: none;"></div>
+                            </div>
+                        </div>
+                        <div class="kv-upload-progress kv-hidden" style="display: none;">
+                            <div class="progress">
+                                <div class="progress-bar bg-success progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                    0%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="input-group file-caption-main">
+                            <div tabindex="500" class="file-caption form-control  kv-fileinput-caption">
+                                <span class="file-caption-icon"></span>
+                                <input class="file-caption-name" onkeydown="return false;" onpaste="return false;" placeholder="Select file...">
+                            </div>
+                            <div class="input-group-btn input-group-append">
+                                <button tabindex="500" title="Clear selected files" class="btn btn-default btn-secondary fileinput-remove fileinput-remove-button" type="button">
+                                    <i class="glyphicon glyphicon-trash"></i> <span class="hidden-xs">Remove</span></button>
+                                <button tabindex="500" title="Abort ongoing upload" class="btn btn-default btn-secondary kv-hidden fileinput-cancel fileinput-cancel-button" type="button">
+                                    <i class="glyphicon glyphicon-ban-circle"></i> <span class="hidden-xs">Cancel</span></button>
+                                <button tabindex="500" title="Upload selected files" class="btn btn-default btn-secondary fileinput-upload fileinput-upload-button" type="submit">
+                                    <i class="glyphicon glyphicon-upload"></i> <span class="hidden-xs">Upload</span></button>
+                                <div tabindex="500" class="btn btn-primary btn-file"><i class="glyphicon glyphicon-folder-open"></i>&nbsp; <span class="hidden-xs">Browse …</span><input name="input-b1" class="file" id="input-b1" type="file">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre class="prettyprint linenums prettyprinted"><ol class="linenums"><li class="L0"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">id</span><span class="pun">=</span><span class="atv">"input-b1"</span><span class="pln"> </span><span class="atn">name</span><span class="pun">=</span><span class="atv">"input-b1"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"file"</span><span class="tag">&gt;</span></li></ol></pre>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>样式测试</title>
+    <link href="../Scripts/V1.5.3/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="../Scripts/V1.5.3/themes/icon.css" rel="stylesheet"/>
+    <link href="../Scripts/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+
+    <script src="../Scripts/jquery-1.7.1.js"></script>
+    <script src="../Scripts/V1.5.3/jquery.min.js"></script>
+
+    <script src="../Scripts/bootstrap/js/bootstrap.js"></script>
+
+    <style type="text/css">
+
+        /*css性能优化的地方很多，总结如下：
+        1.慎重使用高性能属性：浮动、定位；
+        2.尽量减少页面重排、重绘
+            重排按照css的书写顺序：
+            位置：positon、top、left、z-index、float、dispay
+            大小：width、height、margin、padding
+            文字系列： font、line-height、color、letter-spacing
+            背景边框：background、 border
+            其它：anmation、transition
+            重绘:border、outline、background、box-shadow,能使用background-color,就尽量不要使用background;
+        3.去除空规则：｛｝；
+        4.属性值为0时，不加单位；
+        5.属性值为浮动小数0.**，可以省略小数点之前的0；
+        6.标准化各种浏览器前缀：带浏览器前缀的在前。标准属性在后；
+        7.不使用@import前缀，它会影响css的加载速度；
+        8.充分利用css继承属性，减少代码量；
+        9.抽象提取公共样式，减少代码量；
+        10.选择器优化嵌套，尽量避免层级过深；
+        11.css雪碧图，同一页面相近部分的小图标，方便使用，减少页面的请求次数，但是同时图片本身会变大，使用时，优劣考虑清楚，再使用;
+        12.将css文件放在页面最上面*/
+
+
+        * {
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { font-size: 100%; }
+
+        /*font-size: 62.5%; 任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。*/
+
+        body { font-size: 1em; }
+
+        img { border: 0; }
+
+        ul, li { list-style: none; }
+
+        textarea, input[type='text'] { padding-left: 2px; }
+
+        /*输入框内文字距离左边框*/
+
+        select, input[type='text'] { height: 23px; }
+
+        /*选择及输入框高度*/
+
+        select, textarea, input[class='type'], input[type='button'] { border: 1px solid #a4bed4 !important; }
+
+        input[type="button"] { cursor: pointer; }
+
+        select, textarea, input[type='text'], input[type='button'], input[type='checkbox'], input[type='radio'] { vertical-align: middle; }
+    </style>
+
+</head>
+<body>
+
+<div>
+    <span>
+                
+                 <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+                </label>               
+                
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+                </label> 
+
+                <input type="checkbox" name="ImportantNews" id="ImportantNews" />
+                <label for="ImportantNews">重要新闻</label>
+                 <input type="radio" name="Approve" id="rdoPublish" value="1" checked="checked" />
+                <label for="rdoPublish">发布</label>
+                <input type="radio" name="Approve" id="rdoReturn" value="2" title="点击后请填写退回原因" />
+                <label for="rdoReturn">退回</label>
+            </span>
+    
+
+</div>
+
+
+<!-- <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-primary btn-sm" id="btnRelease">
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 提交
+    </button>
+    <button type="button" class="btn btn-info btn-sm" id="btnExit" onclick="Exit();">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 返回
+    </button>
+</div>-->
+
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+
+
+<div><h1>Wide Blue Gradient 两张照片源文件的参数也不尽相同</h1></div>
+<style type="text/css">
+    h1 {
+
+        color: white;
+
+        text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+
+    }
+
+    .shadow {
+        width: 600px;
+        height: 100px;
+        box-shadow:         3px 3px 5px 6px #ccc;
+
+    }
+</style>
+
+
+<div class="shadow"></div>
+
+
+<style type="text/css">
+    
+Edit in JSFiddle 
+   
+Result
+HTML
+CSS
+
+body {
+  background-color: #fff;
+}
+
+:focus {
+  outline: none;
+}
+
+.container {
+  width: 200px;
+  position: relative;
+}
+
+input[type="text"] {
+  width: 100%;
+}
+
+.input {
+  border: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.input ~ .border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #27ad8a;
+}
+
+.input:focus ~ .border {
+  width: 100%;
+  transition: 0.5s;
+}
+
+</style>
+
+<br/>
+<div class="container">
+  <input class="input" id="txtFirstName" type="text" placeholder="First Name">
+  <span class="border"></span>
+</div>
+<br/>
+<div class="container">
+  <input class="input" id="txtLastName" type="text" placeholder="Last Name">
+  <span class="border"></span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,787 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>bootstrap-file-input Test</title>
+
+<!--<link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>-->
+<!--<link href="/Scripts/themes/icon.css" rel="stylesheet"/>-->
+<link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+<link href="/Scripts/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+<link href="/Scripts/fileinput/css/fileinput.css" rel="stylesheet"/>
+<link href="../Scripts/bootstrap/css/bootstrap-validator.css" rel="stylesheet"/>
+<!--<link href="/Scripts/fileinput/themes/explorer-fa/theme.css" rel="stylesheet"/>-->
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="../Scripts/html5shiv.min.js"></script>
+    <script src="../Scripts/respond.min.js"></script>
+<![endif]-->
+
+<script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+<script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+<!--<script src="/Scripts/jquery.easyui.min.js"></script>-->
+<!--<script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>-->
+<script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../Scripts/fileinput/js/fileinput.js"></script>
+<script src="../Scripts/fileinput/js/fileinput-zh-CN.js"></script>
+<!-- <script src="../Scripts/fileinput/js/plugins/sortable.js"></script>
+<script src="../Scripts/fileinput/themes/explorer-fa/theme.js"></script>
+<script src="../Scripts/fileinput/themes/fa/theme.js"></script>-->
+
+<script src="../Scripts/bootstrap/js/bootstrap-validator.js"></script>
+<script src="../Scripts/bootstrap/js/locales/bootstrap-validator-zh-CN.js"></script>
+
+<style type="text/css">
+    body { padding: 15px; }
+
+    textarea {
+        display: inline-block;
+        height: 30px;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+/*.modal-header{ border: 1px solid #00ced1;}
+
+.modal-title, .kv-zoom-title{ border: 1px solid #00bfff;}*/
+
+</style>
+
+<script type="text/javascript">
+
+    var modalId = "progressModal", $progressModal = null, $progressForm = null;
+
+    var editModalId = "editModal", $editModal = null, $editForm = null; // 编辑窗体及对象
+    //var $form = null;
+
+    $(function() {
+
+        //$form = $("#" + editModalId + " form");
+
+        //var defaults = $.fn.fileinput.defaults;
+        //var lang = defaults.language;
+        //var ll = defaults.uploadIcon;
+
+        ////alert(lang);
+
+        //var cons = $.fn.fileinput.Constructor;
+        //defaults = $.fn.fileinput.Constructor.DEFAULTS;
+
+        //var $params = $.fn.fileinput.Params;
+        //var a = $params.FRAMES;
+        //alert(a);
+
+        modalInit(modalId, "操作信息");
+        progressMessage(modalId, "操作正在进行中，请稍候...操作正在进行中，操作正在进行中，操作正在进行中，操作正在进行中，操作正在进行中，");
+        
+        $("#btnEditModal").unbind("click").bind('click', function () {
+            var selectedData = [];
+            modalInit(editModalId, "课程管理", "modal-lg");
+            editModalLoad(editModalId, false, selectedData, onEditCallback);
+            $("#" + editModalId).modal("toggle");
+        });
+
+        $("#chkModal").unbind("click").bind('click', function() {
+            // 课程管理
+            var selectedData = [];
+            modalInit(editModalId, "课程管理", "modal-sm");
+            editModalLoad(editModalId, false, selectedData, onEditCallback);
+            $("#" + editModalId).modal("toggle");
+        });
+
+        //$editModal = $('#' + editModalId);
+        //$editForm = $("#" + editModalId + " form");
+    });
+
+    function onEditCallback(data) {
+
+        $("#" + editModalId).on("hidden.bs.modal", function () {
+            $("#" + editModalId).remove(); // 移除模态窗体对象，必须
+        });
+
+    };
+
+    var editValidFields = {
+        username: {
+            message: '用户名验证失败',
+            validators: {
+                notEmpty: {
+                    message: '用户名不能为空'
+                },
+                stringLength: {
+                    min: 6,
+                    max: 18,
+                    message: '用户名长度必须在6到18位之间'
+                },
+                regexp: {
+                    regexp: /^[a-zA-Z0-9_]+$/,
+                    message: '用户名只能包含大写、小写、数字和下划线'
+                }
+            }
+        },
+        email: {
+            validators: {
+                notEmpty: {
+                    message: '邮箱不能为空'
+                },
+                emailAddress: {
+                    message: '邮箱地址格式有误'
+                }
+            }
+        }
+
+        //username: {
+        //    message: '用户名验证失败',
+        //    validators: {
+        //        notEmpty: {
+        //            message: '用户名不能为空'
+        //        }
+        //    }
+        //},
+        //email: {
+        //    validators: {
+        //        notEmpty: {
+        //            message: '邮箱地址不能为空'
+        //        }
+        //    }
+        //}
+    };
+
+
+    // 模态窗体初始化
+    var modalInit = function (modalId, title, modalSize) {
+
+        var $body = $("body");
+        var $modal = $('<div id="' + modalId + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="' + modalId + 'Label">' +
+            '</div>');
+
+        var $content = $('\
+        <div class="modal-dialog ' + modalSize + '" role="document">\
+            <div class="modal-content">\
+                <div class="modal-header">\
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+                        <span aria-hidden="true">&times;</span></button>\
+                    <h4 class="modal-title" id="' + modalId + 'Label">' + title + '</h4>\
+                </div>\
+                <div class="modal-body"></div>\
+                <div class="modal-footer"></div>\
+            </div>\
+        </div>');
+
+        if ($body.length) {
+            $content.appendTo($modal);
+            $modal.appendTo($body);
+        }
+
+    };
+
+    // 滚动条模态窗体
+    var progressMessage = function (modalId, title) {
+
+        $("#" + modalId + " .model-sub-title").html(title);
+
+        var $content = $('\
+                <div class="progress" style="margin-top: 15px;">\
+                    <div class="progress-bar progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">\
+                        <span class="sr-only">100% Complete</span>\
+                    </div>\
+                </div>');
+
+        $content.appendTo($('#' + modalId + " .modal-body"));
+
+    };
+
+    // 关闭模态窗体
+    //var MessageHide = function(id) {
+    //    $('#' + id).modal('hide');
+    //};
+
+    // 编辑模态窗体
+    var editModalLoad = function (modalId, multi, selectedData, callback) {
+
+        var $form = $('\
+            <form id="edit-form">\
+            <div class="form-group">\
+                <label>Username</label>\
+                <input type="text" class="form-control" name="username" id="username" />\
+            </div>\
+            <div class="form-group">\
+                <label>Email address</label>\
+                <input type="text" class="form-control" name="email" id="email" />\
+            </div>\
+            </form>');
+
+        var $footer = $('\
+                <button type="button" class="btn btn-default" data-dismiss="modal">\
+                    <span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span> 关闭\
+                </button>\
+                <button type="button" class="btn btn-primary" id="btnSave">\
+                    <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span> 保存\
+                </button>');
+
+        $form.appendTo($('#' + modalId + " .modal-body"));
+        $footer.appendTo($('#' + modalId + " .modal-footer"));
+
+        //$editForm = $("#" + id + " form");
+        //$form = $("#edit-form");
+
+        // 模态窗体关闭事件 
+        $("#" + modalId).on("hidden.bs.modal", function () {
+            $("#" + modalId).remove();
+        });
+
+        $("#btnSave").unbind("click").bind("click", function(e) { // 栏目数据保存
+
+            if ($form) validForm($form, editValidFields);
+
+            $form.bootstrapValidator('validate'); //提交验证  
+            if ($form.data('bootstrapValidator').isValid()) { //获取验证结果，如果成功，执行下面代码  
+                alert("yes"); //验证成功后的操作，如ajax  
+
+                if (callback) {
+                    selectedData.clear();
+                    //var rows = $selectedTable.bootstrapTable('getData');
+                    //$.each(rows, function () {
+                    //    var data = { id: this.CatalogId, name: this.CatalogName };
+                    //    selectedData.push(data);
+                    //});
+                    callback(selectedData);
+                }
+
+                $("#" + modalId).modal('toggle');
+
+            }
+
+            e.preventDefault();
+            return false;
+
+
+
+            // 提交验证 
+            //var valid = $form.data('bootstrapValidator');
+            //valid.validate();
+            //if (!valid.isValid()) return false;
+
+            //var txtId = $("#txtId").val();
+            //var txtName = $("#txtName").val();
+
+            //if (txtName.length == 0) {
+            //    $.messager.alert('操作提示', '请填写菜单名称！');
+            //    $("#txtName").focus();
+            //    return;
+            //}
+
+            //var params = {
+            //    id: txtId,
+            //    name: $("#txtName").val(),
+            //    pId: $("#txtPId").val(),
+            //    mUrl: $('#txtUrl').val(),
+            //    icon: $("#txtIcon").val(),
+            //    idx: $('#txtIdx').val(),
+            //    available: document.getElementById("chbAvailable").checked ? "1" : "0"
+            //};
+
+            var params = null;
+
+            $.ajax({
+                type: "POST",
+                url: "/Handler/MenuHandler.ashx?OP=SAVE&rnd=" + (Math.random() * 10),
+                data: params,
+                success: function(rst) {
+                    if (rst && rst.success) {
+                        //if (txtId.length > 0) {
+                        //    $table.bootstrapTable('updateByUniqueId', {
+                        //        id: txtId,
+                        //        row: {
+                        //            Name: $("#txtName").val(),
+                        //            Url: $('#txtUrl').val(),
+                        //            Idx: $("#txtIdx").val(),
+                        //            Available: document.getElementById("chbAvailable").checked ? "1" : "0",
+                        //            Remark: $('#txtRemark').val()
+                        //        }
+                        //    });
+                        //}
+
+                        //refreshTable();
+
+                        $.messager.show({ title: "操作提示", msg: rst.Message, timeout: 3000, showType: "fade" });
+
+                        $('#' + id).modal('hide');
+                    } else {
+                        $.messager.alert("提示", rst.Message, "error");
+                    }
+                }
+            });
+
+            //e.preventDefault();
+            //return false;
+        });
+
+        //if ($form) validForm($form, editValidFields);
+
+        //return $form;
+
+
+        //var validFields = {
+        //    username: {
+        //        message: '用户名验证失败',
+        //        validators: {
+        //            notEmpty: {
+        //                message: '用户名不能为空'
+        //            },
+        //            stringLength: {
+        //                min: 6,
+        //                max: 18,
+        //                message: '用户名长度必须在6到18位之间'
+        //            },
+        //            regexp: {
+        //                regexp: /^[a-zA-Z0-9_]+$/,
+        //                message: '用户名只能包含大写、小写、数字和下划线'
+        //            }
+        //        }
+        //    },
+        //    email: {
+        //        validators: {
+        //            notEmpty: {
+        //                message: '邮箱不能为空'
+        //            },
+        //            emailAddress: {
+        //                message: '邮箱地址格式有误'
+        //            }
+        //        }
+        //    }
+
+        //    //username: {
+        //    //    message: '用户名验证失败',
+        //    //    validators: {
+        //    //        notEmpty: {
+        //    //            message: '用户名不能为空'
+        //    //        }
+        //    //    }
+        //    //},
+        //    //email: {
+        //    //    validators: {
+        //    //        notEmpty: {
+        //    //            message: '邮箱地址不能为空'
+        //    //        }
+        //    //    }
+        //    //}
+        //};
+
+
+        //$form.bootstrapValidator({
+        //    live: 'enabled',//验证时机，enabled是内容有变化就验证（默认），disabled和submitted是提交再验证
+        //    excluded: [':disabled', ':hidden', ':not(:visible)'],//排除无需验证的控件，比如被禁用的或者被隐藏的
+        //    submitButtons: '#btn-test',//指定提交按钮，如果验证失败则变成disabled，但我没试成功，反而加了这句话非submit按钮也会提交到action指定页面
+        //    message: '通用的验证失败消息',//好像从来没出现过
+        //    feedbackIcons: {//根据验证结果显示的各种图标
+        //        valid: 'glyphicon glyphicon-ok',
+        //        invalid: 'glyphicon glyphicon-remove',
+        //        validating: 'glyphicon glyphicon-refresh'
+        //    },
+        //    fields: {
+        //        exampleInputEmail1: {
+        //            validators: {
+        //                notEmpty: {//检测非空,radio也可用
+        //                    message: '文本框必须输入'
+        //                },
+        //                emailAddress: {//验证email地址
+        //                    message: '不是正确的email地址'
+        //                }
+        //            }
+        //        }, exampleInputPassword1: {
+        //            validators: {
+        //                notEmpty: {//检测非空,radio也可用
+        //                    message: '文本框必须输入'
+        //                }
+        //            }
+        //        }
+        //    }
+        //});
+
+        // 加载验证
+        //var validFields = {
+        //    exampleInputEmail1: {
+        //        validators: {
+        //            notEmpty: {
+        //                //检测非空,radio也可用  
+        //                message: '文本框必须输入'
+        //            },
+        //            stringLength: {
+        //                //检测长度  
+        //                max: 255,
+        //                message: '长度必须小于255'
+        //            }
+        //        }
+        //    },
+        //    exampleInputPassword1: {
+        //        validators: {
+        //            notEmpty: {
+        //                message: '排序号必须是数字'
+        //            }
+        //        }
+        //    }
+        //};
+
+        //先销毁
+        //$form.data('bootstrapValidator').destroy();
+        //$editForm.data('bootstrapValidator', null);
+        //再重新初始化
+
+        //$form.bootstrapValidator({
+
+        //    message: 'This value is not valid',
+        //    feedbackIcons: {
+        //        valid: 'glyphicon glyphicon-ok',
+        //        invalid: 'glyphicon glyphicon-remove',
+        //        validating: 'glyphicon glyphicon-refresh'
+        //    },
+        //    fields: {
+        //        username: {
+        //            message: '用户名验证失败',
+        //            validators: {
+        //                notEmpty: {
+        //                    message: '用户名不能为空'
+        //                }
+        //            }
+        //        },
+        //        email: {
+        //            validators: {
+        //                notEmpty: {
+        //                    message: '邮箱地址不能为空'
+        //                }
+        //            }
+        //        }
+        //    }
+        //});
+
+        //$form.bootstrapValidator({
+        //    message: 'This value is not valid',
+        //    feedbackIcons: {
+        //        valid: 'glyphicon glyphicon-ok',
+        //        invalid: 'glyphicon glyphicon-remove',
+        //        validating: 'glyphicon glyphicon-refresh'
+        //    },
+        //    fields: {
+        //        email: {
+        //            message: '用户名验证失败',
+        //            validators: {
+        //                notEmpty: {
+        //                    message: '用户名不能为空'
+        //                },
+        //                stringLength: {
+        //                    min: 6,
+        //                    max: 18,
+        //                    message: '用户名长度必须在6到18位之间'
+        //                },
+        //                regexp: {
+        //                    regexp: /^[a-zA-Z0-9_]+$/,
+        //                    message: '用户名只能包含大写、小写、数字和下划线'
+        //                },emailAddress: {
+        //                    message: 'email地址'
+        //                }
+        //            }
+        //        }
+        //    },
+        //    submitHandler: function (validator, form, submitButton) {
+        //        alert("submit");
+        //    }
+        //});
+    };
+
+    //$('#' + editModalId).on('hidden.bs.modal', function() {
+    //    // 执行一些动作...
+    //});
+
+
+    function valid($form) {
+
+        $form.bootstrapValidator({
+            live: 'disabled', //验证时机，enabled是内容有变化就验证（默认），disabled和submitted是提交再验证
+            excluded: [':disabled', ':hidden', ':not(:visible)'], //排除无需验证的控件，比如被禁用的或者被隐藏的
+            submitButtons: '#btn-test', //指定提交按钮，如果验证失败则变成disabled，但我没试成功，反而加了这句话非submit按钮也会提交到action指定页面
+            message: '通用的验证失败消息', //好像从来没出现过
+            feedbackIcons: {
+                //根据验证结果显示的各种图标
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                exampleInputEmail1: {
+                    validators: {
+                        notEmpty: {
+                            //检测非空,radio也可用
+                            message: '文本框必须输入'
+                        },
+                        stringLength: {
+                            //检测长度
+                            min: 6,
+                            max: 30,
+                            message: '长度必须在6-30之间'
+                        },
+                        regexp: {
+                            //正则验证
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: '所输入的字符不符要求'
+                        },
+                        remote: {
+                            //将内容发送至指定页面验证，返回验证结果，比如查询用户名是否存在
+                            url: '指定页面',
+                            message: 'The username is not available'
+                        },
+                        different: {
+                            //与指定文本框比较内容相同
+                            field: '指定文本框name',
+                            message: '不能与指定文本框内容相同'
+                        },
+                        emailAddress: {
+                            //验证email地址
+                            message: '不是正确的email地址'
+                        },
+                        identical: {
+                            //与指定控件内容比较是否相同，比如两次密码不一致
+                            field: 'confirmPassword', //指定控件name
+                            message: '输入的内容不一致'
+                        },
+                        date: {
+                            //验证指定的日期格式
+                            format: 'YYYY/MM/DD',
+                            message: '日期格式不正确'
+                        },
+                        choice: {
+                            //check控件选择的数量
+                            min: 2,
+                            max: 4,
+                            message: '必须选择2-4个选项'
+                        }
+                    }
+                }
+            }
+        });
+
+        //$("#btn-test").click(function () {//非submit按钮点击后进行验证，如果是submit则无需此句直接验证
+        //    $("#form-test").bootstrapValidator('validate');//提交验证
+        //    if ($("#form-test").data('bootstrapValidator').isValid()) {//获取验证结果，如果成功，执行下面代码
+        //        alert("yes");//验证成功后的操作，如ajax
+        //    }
+        //});
+
+        //$form.bootstrapValidator({
+        //    message: 'This value is not valid',
+        //    feedbackIcons: {
+        //        valid: 'glyphicon glyphicon-ok',
+        //        invalid: 'glyphicon glyphicon-remove',
+        //        validating: 'glyphicon glyphicon-refresh'
+        //    },
+        //    fields: {
+        //        exampleInputPassword1: {
+        //            message: '用户名验证失败',
+        //            validators: {
+        //                notEmpty: {
+        //                    message: '用户名不能为空'
+        //                },
+        //                stringLength: {
+        //                    min: 6,
+        //                    max: 18,
+        //                    message: '用户名长度必须在6到18位之间'
+        //                },
+        //                regexp: {
+        //                    regexp: /^[a-zA-Z0-9_]+$/,
+        //                    message: '用户名只能包含大写、小写、数字和下划线'
+        //                }
+        //            }
+        //        },
+        //        exampleInputEmail1: {
+        //            validators: {
+        //                notEmpty: {
+        //                    message: '邮箱不能为空'
+        //                },
+        //                emailAddress: {
+        //                    message: '邮箱地址格式有误'
+        //                }
+        //            }
+        //        }
+        //    }
+        //});
+    }
+
+    // 验证表单 
+    // 参数 ： form 表单,fields 表单验证规则,submitbutton 指定提交按钮
+    var validForm = function($form, fields, submitbutton) {
+        // 验证
+        $form.bootstrapValidator({
+            live: "enabled", //验证时机，enabled是内容有变化就验证（默认），disabled和submitted是提交再验证  
+            excluded: [":disabled", ":hidden", ":not(:visible)"], //排除无需验证的控件，比如被禁用的或者被隐藏的  
+            submitButtons: submitbutton, //指定提交按钮，如果验证失败则变成disabled，但我没试成功，反而加了这句话非submit按钮也会提交到action指定页面  
+            message: "通用的验证失败消息", //好像从来没出现过  
+            feedbackIcons: {
+                //根据验证结果显示的各种图标  
+                valid: "glyphicon glyphicon-ok",
+                invalid: "glyphicon glyphicon-remove",
+                validating: "glyphicon glyphicon-refresh"
+            },
+            fields: fields
+        }).on('success.form.bv', function(e) {
+            // 阻止默认事件提交
+            e.preventDefault();
+        });
+
+
+    };
+
+
+    //覆盖Modal.prototype的hideModal方法      
+    $.fn.modal.Constructor.prototype.hideModal = function() {
+        var that = this;
+        this.$element.hide();
+        this.backdrop(function() {
+            //判断当前页面所有的模态框都已经隐藏了之后body移除.modal-open，即body出现滚动条。                
+            $('.modal.fade.in').length === 0 && that.$body.removeClass('modal-open');
+            that.resetAdjustments();
+            that.resetScrollbar();
+            that.$element.trigger('hidden.bs.modal');
+        });
+    };
+
+</script>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#progressModal">
+            Launch Progress Modal
+        </button>
+
+        <button type="button" class="btn btn-primary" id="btnEditModal">
+            Launch Edit And Form Valid Modal
+        </button>
+
+        <button type="button" class="btn btn-primary" id="chkModal">
+            Launch Check Modal
+        </button>
+
+
+        <br/> <br/>
+
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            Enter a valid email address
+        </div>
+
+        <span class="label label-default">Default</span>
+        <span class="label label-primary">Primary</span>
+        <span class="label label-success">Success</span>
+        <span class="label label-info">Info</span>
+        <span class="label label-warning">Warning</span>
+        <span class="label label-danger">Danger</span>
+        
+        <br/> <br/>
+
+        <div class="bs-example" data-example-id="simple-alerts">
+            <div class="alert alert-success" role="alert">
+                <strong>Well done!</strong> You successfully read this important alert message.
+            </div>
+            <div class="alert alert-info" role="alert">
+                <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+            </div>
+            <div class="alert alert-warning" role="alert">
+                <strong>Warning!</strong> Better check yourself, you're not looking too good.
+            </div>
+            <div class="alert alert-danger" role="alert">
+                <strong>Oh snap!</strong> Change a few things up and try submitting again.
+            </div>
+        </div>
+
+        <h2 id="alerts-dismissible"><a class="anchorjs-link " style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; margin-left: -1em; padding-right: 0.5em; position: absolute;" aria-label="Anchor link for: alerts dismissible" href="#alerts-dismissible" data-anchorjs-icon=""></a>可关闭的警告框
+        </h2>
+
+        <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+        </div>
+
+
+    </div>
+</div>
+
+<form>
+    <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" name="username"/>
+    </div>
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="text" class="form-control" name="email"/>
+    </div>
+    <div class="form-group">
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+
+    </div>
+</form>
+<button type="button" name="submit" class="btn btn-primary" id="btnSubmit">Submit Data</button>
+<button type="button" name="submit" class="btn btn-primary" id="btnReset">Reset Data</button>
+
+<script type="text/javascript">
+
+    var $form1 = $('form');
+
+    $(function() {
+
+
+        $form1.bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    message: '用户名验证失败',
+                    validators: {
+                        notEmpty: {
+                            message: '用户名不能为空'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: '邮箱地址不能为空'
+                        }
+                    }
+                }
+            }
+        });
+
+        $("#btnSubmit").click(function() {
+            $form1.bootstrapValidator('validate'); //提交验证  
+            if ($form1.data('bootstrapValidator').isValid()) { //获取验证结果，如果成功，执行下面代码  
+                alert("yes"); //验证成功后的操作，如ajax  
+            }
+        });
+
+        $("#btnReset").click(function() {
+            $form1.data("bootstrapValidator").resetForm(); //重置验证  
+        });
+
+    });
+
+
+</script>
+
+
+</body>
+</html>

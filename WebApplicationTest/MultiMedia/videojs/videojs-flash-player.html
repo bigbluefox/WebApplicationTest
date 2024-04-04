@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>videojs-flash Demo</title>
+
+    <link href="css/video-js.css" rel="stylesheet"/>
+    <script src="js/videojs-ie8.min.js"></script>
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="js/video.js"></script>
+    <!--<script src="dist/videojs-flash.js"></script>-->
+    <script src="js/videojs-flash.min.js"></script>
+</head>
+<body>
+<video id="videojs-flash-player" class="video-js vjs-default-skin" controls>
+    <source src="../video/oceans.mp4" type="video/mp4"/>
+    <source src="../video/oceans.webm" type="video/webm"/>
+    <source src="../video/oceans.ogv" type="video/ogg"/>
+</video>
+<ul>
+    <li>
+        <a href="test/">Run unit tests in browser.</a>
+    </li>
+
+</ul>
+<!--<script src="node_modules/es5-shim/es5-shim.js"></script>-->
+<!--<script src="node_modules/video.js/dist/video.js"></script>-->
+
+<script>
+    (function(window, videojs) {
+        var player = window.player = videojs('videojs-flash-player');
+        player.flash();
+    }(window, window.videojs));
+</script>
+</body>
+</html>

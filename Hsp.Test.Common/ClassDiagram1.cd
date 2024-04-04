@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Hsp.Test.Common.CheckCodeMethod" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAgAAAAAAAAAA=</HashCode>
+      <FileName>CheckCodeMethod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.CookieHelper" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAQAAAAAAAAAAAAAAAAAIAAAAAAAAAgAAA=</HashCode>
+      <FileName>CookieHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.TokenHashTable" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAEAAAA=</HashCode>
+      <FileName>CookieHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.Singleton" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAgAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CookieHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.SingletonCSharp" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>CookieHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.CrawlHelper" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQACAAAACAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CrawlHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.DataCache" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQBCAAAAIAAAAACAAAAAA=</HashCode>
+      <FileName>DataCache.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.DataCacheHashTable" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>DataCache.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.DataTableToList&lt;T&gt;" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>DataTableToList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.Enums" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.ContentType" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhgAAAACEBAQAAAAABAAAgEAEkAGAAAAAAAACAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.AttachmentType" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.ExtendFunction" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAMAAAAAAAUEAACAAAAAAAAAAAAIAAgABAAABAA=</HashCode>
+      <FileName>ExtendFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.FileHelper" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAkEAIACAAABIIAAAAgAIEAAAABAAAEAAACAQAAiBA=</HashCode>
+      <FileName>FileHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.HashHelper" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAIAAAAAAAAACAAAAA=</HashCode>
+      <FileName>HashHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.HashCrc32" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAABBAABCQQBCAACAAAAAAAAAAAAAAAAACgAAAAA=</HashCode>
+      <FileName>HashHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.HspConstants" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HspConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.StandardSystemTemplate" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAgAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HspConstants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.HttpCookieHelper" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAgACA=</HashCode>
+      <FileName>HttpCookieHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.CookieItem" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>HttpCookieHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.HttpHelper" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAUAAQiAAAACEAQACAAAAAgIAAAAAAAAAAAEA=</HashCode>
+      <FileName>HttpHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.HttpItem" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIFCARQAAEGYgggAAYAuRAAAgDAAKJYEAES2UiAAIhA=</HashCode>
+      <FileName>HttpHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.HttpResult" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAxAAAAAAQAAAAgAAAAAIAAAABAAQIAAAAAAAAAA=</HashCode>
+      <FileName>HttpHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.InitHelper" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAgAAIAAAAAAAACAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InitHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.JsonHelper" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAIAAAAEAAAAAAAAA=</HashCode>
+      <FileName>JsonHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.Logger" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAACAAACAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.MimeMapping" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAEAA=</HashCode>
+      <FileName>MimeMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.FileContentType" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>MimeMapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.Mp3FileInfo" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAIAAAAAAAAAQAAAAAAQAAAAAgEAAAAA=</HashCode>
+      <FileName>Mp3FileInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.PageBase" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAACAAgACAAIEEoAAIJAAAAAAABAAEAAAIBA=</HashCode>
+      <FileName>PageBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.StandardHelper" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAIAAKAAAAAAAAAAIACAAAAAAEAAAAAgAAA=</HashCode>
+      <FileName>StandardHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.StringHelper" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAEAEAAAAQAAEAAAAAgDAAwAgAABGQAAhCAAAEA=</HashCode>
+      <FileName>StringHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.Track" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAgAAAAQAAEAAAACEAAEAAAAEAAAAAAAAAAAIA=</HashCode>
+      <FileName>Track.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.Utility" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAJAAAAAAAEIAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.ValidateCode" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAACIAAAAAAAAAEAAAAAQAEAAAAA=</HashCode>
+      <FileName>ValidateCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.WatermarkHelper" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAQAAAAAAAAAEAAQAAAAAAAAAAQAAAAEAAA=</HashCode>
+      <FileName>WatermarkHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.WeChatHelper" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACQQAAAAAAEIAAACAQAAAAEoAAEIAAAACAAAAAAAA=</HashCode>
+      <FileName>WeChatHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.weixin" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAIAAAAEAAAIAAAAAAAAAgAAAAAABAAA=</HashCode>
+      <FileName>WeChatHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.RequestXML" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAADAUgEgwBAAIAIAAACCQAEQAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>WeChatHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.AccessToken" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>WeChatHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.WordHelper" Collapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CRQAAEAB0ABQAgQgAAAKAwAAAEAABCKKAAAAAAIoACA=</HashCode>
+      <FileName>WordHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.DocListNode" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAQAAAAAAACAAAAAAACACAAEAAA=</HashCode>
+      <FileName>WordHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.ListNumberStyle" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAABAAAAAAAAAAAAEQAAA=</HashCode>
+      <FileName>WordHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.ListNumberFormat" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>WordHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.XmlHelpers" Collapsed="true">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAUAIAAAAAAAAAAAAAAAgAAEAAAAAAAAAACAAAAE=</HashCode>
+      <FileName>XmlHelpers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hsp.Test.Common.XmlUtil" Collapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>XmlUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MediaInfoLib.MediaInfo" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCCAEEAEAAAIARSAIAgCgiEAgACAAYQgIAQAAChAMg=</HashCode>
+      <FileName>MediaInfoDLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MediaInfoLib.MediaInfoList" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQEEAAAAAKAFAAAAACAAUAAACABIAACAgAACAAAA=</HashCode>
+      <FileName>MediaInfoDLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Hsp.Test.Common.Mp3Info" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAEBAAAAEAIAAAAAAAAAIAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Mp3FileInfo.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Hsp.Test.Common.ISoundPlayer" Collapsed="true">
+    <Position X="2.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAACAAAAAAAAAAAAAAAAAAgAAAAACoAIiRAgAAgA=</HashCode>
+      <FileName>ISoundPlayer .cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Hsp.Test.Common.ISoundFile" Collapsed="true">
+    <Position X="0.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>ISoundPlayer .cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Hsp.Test.Common.ResultType" Collapsed="true">
+    <Position X="11" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HttpHelper.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Hsp.Test.Common.PostDataType" Collapsed="true">
+    <Position X="7.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>HttpHelper.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Hsp.Test.Common.ResultCookieType" Collapsed="true">
+    <Position X="9.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HttpHelper.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Hsp.Test.Common.PlayState" Collapsed="true">
+    <Position X="5.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAIAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ISoundPlayer .cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MediaInfoLib.StreamKind" Collapsed="true">
+    <Position X="2.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAEAACAAAAAIABAAAAAACAAAAAg=</HashCode>
+      <FileName>MediaInfoDLL.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MediaInfoLib.InfoKind" Collapsed="true">
+    <Position X="2.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAQAAAAAAAAAQAAAAAgAAAAAAACEBAQAA=</HashCode>
+      <FileName>MediaInfoDLL.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MediaInfoLib.InfoOptions" Collapsed="true">
+    <Position X="4" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAgAAAAAAAIAACA=</HashCode>
+      <FileName>MediaInfoDLL.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MediaInfoLib.InfoFileOptions" Collapsed="true">
+    <Position X="0.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAgAAAAAAAAAAAgAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MediaInfoDLL.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MediaInfoLib.Status" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAAAQgAAAQAAAAAEAAAA=</HashCode>
+      <FileName>MediaInfoDLL.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

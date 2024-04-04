@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>外链信息测试</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Bootstrap/v3/css/bootstrap.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/Bootstrap/v3/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- 专业图标样式表 -->
+    <!--<link href="/Bootstrap/v3/css/bootstrap-glyphicons.min.css" rel="stylesheet"/>-->
+    <!-- Font Awesome 象形异体字图标 -->
+    <link href="/Bootstrap/v3/css/font-awesome.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="/Scripts/respond.min.js"></script>
+        <script src="/Scripts/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Bootstrap/v3/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/Bootstrap/v3/js/ie10-viewport-bug-workaround.js"></script>
+
+    <style type="text/css"></style>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $("#btnPing").click(function () {
+                Ping();
+            });
+
+            $("#btnLogin").click(function () {
+                Login();
+            });
+
+            $("#btnRefreshToken").click(function () {
+                RefreshToken();
+            });
+
+            $("#btnLogout").click(function () {
+                Logout();
+            });
+        });
+
+        // 4.1. 检查服务器是否在线
+        function Ping() {
+            var url = "/Handler/AnyShareHandler.ashx?OP=PING";
+            $.get(url + "&rnd=" + (Math.random() * 10), function (data) {
+                if (data == null) {
+                    $(".alert-link").html("服务器在线");
+                } else {
+                    $(".alert-link").html(data.Message);
+                }
+            });
+        }
+
+        // 5.3. 登录（标准）
+        function Login() {
+            var url = "/Handler/AnyShareHandler.ashx?OP=LOGIN";
+            $.get(url + "&rnd=" + (Math.random() * 10), function (data) {
+
+                //debugger;
+
+                if (data != null && data.Message == undefined) {
+                    //$(".alert-link").html("服务器在线");
+
+                    //var tokenId = rstJson.GetValue("tokenid").ToString();
+                    //var userId = rstJson.GetValue("userid").ToString();
+                    //var expires = rstJson.GetValue("expires").ToString(); // 获取到的token的有效期，单位为秒
+
+                    //var a = data;
+
+                    $("#txtUserId").val(data.tokenid);
+                    $("#txtTokenId").val(data.userid);
+                    $("#txtExpires").val(data.expires);
+
+                } else {
+                    $(".alert-link").html(data.Message);
+                }
+            });
+        }
+
+        // 5.10. 刷新身份凭证有效期
+        function RefreshToken() {
+            var url = "/Handler/AnyShareHandler.ashx?OP=REFRESHTOKEN";
+            $.get(url + "&rnd=" + (Math.random() * 10), function (data) {
+                if (data != null && data.Message == undefined) {
+
+                    $("#txtExpires").val(data.expires);
+                    $(".alert-link").html("刷新身份凭证有效期成功！");
+
+                } else {
+                    $(".alert-link").html(data.Message);
+
+                    $("#txtUserId").val("");
+                    $("#txtTokenId").val("");
+                    $("#txtExpires").val("");
+                }
+            });
+        }
+
+        // 5.13. 登出
+        function Logout() {
+            var url = "/Handler/AnyShareHandler.ashx?OP=LOGOUT";
+            $.get(url + "&rnd=" + (Math.random() * 10), function (data) {
+
+                if (data != null && data.Message == undefined) {
+                    $(".alert-link").html("登出成功！");
+                } else {
+                    $(".alert-link").html(data.Message);
+                }
+
+                $("#txtUserId").val("");
+                $("#txtTokenId").val("");
+                $("#txtExpires").val("");
+            });
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <div class="page-header">
+  <h1>AnyShare 外链信息 <small>测试</small></h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="form-inline" role="form">
+
+            <button id="btnLinkInfo" class="btn btn-primary">
+                <i class="glyphicon glyphicon-remove"></i> 7.1. 获取外链开启信息
+            </button>
+
+            <button id="btnSetLink" class="btn btn-primary">
+                <i class="fa fa-user-plus"></i> 7.2. 开启外链
+            </button>
+
+            <button id="btnGetLinked" class="btn btn-primary">
+                <i class="fa fa-user-plus"></i> 7.3. 我的外链
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="padding-top: 10px;">
+
+        <form>
+            <div class="form-group">
+                <label for="txtUserId">用户标识</label>
+                <input type="text" class="form-control" id="txtUserId" placeholder="用户标识" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="txtTokenId">验证令牌<span class="required">*</span></label>
+                <input type="text" class="form-control" id="txtTokenId" placeholder="验证令牌" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label for="txtExpires">有效时间</label>
+                <input type="text" class="form-control" id="txtExpires" placeholder="有效时间" readonly="readonly">
+            </div>
+            <div class="form-group" style="display: none;">
+                <label for="txtEmail">邮箱地址</label>
+                <input type="email" class="form-control" id="txtEmail" placeholder="邮箱地址">
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <div class="error-message"></div>
+                </div>
+            </div>
+
+            <div class="alert alert-info" role="alert">
+              <a href="#" class="alert-link">...</a>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>

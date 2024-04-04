@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link href="jquery-easyui/themes/default/easyui.css" rel="stylesheet" />
+    <link href="jquery-easyui/themes/icon.css" rel="stylesheet" />
+
+    <script src="jquery-easyui/jquery.min.js"></script>
+    <script src="jquery-easyui/jquery.easyui.min.js"></script>
+    <script src="jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            $('#dg').datagrid({
+                frozenColumns: [[
+                    {
+                        field: 'name',
+                        title: 'Name',
+                        rowspan: 2,
+                        width: 100,
+                        frozen: true
+                    },
+                    {
+                        field: 'detail1',
+                        title: 'Detail 1',
+                        colspan: 2,
+                        frozen: true
+                    }
+                ]],
+                columns: [[
+                    {
+                        field: 'detail2',
+                        title: 'Detail 2',
+                        colspan: 2
+                    },
+                    {
+                        field: 'value1',
+                        title: 'Value 1',
+                        width: 100
+                    },
+                    {
+                        field: 'value2',
+                        title: 'Value 2',
+                        width: 100
+                    },
+                    {
+                        field: 'value3',
+                        title: 'Value 3',
+                        width: 100
+                    },
+                    {
+                        field: 'value4',
+                        title: 'Value 4',
+                        width: 100
+                    }
+                ]]
+            });
+
+
+        });
+
+
+
+    </script>
+</head >
+<body>
+    <div id="titlePanel" style="padding: 2px;">
+        
+        <table id="dg" class="easyui-datagrid" title="Frozen Columns in DataGrid" style="width:1700px;height:250px"
+				   data-options="fitColumns:false,fit:true,rownumbers:true,singleSelect:true"></table>
+    </div>
+</body>
+</html >

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Info>
+	<User id="10001">
+		<name>小明</name>
+		<sex>男</sex>
+		<email>124@163.com</email>
+	</User>
+</Info>

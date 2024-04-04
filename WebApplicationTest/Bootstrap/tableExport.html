@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>bootstrap table export 测试</title>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+    <link href="bootstrap-table/bootstrap-table.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="bootstrap-table/tableExport.js"></script>
+    <script src="bootstrap-table/libs/jsPDF/jspdf.min.js"></script>
+    <script src="bootstrap-table/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+
+    <script src="bootstrap-table/bootstrap-table.js"></script>
+    <script src="bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <script src="bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+
+
+</head>
+<body>
+    <div class="container">
+        <h1>Bootstrap Table Export</h1>
+        <div id="toolbar">
+            <select class="form-control">
+                <option value="">Export Basic</option>
+                <option value="all">Export All</option>
+                <option value="selected">Export Selected</option>
+            </select>
+        </div>
+        <table id="table"
+               data-toggle="table"
+               data-show-export="true"
+               data-pagination="true"
+               data-click-to-select="true"
+               data-toolbar="#toolbar"
+               
+            data-response-handler="responseHandler"
+
+            >
+            <thead>
+            <tr>
+                <th data-field="state" data-checkbox="true"></th>
+                <th data-field="id">编号</th>
+                <th data-field="name">名称</th>
+                <th data-field="price">价格</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td>
+                <td>123</td>
+                <td>张三</td>
+                <td>0.98723</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>221</td>
+                <td>里斯</td>
+                <td>1.2321</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+<script>
+    var $table = $('#table');
+    $(function() {
+        $('#toolbar').find('select').change(function() {
+            $table.bootstrapTable('destroy').bootstrapTable({
+                showExport: "true",
+                exportDataType: $(this).val(),
+                exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'excel', 'pdf'],
+            });
+        });
+    });
+
+    ////data-url="json/data1.json"
+
+
+</script>
+</body>
+</html>

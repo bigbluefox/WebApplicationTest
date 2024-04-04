@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <!--<link rel="icon" href="img/favicon.ico">-->
+	    <title>Bootstrap 模板</title>
+	    <!--
+        	描述：样式导入
+        -->
+	    <link rel="stylesheet" href="js/bootstrap_above/bootstrap/css/bootstrap.min.css" />
+	    <link rel="stylesheet" href="js/bootstrap_above/bootstrap-table-develop/dist/bootstrap-table.css"/>
+	    
+	    <!--
+        	描述：js导入，注意顺序，jquery必须引入
+        	bootstrap-table-zh-CN.js为表格汉化的文件
+        	FileSaver.min.js等是关联引用文件
+        -->
+	    <script src="js/bootstrap_above/jquery-1.9.1/jquery.min.js"></script>
+	    <script src="js/bootstrap_above/bootstrap/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="js/bootstrap_above/bootstrap-table-develop/dist/bootstrap-table.js"></script>
+		<script type="text/javascript" src="js/bootstrap_above/bootstrap-table-develop/dist/locale/bootstrap-table-zh-CN.js"></script>
+		<script type="text/javascript" src="js/bootstrap_above/bootstrap-table-develop/dist/extensions/export/bootstrap-table-export.js"></script>
+
+	    <script src="js/bootstrap_above/tableExport/libs/pdfmake/pdfmake.min.js"></script>
+		<script src="js/bootstrap_above/tableExport/libs/pdfmake/vfs_fonts.js"></script>
+		<script type="text/javascript" src="js/bootstrap_above/tableExport/libs/FileSaver/FileSaver.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap_above/tableExport/libs/jsPDF/jspdf.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap_above/tableExport/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+		<script type="text/javascript" src="js/bootstrap_above/tableExport/tableExport.js"></script>
+	    
+	    <!--
+        	作者：yyj
+        	时间：2017-08-08
+        	描述：edittable
+        -->
+        <link href="js/bootstrap_above/x-editable-develop/dist/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
+		<script src="js/bootstrap_above/x-editable-develop/dist/bootstrap-editable/js/bootstrap-editable.js"></script>
+		<script src="js/bootstrap_above/bootstrap-table-develop/dist/extensions/editable/bootstrap-table-editable.js"></script>
+		
+		
+		<script src="js/table.js"></script>
+	</head>
+	<body>
+		<a href="#" id="username" data-type="text" data-pk="1">awesome</a>
+<script>
+$(function(){
+    $('#username').editable({
+        url: '/post',
+        title: 'Enter username'
+    });
+});
+</script>
+	</body>
+	
+</html>

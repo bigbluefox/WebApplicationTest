@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>自动加载文档</title>
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+
+    <script src="/Scripts/Hsp.js"></script>
+    <script src="/Scripts/Hsp.Common.js"></script>
+
+    <style type="text/css">
+        html { margin: 0px; }
+
+        body { margin: 2px; }
+    </style>
+
+    <script type="text/javascript">
+
+        $(function() {
+            //var height = HSP.Common.AvailHeight();
+            //$('.easyui-accordion').accordion({
+            //    height: height - 4
+            //});
+
+            clientSideInclude('includefooter', '_content.html');
+        });
+    </script>
+
+    <script>
+
+        function clientSideInclude(id, url) {
+            var req = false;
+            // Safari, Firefox, 及其他非微软浏览器
+            if (window.XMLHttpRequest) {
+                try {
+                    req = new XMLHttpRequest();
+                } catch (e) {
+                    req = false;
+                }
+            } else if (window.ActiveXObject) {
+                // For Internet Explorer on Windows
+                try {
+                    req = new ActiveXObject("Msxml2.XMLHTTP");
+                } catch (e) {
+                    try {
+                        req = new ActiveXObject("Microsoft.XMLHTTP");
+                    } catch (e) {
+                        req = false;
+                    }
+                }
+            }
+            var element = document.getElementById(id);
+            if (!element) {
+                alert("函数clientSideInclude无法找到id " + id + "。" +
+                    "你的网页中必须有一个含有这个id的div 或 span 标签。");
+                return;
+            }
+            if (req) {
+                // 同步请求，等待收到全部内容
+                req.open("GET", url, false);
+                req.send(null);
+                element.innerHTML = req.responseText;
+            } else {
+                element.innerHTML =
+                    "对不起，你的浏览器不支持 " +
+                    "XMLHTTPRequest 对象。这个网页的显示要求 " +
+                    "Internet Explorer 5 以上版本, " +
+                    "或 Firefox 或 Safari 浏览器，也可能会有其他可兼容的浏览器存在。";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<span id="includefooter"> </span>
+<!--<div class="easyui-accordion">
+    <div title="Ajax" data-options="href:'_content.html'" style="padding: 10px"></div>
+</div>
+
+<div style="margin: 20px 0;"></div>
+<div class="easyui-panel" style="max-width: 400px; padding: 30px 60px; width: 100%;">
+    <div style="margin-bottom: 20px">
+        <input class="easyui-textbox" label="Name:" labelPosition="top" style="width: 100%;">
+    </div>
+    <div style="margin-bottom: 20px">
+        <input class="easyui-textbox" label="Description:" labelPosition="top" multiline="true" value="This TextBox will allow the user to enter multiple lines of text." style="height: 120px; width: 100%;">
+    </div>
+</div>-->
+
+<!--#include file="_content.html" -->
+
+<!--序号 标准号 标准名称 代替标准号 实施日期-->
+
+<br/>
+
+
+<table style="width: 100%;" border="1">
+    <thead>
+        <tr style="height: 36px;">
+            <th style="text-align: center; width: 10%">序号</th>
+            <th style="text-align: center; width: 20%">标准号</th>
+            <th style="text-align: center; width: 45%">标准名称</th>
+            <th style="text-align: center;">实施日期</th>
+            <th style="text-align: center; width: 10%">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="height: 36px;">
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="overflow: hidden; -moz-text-overflow: ellipsis; text-overflow: ellipsis; white-space: nowrap;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+            <td style="text-align: center;">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

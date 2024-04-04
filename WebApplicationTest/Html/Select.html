@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>jquery 中清除select框选中的值</title>
+    <script src="../Scripts/jquery/jquery-1.8.3.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            $('#clear').click(function () {
+                $('#country_sel').val('');
+                $('#country_sel').trigger('chosen:updated');
+                // $('#country_sel').empty();不建议使用
+
+            });
+
+
+            var a = "张三，李四，王五";
+            var b = "李四";
+            //alert(a.indexOf(b));
+
+            alert($.contains(b, a));
+
+
+        });
+
+
+    </script>
+
+
+</head>
+<body>
+    <div>
+        <select name="" id="country_sel" style="color:blue">
+            <option value="">--请选择--</option>
+            <option value="1">中国</option>
+            <option value="2">美国</option>
+            <option value="3">加拿大</option>
+        </select>
+    </div>
+    <br>
+    <!-- <input type="submit" id="clear" value="重置"> -->
+    <button id="clear" style="color:black">重置</button>
+    <span style="color: #0282F8">未销售</span>
+</body>
+</html>

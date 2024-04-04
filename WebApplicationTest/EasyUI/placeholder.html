@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+     <script src="../Scripts/jquery-1.7.1.min.js"></script>
+    <style type="text/css">
+        .phcolor { color: #999; }
+    </style>
+
+    <script type="text/javascript">
+        
+        $(function () {
+
+            //判断浏览器是否支持placeholder属性
+            supportPlaceholder = 'placeholder' in document.createElement('input'),
+
+                placeholder = function (input) {
+
+                    var text = input.attr('placeholder'),
+                        defaultValue = input.defaultValue;
+
+                    if (!defaultValue) {
+
+                        input.val(text).addClass("phcolor");
+                    }
+
+                    input.focus(function () {
+
+                        if (input.val() == text) {
+
+                            $(this).val("");
+                        }
+                    });
+
+
+                    input.blur(function () {
+
+                        if (input.val() == "") {
+
+                            $(this).val(text).addClass("phcolor");
+                        }
+                    });
+
+                    //输入的字符不为灰色
+                    input.keydown(function () {
+
+                        $(this).removeClass("phcolor");
+                    });
+                };
+
+            //当浏览器不支持placeholder属性时，调用placeholder函数
+            if (!supportPlaceholder) {
+
+                $('input').each(function () {
+
+                    text = $(this).attr("placeholder");
+
+                    if ($(this).attr("type") == "text") {
+
+                        placeholder($(this));
+                    }
+                });
+            }
+
+        });
+    </script>
+
+</head>
+<body>
+    <input type="text" id="uname" name="uname" placeholder="请输入用户名"/>
+</body>
+</html>

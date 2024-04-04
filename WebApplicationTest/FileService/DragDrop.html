@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>简单鼠标拖拽并上传文件测试</title>
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+
+    <style type="text/css">
+        #holder {
+            border: 10px dashed #ccc;
+            width: 300px;
+            min-height: 300px;
+            margin: 20px auto;
+        }
+
+        #holder.hover { border: 10px dashed #0c0; }
+
+        #holder img {
+            display: block;
+            margin: 10px auto;
+        }
+
+        #holder p {
+            margin: 10px;
+            font-size: 14px;
+        }
+
+        progress { width: 100%; }
+
+        .fail {
+            background: #c00;
+            padding: 2px;
+            color: #fff;
+        }
+
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+<form id="form1" runat="server">
+    <div id="holder" class="media">
+    </div>
+    <p id="upload" class="hidden">
+        <label>
+            Drag &amp; drop not supported, but you can still upload via this input field:<br>
+            <input type="file" mutiple/>
+        </label>
+    </p>
+    <p id="filereader" class="hidden">
+        File API &amp; FileReader API not supported
+    </p>
+    <p id="formdata" class="hidden">
+        XHR2's FormData is not supported
+    </p>
+    <p id="progress" class="hidden">
+        XHR2's upload progress isn't supported
+    </p>
+    <p>
+        Upload progress:
+        <progress id="uploadprogress" min="0" max="100" value="0"></progress>
+    </p>
+    <p>
+        Drag an image from your desktop on to the drop zone above to see the browser both
+        render the preview, but also upload automatically to this server.
+    </p>
+
+    <h3></h3>
+
+    <div class="media_upload"></div>
+
+    <style type="text/css">
+        .media_upload{ width: 100%;height: 120px;border: 1px solid red;}
+    </style>
+
+</form>
+</body>
+</html>
+<script type="text/javascript">
+
+    //$(body).on({
+    //    dragleave: function (e) {		//拖离
+    //        e.preventDefault();
+    //    },
+    //    drop: function (e) {			//拖后放
+    //        e.preventDefault();
+
+    //        //jquery的file要去e.originalEvent里面拿
+    //        var files = e.originalEvent.dataTransfer.files;
+    //        alert(files.length);
+    //    },
+    //    dragenter: function (e) {		//拖进
+    //        e.preventDefault();
+    //    },
+    //    dragover: function (e) {		//拖来拖去
+    //        e.preventDefault();
+    //    }
+    //});
+
+
+    ////阻止浏览器默认行。
+    //$(document).on({
+    //    dragleave: function (e) {		//拖离
+    //        e.preventDefault();
+    //    },
+    //    drop: function (e) {			//拖后放
+    //        e.preventDefault();
+
+    //        //jquery的file要去e.originalEvent里面拿
+    //        var files = e.originalEvent.dataTransfer.files;
+    //        alert(files.length);
+    //    },
+    //    dragenter: function (e) {		//拖进
+    //        e.preventDefault();
+    //    },
+    //    dragover: function (e) {		//拖来拖去
+    //        e.preventDefault();
+    //    }
+    //});
+
+    function $(dom) {
+        var str = dom.charAt(0);
+        var ele = null;
+        switch (str) { // 获取class元素 
+        case '.':
+            ele = document.getElementsByClassName(dom.substring(1)) || null;
+            break;
+        // 获取id元素
+        case '#':
+            ele = document.getElementById(dom.substring(1)) || null;
+            break;
+        default:
+            if (document.getElementsByTagName(dom)) {
+                // 获取标签
+                ele = document.getElementsByTagName(dom);
+            } else if (document.getElementsByName(dom)) {
+                // 获取表单中的name元素
+                ele = document.getElementsByName(dom);
+            } else {
+                ele = null;
+            }
+        }
+        return ele;
+    }
+
+    // 随机字符串生成 
+    function randomStr() {
+        var tmp = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        var str = '';
+        for (var i = 0; i < 5; i++) {
+            str += tmp.charAt(Math.floor(Math.random() * tmp.length));
+        }
+        return str;
+    }
+
+    // 在目标区域拖拽
+    $('.media')[0].ondragover = function(ev) {
+        var oEvent = ev || window.event;
+        $('h3')[0].innerHTML = '松开鼠标后开始上传';
+        // 注意禁止浏览器默认事件
+        oEvent.preventDefault();
+    }
+    // 离开目标区域
+    $('.media')[0].ondragleave = function(ev) {
+        var oEvent = ev || window.event;
+        $('h3')[0].innerHTML = '拖拉文件到虚线框内上传';
+        // 注意禁止浏览器默认事件 
+        oEvent.preventDefault();
+    }
+    // 目标文件落在目标区域
+    $('.media')[0].ondrop = function (ev) {
+
+        //debugger;
+
+        var oEvent = ev || window.event;
+        // 获取预览区域 生成预览
+        var oPreview = document.createElement('div');
+        var oProgress = document.createElement('progress');
+        oProgress.setAttribute('max', 100);
+        oProgress.setAttribute('value', 0);
+        // 生成不同的id 方便上传进度实时预览 
+        var rstr = randomStr();
+        oPreview.setAttribute('class', 'madia_upload_preview');
+        oPreview.setAttribute('id', 'madia_upload_preview_' + rstr);
+        oPreview.appendChild(oProgress);
+
+        $('.media_upload').appendChild(oPreview);
+
+        // 获取form对象 
+        var oForm = $('form')[0];
+        // 获取文件对象 
+        var oFile = oEvent.dataTransfer;
+        /* Ajax上传 下面介绍 */
+        // 注意禁止浏览器默认事件 
+        oEvent.preventDefault();
+    }
+
+    /** 参数介绍 使用方式 异步模式 * @param : method POST / GET 必须 * @param : path php文件路径 必须 * @param : fobj fileAPi以及form对象 必须格式是json格式{iFile:'',iForm:''} * @param : func 回掉函数 可省略 请求php成功后执行的函数 */
+    function createAjax(method, path, fobj, func) {
+        // 生成一个标准xhr对象 
+        var xhr = new XMLHttpRequest();
+        // 打开与php文件的连接
+        xhr.open(method, path, true);
+        // HTML5 file api 读取文件流 
+        var far = fobj.iFile.files[0];
+        // 生成FrormData对象 FrormData也是HTML５新增对象　详情见上文 
+        var fd = new FormData(fobj.iForm);
+        // 把文件流添加到文件流中 
+        fd.append('file', far);
+        // 发送主体信息 
+        xhr.send(fd);
+        // 等待响应信息 
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (func) {
+                    func(xhr);
+                }
+            }
+        }
+        // 监听 上传进度 
+        xhr.upload.onprogress = function(ev) {
+            var oEvent = ev || window.event;
+            if (oEvent.lengthComputable) {
+                // loaded是已上传文件大小 total是总文件大小 
+                var par = 100 * oEvent.loaded / oEvent.total;
+                var oProgress = document.getElementsByTagName('progress')[0];
+                oProgress.value = par;
+            }
+        }
+    }
+
+
+    //window.onload = function () {
+
+    //    var holder = document.getElementById('holder'),
+    //    tests = {
+    //        filereader: typeof FileReader != 'undefined',
+    //        dnd: 'draggable' in document.createElement('span'),
+    //        formdata: !!window.FormData,
+    //        progress: "upload" in new XMLHttpRequest
+    //    },
+    //    support = {
+    //        filereader: document.getElementById('filereader'),
+    //        formdata: document.getElementById('formdata'),
+    //        progress: document.getElementById('progress')
+    //    },
+    //    acceptedTypes = {
+    //        'image/png': true,
+    //        'image/jpeg': true,
+    //        'image/gif': true
+    //    },
+    //    progress = document.getElementById('uploadprogress'),
+    //    fileupload = document.getElementById('upload');
+
+    //    "filereader formdata progress".split(' ').forEach(function (api) {
+    //        if (tests[api] === false) {
+    //            support[api].className = 'fail';
+    //        } else {
+    //            // FFS. I could have done el.hidden = true, but IE doesn't support
+    //            // hidden, so I tried to create a polyfill that would extend the
+    //            // Element.prototype, but then IE10 doesn't even give me access
+    //            // to the Element object. Brilliant.
+    //            support[api].className = 'hidden';
+    //        }
+    //    });
+
+    //    function previewfile(file) {
+    //        if (tests.filereader === true && acceptedTypes[file.type] === true) {
+    //            var reader = new FileReader();
+    //            reader.onload = function (event) {//文件加载完成之后从event对象的result取内容，不论成功失败都会将值放在result中的
+    //                var image = new Image();
+    //                image.src = event.target.result;
+    //                image.width = 250; // a fake resize
+    //                holder.appendChild(image);
+    //            };
+    //            reader.readAsDataURL(file); //表示将文件读取为一段以data:开头的字符串，就是Data URL,它是将小文件直接嵌入
+    //            //文档的方案，如果你不写这句，那么就显示不出来因为文档中没有image.src的数据
+    //        } else {
+    //            holder.innerHTML += '<p>Uploaded ' + file.name + ' ' + (file.size ? (file.size / 1024 | 0) + 'K' : '');
+    //        }
+    //    }
+
+    //    function readfiles(files) {
+    //        //debugger;
+    //        var formData = tests.formdata ? new FormData() : null;
+    //        for (var i = 0; i < files.length; i++) {
+    //            if (tests.formdata) formData.append('fileData', files[i]);//添加表单元素
+    //            previewfile(files[i]);
+    //        }
+    //        // now post a new XHR request
+    //        if (tests.formdata) {
+    //            var xhr = new XMLHttpRequest();
+    //            if (tests.progress) {//上传进度事件
+    //                xhr.upload.onprogress = updateProgress;
+    //            } else {
+    //                console.log("不支持 upload in new XMLHttpRequest");
+    //            }
+    //            xhr.open('POST', "/Handler/FileHandler.ashx");//提交服务器处理程序
+    //            xhr.onload = function () {//加载完成之后设置进度条值为100
+    //                progress.value = 100;
+    //                progress.innerHTML = 100 + "%";
+    //            };
+    //            xhr.send(formData);
+    //            xhr.onreadystatechange = function () {
+    //                if (xhr.readyState == 4 && xhr.status == 200) {
+    //                    // alert(xhr.responseText);
+    //                }
+    //            };
+
+    //            function updateProgress(event) {
+    //                //debugger;
+    //                if (event.lengthComputable) {
+    //                    //event.loaded加载了多少字节  event.total总共多少字节
+    //                    var complete = (event.loaded / event.total * 100 | 0);
+    //                    console.log("complete->", complete);
+    //                    progress.value = 100;
+    //                    progress.innerHTML = 100 + "%";
+    //                }
+    //            };
+    //        }
+    //    }
+
+    //    if (tests.dnd) {
+    //        holder.ondragover = function () { this.className = 'hover'; progress.value = 0; progress.innerHTML = 100 + "%"; return false; }
+    //        holder.ondragleave = function () { this.className = ''; return false; };
+    //        holder.ondrop = function (e) {
+    //            this.className = '';
+    //            e.preventDefault();
+    //            readfiles(e.dataTransfer.files);
+    //        }
+    //    } else {
+    //        fileupload.className = 'hidden';
+    //        fileupload.querySelector('input').onchange = function () {
+    //            readfiles(this.files);
+    //        };
+    //    }
+    //}
+</script>

@@ -1,0 +1,78 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+*{ margin:0; padding:0;}
+ul li{ list-style:none;}
+img { border: 0; }
+
+a.txtlink{ text-decoration:none; color:#999999;}
+a.txtlink:hover{ text-decoration:none; color:#999999;}
+
+a.txtlink1{ text-decoration:none; color:#fff;}
+a.txtlink1:hover{ text-decoration:none; color:#fff;}
+
+/*.subnavimg{ background:url(../images/tab-title.png)}*/
+/*.header{ width:100%; height:73px; background:url(../images/allheader.jpg)}*/
+.header img{ margin-left:20px; margin-top:14px;}
+.mainbox{ width:924px; margin:0 auto;}
+.subnav{ width:925px; height:38px; margin:0 auto; margin-top:28px;}
+
+.subnav ul li{ float:left; width:306px; height:38px; font-size:14px; line-height:38px; text-align:center;}
+.textarea-server{ width:100%; height:330px; font-size:13px; color:#999999; line-height:24px; overflow-y:scroll; margin-top:40px;}
+.textarea-server h3{ margin-left:400px;}
+
+.btnbox{ width:100%;  margin:15px auto; text-align: center;}
+.agreebtn-box{  width:900px; margin:40px auto; text-align: center;}
+/*
+.agree-btn{ width:202px; height:29px; background:url(../images/login-agree-notext.jpg); border:none; cursor:pointer;}
+.btn-style{ width:83px; height:29px; background:url(../images/btn-bg.jpg); margin-right:40px; border:none !important; color:White; font-weight:bold; cursor:pointer;}
+.btn-add{ width:55px; height:24px; background:url(../images/btn-bg-s.jpg); margin-right:4px; border:none !important; color:#015074; line-height:24px; cursor:pointer;}
+.btn-add1{ width:72px; height:24px; background:url(../images/btn-bg-s1.jpg); margin-right:4px; border:none !important; color:#015074; line-height:24px; cursor:pointer;}
+*/
+.login-input{ width:200px; height:24px; border:#a4bed4 1px solid; line-height:24px; padding-left:4px;}
+.login-input1{ width:160px; height:24px; border:#a4bed4 1px solid; line-height:24px; padding-left:4px;}
+.login-input2{ width:120px; height:24px; border:#a4bed4 1px solid; line-height:24px; padding-left:4px;}
+.login-input3{ width:35px; height:24px; border:#a4bed4 1px solid; line-height:24px; padding-left:4px;}
+
+.ListTable{ background-color:#cccccc;}
+.ListTable tr td{ background-color:#f8f8f8; height:40px; font-size:12px;}
+.ListTable .TitleTR td{ background-color:#e8e7e7;}
+.search-box{ height:24px; margin:10px 0;}
+
+input[type='button']{ cursor: pointer;}
+select, input[type='text'] { height: 23px; }
+
+select, textarea, 
+input[type='text'],
+input[type='password'] { padding-left: 2px;border: 1px solid #a4bed4;}/*输入框内文字距离左边框*/
+
+input.combo-text{ border: 0;}
+
+select, textarea, 
+input[type='text'], 
+input[type='password'], 
+input[type='button'],
+input[type='checkbox'],
+input[type='radio']{ vertical-align: middle;}
+
+.datagrid-cell, 
+.datagrid-cell a, 
+.datagrid-cell-group, 
+.datagrid-header-rownumber, 
+.datagrid-cell-rownumber {
+    -moz-text-overflow: ellipsis; /* for Firefox, mozilla */
+    overflow: hidden;
+    /*text-align: left;*/
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis; /* for IE */
+    white-space: nowrap;
+}
+
+/* 用户信息编辑界面 */
+/*.single-row{height:30px; }
+.user-info{ width:530px; float:left; clear:both; margin:4px 0 4px 8px;}
+.user-info label{width: 80px; text-align: right; font-size: 12px; line-height: 30px; display: inline-block; float: left; }
+.user-info input{ display: inline-block; float: left;}
+.user-info textarea{width:412px!important;float:left;display: inline-block;}*/

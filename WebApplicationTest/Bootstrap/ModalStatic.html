@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 实例 - 模态框（Modal）插件</title>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body { padding: 15px; }
+
+
+        .modal-body .input-object {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+.modal-body .row .row-line-div {
+    height: 33px;
+    line-height: 33px;
+}
+
+.modal-body.row .row-block-div {
+    height:auto;
+}
+
+.modal-body .row .row-line-div label, 
+.modal-body .row .row-block-div label { text-align: right; }
+
+.modal-body .row .row-block-div label {
+    height: 31px;
+    line-height: 31px;   
+}
+
+.modal-body .row .row-block-div span {
+    padding-top: 6px; 
+}
+
+
+
+
+        #editPhoto, #myPhoto, #userSignature {
+            border: 1px solid #c0c0c0;
+            cursor: pointer;
+            height: 160px;
+            position: absolute;
+            top: 52px;
+            width: 120px;
+        }
+
+        #editPhoto, #myPhoto { left: 440px; }
+
+        #userSignature { left: 580px; }
+
+        #changePhoto, #changeSignature {
+            border: 1px solid #a4bed4 !important;
+            font-size: 12px;
+            position: absolute;
+            top: 195px;
+            width: 120px;
+        }
+
+        #changePhoto { left: 440px; }
+
+        #changeSignature { left: 580px; }
+
+        #lblPhotoUploadMessage {
+            bottom: 43px;
+            color: #888;
+            float: left !important;
+            left: 17px;
+            position: absolute;
+            text-align: left !important;
+            width: 273px;
+        }
+
+
+
+
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+<h2>创建模态框（Modal）</h2>
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
+    按钮开启
+</button>
+
+<a href="javascript:void(0)" class="btn btn-default" onclick="openMotai()">JS函数开启</a>
+
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#editModel">
+    编辑
+</button>
+
+<script type="text/javascript">
+    function openMotai() {
+        /*alert("准备开启");
+        $("#myModal1").modal('show');  //手动开启
+        alert("准备关闭");
+        $("#myModal1").modal('hide');  //手动关闭
+        alert("准备开启");
+        $("#myModal1").modal();  //手动开启*/
+        //$("#myModal1").modal({ backdrop: 'static', keyboard: false });  //手动开启
+
+        $("#myModal1").modal('show'); //手动开启
+    }
+
+    //直接在模态框标签加:
+    //data-backdrop="static" data-keyboard="false" 
+
+</script>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- 关闭符号(叉号) -->
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    模态框（Modal）标题
+                </h4>
+            </div>
+            <div class="modal-body">
+                username:<input type="text" name="" id="" value=""/><br/> password:
+                <input type="password" name=""/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal -->
+</div>
+
+<div class="modal fade" id="editModel" tabindex="-1" role="dialog" aria-labelledby="editModelLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="editModelLabel">通用数据库表信息编辑</h4>
+            </div>
+            <div class="modal-body" style="padding-right: 30px;">
+
+<div class="row" style="padding-left:30px;padding-right: 15px;">
+                    <ul class="nav nav-tabs">
+                      <li role="presentation" class="active"><a href="#myinfo" role="tab" data-toggle="tab">我的信息</a></li>
+                      <li role="presentation"><a href="#myinfoEdit" role="tab" data-toggle="tab">我的信息修改</a></li>
+                      <li role="presentation"><a href="#mypasswordEdit" role="tab" data-toggle="tab">密码修改</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade in active" id="myinfo">
+                            <div style="padding: 10px; height: 120px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row-line-div">
+            <label class="col-xs-2 col-sm-2 col-md-2 col-lg-2">登录账号：</label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="vUserCode"></span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row-line-div">
+            <label class="col-xs-2 col-sm-2 col-md-2 col-lg-2">用户姓名：</label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="vUsername"></span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row-line-div">
+            <label class="col-xs-2 col-sm-2 col-md-2 col-lg-2">登录名：</label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="vSysCode"></span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row-line-div">
+            <label class="col-xs-2 col-sm-2 col-md-2 col-lg-2">联系电话：</label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="vTelephone"></span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row-line-div">
+            <label class="col-xs-2 col-sm-2 col-md-2 col-lg-2">手机号码：</label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="vMobilePhone"></span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row-line-div">
+            <label class="col-xs-2 col-sm-2 col-md-2 col-lg-2">邮箱地址：</label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="vEmail"></span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row-line-div">
+            <label class="col-xs-2 col-sm-2 col-md-2 col-lg-2">上次登录：</label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="vLastLoginTime"></span>
+        </div>
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row-block-div">
+            <label class="col-xs-2 col-sm-2 col-md-2 col-lg-2">备注信息：</label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="vRemark"></span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row-block-div">
+            <label class="col-xs-2 col-sm-2 col-md-2 col-lg-2">组织路径：</label>
+            <span class="col-xs-10 col-sm-10 col-md-10 col-lg-10" id="vOrganPath"></span>
+        </div><img id="myPhoto" src="" alt="我的照片"/>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="myinfoEdit">
+                            <div style="padding: 10px;">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="userCode">登录账号</label>
+                                        <div class="col-sm-6 input-object">
+                                            <input type="text" class="form-control" id="userCode" placeholder="登录账号" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="userName">用户姓名</label>
+                                        <div class="col-sm-6 input-object">
+                                            <input type="hidden" id="oldpwd"><input type="hidden" id="pwd"><input type="hidden" id="pwd1">
+                                            <input type="text" class="form-control" id="userName" placeholder="用户姓名" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="sysCode">登录名</label>
+                                        <div class="col-sm-6 input-object">
+                                            <input type="text" class="form-control" id="sysCode" placeholder="登录名" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="telephone">联系电话</label>
+                                        <div class="col-sm-6 input-object">
+                                            <input type="text" class="form-control" id="telephone" placeholder="联系电话">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="mobilePhone">手机号码</label>
+                                        <div class="col-sm-6 input-object">
+                                            <input type="text" class="form-control" id="mobilePhone" placeholder="手机号码">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="email">邮箱地址</label>
+                                        <div class="col-sm-10 input-object">
+                                            <input type="text" class="form-control" id="email" placeholder="邮箱地址">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="remark">备注信息</label>
+                                        <div class="col-sm-10 input-object">
+                                            <textarea class="form-control" rows="3" id="remark" placeholder="备注信息"></textarea>
+                                        </div>
+                                    </div>
+                                    <img id="editPhoto" src="/FilePath/PhotoFile/UserPhoto/man.jpg" title="更换头像"/>
+                                    <input type="button" id="changePhoto" value="更换头像"/>
+                                    <img id="userSignature" src="" title="更换签名照" style="display: none;"/>
+                                    <input type="button" id="changeSignature" value="更换签名照" style="display: none;"/>
+                                </form>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="mypasswordEdit">
+                            <div style="padding: 10px;">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="pUserCode">登录账号：</label>
+                                        <div class="col-sm-6 input-object">
+                                            <input type="text" class="form-control" id="pUserCode" placeholder="登录账号" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="pOriginalPassword">原密码：</label>
+                                        <div class="col-sm-6 input-object">
+                                            <input type="password" class="form-control" id="pOriginalPassword" placeholder="原密码">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="pPassword">新密码：</label>
+                                        <div class="col-sm-6 input-object">
+                                            <input type="password" class="form-control" id="pPassword" placeholder="新密码">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label" for="pConfirmPassword">确认密码：</label>
+                                        <div class="col-sm-6 input-object">
+                                            <input type="password" class="form-control" id="pConfirmPassword" placeholder="确认密码">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span> 关闭
+                </button>
+                <button type="button" class="btn btn-primary" id="btnSave">
+                    <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span> 保存
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

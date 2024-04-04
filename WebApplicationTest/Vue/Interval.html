@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <script type="text/javascript">
+       var interval = setInterval(function () {
+            //var ProcessNow = (audio.currentTime / audio.duration) * 260;
+            //$(".ProcessNow").css("width", ProcessNow);
+            //var currentTime = timeFormat(audio.currentTime);
+            //var timeAll = timeFormat(TimeAll());
+           //$(".SongTime").html(currentTime + " | " + timeAll);
+
+           var myDate = new Date();
+           var mytime = myDate.toLocaleTimeString();     //获取当前时间
+           var obj = document.getElementById("lbl");
+           obj.innerHTML = mytime;
+       }, 1000);
+
+       function Stop() {
+           clearInterval(interval);
+       }
+
+    </script>
+
+
+</head>
+<body>
+
+    <label id="lbl"></label>
+    <button onclick="Stop();">Stop</button>
+
+</body>
+</html>

@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>Toolbar and Buttons</title>
+
+    <link href="/Scripts/easyui/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/easyui/themes/icon.css" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+        <script src="/Scripts/html5shiv.min.js"></script>
+        <script src="/Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.12.4.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.js"></script>
+
+    <script src="/Scripts/easyui/jquery.easyui.min.js"></script>
+    <script src="/Scripts/easyui/locale/easyui-lang-zh_CN.js"></script>
+
+    <style type="text/css">
+        .easyui-dialog{padding: 2px 0 2px 2px;}
+        .layout-dialog{padding: 2px;}
+        .dialog-toolbar{ padding: 2px;}
+    </style>
+
+    <script type="text/javascript">
+
+        //toolbar: [{
+        //    text:'Add',
+        //    iconCls:'icon-add',
+        //    handler:function(){
+        //        alert('add')
+        //    }
+        //},'-',{
+        //    text:'Save',
+        //    iconCls:'icon-save',
+        //    handler:function(){
+        //        alert('save')
+        //    }
+        //}],
+
+		//buttons: [{
+		//	text:'Ok',
+		//	iconCls:'icon-ok',
+		//	handler:function(){
+		//		alert('ok');
+		//	}
+		//},{
+		//	text:'Cancel',
+		//	handler:function(){
+		//		alert('cancel');;
+		//	}
+        //}]
+
+        /// <summary>弹出对话框窗体方法</summary>
+        /// <param name="obj" type="function">对话框对象</param>
+        /// <param name="title" type="string">对话框标题</param>
+        /// <param name="params" type="[]">对话框宽高参数</param>
+        /// <param name="buttons" type="function">可选参数，按钮组，底部</param>
+        /// <param name="toolbar" type="function">可选参数，工具栏，顶部</param>
+        /// <param name="callbackFunc" type="function">可选参数，回调函数</param>
+        /// <returns type="void">弹出对话框，供用户从企业组织树中选择用户</returns>
+
+        function ShowDialog(obj, title, params, buttons, toolbar, callbackFunc) {
+
+            //icon = icon || "icon-win";
+            var width = 600, height = 300;
+
+            if (params) {
+                width = params.width;
+                height = params.height;
+            }
+
+            obj.dialog({
+                title: " " + title, // 标题
+                //iconCls: icon, // 图标
+                collapsible: false,
+                minimizable: false,
+                maximizable: false,
+                resizable: true,
+                width: width, // 对话框宽度
+                height: height, // 对话框高度
+                modal: true, // 模态窗体
+                // href: "Content.aspx",
+                onClose: function () {
+                    //alert("Close");
+
+                    $(document).unbind("click");
+                    //if (isDestroy) {}
+                    // 如果有子元素，先remove掉子元素再销毁窗口
+                    if ($(this).children()) {
+                        $(this).children().remove();
+                    }
+
+                    try {
+                        if (callbackFunc && typeof callbackFunc === "function") {
+                            callbackFunc();
+                        }
+                    } catch (e) { }
+
+                    $(this).window("destroy");
+
+                    //$(this).dialog('close');
+                }
+                //,toolbar: [{
+                //    text: 'Add',
+                //    iconCls: 'icon-add',
+                //    handler: function () {
+                //        alert('add');
+                //    }
+                //}, '-', {
+                //    text: 'Save',
+                //    iconCls: 'icon-save',
+                //    handler: function () {
+                //        alert('save');
+                //    }
+                //}],
+                //buttons: [{
+                //    text: 'Ok',
+                //    iconCls: 'icon-ok',
+                //    handler: function () {
+                //        alert('ok');
+                //    }
+                //}, {
+                //    text: 'Cancel',
+                //    iconCls: 'icon-cancel',
+                //    handler: function () {
+                //        $obj.dialog('close');
+                //    }
+                //}]
+            });
+
+            if (buttons) {
+                obj.dialog({ buttons: buttons });
+            }
+
+            if (toolbar) {
+                obj.dialog({ toolbar: toolbar });
+            }
+        }
+
+        $(function () {
+
+
+            //ShowDialog($('#dlg1'), "模态对话框", { width: 645, height: 285 });
+        });
+
+        // 弹出基本窗体
+        function ShowBaseWindow()
+        {
+            var $obj = $('\
+                <div iconCls="icon-win">Content</div>\
+                ');
+
+            $obj.appendTo($('body'));
+
+            var $buttons = $('\
+	            <div>\
+		            <a id="btnSave" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok">保存</a>\
+		            <a id="btnExit" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>\
+	            </div>\
+                ');
+
+            var $toolbar = $('\
+	            <div>\
+                    <a id="btnAdd" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add">添加</a>\
+                    <a id="btnDel" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove">删除</a>\
+                    <a id="btnEdit" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit">编辑</a>\
+                    <a id="btnHelp" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-help">帮助</a>\
+	            </div>\
+                ');
+
+            ShowDialog($obj, "基本模态对话框", { width: 900, height: 450 }, $buttons, $toolbar);
+            $.parser.parse($buttons);
+            $.parser.parse($toolbar);
+
+            $('#btnSave').click(function () {
+                alert('save');
+            });
+
+            $('#btnExit').click(function () {
+                //$obj.dialog('close');
+                $obj.dialog('destroy');
+            });
+
+            $('#btnAdd').click(function () {
+                alert('Add');
+            });
+
+            $('#btnDel').click(function () {
+                //$obj.dialog('close');
+                alert('Delete');
+            });
+
+            $('#btnEdit').click(function () {
+                alert('btnEdit');
+            });
+
+            $('#btnHelp').click(function () {
+                alert('btnHelp');
+            });
+        }
+
+
+        // 弹出表窗体
+        function ShowTableWindow() {
+            var $obj = $('\
+                <div iconCls="icon-win">\
+                    <table id="data-table"></table>\
+                </div>\
+                ');
+
+            $obj.appendTo($('body'));
+
+            var $buttons = $('\
+	            <div>\
+		            <a id="btnSave" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok">保存</a>\
+		            <a id="btnExit" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>\
+	            </div>\
+                ');
+
+            var $toolbar = $('\
+	            <div>\
+                    <a id="btnAdd" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add">添加</a>\
+                    <a id="btnDel" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove">删除</a>\
+                    <a id="btnEdit" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit">编辑</a>\
+                    <a id="btnHelp" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-help">帮助</a>\
+	            </div>\
+                ');
+
+            ShowDialog($obj, "表模态对话框", { width: 900, height: 450 }, $buttons, $toolbar);
+            $.parser.parse($buttons);
+            $.parser.parse($toolbar);
+
+            $('#btnSave').click(function () {
+                alert('save');
+            });
+
+            $('#btnExit').click(function () {
+                //$obj.dialog('close');
+                $obj.dialog('destroy');
+            });
+
+            $('#btnAdd').click(function () {
+                alert('Add');
+            });
+
+            $('#btnDel').click(function () {
+                //$obj.dialog('close');
+                alert('Delete');
+            });
+
+            $('#btnEdit').click(function () {
+                alert('btnEdit');
+            });
+
+            $('#btnHelp').click(function () {
+                alert('btnHelp');
+            });
+
+            $('#data-table').datagrid({
+                //title: "字典管理",
+                //iconCls: 'icon-save',
+                //width: 'auto',
+                //height: 'auto',
+                fit: true,
+                fitColumns: true,
+                nowrap: true,
+                striped: true,
+                singleSelect: false,
+                collapsible: false,
+                pagination: true,
+                rownumbers: true,
+                pageSize: 20,
+                pageList: [100, 50, 20],
+                remoteSort: false,
+                method: 'get',
+                url: 'datagrid_data1.json',
+                //onDblClickRow: function (rowIndex, rowData) {
+                //    SaveDictionary(rowIndex);
+                //},
+                //frozenColumns: [
+                //    [
+                //        { field: 'ck', checkbox: true },
+                //        {
+                //            field: 'ID',
+                //            title: '编号',
+                //            width: 300,
+                //            align: 'left',
+                //            formatter: function (val) {
+                //                return val.decodeQuotes();
+                //            }
+                //        }
+                //    ]
+                //],
+
+				//<th data-options="field:'itemid',width:80">Item ID</th>
+				//<th data-options="field:'productid',width:100">Product</th>
+				//<th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+				//<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+				//<th data-options="field:'attr1',width:250">Attribute</th>
+				//<th data-options="field:'status',width:60,align:'center'">Status</th>
+
+                columns: [
+                    [
+                        { field: 'itemid', title: 'Item ID', width: 80, align: 'left' },
+                        { field: 'productid', title: 'Product', width: 100, align: 'left' },
+                        { field: 'listprice', title: 'List Price', width: 80, align: 'right' },
+                        { field: 'unitcost', title: 'Unit Cost', width: 80, align: 'right' },
+                        { field: 'attr1', title: 'Attribute', width: 240, align: 'left' },
+                        { field: 'status', title: 'Status', width: 60, align: 'center' }
+                    ]
+                ]
+                //,toolbar: '#tb'
+            });
+
+        };
+
+        // 弹出选项卡窗体
+        function ShowTabsWindow() {
+            var $obj = $('\
+                <div class="easyui-dialog" iconCls="icon-win">\
+                    <div class="easyui-tabs" style="width:100%;height:353px">\
+	                    <div title="About" style="padding:10px">\
+		                    <p style="font-size:14px">jQuery EasyUI framework helps you build your web pages easily.</p>\
+		                    <ul>\
+			                    <li>easyui is a collection of user-interface plugin based on jQuery.</li>\
+			                    <li>easyui provides essential functionality for building modem, interactive, javascript applications.</li>\
+			                    <li>using easyui you do not need to write many javascript code, you usually defines user-interface by writing some HTML markup.</li>\
+			                    <li>complete framework for HTML5 web page.</li>\
+			                    <li>easyui save your time and scales while developing your products.</li>\
+			                    <li>easyui is very easy but powerful.</li>\
+		                    </ul>\
+	                    </div>\
+	                    <div title="My Documents" style="padding:10px">\
+		                    <ul id="documents-tree" class="easyui-tree"></ul>\
+	                    </div>\
+	                    <div title="Help" iconCls="icon-help" closable="true" style="padding:10px">\
+		                    This is the help content.\
+	                    </div>\
+                    </div>\
+                </div>\
+                ');
+
+            $obj.appendTo($('body'));
+            $.parser.parse($obj);
+
+            var $buttons = $('\
+	            <div>\
+		            <a id="btnSave" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok">保存</a>\
+		            <a id="btnExit" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>\
+	            </div>\
+                ');
+
+            var $toolbar = $('\
+	            <div>\
+                    <a id="btnAdd" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add">添加</a>\
+                    <a id="btnDel" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove">删除</a>\
+                    <a id="btnEdit" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit">编辑</a>\
+                    <a id="btnHelp" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-help">帮助</a>\
+	            </div>\
+                ');
+
+            ShowDialog($obj, "选项卡模态对话框", { width: 900, height: 450 }, $buttons, $toolbar);
+            $.parser.parse($buttons);
+            $.parser.parse($toolbar);
+
+
+            //$("#tabs").tabs({
+            //    width: 'auto',
+            //    height: (450 - 6),
+            //    onSelect: function (title, index) {
+                    
+            //    }
+            //});
+
+            $('#btnSave').click(function () {
+                alert('save');
+            });
+
+            $('#btnExit').click(function () {
+                //$obj.dialog('close');
+                $obj.dialog('destroy');
+            });
+
+            $('#btnAdd').click(function () {
+                alert('Add');
+            });
+
+            $('#btnDel').click(function () {
+                //$obj.dialog('close');
+                alert('Delete');
+            });
+
+            $('#btnEdit').click(function () {
+                alert('btnEdit');
+            });
+
+            $('#btnHelp').click(function () {
+                alert('btnHelp');
+            });
+
+
+            $("#documents-tree").tree({
+                animate: true,
+                checkbox: false,
+                collapsed: true,
+                unique: true,
+                method: 'get',
+                url: 'tree_data1.json',
+                onBeforeLoad: function (treeId, node) {
+                    if (treeId == null) {
+                        $(this).html("<img src='/Content/images/loading.gif' id='imgloading'/>");
+                        return true;
+                    }
+                },
+                onBeforeExpand: function (node) {
+                    //if (node.children == undefined) {
+                    //    $(this).tree('options').url = '/SystemMgmt/Dictionary/GetChildDictionaryTree/?id=' + node.id + "&rnd=" + (Math.random() * 10);
+                    //}
+                },
+                onClick: function (node) {
+
+                    var id = node.id;
+                    var title = node.text;
+
+                },
+                onLoadSuccess: function (node, data) {
+                    $(this).find('#imgloading').remove();
+                    var items = $(this).find('.tree-file');
+                    $.each(items, function (i, item) {
+                        if ($(item).hasClass('tree-folder')) {
+                            $(item).removeClass('tree-file').addClass('tree-folder');
+                            $(item).prev().attr('class', 'tree-hit tree-collapsed');
+                        }
+                    });
+                }
+            }).css({
+                height: height - 33,
+                overflow: 'auto'
+            });
+
+        };
+
+        // 弹出布局窗体
+        function ShowLayoutWindow() {
+            var $obj = $('\
+                <div class="easyui-dialog layout-dialog" iconCls="icon-win">\
+                    <div class="easyui-layout" style="width:auto;height:402.5px;">\
+	                    <div region="north" style="height:60px">north</div>\
+	                    <div region="south" split="true" style="height:60px;">south</div>\
+	                    <div region="east" split="true" title="East" style="width:100px;">east</div>\
+	                    <div region="west" split="true" title="West" style="width:100px;">west</div>\
+	                    <div region="center" title="Main Title" iconCls="icon-ok">\
+		                    <table id="data-table" class="easyui-datagrid"></table>\
+	                    </div>\
+                    </div>\
+                </div>\
+                ');
+
+            $obj.appendTo($('body'));
+            //$obj.layout();
+            $.parser.parse($obj);
+
+            var $buttons = $('\
+	            <div>\
+		            <a id="btnSave" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok">保存</a>\
+		            <a id="btnExit" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>\
+	            </div>\
+                ');
+
+            var $toolbar = $('\
+	            <div>\
+                    <a id="btnAdd" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add">添加</a>\
+                    <a id="btnDel" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove">删除</a>\
+                    <a id="btnEdit" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit">编辑</a>\
+                    <a id="btnHelp" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-help">帮助</a>\
+	            </div>\
+                ');
+
+            ShowDialog($obj, "选项卡模态对话框", { width: 900, height: 500 }, $buttons, $toolbar);
+            $.parser.parse($buttons);
+            $.parser.parse($toolbar);
+
+            //$("#tabs").tabs({
+            //    width: 'auto',
+            //    height: (450 - 6),
+            //    onSelect: function (title, index) {
+
+            //    }
+            //});
+
+            $('#btnSave').click(function () {
+                alert('save');
+            });
+
+            $('#btnExit').click(function () {
+                //$obj.dialog('close');
+                $obj.dialog('destroy');
+            });
+
+            $('#btnAdd').click(function () {
+                alert('Add');
+            });
+
+            $('#btnDel').click(function () {
+                //$obj.dialog('close');
+                alert('Delete');
+            });
+
+            $('#btnEdit').click(function () {
+                alert('btnEdit');
+            });
+
+            $('#btnHelp').click(function () {
+                alert('btnHelp');
+            });
+
+            $('#data-table').datagrid({
+                //title: "字典管理",
+                //iconCls: 'icon-save',
+                //width: 'auto',
+                //height: 'auto',
+                fit: true,
+                fitColumns: true,
+                nowrap: true,
+                striped: true,
+                singleSelect: false,
+                collapsible: false,
+                pagination: true,
+                rownumbers: true,
+                pageSize: 20,
+                pageList: [100, 50, 20],
+                remoteSort: false,
+                method: 'get',
+                url: 'datagrid_data1.json',
+                columns: [
+                    [
+                        { field: 'itemid', title: 'Item ID', width: 80, align: 'left' },
+                        { field: 'productid', title: 'Product', width: 100, align: 'left' },
+                        { field: 'listprice', title: 'List Price', width: 80, align: 'right' },
+                        { field: 'unitcost', title: 'Unit Cost', width: 80, align: 'right' },
+                        { field: 'attr1', title: 'Attribute', width: 240, align: 'left' },
+                        { field: 'status', title: 'Status', width: 60, align: 'center' }
+                    ]
+                ]
+                //,toolbar: '#tb'
+            });
+
+        };
+    
+    </script>
+
+</head>
+<body>
+
+<h2>Toolbar and Buttons</h2>
+<p>The toolbar and buttons can be added to dialog.</p>
+
+<div style="margin: 20px 0;">
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="$('#dlg').dialog('open')">Open</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" onclick="$('#dlg').dialog('close')">Close</a>
+    
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-documentedit'" onclick="ShowBaseWindow();">基本对话框</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-sum'" onclick="ShowTableWindow();">表对话框</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-win'" onclick="ShowTabsWindow();">选项卡对话框</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-win'" onclick="ShowLayoutWindow();">布局对话框</a>
+</div>
+
+<div id="dlg" class="easyui-dialog" title="Toolbar and Buttons" style="height: 200px; padding: 10px; width: 400px;"
+     data-options="
+				iconCls: 'icon-save',
+                buttons: '#dlg-buttons',
+                onResize:function(){
+				    $(this).dialog('center');
+			    }
+			">
+    The dialog content.
+</div>
+
+    <!--<div id="dlg-buttons">对话框底部按钮</div>-->
+
+	<div id="dlg-buttons">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="javascript:alert('save')">Save</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" onclick="javascript:$('#dlg').dialog('close')">Close</a>
+	</div>
+
+
+
+
+
+
+</body>
+</html>

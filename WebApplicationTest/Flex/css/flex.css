@@ -1,0 +1,56 @@
+﻿
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+#arc-body {
+    margin: 10px auto;
+    line-height: 1.6em;
+}
+
+    #arc-body table {
+        margin: auto;
+        max-width: 100%;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+}
+
+#arc-body table th {
+    padding: 7px 5px;
+    border: 1px solid #ccc;
+    background-color: #EDEDED;
+    color: #444;
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+#arc-body table td {
+    padding: 5px 5px;
+    border: 1px solid #ccc;
+}
+
+#arc-body {
+    display: flex;
+    border: 1px solid #CCC;
+}
+
+    #arc-body div {
+        width: 100%;
+        padding: 5px;
+        /*border: 1px solid #b6ff00;*/
+    }

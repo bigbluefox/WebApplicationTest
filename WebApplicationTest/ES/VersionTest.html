@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <script type="text/javascript">
+        // ES6
+        //function log(x, y = 'World') {
+        //    console.log(x, y);
+        //}
+         
+        //log('Hello') // Hello World
+        //log('Hello', 'China') // Hello China
+        //log('Hello', '') // Hello
+
+
+        //ES5
+        // function log(x, y) {
+        //     y = y || 'World';
+        //     console.log(x, y);
+        // }
+
+        // log('Hello') // Hello World
+        // log('Hello', 'China') // Hello China
+        // log('Hello', '') // Hello World
+
+        //Default
+        // function findArtist(name='lu', age='26') {
+        //     ...
+        // }
+
+        //Rest
+        // function f(x, ...y) {
+        //   // y is an Array
+        //   return x * y.length;
+        // }
+        // f(3, "hello", true) == 6
+
+        // //Spread
+        // function f(x, y, z) {
+        //   return x + y + z;
+        // }
+        // // Pass each elem of array as argument
+        // f(...[1,2,3]) == 6
+
+        // filter为“过滤”、“筛选”之意。指数组filter后，返回过滤后的新数组。用法跟map极为相似：
+        //console.log(
+        //[-1, 0, 1, 4, 2, 3, 1, 'a', 1, 'a', 2, 'z', 'b'].filter(function (ele, index, array) {
+        //    return index === array.indexOf(ele);
+        //}).sort())
+
+
+        var a = [];
+
+        for (let i = 0; i < 10; i++) {
+
+          a[i] = function () {
+
+            console.log(i);
+
+           };
+
+        }
+
+        a[6](); // 6
+
+
+
+
+        function(i){ return i + 1; } //ES5
+
+        (i) => i + 1 //ES6
+        
+        /**
+         * 
+         * @param {} x 
+         * @param {} y 
+         * @returns {} 
+         */
+        function(x, y) {
+            /// <summary></summary>
+            /// <param name="x" type="Object"></param>
+            /// <param name="y" type="Object"></param>
+            /// <returns type="Object"></returns>
+            x++;
+
+            y--;
+
+            return x + y;
+
+        };
+
+        (x, y) => {x++; y--; return x+y;};
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

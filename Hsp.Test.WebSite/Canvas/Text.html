@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+<canvas id="myCanvas" width="900" height="450" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+
+<script type="text/javascript">
+    
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+
+    context.font = "bold 30px Arial"; //设置样式
+    context.strokeStyle = "#1712F4";
+    context.strokeText("欢迎来到我的博客！", 30, 100);
+
+    context.font = "bold 50px Arial";
+    var grd = context.createLinearGradient(30, 200, 400, 300);//设置渐变填充样式
+    grd.addColorStop(0, "#1EF9F7");
+    grd.addColorStop(0.25, "#FC0F31");
+    grd.addColorStop(0.5, "#ECF811");
+    grd.addColorStop(0.75, "#2F0AF1");
+    grd.addColorStop(1, "#160303");
+    context.fillStyle = grd;
+    context.fillText("欢迎来到我的博客！", 30, 200);
+
+    context.save();
+    context.moveTo(200, 280);
+    context.lineTo(200, 420);
+    context.stroke();
+    context.font = "bold 20px Arial";
+    context.fillStyle = "#F80707";
+    context.textAlign = "left";
+    context.fillText("文本在指定的位置开始", 200, 300);
+    context.textAlign = "center";
+    context.fillText("文本的中心被放置在指定的位置", 200, 350);
+    context.textAlign = "right";
+    context.fillText("文本在指定的位置结束", 200, 400);
+    context.restore();
+
+    context.save();
+    context.moveTo(10, 500);
+    context.lineTo(500, 500);
+    context.stroke();
+    context.fillStyle = "#F60D0D";
+    context.font = "bold 20px Arial";
+    context.textBaseline = "top";
+    context.fillText("指定位置在上面", 10, 500);
+    context.textBaseline = "bottom";
+    context.fillText("指定位置在下面", 150, 500);
+    context.textBaseline = "middle";
+    context.fillText("指定位置居中", 300, 500);
+    context.restore();
+
+
+    context.font = "bold 40px Arial";
+    context.strokeStyle = "#16F643";
+    var text = "欢迎来到我的博客！";
+    context.strokeText("欢迎来到我的博客！", 10, 600);
+    context.strokeText("上面字符串的宽度为：" + context.measureText(text).width, 10, 650);
+
+
+</script>
+
+</body>
+</html>

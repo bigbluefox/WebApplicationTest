@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>利用@media screen实现网页布局的自适应</title>
+    <style type="text/css">
+        @media (min-width: 1024px) {
+            body { font-size: 18px }
+        }
+
+        /*>=1024的设备*/
+
+        @media (min-width: 1100px) {
+            body { font-size: 20px }
+        }
+
+        /*>=1024的设备*/
+
+        @media (min-width: 1280px) {
+            body { font-size: 22px; }
+        }
+
+        @media (min-width: 1366px) {
+            body { font-size: 24px; }
+        }
+
+        @media (min-width: 1440px) {
+            body { font-size: 25px !important; }
+        }
+
+        @media (min-width: 1680px) {
+            body { font-size: 28px; }
+        }
+
+        @media (min-width: 1920px) {
+            body { font-size: 33px; }
+        }
+    </style>
+</head>
+<body>
+<h1>利用@media screen实现网页布局的自适应</h1>
+<img src="Images/20170109135106984.jpg" alt=""/>
+</body>
+</html>

@@ -1,0 +1,583 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>简单鼠标拖拽并上传文件测试</title>
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+    <link href="/Scripts/uploadify/uploadify.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <script src="/Scripts/uploadify/jquery.uploadify-3.1.min.js"></script>
+    <script src="/Scripts/Hsp.js"></script>
+    <script src="Attachment.js?v=0.0003"></script>
+
+    <style type="text/css">
+        * { font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self; }
+
+        #dropbox { cursor: cell; }
+
+        label {
+            display: inline-block;
+            padding: 10px 0 5px 0;
+        }
+
+        .drop_zone {
+            border: 2px dashed #BBB;
+            padding: 5px;
+            text-align: left;
+            font-size: 16pt;
+            color: #BBB;
+            border-radius: 5px;
+        }
+
+        .hovering {
+            -webkit-box-shadow: inset 0px 0px 50px #BBB;
+            -moz-box-shadow: inset 0px 0px 50px #BBB;
+            -o-box-shadow: inset 0px 0px 50px #BBB;
+            box-shadow: inset 0px 0px 50px #BBB;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        
+        /* 由于浏览器默认的对拖拽进的文件是打开或提示打开或保存
+          所以在投放区域使用preventDefault()阻止该事件，但投放区外还是默认事件
+          并且阻止默认事件的代码要放到第一行，即首先阻止默认行为 */
+
+        /* e.dataTransfer.files可以获取所投放的文件数组的信息
+         也就是说可以一次性拖入多个文件，该数组每个元素代表每个文件的详细信息 */
+        
+        /* 由于使用form的input type=file可以实现文件上传，因此由于没有表单所以需要模拟出一个表达对象，
+        js提供了FormData这个函数来模拟以一个表达对象 */
+
+        //最后总结下HTML5实现拖拽上传的技术要点：
+        //1、监听拖拽：监听页面元素的拖拽事件，包括：dragenter、dragover、dragleave和drop，一定要将dragover的默认事件取消掉，
+        //    不然无法触发drop事件。如需拖拽页面里的元素，需要给其添加属性draggable=”true”；
+        //2、获取拖拽文件：在drop事件触发后通过e.dataTransfer.files获取拖拽文件列表，.length属性获取文件数量，.type属性获取文件类型。
+        //3、读取图片数据并添加预览图。
+        //4、发送图片数据：使用FormData模拟表单数据AJAX提交文件流。
+
+        //protected static $Err = array( 
+        //    // 错误信息 
+        //    0 => '正常', 
+        //    1 => '文件超过系统最大限制', 
+        //    2 => '文件大小超出上传最大限制', 
+        //    3 => '文件只有部分被上传', 
+        //    4 => '没有文件被上传', 
+        //    6 => '找不到临时文件夹', 
+        //    7 => '文件写入失败', 
+        //    8 => '不允许的文件类型', 
+        //    9 => '不得上传超过1M的文件', 
+        //    10 => '创建目录失败' ); 
+
+        //注1：运用dataTransfer对象，不仅仅能传输数据，还能通过dataTransfer对象确定被拖拽的元素以及作为放置目标的元素能够接收什么操作。
+        //其中，通过dropEffect属性可以知道被拖动的元素能够执行哪种行为。这个属性的四个值如下：
+        //none：不能把拖动的元素放在这里。这是除了文本框之外所有元素默认的值。
+        //move：把拖动的元素移动到放置目标。
+        //copy：把拖动的元素复制到放置目标。
+        //link：放置目标会打开拖动的元素(但拖动的元素必须是个链接，有URL地址)。
+        //把元素拖动到放置目标上的时候，以上每一个值都会导致光标显示为不同的符号。
+
+        $(function() {
+            InitAttachmentTb();
+
+            //阻止浏览器默认行。
+            $(document).on({
+                dragleave: function (e) {		//拖离
+                    e.preventDefault();
+                },
+                drop: function (e) {			//拖后放
+                    e.preventDefault();
+                },
+                dragenter: function (e) {		//拖进
+                    e.preventDefault();
+                },
+                dragover: function (e) {		//拖来拖去
+                    e.preventDefault();
+                }
+            });
+        });
+
+
+        /// <summary>
+        /// 附件表初始化
+        /// </summary>
+
+        function InitAttachmentTb() {
+            $('#fileList').datagrid({
+                //url: requestUrl,
+                width: 'auto',
+                height: 'auto',
+                idField: 'FileId',
+                fitColumns: true,
+                pagination: false,
+                rownumbers: true,
+                singleselect: false,
+                striped: true,
+                nowrap: false,
+                columns: [
+                    [
+                        { field: 'RowNumber', title: '序号', width: 30, halign: 'center', align: 'center', height: 26, hidden: true },
+                        { field: 'TypeName', title: '附件类型', halign: 'center', align: 'left', width: 60 },
+                        {
+                            field: 'FileName',
+                            title: '附件名称',
+                            halign: 'center',
+                            align: 'left',
+                            width: 120,
+                            formatter: function(value, row, index) {
+                                value = value.replace(" ", "&nbsp;");
+                                var s = '<a title=' + value + ' href="javascript:void(0);" onclick="ViewFileOnline(\'' + row.FileId + '\',\'' + row.FileExt + '\',\'' + row.FileUrl + '\');">' + value + '</a>';
+                                return row.FileSize > 0.0 ? s : value;
+                            }
+                        },
+                        { field: 'FileExt', title: '扩展名', halign: 'center', align: 'center', width: 45 },
+                        { field: 'FileSize', title: '大小（KB）', halign: 'center', align: 'right', width: 45 },
+                        { field: 'CreatorName', title: '上传人', halign: 'center', align: 'center', width: 40 },
+                        { field: 'CreateTime', title: '上传时间', halign: 'center', align: 'center', width: 75 },
+                        { field: 'FileUrl', title: '地址', halign: 'center', align: 'center', width: 60, hidden: true },
+                        {
+                            field: 'FileId',
+                            title: '操作',
+                            halign: 'center',
+                            align: 'center',
+                            width: 45,
+                            formatter:
+                                function(value, row, index) {
+                                    if (value.length > 0) {
+                                        var downloadImg = ' <img alt="文件下载" title="文件下载" src="/Images/Next-16x16.png" onclick="DownloadFile(\'' + row.FileId + '\', \'' + row.FileUrl + '\');" />';
+                                        var viewDocImg = ' <img alt="文件编辑" title="文件编辑" src="/Images/edit.jpg" onclick="EditFileOnline(\'' + row.FileId + '\',\'' + row.FileExt + '\');" />';
+                                        var delFileImg = ' <img alt="文件删除" title="文件删除" src="/Images/Remove-16x16.png" onclick="DelFileById(\'' + row.FileId + '\', \'' + row.FilePath + '\');" />';
+
+                                        var s = downloadImg;
+                                        s += viewDocImg;
+                                        //if (row.Creator == userId) s += delFileImg;
+                                        return s;
+                                    }
+                                    return '';
+
+                                    /*
+                                    var str = "";
+                                    if (authority_type.indexOf("Download") > -1) {
+                                    str = str + '<a title="下载" style="cursor:pointer;" class="s_action" plain="true" href="../Handler/UpDownloadHandler.ashx?GetFunction=DownloadFile&filesID=' + row.Files_Id + '&FilesName=' + row.FilesName + '&IsCrossDomain=' + IsCrossDomain + '&RootPathShineupon=' + RootPathShineupon + '&CroseDomainUserName=' + CroseDomainUserName + '&CroseDomainUserPwd=' + CroseDomainUserPwd + '&IsDel=' + row.IsDel + '&CreateTime=' + row.CreateTime + '&netaddress=' + row.Url + '&DownState=' + row.DownState + '&downAddress=' + Url + '&physicaladdress=' + physicaladdress + '"><img style="border:none;" src="../themes/icons/document_small_download.png"></a>&nbsp;'
+                                    }
+                                    if (authority_type.indexOf("dell") > -1) {
+    
+                                    if (row.User_Name == UserNameCode) {
+                                    str = str + '&nbsp;<a title="删除" style="cursor:pointer;" class="s_action " plain="true" onclick="show_confirm(' + index + ')"><img style="border:none;" src="../themes/icons/page_delete.png"></a>';
+                                    }
+                                    }
+                                    str = str + '</a>';
+                                    return str;
+                                    */
+
+                                }
+                        }
+                    ]
+                ],
+                rowStyler: function(index, row, css) {
+                    /*
+                    //红色已删除  紫色已下载   删除优先级高于下载
+                    if (row.IsDel.toString() == "1") {
+                    return 'color:#ff0000;'; //font-weight:bold;粗体
+                    } else if (row.DownState == "已下载") {
+                    return 'color:#cc0088;'; //background-color:#fff 
+                    } else {
+                    return 'color:#000000;';
+                    }*/
+                },
+                onLoadSuccess: function(data) {
+                    //console.info(data);
+                    //var panel = $(this).datagrid('getPanel');
+                    //var tr = panel.find('div.datagrid-view .datagrid-view2 .datagrid-body table tbody tr');
+                    //tr.each(function() {
+                    //    var td = $(this).children('td[field="FileId"]');
+                    //    var cell = td.children('div.datagrid-cell');
+                    //    var img = cell.children('img');
+                    //    img.each(function() {
+                    //        $(this).hover(function() { $(this).addClass("hand"); }, function() { $(this).removeClass("hand"); });
+                    //    });
+                    //});
+                }
+            });
+
+            //GetFileList();
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+<form id="upload" method="post" enctype="multipart/form-data">
+    <div name="image" id="dropbox" class="drop_zone" style="min-width: 300px; min-height: 100px;"></div>
+
+    <!--<div id="preview"></div>-->
+
+    <div style="width: 100%; padding: 10px 0;">
+        <table id="fileList" class="easyui-datagrid" title="附件列表" loadmsg="加载中..."></table>
+    </div>
+
+    <div id="uploadresult">
+        <!--<label id="file0label" style="padding: 10px 0 5px 0;"></label>-->
+        <!--<div id="file0progressbar" class="easyui-progressbar" style="width: 100%;"></div>-->
+    </div>
+
+</form>
+
+<script type="text/javascript">
+
+    //var dropbox = document.getElementById("iframe");
+    var dropbox = document.getElementById("dropbox");
+    var preview = document.getElementById("preview");
+
+    //var jsDrag = document.getElementById("dropbox");
+    //var dragTip = document.getElementById("droptext");
+
+    ////进入
+    //jsDrag.addEventListener( "dragenter", function (e) {
+    //    e.preventDefault();
+    //    //dragTip.innerHTML("drop it");
+    //    $("#uploadresult").html("已上传：");
+    //}, false);
+
+    ////拖动
+    //jsDrag.addEventListener( "dragover", function (e) {
+    //    e.preventDefault();
+    //}, false );
+
+    ////离开
+    //jsDrag.addEventListener( "dragleave", function (e) {
+    //    e.preventDefault();
+    //}, false );
+
+    ////松开
+    ////特别注意一个万年坑： 绑定事件时用原生js对象，否则drop的时候获取不到dataTransfer属性。
+
+    //jsDrag.addEventListener( "drop", function (e) {
+    //    e.preventDefault();
+    //    //dragTip.innerHTML( "Or simply drag files to here" );
+
+    //    var dt = e.dataTransfer;
+    //    uploadFile( dt.files[0] );
+    //}, false );
+
+    ////文件上传
+    //function uploadFile( fObj ){
+    //    var fSize = ( fObj.size / 1024 / 1024 ).toFixed(2),
+    //    fName = fObj.name,
+    //    fType = fObj.type;
+
+    //    var fd = new FormData();
+    //    fd.append("fileData", fObj);
+
+    //    var xhr = new XMLHttpRequest();
+    //    xhr.upload.addEventListener("progress", uploadProgress, false);
+
+    //    xhr.addEventListener( "load", uploadComplete, false );
+    //    xhr.addEventListener( "error", uploadFailed, false );
+    //    xhr.addEventListener( "abort", uploadCanceled, false );
+
+    //    var url = "/Handler/FileHandler.ashx";
+    //    xhr.open( "POST", url, true );
+    //    xhr.send( fd );        
+    //}
+
+    //进度把控
+    function uploadProgress(evt) {
+        if (evt.lengthComputable) {
+            var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+            //console.log( "已上传：" + percentComplete );
+            var msg = $("#uploadresult").html();
+            $("#uploadresult").html(msg + " * " + percentComplete);
+            //$('#progressbar').progressbar('setValue', percentComplete);
+        }
+    }
+
+    //抛出反馈成功结果
+    function uploadComplete(evt) {
+        alert(evt.target.responseText ? evt.target.responseText : evt.target.statusText);
+    }
+
+    //抛出异常提示
+    function uploadFailed(evt) {
+        alert("上传文件异常.");
+    }
+
+    //抛出取消提示
+    function uploadCanceled(evt) {
+        alert("取消.");
+    }
+
+
+    document.addEventListener("dragenter", function(e) {
+        //dropbox.style.borderColor = 'gray';
+        //this.classList.add('hovering');
+    }, false);
+    document.addEventListener("dragleave", function(e) {
+        //dropbox.style.borderColor = 'silver';
+        ////为当前元素移除CSS样式
+        //this.classList.remove('hovering');
+    }, false);
+
+    //文件拖拽完成效果
+    document.addEventListener("dragover", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        //把拖动的元素复制到放置目标（注1会给出dropEffect详细属性）。
+        e.dataTransfer.dropEffect = 'copy';
+    }, false);
+
+    document.addEventListener("drop", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        //为当前元素移除CSS样式
+        //this.classList.remove('hovering');
+
+        var files = e.target.files || e.dataTransfer.files;
+        handleFiles(files);
+
+        //submit.disabled = false;
+    }, false);
+
+
+    //dropbox.addEventListener("dragenter", function(e) {}, false);
+
+    ////文件进入事件
+    //dropbox.addEventListener("dragenter", function(e) {
+
+    //    dropbox.style.borderColor = 'gray';
+    //    dropbox.style.backgroundColor = 'white';
+    //    e.stopPropagation(); //不再派发事件
+    //    e.preventDefault(); //取消事件的默认动作
+    //    //为当前元素添加CSS样式（这里使用到的样式均会在下面展示出来）
+    //    this.classList.add('hovering');
+    //}, false);
+
+    ////文件离开事件
+    //dropbox.addEventListener("dragleave", function(e) {
+    //    dropbox.style.backgroundColor = 'transparent';
+
+    //    e.stopPropagation();
+    //    e.preventDefault();
+    //    //为当前元素移除CSS样式
+    //    this.classList.remove('hovering');
+    //}, false);
+
+    ////文件拖拽完成效果
+    //dropbox.addEventListener("dragover", function(e) {
+    //    e.stopPropagation();
+    //    e.preventDefault();
+    //    //把拖动的元素复制到放置目标（注1会给出dropEffect详细属性）。
+    //    e.dataTransfer.dropEffect = 'copy';
+    //}, false);
+
+    ////文件拖拽到页面后处理方式
+    //dropbox.addEventListener("drop", function(e) {
+    //    e.stopPropagation();
+    //    e.preventDefault();
+
+    //    //为当前元素移除CSS样式
+    //    this.classList.remove('hovering');
+
+    //    //target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
+    //    var files = e.target.files || e.dataTransfer.files;
+
+
+    //    handleFiles(files);
+
+    //    //submit.disabled = false;
+    //}, false);
+
+    var handleFiles = function(files) {
+
+        var rst = $("#uploadresult");
+
+        for (var i = 0; i < files.length; i++) {
+
+            //debugger;
+
+            var file = files[i];
+            var msg = file.name + " * " + file.type + " * " + file.size;
+            msg = file.name + "; <br/>";
+            //alert(msg); file.name.lastIndexOf('.')
+
+            var ext = file.name.substr(file.name.lastIndexOf('.'));
+
+            dropbox.innerHTML = dropbox.innerHTML + msg;
+
+            var lbl = $('<label id="lbl' + i + '"></label>');
+            var bar = $('<div id="bar' + i + '" class="easyui-progressbar" style="width: 100%;"></div>');
+            lbl.appendTo(rst);
+            bar.appendTo(rst);
+
+            $.parser.parse(rst);
+
+            lbl.html(file.name);
+            //if (!file.type.match(/image*/)) {
+            //    continue;
+            //}
+
+            //var img = document.createElement("img");
+            //img.classList.add("obj");
+            //img.file = file;
+            //preview.appendChild(img);
+
+
+            var fd = new FormData();
+            fd.append("fileData", file);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.upload.addEventListener("progress", function(e) {
+                if (e.lengthComputable) {//event.loaded加载了多少字节  event.total总共多少字节
+                    var percentage = Math.round((e.loaded * 100) / e.total);
+                    //img.style.opacity = 1 - percentage / 100.0;
+                    bar.progressbar('setValue', percentage);
+                }
+            }, false);
+
+            //xhr.upload.addEventListener("progress", uploadProgress, false);
+
+            xhr.addEventListener("load", function (e) {
+                //alert(e.target.responseText ? e.target.responseText : e.target.statusText);
+            });
+
+            //xhr.addEventListener("load", uploadComplete, false);
+            xhr.addEventListener("error", uploadFailed, false);
+            xhr.addEventListener("abort", uploadCanceled, false);
+
+            var url = "/Handler/AttachmentHandler.ashx?OPERATION=UPLOAD&TID=64C64907-F110-4A41-9DAF-5532A5A135FB&GID=1235&rnd=" + (Math.random() * 10);
+            xhr.open("POST", url, true); //提交服务器处理程序 "/Handler/FileHandler.ashx"
+            xhr.onload = function() { //加载完成之后设置进度条值为100
+                //progress.value = 100;
+                //progress.innerHTML = 100 + "%";
+
+                //alert(file.name);
+            };
+            xhr.send(fd);
+            xhr.onreadystatechange = function() { // 上传成功
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //alert(xhr.responseText);
+
+                    var rows = $('#fileList').datagrid('getRows');
+                    //alert(rows.length);
+
+                    var row = {
+                        'RowNumber': rows.length + 1, 'TypeName': '*'
+                        , 'FileName': file.name, 'FileExt': ext
+                        , 'FileSize': (file.size / 1024).toFixed(2)
+                        , 'CreatorName': '*', 'CreateTime': getNowFormatDate(), 'FileId': '*'
+                    };
+                    rows.push(row);
+
+                    $('#fileList').datagrid('loading');
+                    $('#fileList').datagrid('loadData', { "total": row.length, "rows": rows });
+                    $('#fileList').datagrid('loaded');
+
+                }
+            };
+
+
+
+            //{ field: 'RowNumber', title: '序号', width: 30, halign: 'center', align: 'center', height: 26, hidden: true },
+            //{ field: 'TypeName', title: '附件类型', halign: 'center', align: 'left', width: 60 },
+            //{
+            //    field: 'FileName',
+            //    title: '附件名称',
+            //    halign: 'center',
+            //    align: 'left',
+            //    width: 120,
+            //    formatter: function(value, row, index) {
+            //        value = value.replace(" ", "&nbsp;");
+            //        var s = '<a title=' + value + ' href="javascript:void(0);" onclick="ViewFileOnline(\'' + row.FileId + '\',\'' + row.FileExt + '\',\'' + row.FileUrl + '\');">' + value + '</a>';
+            //        return row.FileSize > 0.0 ? s : value;
+            //    }
+            //},
+            //{ field: 'FileExt', title: '附件扩展名', halign: 'center', align: 'center', width: 45 },
+            //{ field: 'FileSize', title: '大小（KB）', halign: 'center', align: 'right', width: 45 },
+            //{ field: 'CreatorName', title: '上传人', halign: 'center', align: 'center', width: 40 },
+            //{ field: 'CreateTime', title: '上传时间', halign: 'center', align: 'center', width: 75 },
+
+
+
+            //var reader = new FileReader();
+            //reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+            //reader.readAsDataURL(file);//表示将文件读取为一段以data:开头的字符串，就是Data URL,它是将小文件直接嵌入
+            //文档的方案，如果你不写这句，那么就显示不出来因为文档中没有image.src的数据
+
+            //var xhr = new XMLHttpRequest();
+            //xhr.open('post', '/Handler/FileHandler.ashx', true);
+
+            //xhr.upload.addEventListener("progress", function(e) {
+            //    if (e.lengthComputable) {
+            //        var percentage = Math.round((e.loaded * 100) / e.total);
+            //        img.style.opacity = 1 - percentage / 100.0;
+            //    }
+            //}, false);
+
+            //xhr.upload.addEventListener("load", function(e) {}, false);
+
+            //xhr.setRequestHeader("Content-Type", "multipart/form-data, boundary=" + boundary); // simulate a file MIME POST request.  
+            //xhr.setRequestHeader("Content-Length", file.Size);
+
+            //var body = '';
+            //body += "--" + boundary + "\r\n";
+            //body += "Content-Disposition: form-data; name=\"" + dropbox.getAttribute('name') + "\"; filename=\"" + fileName + "\"\r\n";
+            //body += "Content-Type: " + fileType + "\r\n\r\n";
+            //body += fileData + "\r\n";
+            //body += "--" + boundary + "--\r\n";
+
+            //xhr.sendAsBinary(body);
+
+
+        }
+    }
+
+    ////进度把控
+    //function uploadProgress(evt) {
+    //    if (evt.lengthComputable) {
+    //        var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+    //        //console.log("已上传：" + percentComplete);
+
+    //        $("#uploadresult").html("已上传：" + percentComplete);
+    //    }
+    //}
+
+
+    /// <summary> 
+    /// 获取当前日期时间“yyyy-MM-dd HH:MM:SS” 
+    /// </summary> 
+
+    function getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "-";
+        var seperator2 = ":";
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + date.getHours() + seperator2 + date.getMinutes()
+            + seperator2 + date.getSeconds();
+        return currentdate;
+    }
+
+</script>
+
+</body>
+</html>

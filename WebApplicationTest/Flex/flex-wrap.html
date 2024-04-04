@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="css/flex.css" rel="stylesheet" />
+    <style>
+        #main {
+            border: 1px solid #CCC;
+            padding: 5px;
+        }
+
+        .nowrap, .wrap, .wrap_reverse {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 15px;
+        }
+
+        .nowrap {
+            flex-wrap: nowrap;
+        }
+
+        .wrap {
+            flex-wrap: wrap;
+        }
+
+        .wrap_reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+            .nowrap div, .wrap div, .wrap_reverse div {
+                width: 70px;
+                height: 50px;
+                border: 1px solid black;
+            }
+    </style>
+</head>
+<body>
+    <div id="arc-body">
+        <div>
+            <h1>2. 容器属性</h1>
+            <h5>2) flex-wrap</h5>
+            <p>flex-wrap 属性用来设置当弹性盒子的子元素（项目）超出父容器时是否换行，属性的可选值如下：</p>
+        </div>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>
+                            值
+                        </th>
+                        <th>
+                            描述
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            nowrap
+                        </td>
+                        <td>
+                            默认值，表示项目不会换行
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            wrap
+                        </td>
+                        <td>
+                            表示项目会在需要时换行
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            wrap-reverse
+                        </td>
+                        <td>
+                            表示项目会在需要时换行，但会以相反的顺序
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            initial
+                        </td>
+                        <td>
+                            将此属性设置为属性的默认值
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            inherit
+                        </td>
+                        <td>
+                            从父元素继承属性的值
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="main">
+        <div class="nowrap">
+            <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+        </div>
+        <div class="wrap">
+            <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+        </div>
+        <div class="wrap_reverse">
+            <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+        </div>
+    </div>
+</body>
+</html>

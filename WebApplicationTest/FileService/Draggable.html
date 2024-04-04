@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>可拖曳测试</title>
+    <style type="text/css">
+        [draggable] {
+    /*防止可拖曳元素的文字被选中*/
+    -webkit-user-select :none;
+    user-select :none;
+    /*可以拖曳的元素通常鼠标是十字形*/
+    cursor: pointer;
+}
+    </style>
+
+</head>
+<body>
+<div>
+    <!--file表单选择文件，multiple属性可以选择多个文件-->
+<input type = "file" id="file1" multiple>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    var div = document.createElement("div");
+    var support = ('draggable' in div) || ('ondrapstart' in div && 'ondrop' in div);
+    if (support) {
+        //浏览器支持HTML5拖放
+    } else {
+        //使用UI库来实现拖放
+    }
+</script>

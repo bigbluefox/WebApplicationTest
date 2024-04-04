@@ -1,0 +1,512 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Scripts/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
+    <!-- 专业图标样式表 -->
+    <!--<link href="../Scripts/bootstrap/css/bootstrap-glyphicons.css" rel="stylesheet" />-->
+    <!-- 文件类型样式表 -->
+    <!--<link href="../Scripts/bootstrap/css/bootstrap-filetypes.css" rel="stylesheet" />-->
+    <!-- Font Awesome 象形异体字-->
+    <link href="../Scripts/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    <link href="../Styles/base.css" rel="stylesheet" />
+
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="../Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/xdate.js"></script>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+
+
+        /*日历部分样式*/
+        #calenderpart {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            margin: .1rem auto;
+            padding-top: .1rem;
+            padding-bottom: .1rem;
+            font-size: 16px;
+        }
+
+        .calendar_pane {
+            padding: 2px 0;
+        }
+
+        .calendar_dates {
+        }
+
+        .calendar_content {
+            margin-top: .4rem;
+        }
+
+        .calendar_content1 {
+            margin-top: .4rem;
+        }
+
+            .calendar_content1 span {
+                display: block;
+                width: 30px;
+                -ms-border-radius: 50%;
+                border-radius: 50%;
+                margin: 0 auto;
+            }
+
+        .calendar_content span {
+            display: block;
+            width: 30px;
+            background: #ffbc86;
+            -ms-border-radius: 50%;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+        #calenderpart i.fa {
+            font-size: 1.6rem;
+            color: #999;
+            padding-top: .2rem;
+        }
+
+        /*日历部分样式*/
+    </style>
+
+    <script type="text/javascript">
+
+        $(document).ready(function (e) {
+            //在id=test的DIV中显示日历
+            calendar_init($("#calenderpart"), {
+                title_color: "#333", //顶部年月日颜色
+                title_bg_color: "#E0E0E0", //顶部年月日背景条
+                line_style: "solid 1px #fff",
+                day_color: "#333", //星期几
+                day_bg_color: "#fff", //星期几背景
+                date_bg_color: "#F8F8F8",
+                date_color: "#666",
+                date_active_color: "#f87d69"
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <div class="my-calendar">
+
+        <div id="calenderpart"></div>
+    </div>
+
+
+    <div id="page-loading" style="display: none;"><i class="fa fa-spinner"></i></div>
+
+    <style type="text/css">
+        .my-calendar {
+            width: 360px;
+            /*border: 1px solid #00bfff;*/
+        }
+    </style>
+
+    <!--https://fullcalendar.io/js/fullcalendar-2.4.0/demos/agenda-views.html-->
+
+ </body>
+
+</html>
+
+<script type="text/javascript">
+
+    //设置默认值
+    var customtoday = new Date();
+    var currentObj; //当前选中对象
+    var selectYear = customtoday.getFullYear();
+    var selectMonth = customtoday.getMonth() + 1;
+    var selectDay = customtoday.getDate();
+    var customStart, customEnd;
+    var dateArr, selectId;
+
+    function calendar_init(obj, args) {
+        var title_bg_color = (args && args.title_bg_color) ? args.title_bg_color : ""; //按钮区域背景颜色
+        var title_color = (args && args.title_color) ? args.title_color : ""; //按钮区域字体颜色
+        var line_style = (args && args.line_style) ? args.line_style : "solid 1px"; //自定义分隔线样式
+        var day_bg_color = (args && args.day_bg_color) ? args.day_bg_color : ""; //星期的背景颜色
+        var day_color = (args && args.day_color) ? args.day_color : ""; //星期的背景颜色
+        var date_bg_color = (args && args.date_bg_color) ? args.date_bg_color : ""; //日期的背景颜色
+        var date_color = (args && args.date_color) ? args.date_color : ""; //日期的背景颜色
+        var date_active_color = (args && args.date_active_color) ? args.date_active_color : ""; //特殊日期颜色
+        var line_height = (args && args.line_height) ? args.line_height : 35; //特殊日期颜色
+
+        var today = new Date(); //今天的日期，备用
+
+        obj.attr("onselectstart", "return false;").css("-moz-user-select", "none"); //阻止元素中的文本被双击时变成选中状态
+        var cal_width = obj.width();
+        if (cal_width < 200) {
+            obj.html("<span style='color:red'>错误：日历区域宽度小于200px，日历无法正常显示!</span>");
+            return;
+        }
+        var cal_height = obj.height();
+
+        var pane_height = cal_width / 7;
+        //-0.08用于兼容Firefox、Opera
+        if (navigator.userAgent.indexOf("OPR") > -1
+            || navigator.userAgent.indexOf("Firefox") > -1
+            || navigator.userAgent.indexOf("Opera") > -1) {
+            pane_height = cal_width / 7 - 0.08;
+        }
+
+        var line1 = $("<div></div>");
+        line1.width("100%")
+            .height(line_height)
+            .css("border-bottom", line_style)
+            .css("background", title_bg_color);
+
+        var btn_year_down = $("<div><span><i class='fa fa-angle-double-left' title='上一年'></i></span></div>");
+        btn_year_down.width("20%");
+        btn_year_down.children("span").click(function (e) {
+            var val = obj.find("div.date_value").text();
+            var old_year = parseInt(val.substring(0, 4));
+            var old_month = parseInt(val.substring(val.indexOf("年") + 1, val.lastIndexOf("月")));
+            var year = old_year - 1;
+            val = year + "年" + old_month + "月";
+
+            selectYear = year; //点击修改年份
+            calendar_core(val, obj, date_active_color, line_height);
+            obj.find("div.date_value").text(val);
+        });
+
+        var btn_month_down = $("<div><span><i class='fa fa-angle-left' title='上一月'></i></span></div>");
+        btn_month_down.width("10%");
+        btn_month_down.children("span").click(function (e) {
+            var val = obj.find("div.date_value").text();
+            var old_year = parseInt(val.substring(0, 4));
+            var old_month = parseInt(val.substring(val.indexOf("年") + 1, val.lastIndexOf("月")));
+            var year;
+            var month;
+            if (old_month > 1) {
+                month = old_month - 1;
+                year = old_year;
+
+            } else {
+                month = 12;
+                year = old_year - 1;
+                selectYear = year;
+
+            }
+            val = year + "年" + month + "月";
+            selectMonth = month; //点击修改月份
+            firstLoad = true;
+            //document.getElementById("page-loading").style.display = "block";
+            //getMonthTickts();
+            calendar_core(val, obj, date_active_color, line_height);
+            obj.find("div.date_value").text(val);
+
+        });
+
+        var date_value = $("<div></div>");
+        date_value.width("40%");
+        date_value.addClass("date_value");
+        date_value.text(today.getFullYear() + "年" + (today.getMonth() + 1) + "月");
+
+        var btn_month_up = $("<div><span><i class='fa fa-angle-right' title='下一月'></i></span></div>");
+        btn_month_up.width("10%");
+        btn_month_up.children("span").click(function (e) {
+            var val = obj.find("div.date_value").text();
+            var old_year = parseInt(val.substring(0, 4));
+            var old_month = parseInt(val.substring(val.indexOf("年") + 1, val.lastIndexOf("月")));
+            var year;
+            var month;
+            if (old_month < 12) {
+                month = old_month + 1;
+                year = old_year;
+            } else {
+                month = 1;
+                year = old_year + 1;
+                selectYear = year;
+            }
+
+            val = year + "年" + month + "月";
+            selectMonth = month; //点击修改月份
+            firstLoad = true;
+            //document.getElementById("page-loading").style.display = "block";
+            //getMonthTickts();
+            calendar_core(val, obj, date_active_color, line_height);
+            obj.find("div.date_value").text(val);
+
+        });
+
+        var btn_year_up = $("<div><span><i class='fa fa-angle-double-right' title='下一年'></i></span></div>");
+        btn_year_up.width("20%");
+        btn_year_up.children("span").click(function (e) {
+            var val = obj.find("div.date_value").text();
+            var old_year = parseInt(val.substring(0, 4));
+            var old_month = parseInt(val.substring(val.indexOf("年") + 1, val.lastIndexOf("月")));
+            var year = old_year + 1;
+            val = year + "年" + old_month + "月";
+            selectYear = year; //点击修改年份
+            calendar_core(val, obj, date_active_color, line_height);
+            obj.find("div.date_value").text(val);
+
+        });
+
+        line1.append(btn_year_down).append(btn_month_down).append(date_value).append(btn_month_up).append(btn_year_up);
+
+        obj.append(line1);
+        obj.find("a").css("color", "#000").css("text-decoration", "none");
+        line1.find("div").css("float", "left")
+            .css("text-align", "center")
+            .css("line-height", line_height + "px")
+            .css("font-size", "100%")
+            .css("color", title_color)
+            .height(line_height);
+        line1.find("span").css("cursor", "pointer");
+
+        var line2 = $("<div></div>");
+        line2.width("100%")
+            .height(line_height)
+            .css("background", day_bg_color)
+            .css("color", day_color);
+        obj.append(line2);
+
+        var days = new Array("一", "二", "三", "四", "五", "六", "日"); //星期	
+        for (var i = 0; i < 7; i++) {
+            var pane = $("<div></div>");
+            pane.width(pane_height);
+            pane.height(line_height);
+            pane.css("line-height", line_height + "px");
+            pane.css("float", "left");
+            pane.css("text-align", "center");
+            pane.css("font-size", "100%");
+            pane.css("color", "#999");
+            pane.text(days[i]);
+            line2.append(pane);
+        }
+
+        var line3 = $("<div></div>");
+        line3.width("100%")
+            .height("auto")
+            .css("background", date_bg_color)
+            .css("overflow", "hidden")
+            .css("color", date_color);
+        line3.addClass("calendar_dates");
+        obj.append(line3);
+
+        calendar_core(date_value.text(), obj, date_active_color, line_height);
+    }
+
+    //约定：val为“2016年9月这样的字符串”
+    function calendar_core(val, obj, date_active_color, line_height) {
+
+        obj.find(".calendar_pane").remove();
+
+        var pane_height = obj.width() / 7;
+        //-0.08用于兼容Firefox、Opera
+        if (navigator.userAgent.indexOf("OPR") > -1 || navigator.userAgent.indexOf("Firefox") > -1 || navigator.userAgent.indexOf("Opera") > -1) {
+            pane_height = obj.width() / 7 - 0.08;
+        }
+        var month_big = new Array("1", "3", "5", "7", "8", "10", "12"); //包含所有大月的数组
+        var month_small = new Array("4", "6", "9", "11"); //包含所有小月的数组
+
+        var today = new Date();
+        var year, month;
+        var date = today.getDate();
+
+        var month1 = today.getMonth() + 1;
+        var currentDay = today.getFullYear().toString() + month1.toString() + date.toString();
+        selectId = currentDay + "s";
+        Date_isappend = false;
+        if (val) {
+            year = parseInt(val.substring(0, 4));
+            month = parseInt(val.substring(val.indexOf("年") + 1, val.lastIndexOf("月")));
+        } else {
+            year = today.getFullYear();
+            month = today.getMonth() + 1;
+        }
+
+        var temp_date = new Date(year, month - 1);
+        var start = temp_date.getDay() + 7;
+        var end;
+
+        if (array_contain(month_big, month)) {
+            end = start + 31;
+        }
+        else if (array_contain(month_small, month)) {
+            end = start + 30;
+        }
+        else {
+            if (isLeapYear(year)) {
+                end = start + 29;
+            }
+            else {
+                end = start + 28;
+            }
+        }
+
+        for (var i = 7; i < start - 1; i++) {
+            var pane = $("<div></div>");
+            pane.addClass("calendar_pane");
+            pane.width(pane_height);
+            pane.height(line_height);
+            pane.css("float", "left");
+            obj.find(".calendar_dates").append(pane);
+        }
+
+        customStart = start;
+        customEnd = end;
+
+        for (var i = customStart; i < customEnd; i++) {
+            var dayId = i - start + 1;
+            //console.log(dayID);
+            var divId = selectYear.toString() + selectMonth.toString() + dayId.toString();
+            var spanId = divId + "s";
+            var pane = $("<div id=\"" + divId + "\"><span id=\"" + spanId + "\">" + dayId + "</span></div>");
+            pane.addClass("calendar_pane");
+            pane.width(pane_height);
+            pane.height(line_height);
+            pane.css("line-height", line_height + "px");
+            pane.css("float", "left");
+            pane.css("text-align", "center");
+            //pane.text("<span>"+dayID+"</span>");
+            if (year == today.getFullYear() && (month == today.getMonth() + 1) && i - start + 1 == date) {
+                //  pane.css("background-color", "#333");
+                currentObj = pane;
+            }
+            obj.find(".calendar_dates").append(pane);
+        }
+
+        $('#' + selectId).css({
+            "color": "#f87d69" // 淡红f87d69
+        });
+
+        $('#' + currentDay).css({
+            "background": "#E0E0E0" // 淡红f87d69
+        });
+
+        return;
+
+        $.ajax({
+            type: "POST",
+            url: "MService.asmx/ArtLoadMyOrdersItem",
+            data: "{}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (g) {
+                //alert("ajax");
+                var f = $.parseJSON(g.d);
+                console.log(f);
+                //console.log(selectId);
+
+                if (f[0] == 0) {
+                    //selectId
+                    for (var d in f[2]) {
+
+                        var y = f[2][d][22];
+                        var m = f[2][d][23];
+                        var day = f[2][d][24];
+                        selectId = y + m + day + "s";
+
+                        var box = document.createElement("selectId");
+                        box.className = "haveclass";//添加class属性值
+                        //console.log(selectId);
+
+                        $('#' + selectId).css({
+                            "background": "#f87d69" // 淡红f87d69
+                        });
+                    }
+
+                }
+                else {
+
+                    //alert(f.errmsg);
+
+                }
+            },
+            error: function (c) {
+                //alert(c);
+                //alert("C");
+            },
+
+            complete: function () {
+
+            }
+        })
+
+        //GetPerformDays(selectYear, selectMonth);
+    }
+
+    //判断数组array中是否包含元素obj的函数，包含则返回true，不包含则返回false
+    function array_contain(array, obj) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i] == obj)
+                return true;
+        }
+        return false;
+    }
+
+    //判断年份year是否为闰年，是闰年则返回true，否则返回false
+    function isLeapYear(year) {
+        var a = year % 4;
+        var b = year % 100;
+        var c = year % 400;
+        if (((a == 0) && (b != 0)) || (c == 0)) {
+            return true;
+        }
+        return false;
+    }
+
+
+
+    function setDate(self) {
+
+        //    $(currentObj).css({
+        //        "background-color": ""
+        //    });
+        //    $(self).css({
+        //        "background-color": "#333"
+        //    });
+        //    currentObj = self;
+
+        console.log(selectDay);
+        //var result = dateArr.indexOf(selectDay);
+        result = selectDay;
+        if (result != -1) {
+            $('#' + selectId).css({
+                "background": "#888"//白色，888灰色，000黑色
+            });
+        } else {
+            $('#' + selectId).css({
+                "background": ""//
+            });
+        }
+
+        selectDay = $(self).text();
+        var spanId = selectYear.toString() + selectMonth.toString() + $(self).text() + "s";
+
+        $('#' + spanId).css({
+            "background": "#f87d69"//淡绿色
+        });
+
+        selectId = spanId;
+
+        pageDateIndex = 0;
+        isDone = false;
+        Date_checkinfo_total = 0;
+        Date_isappend = false;
+        firstLoad = false;
+        loadCount = 0;
+        currentkeyword = "";
+        //ArtSearchDateSingleOrderItem();
+    }
+
+
+    function ArtSearchDateSingleOrderItem() {
+
+    }
+</script>

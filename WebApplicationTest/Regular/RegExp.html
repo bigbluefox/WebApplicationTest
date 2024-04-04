@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>new RegExp Test</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link href="../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+    <link href="../Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="../Scripts/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+    <link href="../Scripts/bootstrap/css/bootstrap-table.css" rel="stylesheet"/>
+    <link href="../Scripts/bootstrap/css/docs.min.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        
+        
+        
+    </style>
+
+    <script type="text/javascript">
+
+        var fileExt = ["jpg", "png", "gif", "bmp", "tif"];
+        var fileExtExpr = new RegExp("\\.(" + fileExt.join("|") + ")$", "i");
+
+        //alert(fileExtExpr.test('.jpg3'));
+        //alert((new RegExp("\\.(" + fileExt.join("|") + ")$", "i")).test('.jpg'));
+
+        var a = "20141021123212";
+        var reg4 = /(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/;
+        a = a.replace(reg4, "$1-$2-$3 $4:$5:$6");
+        //document.write(a);
+        //document.write("<br/>");
+
+        var txtTitle = "三五零 向日寇进攻！";
+        ///([第]?)([一二三四五六七八九十百千]{1,})(章[ ]?[：:]{1})([\s\S]*?)/;
+        var chapterReg = /([第]{0,1})([○零一二三四五六七八九十百千]{1,})([章]{0,1}[ ]{0,1}[：:]{0,1})([\s\S]*?)/;
+        txtTitle = txtTitle.replace(chapterReg, "第$2章 $4");
+        //txtTitle.replace(chapterReg, "第$2章 $4");
+
+        //debugger;
+
+        chapterReg = /([\s\S]*?[第]{0,1})([○零一二三四五六七八九十百千]{1,})([章]{0,1}[ ]{0,1}[：:]{0,1})([\s\S]*?)/;
+        txtTitle = "红警之从废土开始 第4章 英雄级动员兵";
+        var abc = txtTitle.match(chapterReg);
+
+        txtTitle = txtTitle.replace(chapterReg, "$1,$2,$3,$4");
+
+        var test = window.location.protocol + "//" + window.location.host;
+        //alert(test);
+
+        //alert(abc == null ? txtTitle : abc.length + " * " + abc[0] + " * " + abc[1] + " * " + abc[2]);
+
+        //document.write(txtTitle);
+        //document.write("<br/>");
+
+        var str = "第10章 超级步枪（4）（求推荐）";
+        str = "第10章 超级步枪（4）";
+        str = "第10章 超级步枪";
+        str = "第6章 女上尉（求收藏）";
+        var regexp = /([\s\S]*?)([(（][^\)）]*([\s\S]*?)[)）])/g;
+        var a = str.match(regexp);
+        //alert(a == null ? str : a.length + " * " + a[0] + " * " + a[1] + " * " + a[2]);
+
+        //debugger;
+
+        var title = str.replace(regexp, "$1,$2");
+        var titleArr = title.split(',');
+
+        if (titleArr.length > 1 && titleArr[1].length > 3) {
+            str = titleArr[0];
+
+            //alert(titleArr[0] + " * " + titleArr[1] + " * " + titleArr[1].length);
+        }
+
+        str = '订单号：{0}，交易商品：{1}，初步估价：{2}元';
+        var re = /{(.*?)}/g;
+        var temp, array = [];
+        while (temp = re.exec(str)) {
+            array.push(temp[0]);
+        }
+        //alert(array);
+
+
+
+
+        //alert(a[0]);
+        //alert(a[1]);
+        //alert(a[2]);
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+    <h3>正则表达式测试</h3>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="form-group">
+            <label for="txtContent">章节内容</label>
+            <textarea class="form-control" id="txtContent" rows="10"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+        </button>
+
+        <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+        </button>
+
+    </form>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+<script src="../Scripts/jquery/jquery-1.12.4.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+<script src="../Scripts/bootstrap/js/bootstrap.min.js"></script>
+<script src="../Scripts/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../Scripts/bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+<script src="../Scripts/bootstrap/js/bootstrap-table.js"></script>
+<script src="../Scripts/bootstrap/js/locales/bootstrap-table-zh-CN.js"></script>
+
+<script type="text/javascript">
+
+    $(function () {
+
+        debugger;
+
+        var rst = "", text = "";
+        var replaceReg = new RegExp("[Pp][Ss][\d]?[:：].*", "gi");
+        str = ' 　　PS：【新书上传，PK阶段，每天保底三更，随时爆发！跪求兄弟们收藏投票打赏！青山羊拜谢兄弟们啦！！！】 ';
+        var matchResult = str.match(replaceReg);
+        rst = matchResult == null ? str : matchResult[0];
+
+
+        str = '\n\n叶天话音刚落，系统的提示音就又响了起来。\n还没来得及回应，叶天就发现，鬼子班长松下一郎正在快步走来。\nPS：【新书上传，PK阶段，每天保底三更，随时爆发！跪求兄弟们收藏投票打赏！青山羊拜谢兄弟们啦！！！】           \n还没来得及回应，叶天就发现，鬼子班长松下一郎正在快步走来。\n还没来得及回应，叶天就发现，鬼子班长松下一郎正在快步走来。';
+        var strArr = str.split('\n');
+        str = "";
+
+
+        $.each(strArr, function () {
+            text = this.trim(); // $(this).text()
+            var aa = text;
+            if (text.length > 0) {
+                rst = text.replace(replaceReg, "");
+                if (rst.length > 0) {
+                    str += rst + "\n";
+                }
+            }
+        });
+
+        $("#txtContent").val(str);        
+    });
+
+
+
+
+</script>
+
+</body>
+</html>

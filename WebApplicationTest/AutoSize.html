@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A small, stand-alone script to automatically adjust textarea height.</title>
+    <link href="Scripts/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <!--<link href="Scripts/bootstrap/css/bootstrap-theme.css" rel="stylesheet"/>-->
+    <script src="Scripts/autosize.js"></script>
+
+    <style type="text/css">
+        body {
+            padding: 10px;
+        }
+
+        textarea {
+            width: 100%;
+        }
+
+        img {
+            cursor: pointer;
+        }
+
+
+
+        .table {
+            table-layout: fixed;
+        }
+
+        th, td {
+            -moz-text-overflow: ellipsis; /* for Firefox, mozilla */
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+            text-align: left;
+            text-overflow: ellipsis; /* for IE */
+            white-space: nowrap;
+            /*border: 1px solid #a4bed4;
+        padding: 0 5px;*/
+            /*word-break:keep-all;*/ /* 不换行 */
+            /*white-space:nowrap;*/ /* 不换行 */
+            /*overflow:hidden;*/ /* 内容超出宽度时隐藏超出部分的内容 */
+            /*text-overflow:ellipsis;*/ /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+        }
+
+        @media print {
+            #autosize-example {
+                display: none;
+            }
+
+            #autosize-div {
+                display: block;
+            }
+        }
+
+        @media only screen {
+            #autosize-example {
+                display: block;
+            }
+
+            #autosize-div {
+                display: none;
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+        function TextAutoSize(id) {
+            autosize(document.getElementById(id));
+        }
+    </script>
+
+</head>
+<body onload="TextAutoSize('autosize-example');">
+
+    <h2>Demo</h2>
+    <p>
+        <textarea id="autosize-example" placeholder="Try typing something...">
+
+  长期以来国际空间站不断尝试在低重力环境下培育地球植物，为今后的长途星际旅行做准备。
+近日，宇航员Peggy Whitson首获了自己的新成果——中国小白菜。
+据介绍，这是国际空间站第五批收割的太空蔬菜，也是第一次成功种植中国小白菜。研究人员经过一系列严格标准评估多种多叶蔬菜，最终选择中国小白菜，评估标准包括：蔬菜生长状况，以及营养价值等。
+对于此次首获的小白菜，其中一部分将作为食物被宇航员们享用，剩下的则会被送往肯尼迪太空中心进行研究。          
+  长期以来国际空间站不断尝试在低重力环境下培育地球植物，为今后的长途星际旅行做准备。
+近日，宇航员Peggy Whitson首获了自己的新成果——中国小白菜。
+据介绍，这是国际空间站第五批收割的太空蔬菜，也是第一次成功种植中国小白菜。研究人员经过一系列严格标准评估多种多叶蔬菜，最终选择中国小白菜，评估标准包括：蔬菜生长状况，以及营养价值等。
+对于此次首获的小白菜，其中一部分将作为食物被宇航员们享用，剩下的则会被送往肯尼迪太空中心进行研究。      
+    
+
+    The coconut palm (also, cocoanut), Cocos nucifera, is a member of the family Arecaceae (palm family). It is the only accepted species in the genus Cocos.[2] The term coconut can refer to the entire coconut palm, the seed, or the fruit, which, botanically, is a drupe, not a nut. The spelling cocoanut is an archaic form of the word.[3] The term is derived from 16th-century Portuguese and Spanish coco, meaning "head" or "skull",[4] from the three small holes on the coconut shell that resemble human facial features.
+
+</textarea>
+
+        <div id="autosize-div">
+            长期以来国际空间站不断尝试在低重力环境下培育地球植物，为今后的长途星际旅行做准备。
+近日，宇航员Peggy Whitson首获了自己的新成果——中国小白菜。
+据介绍，这是国际空间站第五批收割的太空蔬菜，也是第一次成功种植中国小白菜。研究人员经过一系列严格标准评估多种多叶蔬菜，最终选择中国小白菜，评估标准包括：蔬菜生长状况，以及营养价值等。
+对于此次首获的小白菜，其中一部分将作为食物被宇航员们享用，剩下的则会被送往肯尼迪太空中心进行研究。          
+  长期以来国际空间站不断尝试在低重力环境下培育地球植物，为今后的长途星际旅行做准备。
+近日，宇航员Peggy Whitson首获了自己的新成果——中国小白菜。
+据介绍，这是国际空间站第五批收割的太空蔬菜，也是第一次成功种植中国小白菜。研究人员经过一系列严格标准评估多种多叶蔬菜，最终选择中国小白菜，评估标准包括：蔬菜生长状况，以及营养价值等。
+对于此次首获的小白菜，其中一部分将作为食物被宇航员们享用，剩下的则会被送往肯尼迪太空中心进行研究。      
+    
+
+    The coconut palm (also, cocoanut), Cocos nucifera, is a member of the family Arecaceae (palm family). It is the only accepted species in the genus Cocos.[2] The term coconut can refer to the entire coconut palm, the seed, or the fruit, which, botanically, is a drupe, not a nut. The spelling cocoanut is an archaic form of the word.[3] The term is derived from 16th-century Portuguese and Spanish coco, meaning "head" or "skull",[4] from the three small holes on the coconut shell that resemble human facial features.
+
+        </div>
+    </p>
+
+    <img id="validcode" alt="验证码，看不清，换一张图片" title="验证码，看不清，换一张图片" src="Handler/ValidateCodeHandler.ashx" style="margin-top: -3px; vertical-align: middle;" onclick=" this.src = 'Handler/ValidateCodeHandler.ashx?' + (new Date().getTime()); " />
+
+    <br />
+    <br />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="text-align: center; width: 10%;">序号</th>
+                <th style="text-align: center; width: 20%;">标准号</th>
+                <th style="text-align: center; width: 45%;">标准名称</th>
+                <th style="text-align: center;">实施日期</th>
+                <th style="text-align: center; width: 10%;">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;">1</td>
+                <td title="Q/CRPJSXZ 2203.01.01-2017">Q/CRPJSXZ 2203.01.01-2017</td>
+                <td title="运行计划管理标准 一直有个疑惑，网咖在竞争更残酷，变迁更迅速的大城市，现在发展的怎么样了呢？会不会发展的更加超前？">运行计划管理标准 一直有个疑惑，网咖在竞争更残酷，变迁更迅速的大城市，现在发展的怎么样了呢？会不会发展的更加超前？</td>
+                <td style="text-align: center;">2017-12-11</td>
+                <td style="text-align: center;">
+                    <a onclick="Hitech.File.showDocument('16', 'docx', 'False')" href="javascript:void(0)">打开</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br />
+    <br />
+
+    <a href="http://zhdoc.cecep.cn:81/link/7C4B071E478FEBC2903569C7E734B6D0" target="_blank">视频测试</a>
+
+
+    <script>
+        //autosize(document.getElementById('autosize-example'));
+
+
+
+    </script>
+
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <li class="nav-item has-treeview" id="m_1"><a href="#" class="nav-link"><i class="fa fa-tasks"></i>
+            <p>计划任务管理            <i class="right fa fa-angle-left"></i><span class="badge badge-info right">3</span>        </p>
+        </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item" id="m_75"><a href="/Task/Dispatcher?mid=75&amp;mpid=1&amp;mapname=计划任务管理.订单运输管理" class="nav-link"><i class="fa fa-truck nav-icon"></i>
+                    <p>订单运输管理</p>
+                </a></li>
+                <li class="nav-item" id="m_76"><a href="/Task/Dispatcher/EarlyWarning?mid=76&amp;mpid=1&amp;mapname=计划任务管理.站点清运管理" class="nav-link"><i class="fa fa-truck nav-icon"></i>
+                    <p>站点清运管理</p>
+                </a></li>
+                <li class="nav-item" id="m_77"><a href="/Task/Dispatcher/Scheduling?mid=77&amp;mpid=1&amp;mapname=计划任务管理.车辆调度管理" class="nav-link"><i class="fa fa-truck nav-icon"></i>
+                    <p>车辆调度管理</p>
+                </a></li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview" id="m_2"><a href="#" class="nav-link"><i class="fa fa-recycle"></i>
+            <p>回收物管理            <i class="right fa fa-angle-left"></i><span class="badge badge-info right">5</span>        </p>
+        </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item" id="m_36"><a href="/Recycling/RecyclingOrderbills/TableList?mid=36&amp;mpid=2&amp;mapname=回收物管理.用户回收订单" class="nav-link"><i class="fa fa-wpforms nav-icon"></i>
+                    <p>用户回收订单</p>
+                </a></li>
+                <li class="nav-item" id="m_41"><a href="/Recycling/RecyclingSiterecyclingsummaries?mid=41&amp;mpid=2&amp;mapname=回收物管理.站点回收汇总" class="nav-link"><i class="fa fa-reorder nav-icon"></i>
+                    <p>站点回收汇总</p>
+                </a></li>
+                <li class="nav-item" id="m_42"><a href="/Recycling/RecyclingSitemanualwarnings?mid=42&amp;mpid=2&amp;mapname=回收物管理.站点人工爆仓预警" class="nav-link"><i class="glyphicon glyphicon-warning-sign nav-icon"></i>
+                    <p>站点人工爆仓预警</p>
+                </a></li>
+                <li class="nav-item" id="m_46"><a href="/Recycling/RecyclingTransportationbills?mid=46&amp;mpid=2&amp;mapname=回收物管理.回收物运输单" class="nav-link"><i class="fa fa-wpforms nav-icon"></i>
+                    <p>回收物运输单</p>
+                </a></li>
+                <li class="nav-item" id="m_47"><a href="/Recycling/RecyclingApplicationbills?mid=47&amp;mpid=2&amp;mapname=回收物管理.回收物清运申请" class="nav-link"><i class="fa fa-reorder nav-icon"></i>
+                    <p>回收物清运申请</p>
+                </a></li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview" id="m_3"><a href="#" class="nav-link"><i class="glyphicon glyphicon-info-sign"></i>
+            <p>基础信息管理            <i class="right fa fa-angle-left"></i><span class="badge badge-info right">6</span>        </p>
+        </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item" id="m_43"><a href="/Recycling/RecyclingItems/TreeList?mid=43&amp;mpid=3&amp;mapname=基础信息管理.回收物品类" class="nav-link"><i class="fa fa-sitemap nav-icon"></i>
+                    <p>回收物品类</p>
+                </a></li>
+                <li class="nav-item" id="m_52"><a href="/Recycling/RecyclingSites?mid=52&amp;mpid=3&amp;mapname=基础信息管理.回收站点信息" class="nav-link"><i class="glyphicon glyphicon-info-sign nav-icon"></i>
+                    <p>回收站点信息</p>
+                </a></li>
+                <li class="nav-item" id="m_48"><a href="/Recycling/RecyclingSitejurisdictions?mid=48&amp;mpid=3&amp;mapname=基础信息管理.站点管辖范围" class="nav-link"><i class="glyphicon icon-riflescope nav-icon"></i>
+                    <p>站点管辖范围</p>
+                </a></li>
+                <li class="nav-item" id="m_44"><a href="/Recycling/RecyclingItemwarningoptions?mid=44&amp;mpid=3&amp;mapname=基础信息管理.品类爆仓预警配置" class="nav-link"><i class="glyphicon glyphicon-warning-sign nav-icon"></i>
+                    <p>品类爆仓预警配置</p>
+                </a></li>
+                <li class="nav-item" id="m_53"><a href="/Recycling/RecyclingSitewarningoptions?mid=53&amp;mpid=3&amp;mapname=基础信息管理.站点爆仓预警配置" class="nav-link"><i class="glyphicon glyphicon-warning-sign nav-icon"></i>
+                    <p>站点爆仓预警配置</p>
+                </a></li>
+                <li class="nav-item" id="m_50"><a href="/Recycling/RecyclingSiterecyclingcategories/TableList?mid=50&amp;mpid=3&amp;mapname=基础信息管理.站点回收品类" class="nav-link"><i class="fa fa-sitemap nav-icon"></i>
+                    <p>站点回收品类</p>
+                </a></li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview" id="m_9"><a href="#" class="nav-link"><i class="glyphicon glyphicon-stats"></i>
+            <p>统计分析            <i class="right fa fa-angle-left"></i><span class="badge badge-info right">6</span>        </p>
+        </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item" id="m_79"><a href="#" class="nav-link"><i class="glyphicon glyphicon-stats nav-icon"></i>
+                    <p>回收订单统计</p>
+                </a></li>
+                <li class="nav-item" id="m_80"><a href="#" class="nav-link"><i class="glyphicon glyphicon-stats nav-icon"></i>
+                    <p>清运订单统计</p>
+                </a></li>
+                <li class="nav-item" id="m_81"><a href="#" class="nav-link"><i class="glyphicon glyphicon-stats nav-icon"></i>
+                    <p>历史运单统计</p>
+                </a></li>
+                <li class="nav-item" id="m_82"><a href="#" class="nav-link"><i class="glyphicon glyphicon-stats nav-icon"></i>
+                    <p>车辆运输统计</p>
+                </a></li>
+                <li class="nav-item" id="m_83"><a href="/Vehicle/VehicleUserecords/MileageStatistics?mid=83&amp;mpid=9&amp;mapname=统计分析.行驶里程数统计" class="nav-link"><i class="glyphicon glyphicon-stats nav-icon"></i>
+                    <p>行驶里程数统计</p>
+                </a></li>
+                <li class="nav-item" id="m_95"><a href="#" class="nav-link"><i class="glyphicon glyphicon-stats nav-icon"></i>
+                    <p>站点爆仓预警查询统计</p>
+                </a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+<style type="text/css">
+    
+    .nav-link:first-child{}
+
+</style>
+
+
+
+
+
+
+
+
+    <ul class="nav nav-stacked">
+        <li>
+            <a class="dropdown-collapse" href="#">
+                <i class="glyphicon glyphicon-education"></i>
+                <span>我的大学</span>
+                <span class="badge"></span>
+                <i class="icon-angle-down angle-down"></i>
+            </a>
+            <ul class="nav nav-stacked">
+                <li>
+                    <a href="/Course/MyCourse.aspx">
+                        <i class="glyphicon icon-adress-book"></i>
+                        <span>我的课程</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Class/MyClass.aspx">
+                        <i class="glyphicon glyphicon-tasks"></i>
+                        <span>培训批次</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Course/CourseVariable.aspx">
+                        <i class="glyphicon icon-group"></i>
+                        <span>课程选修</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Exam/MyExam.aspx">
+                        <i class="glyphicon icon-notes-2"></i>
+                        <span>我的考试</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Exam/MyScore.aspx">
+                        <i class="glyphicon glyphicon-bookmark"></i>
+                        <span>我的成绩</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-reorder"></i>
+                        <span>顶顶顶</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="dropdown-collapse" href="#">
+                <i class="glyphicon glyphicon-book"></i>
+                <span>课程管理</span>
+                <span class="badge"></span>
+                <i class="icon-angle-down angle-down"></i>
+            </a>
+            <ul class="nav nav-stacked">
+                <li>
+                    <a href="/Course/CourseCatalog.aspx">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                        <span>课程分类</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Course/CourseSetup.aspx">
+                        <i class="glyphicon glyphicon-book"></i>
+                        <span>课程管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Course/Courseware.aspx">
+                        <i class="fa fa-book"></i>
+                        <span>课件管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Exam/ExamPool.aspx">
+                        <i class="glyphicon glyphicon-tower"></i>
+                        <span>题库管理</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="dropdown-collapse" href="#">
+                <i class="glyphicon glyphicon-user"></i>
+                <span>培训管理</span>
+                <span class="badge"></span>
+                <i class="icon-angle-down angle-down"></i>
+            </a>
+            <ul class="nav nav-stacked">
+                <li>
+                    <a href="/Class/ClassMng.aspx" target="self">
+                        <i class="glyphicon icon-group"></i>
+                        <span>培训批次</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/TrainingResearch/TrainingResearchMng.aspx" target="self">
+                        <i class="fa fa-area-chart"></i>
+                        <span>培训调研</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Course/PostCourse.aspx" target="self">
+                        <i class="glyphicon icon-vcard"></i>
+                        <span>岗位课程管理</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="dropdown-collapse" href="#">
+                <i class="glyphicon glyphicon-stats"></i>
+                <span>数据应用</span>
+                <span class="badge"></span>
+                <i class="icon-angle-down angle-down"></i>
+            </a>
+            <ul class="nav nav-stacked">
+                <li>
+                    <a href="/DataApp/TrainingResults.aspx" target="self">
+                        <i class="glyphicon glyphicon-bookmark"></i>
+                        <span>培训成果</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/DataApp/MatchingTalents.aspx" target="self">
+                        <i class="glyphicon icon-vcard"></i>
+                        <span>匹配人才</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="dropdown-collapse" href="#">
+                <i class="glyphicon glyphicon-cog"></i>
+                <span>系统管理</span>
+                <span class="badge"></span>
+                <i class="icon-angle-down angle-down"></i>
+            </a>
+            <ul class="nav nav-stacked">
+                <li>
+                    <a href="/Authority/AuthUser.aspx">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <span>用户管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Authority/AuthMenu.aspx">
+                        <i class="glyphicon glyphicon-list"></i>
+                        <span>菜单管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/Authority/AuthRight.aspx">
+                        <i class="glyphicon glyphicon-lock"></i>
+                        <span>权限管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/SystemMng/Dictionary.aspx ">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <span>字典管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/SystemMng/SystemLog.aspx ">
+                        <i class="glyphicon icon-table"></i>
+                        <span>系统日志</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.navbar {
+    margin-bottom: 20px;
+    background-color: #26477c;
+    min-height:40px;
+    height:40px;
+}
+.navbar-brand {
+    padding:8px 15px;
+}
+@media all and (min-width:768px) {
+    .navbar-nav > li > a {
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+}
+.navbar-brand h5,.navbar-default .navbar-nav > li > a{
+    color: #fff;
+}
+.navbar-brand h5 {
+    font-size:19px;
+    margin-top:0px;
+    line-height:22px;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color:#000;
+     background-color: #f6f6f6;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+
+        background-color:#fff;
+        color:#000;
+}
+.navbar-right #standard-exit {
+    float: right;
+    width: 50px;
+    height: 40px;
+    background: url("/Images/exit-icon.png") no-repeat;
+    margin-top: 3px;
+    margin-right: 10px;
+}

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Request</title>
+
+    <script type="text/javascript">
+
+        //var client = new XMLHttpRequest();
+        //client.open("GET", "datagrid_data1.json", true);
+        //client.send();
+        //client.onreadystatechange = function () {
+        //    if (this.readyState == this.HEADERS_RECEIVED) {
+
+        //        //connection: Keep-Alive
+        //        //content-type: text/plain; charset=utf-8
+        //        //date: Sun, 24 Oct 2004 04:58:38 GMT
+        //        //keep-alive: timeout=15, max=99
+        //        //server: Apache/1.3.31 (Unix)
+        //        //transfer-encoding: chunked
+
+        //        //print(client.getResponseHeader("Content-Type"));
+        //        //print(this.getAllResponseHeaders());
+        //        console.log(client.getResponseHeader("Content-Type"));
+        //        console.log(client.getResponseHeader("Content-Length"));
+        //        console.log(client.getResponseHeader("date"));
+        //        console.log(client.getResponseHeader("server"));
+        //        console.log(client.getResponseHeader("X-Powered-By"));
+
+        //        //console.log(this.getAllResponseHeaders());
+
+        //        //console.log();
+
+        //    }
+        //}
+
+        // The following script: 
+        // The setRequestHeader() method
+        var client = new XMLHttpRequest();
+        client.open('GET', 'Mobile.aspx');
+        client.setRequestHeader('X-Test', 'one');
+        client.setRequestHeader('X-Test', 'two');
+        client.send();
+
+        // …results in the following header being sent:
+        // X-Test: one, two
+
+    </script>
+
+</head>
+<body>
+<progress id=p></progress>
+
+<script type="text/javascript">
+    
+    var progressBar = document.getElementById("p"),
+        client = new XMLHttpRequest();
+
+    client.open("GET", "magical-unicorns");
+    client.onprogress = function (pe) {
+        if (pe.lengthComputable) {
+            progressBar.max = pe.total;
+            progressBar.value = pe.loaded;
+        }
+    }
+    client.onloadend = function (pe) {
+        progressBar.value = pe.loaded;
+    }
+    client.send();
+
+</script>
+
+</body>
+</html>

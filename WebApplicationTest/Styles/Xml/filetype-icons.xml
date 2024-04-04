@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<CssSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <direction>1</direction>
+  <left>23</left>
+  <top>43</top>
+  <imgtype>jpg</imgtype>
+  <filename>filetype-icons</filename>
+  <filedesc>文件类型图标</filedesc>
+  <width>16</width>
+  <height>16</height>
+  <files>
+    <IconsFile>
+      <name>AddFile_16x16.png</name>
+      <alias>addfile-16x16</alias>
+      <path>/Images/AddFile_16x16.png</path>
+      <width>16</width>
+      <height>16</height>
+    </IconsFile>
+    <IconsFile>
+      <name>download.png</name>
+      <alias>download</alias>
+      <path>/Images/download.png</path>
+      <width>16</width>
+      <height>16</height>
+    </IconsFile>
+    <IconsFile>
+      <name>edit.jpg</name>
+      <alias>edit</alias>
+      <path>/Images/edit.jpg</path>
+      <width>16</width>
+      <height>16</height>
+    </IconsFile>
+  </files>
+</CssSettings>

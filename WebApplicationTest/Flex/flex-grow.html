@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>item的flex-grow属性</title>
+    <style type="text/css">
+
+        body { margin: 0; }
+
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        li { list-style-type: none; }
+
+        #list {
+            /*border: 2px solid gold;*/
+            display: flex;
+            -ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;
+            height: 500px;
+        }
+
+        #list li {
+            background: #C00;
+            color: #fff;
+            flex-grow: 1;
+            font-family: "microsoft yahei";
+            font-size: 50px;
+            margin: 1px;
+        }
+
+        #list li:nth-child(2) { flex-grow: 2; }
+
+    </style>
+</head>
+<body>
+<ul id="list">
+    <li>test1</li>
+    <li>test2</li>
+    <li>test3</li>
+</ul>
+</body>
+</html>
+
+<!--http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool)-->

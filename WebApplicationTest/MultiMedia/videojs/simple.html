@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Video.js | HTML5 Video Player</title>
+    <link href="css/video-js.css" rel="stylesheet"/>
+    <script src="js/videojs-ie8.min.js"></script>
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+<script src="js/video.js"></script>
+
+</head>
+<body>
+
+  <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264" poster="video/oceans.png" data-setup="{}">
+    <source src="video/oceans.mp4" type="video/mp4">
+    <source src="video/oceans.webm" type="video/webm">
+    <source src="video/oceans.ogv" type="video/ogg">
+    <track kind="captions" src="video/oceans.vtt" srclang="en" label="English"></track>
+    <!-- Tracks need an ending tag thanks to IE9 -->
+    <track kind="subtitles" src="video/oceans.vtt" srclang="en" label="English"></track>
+    <!-- Tracks need an ending tag thanks to IE9 -->
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+
+<script type="text/javascript">
+    
+
+    var player = videojs('my-player');
+
+    var options = {};
+
+    var player = videojs('my-player', options, function onPlayerReady() {
+        videojs.log('Your player is ready!');
+
+        // In this context, `this` is the player that was created by Video.js.
+        this.play();
+
+        // How about an event listener?
+        this.on('ended', function () {
+            videojs.log('Awww...over so soon?!');
+        });
+    });
+
+</script>
+
+
+</body>
+</html>

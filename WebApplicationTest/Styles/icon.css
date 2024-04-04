@@ -1,0 +1,15 @@
+﻿/* 基础图标样式表， 可以引入各个样式表中, Tli, 2016-08 */
+
+.icon{ width: 16px; height: 16px;border: 0px solid #008000;cursor: pointer;}
+
+.icon-delete { background: url('/Images/del-sc.png') no-repeat center center; }
+
+.icon-view { background: url('/Images/views-16x16.png') no-repeat center center; }
+
+.icon-file { background: url('/Images/file.png') no-repeat center center; }
+
+.icon-edit { background: url('/Images/edit.png') no-repeat center center; }
+
+.icon-info { background: url('/Images/info-16x16.png') no-repeat center center; }
+
+

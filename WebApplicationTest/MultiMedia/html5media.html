@@ -1,0 +1,198 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Audio API</title>
+    <link rel="stylesheet" href="./style/main.css" />
+    <script src="./js/audio-controls.js"></script>
+    <style type="text/css">
+        audio {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML5 Audio API</h1>
+        <p>
+            HTML5 Audio API demo by <a href="<a href='http://github.com/LearnShare'>http://github.com/LearnShare</a>" target="_blank">LearnShare</a>.
+        </p>
+        <p>
+            Last update @2013-04-23 20:40:00
+            + add info table
+            update @2013-04-22 14:54:00
+            + add DOM events
+            update @2013-04-22 12:47:00
+            + add getCurrentSrc button
+        </p>
+        <p>
+            View code on <a href="<a href='http://github.com/LearnShare/LearnShare.github.io/tree/master/labs/audio/'>http://github.com/LearnShare/LearnShare.github.io/tree/master/labs/audio/</a>" target="_blank">LearnShare.github.io</a>.
+            API reference: <a href="<a href='https://developer.mozilla.org/zh-CN/docs/DOM/HTMLMediaElement'>https://developer.mozilla.org/zh-CN/docs/DOM/HTMLMediaElement</a>" target="_blank">HTMLMediaElement</a> and <a href="<a href='http://www.w3schools.com/tags/ref_av_dom.asp'>http://www.w3schools.com/tags/ref_av_dom.asp</a>" target="_blank">Audio/Video DOM References</a>
+        </p>
+    </header>
+    <article>
+        <section>
+            <h2>Audio Element</h2>
+            <audio id="audio" src="./audio/Scarborough%20Fair.mp3" controls="controls"></audio>
+            <p>
+                Open the <strong>developer tool</strong> to view console logs.
+            </p>
+        </section>
+        <section>
+            <h2>Controls</h2>
+            <button id="play">play</button>
+            <button id="pause">pause</button>
+            <button id="get_paused">getPaused</button>
+            <button id="get_ended">getEnded</button>
+
+            <button id="volume_down">volume-</button>
+            <button id="volume_up">volume+</button>
+            <button id="get_volume">getVolume</button>
+
+            <button id="get_src">getSrc</button>
+            <button id="play_music1">playMusic1</button>
+            <button id="play_music2">playMusic2</button>
+            <button id="remove_music">removeMusic</button>
+            <button id="get_current_src">getCurrentSrc</button>
+
+            <button id="get_initial_time">getInitialTime</button>
+            <button id="get_duration">getDuration</button>
+            <button id="get_seeking">getSeeking</button>
+            <button id="jump_to">jumpTo_30s</button>
+            <button id="get_current_time">getCurrentTime</button>
+            <button id="get_played">getPlayed</button>
+
+            <button id="autoplay_on">autoplay_on</button>
+            <button id="autoplay_off">autoplay_off</button>
+            <button id="get_autoplay">getAutoplay</button>
+
+            <button id="controls_show">controls_show</button>
+            <button id="controls_hide">controls_hide</button>
+            <button id="get_controls">getControls</button>
+
+            <button id="loop_on">loop_on</button>
+            <button id="loop_off">loop_off</button>
+            <button id="get_loop">getLoop</button>
+
+            <button id="preload_metadata">preload_metadata</button>
+            <button id="get_preload">getPreload</button>
+
+            <button id="get_default_muted">getDefaultMuted</button>
+            <button id="mute">mute</button>
+            <button id="unmute">unmute</button>
+            <button id="get_muted">getMuted</button>
+
+            <button id="get_default_playback_rate">getDefaultPlaybackRate</button>
+            <button id="playback_rate_down">playbackRate-</button>
+            <button id="playback_rate_up">playbackRate+</button>
+            <button id="get_playback_rate">getPlaybackRate</button>
+
+            <button id="get_network_state">getNetworkState</button>
+            <button id="get_ready_state">getReadyState</button>
+            <button id="get_buffered">getBuffered</button>
+            <button id="get_seekable">getSeekable</button>
+        </section>
+    </article>
+    <aside>
+        <section>
+            <h3>Player Attrs</h3>
+            <table>
+                <tr>
+                    <td>autoplay:</td>
+                    <td id="autoplay"></td>
+                </tr>
+                <tr>
+                    <td>controls:</td>
+                    <td id="controls"></td>
+                </tr>
+                <tr>
+                    <td>defaultMuted:</td>
+                    <td id="default_muted"></td>
+                </tr>
+                <tr>
+                    <td>defaultPlaybackRate:</td>
+                    <td id="default_playback_rate"></td>
+                </tr>
+                <tr>
+                    <td>loop:</td>
+                    <td id="loop"></td>
+                </tr>
+                <tr>
+                    <td>preload:</td>
+                    <td id="preload"></td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>Player Info</h3>
+            <table>
+                <tr>
+                    <td>src:</td>
+                    <td id="src"></td>
+                </tr>
+                <tr>
+                    <td>currentSrc:</td>
+                    <td id="current_src"></td>
+                </tr>
+                <tr>
+                    <td>duration:</td>
+                    <td id="duration"></td>
+                </tr>
+                <tr>
+                    <td>currentTime:</td>
+                    <td id="current_time"></td>
+                </tr>
+                <tr>
+                    <td>ended:</td>
+                    <td id="ended"></td>
+                </tr>
+                <tr>
+                    <td>paused:</td>
+                    <td id="paused"></td>
+                </tr>
+                <tr>
+                    <td>muted:</td>
+                    <td id="muted"></td>
+                </tr>
+                <tr>
+                    <td>volume:</td>
+                    <td id="volume"></td>
+                </tr>
+                <tr>
+                    <td>playbackRate:</td>
+                    <td id="playback_rate"></td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h3>Play status</h3>
+            <table>
+                <tr>
+                    <td>networkState:</td>
+                    <td id="network_state"></td>
+                </tr>
+                <tr>
+                    <td>readyState:</td>
+                    <td id="ready_state"></td>
+                </tr>
+                <tr>
+                    <td>buffered:</td>
+                    <td id="buffered"></td>
+                </tr>
+                <tr>
+                    <td>seekable:</td>
+                    <td id="seekable"></td>
+                </tr>
+                <tr>
+                    <td>played:</td>
+                    <td id="played"></td>
+                </tr>
+                <tr>
+                    <td>error:</td>
+                    <td id="error"></td>
+                </tr>
+            </table>
+        </section>
+    </aside>
+</body>
+</html>

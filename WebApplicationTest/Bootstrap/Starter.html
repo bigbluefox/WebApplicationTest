@@ -1,0 +1,1293 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link href="../Scripts/bootstrap/css/docs.min.css" rel="stylesheet"/>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../Scripts/bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <!--<link href="starter-template.css" rel="stylesheet">-->
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="/Scripts/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/Scripts/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        body { padding-top: 50px; }
+
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+<div class="container">
+
+<div class="starter-template">
+    <h1>Bootstrap starter template</h1>
+    <p class="lead">
+        Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.
+    </p>
+</div>
+
+<div class="bs-example" data-example-id="animated-progress-bar">
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+            <span class="sr-only">100% Complete</span></div>
+    </div>
+    <button class="btn btn-default bs-docs-activate-animated-progressbar active" aria-pressed="true" type="button" data-toggle="button" autocomplete="off">Toggle animation</button>
+</div>
+
+<br/><br/>
+
+<div class="progress" id="progress">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+        <span class="sr-only">0% Complete</span></div>
+</div>
+
+<label id="pv"></label>
+
+<br/><br/>
+
+
+<div class="page-header">
+    <h1>Buttons</h1>
+</div>
+
+<p>
+    <button class="btn btn-lg btn-default" type="button">Default</button>
+    <button class="btn btn-lg btn-primary" type="button">Primary</button>
+    <button class="btn btn-lg btn-success" type="button">Success</button>
+    <button class="btn btn-lg btn-info" type="button">Info</button>
+    <button class="btn btn-lg btn-warning" type="button">Warning</button>
+    <button class="btn btn-lg btn-danger" type="button">Danger</button>
+    <button class="btn btn-lg btn-link" type="button">Link</button>
+</p>
+
+<p>
+    <button class="btn btn-default" type="button">Default</button>
+    <button class="btn btn-primary" type="button">Primary</button>
+    <button class="btn btn-success" type="button">Success</button>
+    <button class="btn btn-info" type="button">Info</button>
+    <button class="btn btn-warning" type="button">Warning</button>
+    <button class="btn btn-danger" type="button">Danger</button>
+    <button class="btn btn-link" type="button">Link</button>
+</p>
+
+<p>
+    <button class="btn btn-default" type="button">Default</button>
+    <button class="btn btn-primary" type="button">Primary</button>
+    <button class="btn btn-success" type="button">Success</button>
+    <button class="btn btn-info" type="button">Info</button>
+    <button class="btn btn-warning" type="button">Warning</button>
+    <button class="btn btn-danger" type="button">Danger</button>
+    <button class="btn btn-link" type="button">Link</button>
+</p>
+
+<p>
+    <button class="btn btn-default" type="button">Default</button>
+    <button class="btn btn-primary" type="button">Primary</button>
+    <button class="btn btn-success" type="button">Success</button>
+    <button class="btn btn-info" type="button">Info</button>
+    <button class="btn btn-warning" type="button">Warning</button>
+    <button class="btn btn-danger" type="button">Danger</button>
+    <button class="btn btn-link" type="button">Link</button>
+</p>
+
+<div class="page-header">
+    <h1>Tables</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="page-header">
+    <h1>Thumbnails</h1>
+</div>
+
+<img class="img-thumbnail" style="height: 200px; width: 200px;" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMjAweDIwMApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM3MjZjYjU2IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzcyNmNiNTYiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiAvPjxnPjx0ZXh0IHg9Ijc0LjA2NSIgeT0iMTA0LjU5OSI+MjAweDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-src="holder.js/200x200" data-holder-rendered="true">
+
+<img class="img-thumbnail" style="height: 200px; width: 200px;" alt="200x200" src="../Images/Logo.png" data-src="holder.js/200x200" data-holder-rendered="true">
+
+<img src="../Images/Logo.png"/>
+
+<div class="page-header">
+    <h1>Labels</h1>
+</div>
+
+<h1>
+    <span class="label label-default">Default</span>
+    <span class="label label-primary">Primary</span>
+    <span class="label label-success">Success</span>
+    <span class="label label-info">Info</span>
+    <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span>
+</h1>
+
+<h2>
+    <span class="label label-default">Default</span>
+    <span class="label label-primary">Primary</span>
+    <span class="label label-success">Success</span>
+    <span class="label label-info">Info</span>
+    <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span>
+</h2>
+
+<h3>
+    <span class="label label-default">Default</span>
+    <span class="label label-primary">Primary</span>
+    <span class="label label-success">Success</span>
+    <span class="label label-info">Info</span>
+    <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span>
+</h3>
+
+<h4>
+    <span class="label label-default">Default</span>
+    <span class="label label-primary">Primary</span>
+    <span class="label label-success">Success</span>
+    <span class="label label-info">Info</span>
+    <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span>
+</h4>
+
+<h5>
+    <span class="label label-default">Default</span>
+    <span class="label label-primary">Primary</span>
+    <span class="label label-success">Success</span>
+    <span class="label label-info">Info</span>
+    <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span>
+</h5>
+
+<h6>
+    <span class="label label-default">Default</span>
+    <span class="label label-primary">Primary</span>
+    <span class="label label-success">Success</span>
+    <span class="label label-info">Info</span>
+    <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span>
+</h6>
+
+<p>
+    <span class="label label-default">Default</span>
+    <span class="label label-primary">Primary</span>
+    <span class="label label-success">Success</span>
+    <span class="label label-info">Info</span>
+    <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span>
+</p>
+
+
+<div class="page-header">
+    <h1>Badges</h1>
+</div>
+
+<p>
+    <a href="#">Inbox <span class="badge">42</span></a>
+</p>
+
+<ul class="nav nav-pills" role="tablist">
+    <li class="active" role="presentation">
+        <a href="#">Home <span class="badge">42</span></a>
+    </li>
+    <li role="presentation">
+        <a href="#">Profile</a>
+    </li>
+    <li role="presentation">
+        <a href="#">Messages <span class="badge">3</span></a>
+    </li>
+</ul>
+
+
+<div class="page-header">
+    <h1>Dropdown menus</h1>
+</div>
+
+<div class="dropdown theme-dropdown clearfix">
+    <a class="sr-only dropdown-toggle" id="dropdownMenu1" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li class="active">
+            <a href="#">Action</a>
+        </li>
+        <li>
+            <a href="#">Another action</a>
+        </li>
+        <li>
+            <a href="#">Something else here</a>
+        </li>
+        <li class="divider" role="separator"></li>
+        <li>
+            <a href="#">Separated link</a>
+        </li>
+    </ul>
+</div>
+
+<div class="page-header">
+    <h1>Navs</h1>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active" role="presentation">
+        <a href="#">Home</a>
+    </li>
+    <li role="presentation">
+        <a href="#">Profile</a>
+    </li>
+    <li role="presentation">
+        <a href="#">Messages</a>
+    </li>
+</ul>
+
+<ul class="nav nav-pills" role="tablist">
+    <li class="active" role="presentation">
+        <a href="#">Home</a>
+    </li>
+    <li role="presentation">
+        <a href="#">Profile</a>
+    </li>
+    <li role="presentation">
+        <a href="#">Messages</a>
+    </li>
+</ul>
+
+<div class="page-header">
+    <h1>Navbars</h1>
+</div>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Action</a>
+                        </li>
+                        <li>
+                            <a href="#">Another action</a>
+                        </li>
+                        <li>
+                            <a href="#">Something else here</a>
+                        </li>
+                        <li class="divider" role="separator"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li>
+                            <a href="#">Separated link</a>
+                        </li>
+                        <li>
+                            <a href="#">One more separated link</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Action</a>
+                        </li>
+                        <li>
+                            <a href="#">Another action</a>
+                        </li>
+                        <li>
+                            <a href="#">Something else here</a>
+                        </li>
+                        <li class="divider" role="separator"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li>
+                            <a href="#">Separated link</a>
+                        </li>
+                        <li>
+                            <a href="#">One more separated link</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Alerts</h1>
+</div>
+
+<div class="alert alert-success" role="alert">
+    <strong>Well done!</strong> You successfully read this important alert message.
+</div>
+
+<div class="alert alert-info" role="alert">
+    <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+</div>
+
+<div class="alert alert-warning" role="alert">
+    <strong>Warning!</strong> Best check yo self, you're not looking too good.
+</div>
+
+<div class="alert alert-danger" role="alert">
+    <strong>Oh snap!</strong> Change a few things up and try submitting again.
+</div>
+
+<div class="page-header">
+    <h1>Progress bars</h1>
+</div>
+
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        <span class="sr-only">60% Complete</span></div>
+</div>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <span class="sr-only">40% Complete (success)</span></div>
+</div>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+        <span class="sr-only">20% Complete</span></div>
+</div>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+        <span class="sr-only">60% Complete (warning)</span></div>
+</div>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+        <span class="sr-only">80% Complete (danger)</span></div>
+</div>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+        <span class="sr-only">60% Complete</span></div>
+</div>
+
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="width: 35%">
+        <span class="sr-only">35% Complete (success)</span></div>
+    <div class="progress-bar progress-bar-warning" style="width: 20%">
+        <span class="sr-only">20% Complete (warning)</span></div>
+    <div class="progress-bar progress-bar-danger" style="width: 10%">
+        <span class="sr-only">10% Complete (danger)</span></div>
+</div>
+
+<div class="page-header">
+    <h1>List groups</h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div><!-- /.col-sm-4 -->
+    <div class="col-sm-4">
+        <div class="list-group">
+            <a class="list-group-item active" href="#">
+                Cras justo odio
+            </a>
+            <a class="list-group-item" href="#">Dapibus ac facilisis in</a>
+            <a class="list-group-item" href="#">Morbi leo risus</a>
+            <a class="list-group-item" href="#">Porta ac consectetur ac</a>
+            <a class="list-group-item" href="#">Vestibulum at eros</a>
+        </div>
+    </div><!-- /.col-sm-4 -->
+    <div class="col-sm-4">
+        <div class="list-group">
+            <a class="list-group-item active" href="#">
+                <h4 class="list-group-item-heading">List group item heading</h4>
+                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="list-group-item" href="#">
+                <h4 class="list-group-item-heading">List group item heading</h4>
+                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a class="list-group-item" href="#">
+                <h4 class="list-group-item-heading">List group item heading</h4>
+                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+        </div>
+    </div><!-- /.col-sm-4 -->
+</div>
+
+<div class="page-header">
+    <h1>Panels</h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+    </div><!-- /.col-sm-4 -->
+    <div class="col-sm-4">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+    </div><!-- /.col-sm-4 -->
+    <div class="col-sm-4">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+    </div><!-- /.col-sm-4 -->
+</div>
+
+
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+        <input type="checkbox" autocomplete="off" checked> Checkbox 1 (pre-checked)
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off"> Checkbox 2
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off"> Checkbox 3
+    </label>
+</div>
+
+
+<br/><br/>
+
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
+    </label>
+    <label class="btn btn-primary">
+        <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
+    </label>
+    <label class="btn btn-primary">
+        <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
+    </label>
+</div>
+
+<br/><br/>
+
+<p>
+    <a class="btn btn-primary collapsed" role="button" aria-expanded="false" aria-controls="collapseExample" href="#collapseExample" data-toggle="collapse">
+        Link with href
+    </a>
+    <button class="btn btn-primary collapsed" aria-expanded="false" aria-controls="collapseExample" type="button" data-toggle="collapse" data-target="#collapseExample">
+        Button with data-target
+    </button>
+</p>
+
+<div class="collapse" id="collapseExample" aria-expanded="false" style="height: 0px;">
+    <div class="well">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    </div>
+</div>
+
+<br/><br/>
+
+<h2 id="collapse-example-accordion"><a class="anchorjs-link " style="font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; line-height: inherit; margin-left: -1em; padding-right: 0.5em; position: absolute;" aria-label="Anchor link for: collapse example accordion" href="#collapse-example-accordion" data-anchorjs-icon=""></a>Accordion example
+</h2>
+<p>Extend the default collapse behavior to create an accordion with the panel component.</p>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" id="headingOne" role="tab">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" aria-expanded="false" aria-controls="collapseOne" href="#collapseOne" data-toggle="collapse" data-parent="#accordion">
+                    Collapsible Group Item #1
+                </a>
+            </h4>
+        </div>
+        <div class="panel-collapse collapse" id="collapseOne" role="tabpanel" aria-expanded="false" aria-labelledby="headingOne" style="height: 0px;">
+            <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" id="headingTwo" role="tab">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" aria-expanded="false" aria-controls="collapseTwo" href="#collapseTwo" data-toggle="collapse" data-parent="#accordion">
+                    Collapsible Group Item #2
+                </a>
+            </h4>
+        </div>
+        <div class="panel-collapse collapse" id="collapseTwo" role="tabpanel" aria-expanded="false" aria-labelledby="headingTwo">
+            <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" id="headingThree" role="tab">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" aria-expanded="false" aria-controls="collapseThree" href="#collapseThree" data-toggle="collapse" data-parent="#accordion">
+                    Collapsible Group Item #3
+                </a>
+            </h4>
+        </div>
+        <div class="panel-collapse collapse" id="collapseThree" role="tabpanel" aria-expanded="false" aria-labelledby="headingThree">
+            <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel-group" role="tablist">
+    <div class="panel panel-default">
+        <div class="panel-heading" id="collapseListGroupHeading1" role="tab">
+            <h4 class="panel-title">
+                <a role="button" aria-expanded="true" aria-controls="collapseListGroup1" href="#collapseListGroup1" data-toggle="collapse">
+                    Collapsible list group
+                </a>
+            </h4>
+        </div>
+        <div class="panel-collapse collapse in" id="collapseListGroup1" role="tabpanel" aria-expanded="true" aria-labelledby="collapseListGroupHeading1">
+            <ul class="list-group">
+                <li class="list-group-item">Bootply</li>
+                <li class="list-group-item">One itmus ac facilin</li>
+                <li class="list-group-item">Second eros</li>
+            </ul>
+            <div class="panel-footer">Footer</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-6 col-md-3">
+        <a class="thumbnail" href="#">
+            <img style="display: block; height: 180px; width: 100%;" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTcxIDE4MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTAwJXgxODAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+I2hvbGRlcl8xNWYzODM1NTk0ZCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSA8L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjM4MzU1OTRkIj48cmVjdCBmaWxsPSIjZWVlZWVlIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgLz48Zz48dGV4dCB4PSI1OS41NjUiIHk9Ijk0LjU5OSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-src="holder.js/100%x180" data-holder-rendered="true">
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a class="thumbnail" href="#">
+            <img style="display: block; height: 180px; width: 100%;" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTcxIDE4MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTAwJXgxODAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+I2hvbGRlcl8xNWYzODM1N2FmMiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSA8L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjM4MzU3YWYyIj48cmVjdCBmaWxsPSIjZWVlZWVlIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgLz48Zz48dGV4dCB4PSI1OS41NjUiIHk9Ijk0LjU5OSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-src="holder.js/100%x180" data-holder-rendered="true">
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a class="thumbnail" href="#">
+            <img style="display: block; height: 180px; width: 100%;" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTcxIDE4MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTAwJXgxODAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+I2hvbGRlcl8xNWYzODM1MmRmYiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSA8L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjM4MzUyZGZiIj48cmVjdCBmaWxsPSIjZWVlZWVlIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgLz48Zz48dGV4dCB4PSI1OS41NjUiIHk9Ijk0LjU5OSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-src="holder.js/100%x180" data-holder-rendered="true">
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a class="thumbnail" href="#">
+            <img style="display: block; height: 180px; width: 100%;" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTcxIDE4MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTAwJXgxODAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+I2hvbGRlcl8xNWYzODM1NGIyZiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSA8L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjM4MzU0YjJmIj48cmVjdCBmaWxsPSIjZWVlZWVlIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgLz48Zz48dGV4dCB4PSI1OS41NjUiIHk9Ijk0LjU5OSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-src="holder.js/100%x180" data-holder-rendered="true">
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img style="display: block; height: 200px; width: 100%;" alt="100%x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQyIDIwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTAwJXgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+I2hvbGRlcl8xNWYzODM1ODc2ZCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEycHQgfSA8L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjM4MzU4NzZkIj48cmVjdCBmaWxsPSIjZWVlZWVlIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgLz48Zz48dGV4dCB4PSI4OS44NSIgeT0iMTA1LjUyIj4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-src="holder.js/100%x200" data-holder-rendered="true">
+            <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p>
+                    <a class="btn btn-primary" role="button" href="#">Button</a> <a class="btn btn-default" role="button" href="#">Button</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img style="display: block; height: 200px; width: 100%;" alt="100%x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQyIDIwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTAwJXgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+I2hvbGRlcl8xNWYzODM1ODZhYiB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEycHQgfSA8L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjM4MzU4NmFiIj48cmVjdCBmaWxsPSIjZWVlZWVlIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgLz48Zz48dGV4dCB4PSI4OS44NSIgeT0iMTA1LjUyIj4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-src="holder.js/100%x200" data-holder-rendered="true">
+            <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p>
+                    <a class="btn btn-primary" role="button" href="#">Button</a> <a class="btn btn-default" role="button" href="#">Button</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img style="display: block; height: 200px; width: 100%;" alt="100%x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQyIDIwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTAwJXgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+I2hvbGRlcl8xNWYzODM1ODVmZCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEycHQgfSA8L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZjM4MzU4NWZkIj48cmVjdCBmaWxsPSIjZWVlZWVlIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgLz48Zz48dGV4dCB4PSI4OS44NSIgeT0iMTA1LjUyIj4yNDJ4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-src="holder.js/100%x200" data-holder-rendered="true">
+            <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p>
+                    <a class="btn btn-primary" role="button" href="#">Button</a> <a class="btn btn-default" role="button" href="#">Button</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Warning!</strong> Better check yourself, you're not looking too good.
+</div>
+
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;">
+        0%
+    </div>
+</div>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 2%;">
+        2%
+    </div>
+</div>
+
+<div class="bs-example" data-example-id="animated-progress-bar">
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+            <span class="sr-only">45% Complete</span></div>
+    </div>
+    <button class="btn btn-default bs-docs-activate-animated-progressbar" aria-pressed="false" type="button" data-toggle="button" autocomplete="off">Toggle animation</button>
+</div>
+
+<div class="bs-example" data-example-id="default-media">
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzU3OWRmIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTc5ZGYiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">Media heading</h4>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+    </div>
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzU1MmRlIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTUyZGUiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">Media heading</h4>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzU4N2RjIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTg3ZGMiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">Nested media heading</h4>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="media">
+        <div class="media-body">
+            <h4 class="media-heading">Media heading</h4>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+        </div>
+        <div class="media-right">
+            <a href="#">
+                <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzUzM2VmIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTMzZWYiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+            </a>
+        </div>
+    </div>
+    <div class="media">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzU3ODc0IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTc4NzQiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">Media heading</h4>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+        </div>
+        <div class="media-right">
+            <a href="#">
+                <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzU1MDQ5IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTUwNDkiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="bs-example" data-example-id="media-list">
+    <ul class="media-list">
+        <li class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzUzNzJlIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTM3MmUiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Media heading</h4>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                <!-- Nested media object -->
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzUyN2Y3IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTI3ZjciPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Nested media heading</h4>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                        <!-- Nested media object -->
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzU1MDY3IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTUwNjciPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Nested media heading</h4>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nested media object -->
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" style="height: 64px; width: 64px;" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUgbWVldCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij48IS0tClNvdXJjZSBVUkw6IGhvbGRlci5qcy82NHg2NApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjM4MzUzYzJiIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMzgzNTNjMmIiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgLz48Zz48dGV4dCB4PSIxMy40NzUiIHk9IjM2LjU5OSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-src="holder.js/64x64" data-holder-rendered="true">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Nested media heading</h4>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <span class="badge">14</span>
+        Cras justo odio
+    </li>
+    <li class="list-group-item">
+        <span class="badge">2</span>
+        Dapibus ac facilisis in
+    </li>
+    <li class="list-group-item">
+        <span class="badge">1</span>
+        Morbi leo risus
+    </li>
+</ul>
+
+<div class="list-group">
+    <a class="list-group-item active" href="#">
+        Cras justo odio
+    </a>
+    <a class="list-group-item" href="#">Dapibus ac facilisis in</a>
+    <a class="list-group-item" href="#">Morbi leo risus</a>
+    <a class="list-group-item" href="#">Porta ac consectetur ac</a>
+    <a class="list-group-item" href="#">Vestibulum at eros</a>
+</div>
+
+<div class="list-group">
+    <a class="list-group-item disabled" href="#">
+        Cras justo odio
+    </a>
+    <a class="list-group-item" href="#">Dapibus ac facilisis in</a>
+    <a class="list-group-item" href="#">Morbi leo risus</a>
+    <a class="list-group-item" href="#">Porta ac consectetur ac</a>
+    <a class="list-group-item" href="#">Vestibulum at eros</a>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
+    <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
+    <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
+    <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+</ul>
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-success">Dapibus ac facilisis in</a>
+    <a href="#" class="list-group-item list-group-item-info">Cras sit amet nibh libero</a>
+    <a href="#" class="list-group-item list-group-item-warning">Porta ac consectetur ac</a>
+    <a href="#" class="list-group-item list-group-item-danger">Vestibulum at eros</a>
+</div>
+
+<div class="bs-example" data-example-id="list-group-custom-content">
+    <div class="list-group">
+        <a class="list-group-item active" href="#">
+            <h4 class="list-group-item-heading">List group item heading</h4>
+            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+        <a class="list-group-item" href="#">
+            <h4 class="list-group-item-heading">List group item heading</h4>
+            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+        <a class="list-group-item" href="#">
+            <h4 class="list-group-item-heading">List group item heading</h4>
+            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+        </a>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Panel heading without title</div>
+    <div class="panel-body">
+        Panel content
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+    </div>
+    <div class="panel-body">
+        Panel content
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Panel heading</div>
+    <div class="panel-body">
+        <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Panel heading</div>
+    <div class="panel-body">
+        <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+    </div>
+
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+</div>
+
+
+<br/><br/>
+<input id="Hidden1" type="hidden"/>
+     <label for="cbxInsuranceDetail_0"><input id="cbxInsuranceDetail_0" name="cbxInsuranceDetail" type="checkbox" value="0" />&nbsp;DDSFDSF</label>
+     <label for="Checkbox1"><input id="Checkbox1" name="cbxInsuranceDetail" type="checkbox" value="0" />&nbsp;DDSFDSF</label>
+
+
+<br/><br/>
+
+</div><!-- /.container -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/Scripts/jquery-1.12.4.min.js"><\/script>')</script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/Scripts/ie10-viewport-bug-workaround.js"></script>
+
+<style type="text/css">
+    
+    #progress .progress-bar {
+        padding-left: 5px;
+        text-align: left;
+    }
+
+</style>
+
+<script type="text/javascript">
+
+    //var prog = document.getElementById("progress");
+
+    var i = 0, ins = 0;
+
+    $(function() {
+        $("#progress .progress-bar").css("width", "0%");
+        //prog.style.width = 0;
+        //var ll = "";
+        //for (var i = 0; i < 1000001; i++) {
+        //    if ((i % 10000) == 0) {
+        //        Pause(this, 5000);//调用暂停函数
+        //        //debugger;
+        //        //$("#progress").css("width", i / 10000 + "%");
+        //        //prog.style.width = i / 1000000;
+        //        var w = i / 10000;
+        //        ll += " * " + w;
+        //        $("#progress").css("width", w + "%");
+        //        $("#pv").html(ll);
+        //    }
+        //}
+
+        ins = self.setInterval(showLeftTime, 1000);
+
+    });
+
+    // 动态进度条处理
+    function showLeftTime() {
+        i++;
+        $("#progress .progress-bar").css("width", i + "%");
+        $("#progress .progress-bar").html(i + "%");
+
+        if (i > 99) {
+            $("#pv").html(i);
+            clearInterval(ins);
+        }
+    }
+
+    /*Javascript中暂停功能的实现
+    Javascript本身没有暂停功能（sleep不能使用）同时 vbscript也不能使用doEvents，故编写此函数实现此功能。
+    javascript作为弱对象语言，一个函数也可以作为一个对象使用。
+    比如：
+     
+    [code]
+    function Test(){
+     alert("hellow");
+     this.NextStep=function(){
+     alert("NextStep");
+     }
+    }
+    我们可以这样调用 var myTest=new Test();myTest.NextStep();
+    我们做暂停的时候可以吧一个函数分为两部分，暂停操作前的不变，把要在暂停后执行的代码放在this.NextStep中。
+    为了控制暂停和继续，我们需要编写两个函数来分别实现暂停和继续功能。
+    暂停函数如下：
+    */
+    function Pause(obj, iMinSecond) {
+        if (window.eventList == null) window.eventList = new Array();
+        var ind = -1;
+        for (var i = 0; i < window.eventList.length; i++) {
+            if (window.eventList[i] == null) {
+                window.eventList[i] = obj;
+                ind = i;
+                break;
+            }
+        }
+
+        if (ind == -1) {
+            ind = window.eventList.length;
+            window.eventList[ind] = obj;
+        }
+        setTimeout("GoOn(" + ind + ")", 1000);
+    }
+
+    /*
+    该函数把要暂停的函数放到数组window.eventList里，同时通过setTimeout来调用继续函数。
+    继续函数如下：
+    */
+
+    function GoOn(ind) {
+        var obj = window.eventList[ind];
+        window.eventList[ind] = null;
+        if (obj.NextStep) obj.NextStep();
+        else obj();
+    }
+
+    /*
+    该函数调用被暂停的函数的NextStep方法，如果没有这个方法则重新调用该函数。
+    函数编写完毕，我们可以作如下册是：
+    */
+    function Test() {
+        alert("hellow");
+        Pause(this, 1000); //调用暂停函数
+        this.NextStep = function() {
+            alert("NextStep");
+        };
+    }
+
+</script>
+
+</body>
+</html>

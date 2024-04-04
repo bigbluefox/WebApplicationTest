@@ -1,0 +1,34 @@
+﻿@charset "utf-8";
+/* 基础样式表， 可以引入各个样式表中, Tli, 2016-08 */
+
+
+
+
+*
+{
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;
+    margin: 0;
+    padding: 0;
+}
+
+html
+{
+    font-size: 100%;
+}
+
+body
+{ /*font-size: 62.5%; 任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。*/
+    font-size: 1em;
+}
+
+img
+{
+    border: 0;
+}
+
+ul, li
+{
+    list-style: none;
+}
+
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber { text-overflow: ellipsis; }

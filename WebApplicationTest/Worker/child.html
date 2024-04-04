@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    
+    if (!window.Worker) {
+        alert("不支持window.Worker");
+    }
+
+    var worker = new Worker("child.js");
+
+
+    for (var i = 0; i < 10; i++) {
+        console.log("主线程计数：" + i);
+    }
+
+    //因为 web worker 是相当于后台运行，只有等主线程空闲了才会执行。
+    //web worker 设计来就是要让浏览器一直运行良好，如果不让主线程先执行，
+    //你web worker 计算量大还是会卡死浏览器。那么有没有web worker 都没有什么区别了
+
+    //worker.terminate();
+
+    //worker.onerror(function (e) {
+    //    console.log([
+    //        'ERROR: Line ', e.lineno, ' in ', e.filename, ': ', e.message
+    //    ].join(''));
+    //});
+
+    worker.addEventListener('error', function (e) {
+        console.log([
+            'ERROR: Line ', e.lineno, ' in ', e.filename, ': ', e.message
+        ].join(''));
+    });
+
+    //worker.onmessage = function (event) {
+    //    console.log('Received message ' + event.data);
+    //    //doSomething();
+
+    //    //worker.terminate();
+    //}
+
+    worker.addEventListener("message", function (event) {
+
+        console.log('Received message ' + event.data);
+
+        //var xhr = new XMLHttpRequest();
+        //xhr.open("GET", "serviceUrl"); //serviceUrl为后端返回json数据的接口
+        //xhr.onload = function () {
+        //    postMessage(xhr.responseText);
+        //};
+        //xhr.send();
+    }, false);
+
+    worker.postMessage('你好吗!');
+
+    worker.postMessage('Hello World');
+
+    worker.postMessage(99);
+
+
+
+
+
+</script>
+</body>
+</html>

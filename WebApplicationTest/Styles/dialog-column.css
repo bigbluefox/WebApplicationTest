@@ -1,0 +1,121 @@
+﻿/* 弹出窗体列项布局样式表 */
+
+/* 必填项 */
+.required-field:before {
+    color: red;
+    content: "* ";
+}
+
+/* 禁用输入法 */
+.ime-disabled {
+    -ms-ime-mode: Disabled;
+    ime-mode: Disabled;
+}
+
+/* 隐藏行 */
+.row-hide-div { display: none; }
+
+/* 单行 */
+.row-line-div {
+    clear: both;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    margin: 2px 0 2px 8px;
+}
+
+/* 标题 */
+.row-title-div {
+    border-bottom: 1.5px solid #00bfff;
+    clear: both;
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    margin: 2px 0 2px 8px;
+}
+
+/* 多行 */
+.row-block-div {
+    clear: both;
+    float: left;
+    margin: 2px 0 2px 8px;
+}
+
+.row-title-div h3 {
+    display: inline-block;
+    padding-left: 10px;
+    width: 75%;
+}
+
+.row-title-div a {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+}
+
+.row-line-div > label,
+.row-block-div > label {
+    display: inline-block;
+    float: left;
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;
+    text-align: right;
+}
+
+
+
+
+
+/* 单行选项样式 */
+.row-line-div select { height: 26px; }
+
+/* 单行文本域样式 */
+.row-line-div textarea { margin-top: 5px; }
+
+/* 单行标题标题 */
+.row-line-div > label { line-height: 24px; }
+
+/* 多行标题标题 */
+.row-block-div > label { vertical-align: text-top; }
+
+.row-line-div img {
+    cursor: pointer;
+    padding: 4px 0 0 3px;
+}
+
+.row-line-div input,
+.row-line-div select,
+.row-line-div textarea,
+.row-line-div .input-group {
+    display: inline-block;
+    float: left;
+}
+
+.row-block-div .input-group {
+    display: block;
+    float: left;
+}
+
+.row-line-div .input-group > label,
+.row-block-div .input-group > label {
+    display: block;
+    float: left;
+    line-height: 12px;
+    padding-right: 15px;
+    padding-top: 5px;
+}
+
+.row-line-div input[type='text'],
+.row-line-div input[type='password'] {
+    border: #a4bed4 1px solid;
+    height: 24px;
+    line-height: 24px;
+}
+
+.input-group input[type='checkbox'], 
+.input-group input[type='radio'] {
+    display: block;
+    float: left;
+    margin-right: 5px;
+    height: 24px;
+    line-height: 24px;
+}

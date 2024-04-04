@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="css/flex.css" rel="stylesheet" />
+    <style>
+        body {
+            height: 100%;
+        }
+        #main {
+            border: 1px solid #CCC;
+            padding: 5px;
+            position: relative;
+        }
+
+        .row, .row_reverse, .column, .column_reverse {
+            display: flex;
+            margin-bottom: 5px;
+        }
+
+        .row {
+            flex-direction: row;
+        }
+
+        .row_reverse {
+            flex-direction: row-reverse;
+        }
+
+        .column {
+            flex-direction: column;
+            margin-bottom: 0px;
+        }
+
+        .column_reverse {
+            flex-direction: column-reverse;
+            position: absolute;
+            top: 117px;
+            right: 5px;
+        }
+
+            .row div, .row_reverse div, .column div, .column_reverse div {
+                width: 50px;
+                height: 50px;
+                border: 1px solid black;
+            }
+
+
+    </style>
+</head>
+<body>
+    <div id="arc-body">
+        <div>
+            <h1>2. 容器属性</h1>
+            <h5>1) flex-direction</h5>
+            <p>flex-direction 属性用来决定主轴的方向（即项目的排列方向），属性的可选值如下：</p>
+        </div>
+        <div >
+            <table >
+                <tbody>
+                    <tr>
+                        <th>
+                            值
+                        </th>
+                        <th>
+                            描述
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            row
+                        </td>
+                        <td>
+                            默认值，主轴沿水平方向从左到右
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            row-reverse
+                        </td>
+                        <td>
+                            主轴沿水平方向从右到左
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            column
+                        </td>
+                        <td>
+                            主轴沿垂直方向从上到下
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            column-reverse
+                        </td>
+                        <td>
+                            主轴沿垂直方向从下到上
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            initial
+                        </td>
+                        <td>
+                            将此属性设置为属性的默认值
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            inherit
+                        </td>
+                        <td>
+                            从父元素继承此属性的值
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="main">
+        <div class="row" title="row">
+            <div>A</div><div>B</div><div>C</div><div>D</div><div>E</div>
+        </div>
+        <div class="row_reverse" title="row_reverse">
+            <div>A</div><div>B</div><div>C</div><div>D</div><div>E</div>
+        </div>
+        <div class="column" title="column">
+            <div>A</div><div>B</div><div>C</div><div>D</div><div>E</div>
+        </div>
+        <div class="column_reverse" title="column_reverse">
+            <div>A</div><div>B</div><div>C</div><div>D</div><div>E</div>
+        </div>
+    </div>
+</body>
+</html>

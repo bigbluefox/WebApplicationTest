@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>弹出窗体布局</title>
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <script src="/Scripts/My97DatePicker/WdatePicker.js"></script>
+
+    <style type="text/css">
+        
+
+        * {
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { font-size: 100%; }
+
+        body { /*font-size: 1em;*/
+            font-size: 12px;
+        }
+
+        img { border: 0; }
+
+        ul, li { list-style: none; }
+
+        textarea, input[type='text'] { padding-left: 2px; }
+
+        /*输入框内文字距离左边框*/
+
+        select, input[type='text'] { height: 23px; }
+
+        /*选择及输入框高度*/
+
+        select, textarea, input[class='type'], input[type='button'] { border: 1px solid #a4bed4 !important; }
+
+        input[type="button"] { cursor: pointer; }
+
+        select, textarea, input[type='text'], input[type='button'], input[type='checkbox'], input[type='radio'] { vertical-align: middle; }
+
+
+        .window-div {
+            background-color: #f1f1f1;
+            width: 680px;
+        }
+
+        .content-div {
+            background-color: #fbfbfb;
+            border: 1px solid silver;
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        .row-div {
+            display: block;
+            float: left;
+            margin-left: 0px;
+            margin-top: 3px;
+        }
+
+        .row-line-div { height: 24px; }
+
+        .row-float-div { overflow: hidden; }
+
+
+        .row-item {
+            height: 23px;
+            line-height: 23px;
+            vertical-align: middle;
+        }
+
+        .two-columns-left-span {
+            display: table;
+            float: left;
+        }
+
+        .two-columns-left-label {
+            float: left;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .two-columns-left-item {
+            display: block;
+            float: left;
+            text-align: left;
+        }
+
+        .two-columns-right-span {
+            display: table;
+            float: right;
+        }
+
+        .two-columns-right-label {
+            float: left;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .two-columns-right-item {
+            float: left;
+            text-align: left;
+        }
+
+        .two-columns-whole-span {
+            display: table;
+            float: left;
+        }
+
+        .two-columns-whole-item {
+            float: left;
+            text-align: left;
+        }
+
+        .two-columns-whole-item img, .two-columns-left-item img, .two-columns-right-item img {
+            cursor: pointer;
+            margin-left: 2px;
+            margin-top: 3px;
+        }
+
+        .two-columns-left-span { width: 50%; }
+
+        .two-columns-left-label { width: 80px; }
+
+        .two-columns-left-item { width: 252px; }
+
+        .two-columns-right-span { width: 50%; }
+
+        .two-columns-right-label { width: 80px; }
+
+        .two-columns-right-item { width: 252px; }
+
+        .two-columns-whole-span { width: 100%; }
+
+        .two-columns-whole-item { width: 584px; }
+
+
+        /*.two-columns-input-item { width: 180px; }*/
+
+
+        /*.two-columns-left-span { border: 1px solid #00bfff; }
+        .two-columns-left-label { width: 80px; }
+        .two-columns-left-item { width: 220px; }
+
+        .two-columns-right-span {border: 1px solid #00bfff; }
+        .two-columns-right-label { width: 80px; }
+        .two-columns-right-item { width: 220px; }
+
+        .two-columns-whole-span { border: 1px solid #00bfff; }
+        .two-columns-whole-item { width: 520px; }
+        .two-columns-input-item { width: 180px; }*/
+
+
+        .two-columns-left-item input[type='text'],
+        .two-columns-right-item input[type='text'],
+        .two-columns-whole-item input[type='text'] { width: 100%; }
+
+        .two-columns-left-item textarea,
+        .two-columns-right-item textarea,
+        .two-columns-whole-item textarea { width: 100%; }
+
+        .row-float-div label {
+            font-weight: bold;
+            padding-top: 5px;
+            vertical-align: top;
+            width: 80px;
+        }
+
+        .row-float-div textarea { height: 240px;}
+    </style>
+
+    <script type="text/javascript">
+
+    
+    </script>
+
+</head>
+<body style="padding: 10px;">
+
+<script type="text/javascript">
+    function TypeChange(obj) {
+        alert(obj.value);
+    }
+</script>
+
+
+<div class="window-div">
+    <div class="content-div">
+        <div class="row-div row-line-div">
+            <div class="two-columns-whole-span row-item">
+                <div class="two-columns-left-label">
+                    <span style="color: red;">* </span>名称：
+                </div>
+                <div class="two-columns-whole-item">
+                    <input type="text" id="txtText"/>
+                </div>
+            </div>
+        </div>
+        <div class="row-div row-line-div">
+            <div class="two-columns-whole-span row-item">
+                <div class="two-columns-left-label">类型：</div>
+                <div class="two-columns-whole-item">
+                    <select id="selType" onchange="TypeChange(this);">
+                        <option value="0" selected="selected">单行文本</option>
+                        <option value="1">多行文本</option>
+                        <option value="2">日期</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row-div row-line-div" id="singLine">
+            <div class="two-columns-whole-span row-item">
+                <div class="two-columns-left-label"><span style="color: red;">* </span>值：</div>
+                <div class="two-columns-whole-item">
+                    <input type="text" id="txtValue0"/>
+                </div>
+            </div>
+        </div>
+        <div class="row-div row-float-div" id="multiLine">
+            <div class="two-columns-whole-span row-item">
+                <div class="two-columns-left-label"><span style="color: red;">* </span>值：</div>
+                <div class="two-columns-whole-item">
+                    <textarea id="txtValue1" style="height: 90px;"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row-div row-line-div" id="date">
+            <div class="two-columns-whole-span row-item">
+                <div class="two-columns-left-label"><span style="color: red;">* </span>值：</div>
+                <div class="two-columns-whole-item">
+                    <input type="text" id="txtValue2" class="Wdate" onclick="WdatePicker();"/>
+                </div>
+            </div>
+        </div>
+        <div class="row-div row-line-div">
+            <div class="two-columns-whole-span row-item">
+                <div class="two-columns-left-label">排序号：</div>
+                <div class="two-columns-whole-item">
+                    <input type="text" id="txtIdx"/>
+                </div>
+            </div>
+        </div>
+        <div class="row-div row-float-div">
+            <div class="two-columns-whole-span row-item">
+                <div class="two-columns-left-label">备注：</div>
+                <div class="two-columns-whole-item">
+                    <textarea id="txtRemark" style="height: 90px;"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-div">
+        <input type="hidden" id="txtId"/><input type="hidden" id="txtPId"/>
+        <input type="button" value="确定" id="btnSave" style="width: 74px;"/>
+        <input type="button" value="关闭" id="btnExit" style="width: 74px;"/>
+    </div>
+</div>
+
+
+<!--
+<div id="editColumn1" class="window-div">
+    <div class="content-div">
+        <div class="row-div row-line-div">
+            <div class="two-columns-whole-span row-item">
+                <div class="two-columns-left-label">
+                    <span style="color: red;">* </span>菜谱名称：
+                </div>
+                <div class="two-columns-whole-item">
+                    <input type="text" class="text" id="txtTitle"/>
+                </div>
+            </div>
+        </div>
+        <div class="row-div row-line-div">
+            <div class="two-columns-left-span row-item">
+                <div class="two-columns-left-label">
+                    <span style="color: red;">* </span>开始时间：
+                </div>
+                <div class="two-columns-left-item">
+                    <input type="text" class="text Wdate" id="txtStartDate" onclick=" WdatePicker() "/>
+                </div>
+            </div>
+            <div class="two-columns-right-span row-item">
+                <div class="two-columns-right-label">
+                    <span style="color: red;">* </span>结束时间：
+                </div>
+                <div class="two-columns-right-item">
+                    <input type="text" class="text Wdate" id="txtEndDate" onclick=" WdatePicker() "/>
+                </div>
+            </div>
+        </div>
+        <div class="easyui-tabs" style="height: auto; padding-top: 10px; width: 100%;">
+            <div title="&nbsp;周一&nbsp;" style="padding: 10px">
+                <div class="row-div row-float-div">
+                    <label for="txtMonBre">早餐：</label>
+                    <textarea id="txtMonBre" class="textarea"></textarea>
+                    <label for="txtMonLun">&nbsp;午餐：</label>
+                    <textarea id="txtMonLun" class="textarea"></textarea>
+                    <label for="txtMonDin">&nbsp;晚餐：</label>
+                    <textarea id="txtMonDin" class="textarea"></textarea>
+                </div>
+            </div>
+            <div title="&nbsp;周二&nbsp;" style="padding: 10px">
+                <div class="row-div row-float-div">
+                    <label for="txtTueBre">早餐：</label>
+                    <textarea id="txtTueBre" class="textarea"></textarea>
+                    <label for="txtTueLun">&nbsp;午餐：</label>
+                    <textarea id="txtTueLun" class="textarea"></textarea>
+                    <label for="txtTueDin">&nbsp;晚餐：</label>
+                    <textarea id="txtTueDin" class="textarea"></textarea>
+                </div>
+            </div>
+            <div title="&nbsp;周三&nbsp;" style="padding: 10px">
+                <div class="row-div row-float-div">
+                    <label for="txtWedBre">早餐：</label>
+                    <textarea id="txtWedBre" class="textarea"></textarea>
+                    <label for="txtWedLun">&nbsp;午餐：</label>
+                    <textarea id="txtWedLun" class="textarea"></textarea>
+                    <label for="txtWedDin">&nbsp;晚餐：</label>
+                    <textarea id="txtWedDin" class="textarea"></textarea>
+                </div>
+            </div>
+            <div title="&nbsp;周四&nbsp;" style="padding: 10px">
+                <div class="row-div row-float-div">
+                    <label for="txtThuBre">早餐：</label>
+                    <textarea id="txtThuBre" class="textarea"></textarea>
+                    <label for="txtThuLun">&nbsp;午餐：</label>
+                    <textarea id="txtThuLun" class="textarea"></textarea>
+                    <label for="txtThuDin">&nbsp;晚餐：</label>
+                    <textarea id="txtThuDin" class="textarea"></textarea>
+                </div>
+            </div>
+            <div title="&nbsp;周五&nbsp;" style="padding: 10px">
+                <div class="row-div row-float-div">
+                    <label for="txtFriBre">早餐：</label>
+                    <textarea id="txtFriBre" class="textarea"></textarea>
+                    <label for="txtFriLun">&nbsp;午餐：</label>
+                    <textarea id="txtFriLun" class="textarea"></textarea>
+                    <label for="txtFriDin">&nbsp;晚餐：</label>
+                    <textarea id="txtFriDin" class="textarea"></textarea>
+                </div>
+            </div>
+            <div title="&nbsp;周六&nbsp;" style="padding: 10px">
+                <div class="row-div row-float-div">
+                    <label for="txtSatBre">早餐：</label>
+                    <textarea id="txtSatBre" class="textarea"></textarea>
+                    <label for="txtSatLun">&nbsp;午餐：</label>
+                    <textarea id="txtSatLun" class="textarea"></textarea>
+                    <label for="txtSatDin">&nbsp;晚餐：</label>
+                    <textarea id="txtSatDin" class="textarea"></textarea>
+                </div>
+            </div>
+            <div title="&nbsp;周日&nbsp;" style="padding: 10px">
+                <div class="row-div row-float-div">
+                    <label for="txtSunBre">早餐：</label>
+                    <textarea id="txtSunBre" class="textarea"></textarea>
+                    <label for="txtSunLun">&nbsp;午餐：</label>
+                    <textarea id="txtSunLun" class="textarea"></textarea>
+                    <label for="txtSunDin">&nbsp;晚餐：</label>
+                    <textarea id="txtSunDin" class="textarea"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-div">
+        <input type="hidden" id="txtId"/>
+        <input type="button" value="确定" id="btnSave" style="width: 74px;"/>
+        <input type="button" value="关闭" id="btnExit" style="width: 74px;"/>
+    </div>
+</div>
+
+-->
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Viewer.js</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="viewer.css">
+  <style>
+    .pictures {
+      list-style: none;
+      margin: 0;
+      max-width: 30rem;
+      padding: 0;
+    }
+
+    .pictures > li {
+      border: 1px solid transparent;
+      float: left;
+      height: calc(100% / 3);
+      margin: 0 -1px -1px 0;
+      overflow: hidden;
+      width: calc(100% / 3);
+    }
+
+    .pictures > li > img {
+      cursor: zoom-in;
+      width: 100%;
+    }
+
+    .viewer-download {
+      color: #fff;
+      font-family: FontAwesome, serif;
+      font-size: 0.75rem;
+      line-height: 1.5rem;
+      text-align: center;
+    }
+
+    .viewer-download::before {
+      content: "\f019";
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>Viewer with custom toolbar</h1>
+    <div id="galley">
+        <ul class="pictures" onclick="" style="margin: 0 auto;">
+            <li><img data-original="../photos/meilideyueqiutupian-002.jpg" src="../photos/meilideyueqiutupian-002.jpg" alt="Cuo Na Lake"></li>
+            <li><img data-original="../photos/u=1487924029,4082646131&amp;fm=173&amp;s=920BB1440DC48F7A16727E910300508C&amp;w=639&amp;h=422&amp;img.jpg" src="../photos/u=1487924029,4082646131&amp;fm=173&amp;s=920BB1440DC48F7A16727E910300508C&amp;w=639&amp;h=422&amp;img.jpg" alt="Tibetan Plateau"></li>
+            <li><img data-original="../photos/u=1796791722,4225951092&amp;fm=173&amp;app=25&amp;f=JPEG.jpg" src="../photos/u=1796791722,4225951092&amp;fm=173&amp;app=25&amp;f=JPEG.jpg" alt="Jokhang Temple"></li>
+            <li><img data-original="../photos/u=3071170359,1340877538&amp;fm=173&amp;app=25&amp;f=JPEG.jpg" src="../photos/u=3071170359,1340877538&amp;fm=173&amp;app=25&amp;f=JPEG.jpg" alt="Potala Palace 1"></li>
+            <li><img data-original="../photos/u=3127192521,2131947718&amp;fm=173&amp;s=94A8FF14F435EA2E9714C461030060B3&amp;w=640&amp;h=384&amp;img.jpg" src="../photos/u=3127192521,2131947718&amp;fm=173&amp;s=94A8FF14F435EA2E9714C461030060B3&amp;w=640&amp;h=384&amp;img.jpg" alt="Potala Palace 2"></li>
+            <li><img data-original="../photos/u=3393228085,2984586838&amp;fm=173&amp;s=A0983CD4D09BA32E282C44630300F072&amp;w=640&amp;h=427&amp;img.jpg" src="../photos/u=3393228085,2984586838&amp;fm=173&amp;s=A0983CD4D09BA32E282C44630300F072&amp;w=640&amp;h=427&amp;img.jpg" alt="Potala Palace 3"></li>
+            <li><img data-original="../photos/u=3640772058,2104669847&amp;fm=173&amp;s=EAB866C942732E272C2E1A3903004054&amp;w=407&amp;h=272&amp;img.jpg" src="../photos/u=3640772058,2104669847&amp;fm=173&amp;s=EAB866C942732E272C2E1A3903004054&amp;w=407&amp;h=272&amp;img.jpg" alt="Lhasa River"></li>
+        </ul>
+    </div>
+</div>
+<!--<img src="../photos/meilideyueqiutupian-002.jpg" alt=""/>
+<img src="../photos/u=1487924029,4082646131&amp;fm=173&amp;s=920BB1440DC48F7A16727E910300508C&amp;w=639&amp;h=422&amp;img.jpg" alt="" />
+<img src="../photos/u=1796791722,4225951092&amp;fm=173&amp;app=25&amp;f=JPEG.jpg" alt="" />
+<img src="../photos/u=3071170359,1340877538&amp;fm=173&amp;app=25&amp;f=JPEG.jpg" alt="" />
+<img src="../photos/u=3127192521,2131947718&amp;fm=173&amp;s=94A8FF14F435EA2E9714C461030060B3&amp;w=640&amp;h=384&amp;img.jpg" alt="" />
+<img src="../photos/u=3393228085,2984586838&amp;fm=173&amp;s=A0983CD4D09BA32E282C44630300F072&amp;w=640&amp;h=427&amp;img.jpg" alt="" />
+<img src="../photos/u=3640772058,2104669847&amp;fm=173&amp;s=EAB866C942732E272C2E1A3903004054&amp;w=407&amp;h=272&amp;img.jpg" alt="" />-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  <script src="viewer.js"></script>
+  <script>
+      window.addEventListener('DOMContentLoaded', function () {
+          var galley = document.getElementById('galley');
+          var viewer = new Viewer(galley, {
+              url: 'data-original',
+              toolbar: {
+                  oneToOne: true,
+
+                  prev: function() {
+                      viewer.prev(true);
+                  },
+
+                  play: true,
+
+                  next: function() {
+                      viewer.next(true);
+                  },
+
+                  download: function() {
+                    var a = document.createElement('a');
+
+                      a.href = viewer.image.src;
+                      a.download = viewer.image.alt;
+                      document.body.appendChild(a);
+                      a.click();
+                      document.body.removeChild(a);
+                  },
+              },
+          });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿/*
+    * BootStrap 基础样式表
+    */
+
+.required { color: red; }
+       
+td span { cursor: pointer; }
+
+.panel-default > .panel-heading { background-color: #68778e; }
+
+.heading-title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.table { table-layout: fixed; }
+
+tr td {
+    -moz-text-overflow: ellipsis; /* for Firefox, mozilla */
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis; /* for IE */
+    white-space: nowrap;
+}

@@ -1,0 +1,1081 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>使用了iterator的地方</title>
+
+    <link href="../BS4/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Bootstrap/table/bootstrap-table.css" rel="stylesheet" />
+    <link href="css/es.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-3.6.0.js"></script>
+    <script src="../BS4/js/bootstrap.bundle.js"></script>
+    <script src="../Bootstrap/table/bootstrap-table.js"></script>
+    <script src="../Bootstrap/table/locale/bootstrap-table-zh-CN.js"></script>
+
+    <style type="text/css">
+    </style>
+
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="container-fluid">
+
+            <h1>ES6、ES7、ES8、ES9、ES10新特性一览</h1>
+            <p>ES全称ECMAScript，ECMAScript是ECMA制定的标准化脚本语言。目前JavaScript使用的ECMAScript版本为ECMA-417。关于ECMA的最新资讯可以浏览 ECMA news查看。</p>
+            <h2>ES6新特性（2015）</h2>
+            <script type="text/javascript">
+                // 数组的解构赋值（只要可遍历，就可按数组方式进行解构赋值）
+
+                //const [a, b] = [1, 2]; // 1, 2
+                //const [a, b] = [...[1, 2]]; // 1, 2
+                //const [a, b] = 'hi'; // h,i
+                //const [a, b] = [...'hi']; // h,i
+                // const [a, b] = new Set([3, 4]); // 3, 4
+                //const [a, b] = [...new Set([3, 4])]; // 3, 4
+
+                //console.log(a); // 1
+                //console.log(b); // 2
+                //console.log(`a=${a}, b=${b}`); // 模板字符串 a=3, b=4
+
+            </script>
+
+            <p style="font-weight:bold;">判断元素是否存在</p>
+            <p>(1).在ES6中我们使用includes()方法来判断数组中是否包含某个值，语法格式为arr.includes(value,index),其中value是必选参数，表示需要查找的值，index是可选参数，表示从哪个元素下标开始查找，默认为0</p>
+            <p>(2).includes()和indexOf()的对比，indexOf()更为复杂一点，因为要将值与-1进行比较</p>
+
+            <pre><code>
+    const arr = ["red","green","blue"];
+    console.log(arr.includes("green")); //输出为true
+    console.log(arr.indexOf("green") !== -1 ) //输出为true
+</code></pre>
+            <p>(3).includes()和find()的对比，find()用于查找数组中是否符合条件的值，更加复杂.</p>
+<pre><code>
+    const arr = ["red","green","blue"];
+    console.log(arr.includes("green")); //输出为true
+    const result = arr.find(function(value){
+    return value === "red";
+    })
+    console.log(result === "red"); //输出为true
+</code></pre>
+            <script type="text/javascript">
+
+                // includes(), 判断字符串中是否含有某些字符
+
+                //console.log('abc'.includes('a'));   // true
+                //console.log('abc'.includes('ab'));  // true
+                //console.log('abc'.includes('ac'));  // false
+
+                //console.log('abc'.includes('a', 0));   // true
+                //console.log('abc'.includes('a', 1));   // false
+
+            </script>
+
+            <script type="text/javascript">
+
+                //// padStart() 和 padEnd(), 补全字符串长度
+                //console.log('m'.padStart(6, 'ab'));   // 'ababam'
+                //console.log('m'.padEnd(6, 'ab'));    // 'mababa'
+                //// 原字符串的长度等于或大于最大长度，不会消减原字符串，字符串不全不生效，返回原字符串
+                //// 用来补全的字符串与原字符串长度之和超过了最大长度，截去超出位数的补全字符串，原字符串不动
+                //console.log('abc'.padStart(10, '0123456789')); // 0123456abc
+                //// 如果省略第二个参数，默认使用空格补全
+                //console.log('abc'.padStart(10)); //        abc
+
+            </script>
+
+            <script type="text/javascript">
+
+                // find() 和 findIndex()
+                //find() 找到满足条件的一个立即返回
+                //findIndex() 找到满足条件的一个，立即返回其索引
+
+                //const arr = [1, 2, 3, 4, 9, 3, 4, 10, 15];
+                //const num = arr.find((value) => {
+                //    return value > 5;
+                //});
+                //console.log(num);    // 9
+
+            </script>
+
+
+            <div class="row-fluid">
+                <p style="font-weight:bold;">every()和some()</p>
+                <p>(1).every():用于判断数组中所有元素是否都满足某个条件。如果都满足，则返回true，如果有一个不满足，则返回false。类似于逻辑判断中的与&&关系</p>
+
+<pre><code>
+    const arr = [3,9,1,12,50,24];
+    const result = arr.every(function (value){
+        return value > 10;
+    })
+    console.log(result) //输出false
+
+</code></pre>
+
+                <p>(2).some():用于判断数组中是否存在一个元素满足某个条件，只要有一个元素满足就返回true，只有当所有元素都不满足时，才返回false。类似与逻辑判断中的或||关系</p>
+
+                <pre><code>
+    const arr = [3,9,1,12,50,24];
+    const result = arr.some(function (value){
+        return value > 10;
+    })
+    console.log(result) //输出true
+
+</code></pre>
+
+            </div>
+
+
+            <script type="text/javascript">
+                //对象新增方法：Object.assign()，用来合并对象
+
+                //const apple = {
+                //    color: '红色',
+                //    shape: '圆形',
+                //    taste: '甜'
+                //};
+                //const pen = {
+                //    color: '黑色',
+                //    shape: '圆柱形',
+                //    use: '写'
+                //};
+
+                //// 合并对象
+                //console.log(Object.assign(apple, pen));    // {color: '黑色', shape: '圆柱形', taste: '甜', use: '写'}
+                //console.log(apple);    // {color: '黑色', shape: '圆柱形', taste: '甜', use: '写'}
+                //console.log(pen);      // {color: '黑色', shape: '圆柱形', use: '写'}
+                //// 该方法直接合并到了第一个参数中，返回的就是合并后的对象
+
+                ////如果要返回一个新对象，可以用下面的方法
+                //console.log(Object.assign({}, apple, pen));
+
+                ////注意：
+                ////基本数据类型作为源对象
+                ////与对象的展开类似，先转换成对象再合并
+
+                //console.log(Object.assign({}, undefined));
+
+            </script>
+
+            <p style="font-weight:bold;">遍历数组</p>
+            <p>1.arr.keys() 遍历数组的键</p>
+            <p>2.arr.values() 遍历数组的值</p>
+            <p>3.arr.entries() 同时遍历数组的键和值</p>
+
+            <script type="text/javascript">
+
+                // Object.keys()、Object.values()、Object.entries()，返回的都是数组
+
+                //const person = {
+                //    name: 'lisi',
+                //    age: 18
+                //};
+
+                //console.log(Object.keys(person));        // ['name', 'age']
+                //console.log(Object.values(person));      // ['lisi', 18]
+                //console.log(Object.entries(person));     // 二维数组
+
+            </script>
+
+            <br/>
+
+            <script type="text/javascript">
+
+                //// 使用for…of遍历对象
+                //const person1 = {
+                //    name: 'lisi',
+                //    age: 18
+                //};
+                //for (const user of Object.entries(person1)) {
+                //    console.log(user);
+                //}    // 不能保证顺序
+
+            </script>
+
+            <script type="text/javascript">
+
+                //// Promise
+                //// Promise 是异步操作的一种解决方案，一般用来解决层层嵌套的回调函数的问题，解决的不是回调函数，而是回调地狱
+                ////const p = new Promise(() => { });    // pending 未完成
+                //const p = new Promise((resolve, reject) => {
+                //    resolve('resolve');   // pending -> fulfilled 已成功
+                //    // reject();    // pending -> rejected  已失败
+                //});
+                //p.then(data => {
+                //    console.log('success', data); // success resolve
+                //}, data2 => {
+                //    console.log('fail', data2);
+                //    // return undefined;   // 默认返回undefined
+                //    // 相当于
+                //    return new Promise(resolve => {
+                //        resolve(undefined);
+                //    });
+                //})   // 已成功 执行第一个函数，已失败，执行第二个函数
+                //    .then(data3 => {
+                //        console.log('succ2', data3);    // succ2 undefined
+                //    }, (data4) => {
+                //        console.log('err2', data4);
+                //    });
+
+                //// catch() 本质上是then() 的特例，专门用来处理rejected 状态
+
+                //// 个人理解：then() 和 chtch() 都是用来捕获Promise的执行状态的，
+                //// then() 既可以捕获resolve，也可以捕获reject，
+                //// 而catch() 只能捕获reject，两者都是只要捕获成功就返回一个fulfilled状态的Promise，否则catch() 没反应，then() 会报错
+
+                //new Promise(resolve => resolve('succ'));
+                //// 相当于
+                //Promise.resolve('succ');
+
+            </script>
+
+            <script type="text/javascript">
+
+                // BigInt是一个新的数据类型，可以用任意精度表示整数。
+                let s = "2147483648";
+                let i = BigInt(s);
+                //console.log(i);
+                // BigInt
+
+                let x = 0;
+                // BigInt不可以与Number进行混合运算，否则会直接抛出异常
+                //let y = x + i; // 不能混合运算
+                // Uncaught TypeError: Cannot mix BigInt and other types, use explicit conversions
+                let z = BigInt(x) + i;
+
+            </script>
+
+            <script type="text/javascript">
+
+                class Person {
+                    age = 18;    // 实例属性
+                    sex = 'male';
+                    static version = '1.0';     // 静态属性（目前只是提案，有兼容性问题），可以考虑将它写成方法的形式
+                    static getVersion() {
+                        return '1.0';
+                    }
+                    getAge = function () {    // 实例方法
+                        return this.age;
+                    }
+                    constructor(age, sex) {    // 构造方法
+                        this.age = age;
+                        this.sex = sex;
+                    }
+                    static getAge() {         // 静态方法
+                        console.log('666');
+                    }
+                }
+
+                console.log(Person.version);
+                console.log(Person.getVersion());
+                Person.getAge();
+
+                var person = new Person(18, "男");
+                console.log(person.getAge());
+
+            </script>
+
+            <script type="text/javascript">
+
+                var engines = new Set(["Gecko", "Trident", "Webkit", "Webkit"]);
+                for (var e of engines) {
+                    console.log(e);
+                }
+                // Gecko
+                // Trident
+                // Webkit
+                var es6 = new Map();
+                es6.set("edition", 6);
+                es6.set("committee", "TC39");
+                es6.set("standard", "ECMA-262");
+                for (var [name, value] of es6) {
+                    console.log(name + ": " + value);
+                }
+                // edition: 6
+                // committee: TC39
+                // standard: ECMA-262
+
+                console.log(es6.get("edition"));
+
+            </script>
+
+            <script type="text/javascript">
+                const name = 'Ming', age = '18', city = 'Shanghai';
+
+                const student = {
+                    name,
+                    age,
+                    city
+                };
+                console.log(student);//{name: "Ming", age: "18", city: "Shanghai"}
+
+            </script>
+
+            <p>Promise 是异步编程的一种解决方案，比传统的解决方案callback更加的优雅。它最早由社区提出和实现的，ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。</p>
+
+            <script type="text/javascript">
+
+                //// 不使用ES6，嵌套两个setTimeout回调函数
+                //setTimeout(function () {
+                //    console.log(`1,Hello,${new Date().getTime()}`); // 1秒后输出"Hello"
+                //    setTimeout(function () {
+                //        console.log(`2,Hi,${new Date().getTime()}`); // 2秒后输出"Hi"
+                //    }, 1000);
+                //}, 1000);
+
+                // 使用ES6
+                var waitSecond = new Promise(function (resolve, reject) {
+                    setTimeout(resolve, 1000);
+                });
+
+                //waitSecond
+                //    .then(function () {
+                //        console.log(`3,Hello,${new Date().getTime()}`); // 1秒后输出"Hello"
+                //        return waitSecond;
+                //    })
+                //    .then(function () {
+                //        console.log(`4,Hi,${new Date().getTime()}`); // 2秒后输出"Hi"
+                //    })
+                //    .then(function () {
+                //        console.log(`5,Welcome,${new Date().getTime()}`); // 2秒后输出"Hi"
+                //    });
+
+                // 上面的的代码使用两个then来进行异步编程串行化，避免了回调地狱：
+
+            </script>
+
+            <div class="row-fluid">
+
+                <h5>1. 支持let与const</h5>
+                <p style="font-weight:bold;"></p>
+                <p>在之前JS是没有块级作用域的，const与let填补了这方便的空白，const与let都是块级作用域。</p>
+
+                <script type="text/javascript">
+
+                    // 使用var定义的变量为函数级作用域：
+                    {
+                        var aa = 10;
+                    }
+                    console.log(aa); // 输出10
+
+                </script>
+
+                <p>使用let与const定义的变量为块级作用域：</p>
+
+                <script type="text/javascript">
+                    {
+                        let ab = 10;
+                    }
+                    //console.log(ab); //-1 or Error“ReferenceError: a is not defined”
+                </script>
+            </div>
+
+            <div class="row-fluid">
+                <h5>2. 字符串的扩展</h5>
+                <p style="font-weight:bold;">2.1. 检索字符串：</p>
+                <p>(1).includes()，语法格式为：A.includes(B,index),判断A是否包含B，index表示检索的位置，从第index位置开始检索</p>
+                <p>(2).startsWith(), 语法格式为：A.includes(B,index),判断A是否以B开头，index表示检索的位置，从第index位置开始检索</p>
+                <p>(3).endsWith(), 语法格式为：A.endsWith(B,index),判断A是否以B结尾，index表示对前index个字符进行检索，这三个语句的index都是可以省略的，省略则表示检索整个字符串。</p>
+
+                <p style="font-weight:bold;">2.2. 重复字符串：</p>
+                <p>(1).语法格式为str.repeat(n);</p>
+                <p>(2).repeat()并不会改变原来的字符串，因此需要一个变量用来接收重复后的结果，</p>
+                <pre><code>
+    const str = 'xiaoliao',
+    const result = str.repeat(3) //定义变量result接收
+    console.log(result) //输出xiaoliaoxiaoliaoxiaoliao
+
+</code></pre>
+
+                <p style="font-weight:bold;">2.3. 去除空白：</p>
+                <p>(1).trim(),语法格式为str.trim(),用于去除字符串首尾的空格</p>
+                <p>(2).trimStart(),语法格式为str.trimStart(),用于去除字符串开始处的空格</p>
+                <p>(3).trimEnd(),语法格式为str.trimEnd(),用于去除字符串结尾处的空格</p>
+
+                <p style="font-weight:bold;">2.4. 长度补全：</p>
+                <p>(1).padStart(),语法格式为str.padStart(len,str),在头部进行补全，len是必选参数，用于指定字符串长度，str可选，表示用来补全的自付出，省略则表示使用空格来补全</p>
+                <p>(2).padEnd(),语法格式为str.padEnd(len,str),在结尾进行补全，参数作用与上面一致</p>
+
+                <p style="font-weight:bold;">2.5. 模板字符串</p>
+                <p>(1).模板字符串使用反引号来表示，例如：`string`，它的本质上也是字符串，只不过比普通字符串的功能更加强大</p>
+                <p>(2).它可以用来进行表示多行字符串，会保留换行格式</p>
+                <p>(3).可以用来实现字符串拼接，并且在模板字符串中，单引号和双引号是不需要转义的，可以直接保留下来。</p>
+                <p>(4).在模板字符串中插入变量采用{}将变量包裹起来，例如：**\̲`̲数量为{num}个`**</p>
+
+            </div>
+
+            <div class="row-fluid">
+                <h5>3. 数组的扩展</h5>
+                <p style="font-weight:bold;">3.1. 判断数组</p>
+                <p>(1).Array.isArray(值),判断该值是否是一个数组，返回一个布尔值</p>
+
+                <p style="font-weight:bold;">3.2. 创建数组</p>
+                <p>(1).在ES6之前创建一个数组有两种方式，一种是使用构造函数(new Array())，另一种是使用数组字面量(即[ ])的方式创建，但是使用构造函数创建数组会产生一些怪异行为，例如：</p>
+
+<pre><code>
+    const arr1 = new Array(); // 输出为[]
+    const arr2 = new Array(0); // 输出为[]
+    const arr3 = new Array(1); // 输出为[empty]
+    const arr4 = new Array(1,2); // 输出为[1,2]
+
+</code></pre>
+
+                <p>为了解决传统new Array()方式创建的怪异行为,ES6引入一种新的创建数组的方式，即Array.of方法，例：</p>
+<pre><code>
+    const arr1 = Array.of(); // 输出为[]
+    const arr2 = Array.of(0); // 输出为[0]
+    const arr3 = Array.of(1); // 输出为[1]
+    const arr4 = Array.of(1,2); // 输出为[1,2]
+
+</code></pre>
+
+
+                <p style="font-weight:bold;">3.3. 转换数组</p>
+                <p>(1).类数组的概念，常见的类数组有以下三种：字符串，函数的arguments，DOM的NodeList</p>
+                <p>类数组又被成为“伪数组”，因为并不是真正的数组，只是类似于数组而已，类数组具有以下两样特点： 拥有length属性，可以使用下标方式访问</p>
+                <p>但是它不能使用数组的方法</p>
+                <p>在ES5中将类数组转换为真正的数组，可以使用Array.prototype.slice.apply()来实现，例如：</p>
+
+<pre><code>
+    const str = "小廖是个菜鸟";
+    const arr = Array.prototype.slice.apply(str)
+    console.log(arr) // 输出为["小","廖","是","个","菜","鸟"]
+
+</code></pre>
+                <p>(2).在ES6中，可以使用**Array.from()**来将一个类数组转换为真正的数组</p>
+                <pre><code>
+    const str = "小廖是个菜鸟";
+    const arr = Array.from(str)
+    console.log(arr) // 输出为["小","廖","是","个","菜","鸟"]
+
+</code></pre>
+
+
+
+            </div>
+
+
+
+            <h2>ES7新特性（2016）</h2>
+
+            <p>数组includes()方法，用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回true，否则返回false。</p>
+            <p style="font-weight:bold;">1.Array.prototype.includes()</p>
+            <p>includes() 函数用来判断一个数组是否包含一个指定的值，如果包含则返回 true，否则返回false。</p>
+            <p>includes 函数与 indexOf 函数很相似，下面两个表达式是等价的：</p>
+            <pre><code>
+    arr.includes(x)
+    arr.indexOf(x) >= 0
+</code></pre>
+            <script type="text/javascript">
+
+                {
+                    let arr = ['react', 'angular', 'vue'];
+
+                    if (arr.indexOf('react') !== -1) {
+                        console.log('react存在');
+                    }
+
+                }
+
+                {
+                    let arr = ['react', 'angular', 'vue'];
+
+                    if (arr.includes('react')) {
+                        console.log('react存在');
+                    }
+                }
+
+            </script>
+
+            <p style="font-weight:bold;">2.指数操作符</p>
+            <p>在ES7中引入了指数运算符**，**具有与Math.pow(..)等效的计算结果。</p>
+            <p>a ** b指数运算符，它与 Math.pow(a, b)相同。</p>
+
+            <script type="text/javascript">
+                // 不使用指数操作符
+                // 使用自定义的递归函数calculateExponent或者Math.pow()进行指数运算：
+                {
+                    function calculateExponent(base, exponent) {
+                        if (exponent === 0) {
+                            return 1;
+                        }
+                        else if (exponent === 1) {
+                            return base;
+                        }
+                        else {
+                            return base * calculateExponent(base, exponent - 1);
+                        }
+                    }
+
+                    console.log(calculateExponent(2, 10)); // 输出1024
+                    console.log(Math.pow(2, 10)); // 输出1024
+                }
+                // 使用指数操作符
+                // 使用指数运算符**，就像+、-等操作符一样：
+                {
+                    console.log(2 ** 10);// 输出1024
+                    console.log(2 ** 0); // 1
+                }
+            </script>
+
+
+            <h2>ES8新特性（2017）</h2>
+            <ul><li> <p>async/await</p> </li><li> <p><code>Object.values()</code></p> </li><li> <p><code>Object.entries()</code></p> </li><li> <p>String padding:&nbsp;<code>padStart()</code>和<code>padEnd()</code>，填充字符串达到当前长度</p> </li><li> <p>函数参数列表结尾允许逗号</p> </li><li> <p><code>Object.getOwnPropertyDescriptors()</code></p> </li><li> <p><code>ShareArrayBuffer</code>和<code>Atomics</code>对象，用于从共享内存位置读取和写入</p> </li></ul>
+
+            <p style="font-weight:bold;">1.async/await</p>
+            <p>ES2018引入异步迭代器（asynchronous iterators），这就像常规迭代器，除了next()方法返回一个Promise。因此await可以和for...of循环一起使用，以串行的方式运行异步操作。例如：</p>
+
+<pre><code>
+    async function process(array) {
+        for await (let i of array) {
+            doSomething(i);
+        }
+    }
+</code></pre>
+
+            <p style="font-weight:bold;">2.Object.values()</p>
+            <p>Object.values()是一个与Object.keys()类似的新函数，但返回的是Object自身属性的所有值，不包括继承的值。</p>
+            <script type="text/javascript">
+                // 假设我们要遍历如下对象obj的所有值：
+                const obj = { a: 1, b: 2, c: 3 };
+                // 不使用Object.values() :ES7
+                {
+                    const vals = Object.keys(obj).map(key => obj[key]);
+                    console.log(vals);//[1, 2, 3]
+                }
+
+                // 使用Object.values() :ES8
+                {
+                    const values = Object.values(obj);
+                    console.log(values);//[1, 2, 3]
+                }
+
+            </script>
+
+<pre><code>
+    假设我们要遍历如下对象obj的所有值：
+    const obj = {a: 1, b: 2, c: 3};
+
+    不使用Object.values() :ES7
+    const vals=Object.keys(obj).map(key=>obj[key]);
+    console.log(vals);//[1, 2, 3]
+
+    使用Object.values() :ES8
+    const values=Object.values(obj1);
+    console.log(values);//[1, 2, 3]
+</code></pre>
+
+            <p>从上述代码中可以看出Object.values()为我们省去了遍历key，并根据这些key获取value的步骤。</p>
+
+            <p style="font-weight:bold;">3.Object.entries()</p>
+            <p>Object.entries()函数返回一个给定对象自身可枚举属性的键值对的数组。</p>
+            <p>接下来我们来遍历上文中的obj对象的所有属性的key和value：</p>
+<pre><code>
+
+    const obj = {a: 1, b: 2, c: 3};
+    // 不使用Object.entries() :ES7
+    Object.keys(obj).forEach(key=>{
+    console.log('key:'+key+' value:'+obj[key]);
+    })
+    //key:a value:1
+    //key:b value:2
+    //key:c value:3
+
+    // 使用Object.entries() :ES8
+    for(let [key,value] of Object.entries(obj1)){
+    console.log(`key: ${key} value:${value}`)
+    }
+    //key:a value:1
+    //key:b value:2
+    //key:c value:3
+
+</code></pre>
+
+            <script type="text/javascript">
+                {
+                    // 不使用Object.entries() :ES7
+                    Object.keys(obj).forEach(key => {
+                        console.log('key:' + key + ' value:' + obj[key]);
+                    });
+                }
+
+                {
+                    // 使用Object.entries() :ES8
+                    for (let [key, value] of Object.entries(obj)) {
+                        console.log(`key: ${key} value:${value}`)
+                    }
+                }
+            </script>
+
+            <p style="font-weight:bold;">4.String padding</p>
+            <p>在ES8中String新增了两个实例函数String.prototype.padStart和String.prototype.padEnd，允许将空字符串或其他字符串添加到原始字符串的开头或结尾。</p>
+            <p>String.padStart(targetLength,[padString])</p>
+            <p>targetLength:当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身。</p>
+            <p>padString:(可选)填充字符串。如果字符串太长，使填充后的字符串长度超过了目标长度，则只保留最左侧的部分，其他部分会被截断，此参数的缺省值为 " "。</p>
+
+<pre><code>
+    console.log('0.0'.padStart(4,'10')) //10.0
+    console.log('0.0'.padStart(20))// 0.00
+</code></pre>
+
+            <script type="text/javascript">
+                console.log('0.0'.padStart(4, '10')) //10.0
+                console.log('0.0'.padStart(20))// 0.00
+            </script>
+
+
+            <p>String.padEnd(targetLength,padString])</p>
+            <p>targetLength:当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身。</p>
+            <p>padString:(可选) 填充字符串。如果字符串太长，使填充后的字符串长度超过了目标长度，则只保留最左侧的部分，其他部分会被截断，此参数的缺省值为 " "；</p>
+<pre><code>
+    console.log('0.0'.padEnd(4,'0')) //0.00
+    console.log('0.0'.padEnd(10,'0'))//0.00000000
+</code></pre>
+
+            <script type="text/javascript">
+                console.log('0.0'.padEnd(4, '0')) //0.00
+                console.log('0.0'.padEnd(10, '0'))//0.00000000
+            </script>
+
+
+            <p style="font-weight:bold;">5.函数参数列表结尾允许逗号</p>
+            <p>主要作用是方便使用git进行多人协作开发时修改同一个函数减少不必要的行变更。</p>
+
+
+
+            <p style="font-weight:bold;">6.Object.getOwnPropertyDescriptors()</p>
+            <p>Object.getOwnPropertyDescriptors()函数用来获取一个对象的所有自身属性的描述符,如果没有任何自身属性，则返回空对象。</p>
+            <p></p>
+<pre><code>
+
+    // Object.getOwnPropertyDescriptors(obj)
+    Object.getOwnPropertyDescriptors(obj)
+
+    // 返回obj对象的所有自身属性的描述符，如果没有任何自身属性，则返回空对象。
+    const obj2 = {
+    name: 'Jine',
+    get age() { return '18' }
+    };
+    Object.getOwnPropertyDescriptors(obj2)
+    // {
+    //   age: {
+    //     configurable: true,
+    //     enumerable: true,
+    //     get: function age(){}, //the getter function
+    //     set: undefined
+    //   },
+    //   name: {
+    //     configurable: true,
+    //     enumerable: true,
+    //      value:"Jine",
+    //      writable:true
+    //   }
+    // }
+
+
+</code></pre>
+
+
+            <h2>ES9新特性（2018）</h2>
+            <ul><li> <p>异步迭代</p> </li><li> <p>Promise.finally()</p> </li><li> <p>Rest/Spread 属性</p> </li><li> <p>正则表达式命名捕获组（Regular Expression Named Capture Groups）</p> </li><li> <p>正则表达式反向断言（lookbehind）</p> </li><li> <p>正则表达式dotAll模式</p> </li><li> <p>正则表达式 Unicode 转义</p> </li><li> <p>非转义序列的模板字符串</p> </li></ul>
+
+
+            <p style="font-weight:bold;">1.异步迭代</p>
+            <p>在async/await的某些时刻，你可能尝试在同步循环中调用异步函数。例如：</p>
+            <p></p>
+<pre><code>
+    async function process(array) {
+    for (let i of array) {
+    await doSomething(i);
+    }
+    }
+
+    // 这段代码不会正常运行，下面这段同样也不会：
+
+    async function process(array) {
+    array.forEach(async i => {
+    await doSomething(i);
+    });
+    }
+
+    // 这段代码中，循环本身依旧保持同步，并在在内部异步函数之前全部调用完成。
+
+</code></pre>
+
+            <p>ES2018引入异步迭代器（asynchronous iterators），这就像常规迭代器，除了next()方法返回一个Promise。因此await可以和for...of循环一起使用，以串行的方式运行异步操作。例如：</p>
+
+<pre><code>
+    async function process(array) {
+    for await (let i of array) {
+    doSomething(i);
+    }
+    }
+</code></pre>
+
+            <p style="font-weight:bold;">2.Promise.finally()</p>
+            <p>一个Promise调用链要么成功到达最后一个.then()，要么失败触发.catch()。在某些情况下，你想要在无论Promise运行成功还是失败，运行相同的代码，例如清除，删除对话，关闭数据库连接等。</p>
+            <p>.finally()允许你指定最终的逻辑：</p>
+
+<pre><code>
+    function doSomething() {
+    doSomething1()
+    .then(doSomething2)
+    .then(doSomething3)
+    .catch(err => {
+    console.log(err);
+    })
+    .finally(() => {
+    // finish here!
+    });
+    }
+</code></pre>
+
+
+            <p style="font-weight:bold;">3.Rest/Spread 属性</p>
+            <p>ES2015引入了Rest参数和扩展运算符。三个点（...）仅用于数组。Rest参数语法允许我们将一个布丁数量的参数表示为一个数组。</p>
+
+<pre><code>
+    restParam(1, 2, 3, 4, 5);
+    function restParam(p1, p2, ...p3) {
+    // p1 = 1
+    // p2 = 2
+    // p3 = [3, 4, 5]
+    }
+</code></pre>
+
+            <p>展开操作符以相反的方式工作，将数组转换成可传递给函数的单独参数。例如Math.max()返回给定数字中的最大值：</p>
+
+<pre><code>
+    const values = [99, 100, -1, 48, 16];
+    console.log( Math.max(...values) ); // 100
+</code></pre>
+
+            <script type="text/javascript">
+                const values = [99, 100, -1, 48, 16];
+                console.log(Math.max(...values)); // 100
+            </script>
+
+            <p>ES2018为对象解构提供了和数组一样的Rest参数（）和展开操作符，一个简单的例子：</p>
+<pre><code>
+    const myObject = {
+    a: 1,
+    b: 2,
+    c: 3
+    };
+
+    const { a, ...x } = myObject;
+    // a = 1
+    // x = { b: 2, c: 3 }
+
+    // 或者你可以使用它给函数传递参数：
+
+    restParam({
+    a: 1,
+    b: 2,
+    c: 3
+    });
+
+    function restParam({ a, ...x }) {
+    // a = 1
+    // x = { b: 2, c: 3 }
+    }
+
+</code></pre>
+
+            <p>跟数组一样，Rest参数只能在声明的结尾处使用。此外，它只适用于每个对象的顶层，如果对象中嵌套对象则无法适用。</p>
+            <p>扩展运算符可以在其他对象内使用，例如：</p>
+<pre><code>
+    const obj1 = { a: 1, b: 2, c: 3 };
+    const obj2 = { ...obj1, z: 26 };
+    // obj2 is { a: 1, b: 2, c: 3, z: 26 }
+</code></pre>
+
+            <p>可以使用扩展运算符拷贝一个对象，像是这样obj2 = {...obj1}，但是 这只是一个对象的浅拷贝。另外，如果一个对象A的属性是对象B，那么在克隆后的对象cloneB中，该属性指向对象B。</p>
+
+
+            <p style="font-weight:bold;">4.正则表达式命名捕获组</p>
+            <p>JavaScript正则表达式可以返回一个匹配的对象——一个包含匹配字符串的类数组，例如：以YYYY-MM-DD的格式解析日期：</p>
+<pre><code>
+    const
+    reDate = /([0-9]{4})-([0-9]{2})-([0-9]{2})/,
+    match  = reDate.exec('2018-04-30'),
+    year   = match[1], // 2018
+    month  = match[2], // 04
+    day    = match[3]; // 30
+</code></pre>
+
+            <p>这样的代码很难读懂，并且改变正则表达式的结构有可能改变匹配对象的索引。</p>
+            <p>ES2018允许命名捕获组使用符号?<name>，在打开捕获括号(后立即命名，示例如下：</p>
+<pre><code>
+    const
+    reDate = /(?<year>
+        [0-9]{4})-(?<month>
+            [0-9]{2})-(?<day>
+    [0-9]{2})/,
+    match  = reDate.exec('2018-04-30'),
+    year   = match.groups.year,  // 2018
+    month  = match.groups.month, // 04
+    day    = match.groups.day;   // 30
+
+    // 任何匹配失败的命名组都将返回undefined。
+
+    //命名捕获也可以使用在replace()方法中。例如将日期转换为美国的 MM-DD-YYYY 格式：
+
+    const
+    reDate = /(?<year>
+        [0-9]{4})-(?<month>
+            [0-9]{2})-(?<day>
+                [0-9]{2})/,
+                d      = '2018-04-30',
+                usDate = d.replace(reDate, '$<month>-$<day>-$<year>');
+</code></pre>
+
+
+            <p style="font-weight:bold;">5.正则表达式反向断言</p>
+            <p>目前JavaScript在正则表达式中支持先行断言（lookahead）。这意味着匹配会发生，但不会有任何捕获，并且断言没有包含在整个匹配字段中。例如从价格中捕获货币符号：</p>
+
+<pre><code>
+    const reLookahead = /\D(?=\d+)/,match  = reLookahead.exec('$123.89');
+    console.log( match[0] ); // $
+</code></pre>
+            <p>ES2018引入以相同方式工作但是匹配前面的反向断言（lookbehind），这样我就可以忽略货币符号，单纯的捕获价格的数字：</p>
+<pre><code>
+    const reLookbehind = /(?<=\D)\d+/,match  = reLookbehind.exec('$123.89');
+    console.log( match[0] ); // 123.89
+</code></pre>
+            <p>以上是 肯定反向断言，非数字\D必须存在。同样的，还存在 否定反向断言，表示一个值必须不存在，例如：</p>
+            <pre><code>
+    const reLookbehindNeg = /(?<!\D)\d+/,match = reLookbehind.exec('$123.89');
+    console.log( match[0] ); // null
+</code></pre>
+
+
+            <p style="font-weight:bold;">6.正则表达式dotAll模式</p>
+            <p>正则表达式中点.匹配除回车外的任何单字符，标记s改变这种行为，允许行终止符的出现，例如：</p>
+            <p></p>
+<pre><code>
+    /hello.world/.test('hello\nworld');  // false
+    /hello.world/s.test('hello\nworld'); // true
+</code></pre>
+
+            <h2>ES10新特性（2019）</h2>
+            <ul><li> <p>行分隔符（U + 2028）和段分隔符（U + 2029）符号现在允许在字符串文字中，与JSON匹配</p> </li><li> <p>更加友好的 JSON.stringify</p> </li><li> <p>新增了Array的<code>flat()</code>方法和<code>flatMap()</code>方法</p> </li><li> <p>新增了String的<code>trimStart()</code>方法和<code>trimEnd()</code>方法</p> </li><li> <p><code>Object.fromEntries()</code></p> </li><li> <p><code>Symbol.prototype.description</code></p> </li><li> <p><code>String.prototype.matchAll</code></p> </li><li> <p><code>Function.prototype.toString()</code>现在返回精确字符，包括空格和注释</p> </li><li> <p>简化<code>try {} catch {}</code>,修改&nbsp;<code>catch</code>&nbsp;绑定</p> </li><li> <p>新的基本数据类型<code>BigInt</code></p> </li><li> <p>globalThis</p> </li><li> <p>import()</p> </li><li> <p>Legacy RegEx</p> </li><li> <p>私有的实例方法和访问器</p> </li></ul>
+
+            <p style="font-weight:bold;">3.新增了Array的flat()方法和flatMap()方法</p>
+            <p>flat()和flatMap()本质上就是是归纳（reduce） 与 合并（concat）的操作。</p>
+            <p>Array.prototype.flat()</p>
+            <p>flat() 方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。</p>
+            <p>flat()方法最基本的作用就是数组降维</p>
+
+<pre><code>
+
+    var arr1 = [1, 2, [3, 4]];
+    arr1.flat();
+    // [1, 2, 3, 4]
+
+    var arr2 = [1, 2, [3, 4, [5, 6]]];
+    arr2.flat();
+    // [1, 2, 3, 4, [5, 6]]
+
+    var arr3 = [1, 2, [3, 4, [5, 6]]];
+    arr3.flat(2);
+    // [1, 2, 3, 4, 5, 6]
+
+    //使用 Infinity 作为深度，展开任意深度的嵌套数组
+    arr3.flat(Infinity);
+    // [1, 2, 3, 4, 5, 6]
+
+    // 其次，还可以利用flat()方法的特性来去除数组的空项
+    var arr4 = [1, 2, , 4, 5];
+    arr4.flat();
+    // [1, 2, 4, 5]
+
+</code></pre>
+
+            <p>Array.prototype.flatMap()</p>
+            <p>flatMap() 方法首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。它与 map 和 深度值1的 flat 几乎相同，但 flatMap 通常在合并成一种方法的效率稍微高一些。这里我们拿map方法与flatMap方法做一个比较。</p>
+<pre><code>
+    var arr1 = [1, 2, 3, 4];
+
+    arr1.map(x => [x * 2]);
+    // [[2], [4], [6], [8]]
+
+    arr1.flatMap(x => [x * 2]);
+    // [2, 4, 6, 8]
+
+    // 只会将 flatMap 中的函数返回的数组 “压平” 一层
+    arr1.flatMap(x => [[x * 2]]);
+    // [[2], [4], [6], [8]]
+</code></pre>
+
+            <p style="font-weight:bold;">4. 新增了String的trimStart()方法和trimEnd()方法</p>
+            <p>新增的这两个方法很好理解，分别去除字符串首尾空白字符，这里就不用例子说声明了。</p>
+
+
+            <p style="font-weight:bold;">5. Object.fromEntries()</p>
+            <p>Object.entries()方法的作用是返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for...in 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环也枚举原型链中的属性）。</p>
+            <p>而Object.fromEntries() 则是 Object.entries() 的反转。</p>
+
+            <p>Object.fromEntries() 函数传入一个键值对的列表，并返回一个带有这些键值对的新对象。这个迭代参数应该是一个能够实现@iterator方法的的对象，返回一个迭代器对象。它生成一个具有两个元素的类似数组的对象，第一个元素是将用作属性键的值，第二个元素是与该属性键关联的值。</p>
+            <p>通过 Object.fromEntries， 可以将 Map 转化为 Object:</p>
+
+<pre><code>
+    const map = new Map([ ['foo', 'bar'], ['baz', 42] ]);
+    const obj = Object.fromEntries(map);
+    console.log(obj); // { foo: "bar", baz: 42 }
+</code></pre>
+
+            <p>通过 Object.fromEntries， 可以将 Array 转化为 Object:</p>
+<pre><code>
+    const arr = [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ];
+    const obj = Object.fromEntries(arr);
+    console.log(obj); // { 0: "a", 1: "b", 2: "c" }
+</code></pre>
+
+            <p style="font-weight:bold;">6. Symbol.prototype.description</p>
+            <p>通过工厂函数Symbol（）创建符号时，您可以选择通过参数提供字符串作为描述：</p>
+
+<pre><code>
+    const sym = Symbol('The description');
+</code></pre>
+
+            <p>以前，访问描述的唯一方法是将符号转换为字符串：</p>
+<pre><code>
+    assert.equal(String(sym), 'Symbol(The description)');
+</code></pre>
+
+            <p> 现在引入了getter Symbol.prototype.description以直接访问描述： </p>
+<pre><code>
+    assert.equal(sym.description, 'The description');
+</code></pre>
+
+            <script type="text/javascript">
+                //const sym = Symbol('The description');
+                //assert.equal(String(sym), 'Symbol(The description)');
+                //assert.equal(sym.description, 'The description');
+            </script>
+
+
+            <p style="font-weight:bold;">7. String.prototype.matchAll</p>
+            <p>matchAll() 方法返回一个包含所有匹配正则表达式及分组捕获结果的迭代器。 在 matchAll 出现之前，通过在循环中调用regexp.exec来获取所有匹配项信息（regexp需使用/g标志：</p>
+            <p></p>
+<pre><code>
+    const regexp = RegExp('foo*','g');
+    const str = 'table football, foosball';
+
+    while ((matches = regexp.exec(str)) !== null) {
+    console.log(`Found ${matches[0]}. Next starts at ${regexp.lastIndex}.`);
+    // expected output: "Found foo. Next starts at 9."
+    // expected output: "Found foo. Next starts at 19."
+    }
+</code></pre>
+
+            <script type="text/javascript">
+                const regexp = RegExp('foo*', 'g');
+                const str = 'table football, foosball';
+
+                while ((matches = regexp.exec(str)) !== null) {
+                    console.log(`Found ${matches[0]}. Next starts at ${regexp.lastIndex}.`);
+                    // expected output: "Found foo. Next starts at 9."
+                    // expected output: "Found foo. Next starts at 19."
+                }
+
+            </script>
+
+            <p>如果使用matchAll ，就可以不必使用while循环加exec方式（且正则表达式需使用／g标志）。使用matchAll 会得到一个迭代器的返回值，配合 for...of, array spread, or Array.from() 可以更方便实现功能：</p>
+
+<pre><code>
+    const regexp = RegExp('foo*','g');
+    const str = 'table football, foosball';
+    let matches = str.matchAll(regexp);
+
+    for (const match of matches) {
+        console.log(match);
+    }
+    // Array [ "foo" ]
+    // Array [ "foo" ]
+
+    // matches iterator is exhausted after the for..of iteration
+    // Call matchAll again to create a new iterator
+    matches = str.matchAll(regexp);
+
+    Array.from(matches, m => m[0]);
+    // Array [ "foo", "foo" ]
+</code></pre>
+
+            <p>matchAll可以更好的用于分组</p>
+<pre><code>
+    var regexp = /t(e)(st(\d?))/g;
+    var str = 'test1test2';
+
+    str.match(regexp);
+    // Array ['test1', 'test2']
+
+    let array = [...str.matchAll(regexp)];
+
+    array[0];
+    // ['test1', 'e', 'st1', '1', index: 0, input: 'test1test2', length: 4]
+    array[1];
+    // ['test2', 'e', 'st2', '2', index: 5, input: 'test1test2', length: 4]
+
+</code></pre>
+
+            <p style="font-weight:bold;"> 8. Function.prototype.toString()现在返回精确字符，包括空格和注释</p>
+            <p></p>
+            <p></p>
+<pre><code>
+    function /* comment */ foo /* another comment */() {}
+
+    // 之前不会打印注释部分
+    console.log(foo.toString()); // function foo(){}
+
+    // ES2019 会把注释一同打印
+    console.log(foo.toString()); // function /* comment */ foo /* another comment */ (){}
+
+    // 箭头函数
+    const bar /* comment */ = /* another comment */ () => {};
+
+    console.log(bar.toString()); // () => {}
+</code></pre>
+
+
+            <p style="font-weight:bold;"> 10. 新的基本数据类型BigInt</p>
+            <p>现在的基本数据类型（值类型）不止5种（ES6之后是六种）了哦！加上BigInt一共有七种基本数据类型，分别是：String、Number、Boolean、Null、Undefined、Symbol、BigInt。</p>
+            <p></p>
+<pre><code>
+    
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <br /><br />
+</body>
+</html>
+
+<script type="text/javascript">
+
+</script>
+
+<p style="font-weight:bold;"></p>
+<p></p>
+<p></p>
+<pre><code>
+    
+</code></pre>

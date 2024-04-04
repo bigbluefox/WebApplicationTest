@@ -1,0 +1,1692 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript ES6之后新增的数据类型(笔记)</title>
+    <link href="../BS4/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Bootstrap/table/bootstrap-table.css" rel="stylesheet" />
+    <link href="css/es.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-3.6.0.js"></script>
+    <script src="../BS4/js/bootstrap.bundle.js"></script>
+    <script src="../Bootstrap/table/bootstrap-table.js"></script>
+    <script src="../Bootstrap/table/locale/bootstrap-table-zh-CN.js"></script>
+
+    <style type="text/css">
+
+    </style>
+
+    <script type="text/javascript">
+
+    </script>
+
+</head>
+<body>
+    <!--https://blog.csdn.net/weixin_60547084/article/details/123445139?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-123445139-blog-114265779.pc_relevant_3mothn_strategy_and_data_recovery&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-123445139-blog-114265779.pc_relevant_3mothn_strategy_and_data_recovery&utm_relevant_index=1-->
+    <!--https://blog.csdn.net/weixin_46531416/article/details/125675643?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-125675643-blog-125302992.235%5Ev27%5Epc_relevant_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-125675643-blog-125302992.235%5Ev27%5Epc_relevant_default&utm_relevant_index=1-->
+
+    <div class="content">
+        <div class="container-fluid">
+
+            <h2>JavaScript ES6（2015）新特性</h2>
+            <h4>一、let 和 const</h4>
+            <div class="row-fluid">
+                <h5>1. var：</h5>
+                <p>(1).在ES5中，作用域一般分为全局作用域和局部作用域，而ES6新增块级作用域的概念，例如条件语句、循环语句中就是一个块级作用域，为了方便理解的话可以理解为ES6中定义在{}内就是一个块级作用域。在var中则不存在块级作用域。</p>
+                <p>(2).var声明的变量存在变量提升，即搜索引擎在加载js的时候会首先扫描一遍代码，将所有的var声明变量集合在一起，组成一个词法环境。例如先使用console.log(a)，再声明var a = 5; 则不会报错，而是打印undefined。实际上的代码顺序如下:</p>
+                <pre><code>
+    var a;
+    console.log(a);
+    a = 5;
+
+</code></pre>
+                <h5>2.let：</h5>
+                <p>(1).let只在块级作用域内有效，比如定义在条件语句中，那么就只在该条件语句内有效，在条件语句外则无效，在外访问会报错</p>
+                <p>(2).不能重复声明</p>
+                <p>(3).不存在变量提升</p>
+                <p>(4).不会成为window的属性，即在全局作用域中用let声明的变量，使用window.变量名不会生效</p>
+                <p>(5).最常用的用途：解决var在声明技术的循环变量造成的变量泄露问题，</p>
+
+<pre><code>
+    用var来定义
+    for(var i=0;i&lt;n;i++){
+    console.log(i)
+    }
+    //则会输出n遍n，而不是从0到n-1;
+    // 用let来定义则不会存在这种问题
+
+</code></pre>
+                <h5>3.const：</h5>
+                <p>(1).用于声明一个常量，它的特性与let一样，只能在块级作用域中有效，不能重复声明，不存在变量提升，不会成为window的属性，但是它一旦声明就不能再修改值</p>
+                <p>(2).如果声明基本数据类型，声明后是不能修改的，但是如果声明引用数据类型，则可以修改其属性的值，例如：</p>
+
+<pre><code>
+    const person = {
+        name: 'xiaoliao',
+        age: 22
+    }
+    person.name = 'liaogl'
+    console.log(person.name)
+    此时输出为liaogl，表示修改name属性的值成功
+
+</code></pre>
+
+            </div>
+
+                <h4>二、数据类型</h4>
+                <div class="row-fluid">
+
+                    <h5>1. Symbol(符号)</h5>
+                    <p style="font-weight:bold;">1.1 Symbol的定义</p>
+                    <p>Symbol 是 ES6 中新增的基本数据类型，它属于原始值，代表唯一的、不可变. 【目的】是保证对象属性的唯一性，也是为了解决属性冲突.</p>
+                    <p>Symbol是一种基本数据类型，Symbol()函数会返回symbol类型的值，该类型具有静态属性和静态方法，每一个Symbol()函数返回的值都是唯一的</p>
+                    <p style="font-weight:bold;">1.2 Symbol的创建</p>
+
+                    <pre>
+                    <code>
+                    let sym = Symbol(1) // Symbol(1)
+
+                    // Symbol表示唯一值
+                    let sym1 = Symbol("name")
+                    let sym2 = Symbol("name")
+                    sym1 === sym2 // false
+
+                    // 使用 Symbol() 函数初始化，由于它是属于原始类型，所以 typeof 会直接返回 symbol
+                    let sym = Symbol();
+                    console.log(typeof sym); // symbol
+
+                    // 初始化可传参，如 Symbol('hello') 那么 hello 就会作为这个 symbol 的描述，为了方便未来调试程序时有更直观的展示
+
+                    let sym1 = Symbol();
+                    console.log(sym1); // Symbol()
+
+                    let sym2 = Symbol('this is sym2');
+                    console.log(sym2); // Symbol(this is sym2)
+
+                    // 通过 Symbol() 初始化同样参数的变量，也不会相等，可以理解为调用一次 Symbol() 就得到一个新的标识，不论参数是否相同
+
+                    let sym1 = Symbol();
+                    let sym2 = Symbol();
+                    console.log(sym1 == sym2); // false
+
+                    let sym3 = Symbol('foo');
+                    let sym4 = Symbol('foo');
+                    console.log(sym3 == sym4); // false
+
+                    // Symbol()函数不能与 new 关键字一起作为构造函数使用，目的是为了避免和 Boolean、String 或 Number 的实例那样，存在包装对象
+
+                    // 1. 实例化例子
+                    let myBoolean = new Boolean();
+                    console.log(typeof myBoolean); // "object"
+
+                    let myString = new String();
+                    console.log(typeof myString); // "object"
+
+                    let myNumber = new Number();
+                    console.log(typeof myNumber); // "object"
+
+                    let mySymbol = new Symbol(); // TypeError: Symbol is not a constructor
+
+                    // 2. 包装对象例子
+                    let myBoolean = new Boolean();
+                    let myString = new String();
+                    let myNumber = new Number();
+                    let mySymbol = Symbol();
+
+                    myBoolean.add = ()=>{};
+                    myString.add = ()=>{};
+                    myNumber.add = ()=>{};
+                    mySymbol.add = ()=>{};
+
+                    console.log(myBoolean.add);// ()=>{}
+                    console.log(myString.add);// ()=>{}
+                    console.log(myNumber.add);// ()=>{}
+                    console.log(mySymbol.add);// undefind
+
+                    // 3. Symbol 转包装对象
+                    let mySymbol = Object(Symbol());
+                    mySymbol.add = ()=>{};
+                    console.log(mySymbol.add);// ()=>{}
+
+                    作者：熊的猫
+                    链接：https://juejin.cn/post/7024116654330249223
+                    来源：稀土掘金
+                    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+                    // 全局符号注册表
+                    // Symbol() 每初始化一次，就会生成一个新 symbol
+                    // Symbol.for() 初始化时可以传递字符串参数，并检查注册表是否存在对应的 symbol，如果没有则直接存储在注册表中，下一次在调用 Symbol.for() 并且传参一致时，直接返回注册表中存在的 symbol.
+
+                    let sym1 = Symbol.for('foo'); // 创建新符号
+                    let sym2 = Symbol.for('foo'); // 重用已有符号
+                    console.log(sym1 === sym2); // true
+
+                    console.log(Symbol('foo') === Symbol('foo')); // false
+                    console.log(Symbol('foo') === Symbol.for('foo')); // false
+
+                    // Symbol.keyFor() 查询注册表，参数为全局 symbol，即用 Symbol.for() 创建得到的 symbol
+
+                    // 创建全局符号
+                    let s1 = Symbol.for('foo');
+                    console.log(Symbol.keyFor(s1)); // foo
+
+                    // 创建普通符号
+                    let sym2 = Symbol('bar');
+                    console.log(Symbol.keyFor(sym2)); // undefined
+
+                </code>
+    </pre>
+
+                    <script type="text/javascript">
+                        //debugger;
+
+                        let sym = Symbol(1); // Symbol(1)
+                        console.info(sym);
+
+                        // Symbol表示唯一值
+                        //let sym1 = Symbol("name");
+                        //let sym2 = Symbol("name");
+                        //let rst = sym1 === sym2; // false
+                        //console.info(sym1);
+                        //console.info(rst);
+
+                        // 创建全局符号
+                        let s1 = Symbol.for('foo');
+                        console.log(Symbol.keyFor(s1)); // foo
+
+                    </script>
+
+                    <p style="font-weight:bold;">1.3 Symbol的一些api</p>
+                    <p>注意：Symbol的有些属性是可以给对象添加，比如迭代器等，所有不会有返回值</p>
+                    <div class="table-box"><table class="table table-striped table-sm table-hover"><thead><tr><th>属性/方法</th><th>作用</th></tr></thead><tbody><tr><td>1. asyncIterator</td><td>如果对象添加了这个属性，那么它就是异步可迭代对象，可以使用for await of循环</td></tr><tr><td>2. hasInstance</td><td>用于判断某对象是否为某构造器的实例，因此你可以用它自定义 instanceof</td></tr><tr><td>3. iterator</td><td>为一个对象添加一个迭代器，使该对象可以通过for of 迭代</td></tr><tr><td>4. description</td><td>一个只读属性，它会返回 Symbol 对象的可选描述的字符串，比如：Symbol(111).description ==&lt; “111”，返回字符串</td></tr></tbody></table></div>
+
+                    <p style="font-weight:bold;">1.4 Symbol作为对象的key</p>
+                    <pre>
+                    <code>
+                let obj = {
+                    [Symbol("name")]: "小红",
+                    age: 18,
+                };
+
+                // 作为对象的 key 基本使用是获取不到的
+                obj.name // undefined
+                Object.keys[obj] // [ 'age' ]
+
+                // 获取 symbol 类型的key
+                Object.getOwnPropertySymbols(obj) // [ Symbol(name) ]
+                // 也是获取对象的 key，包括 symbol 类型
+                Reflect.ownKeys(obj) // [ 'age', Symbol(name) ]
+
+            </code>
+        </pre>
+
+                    <p style="font-weight:bold;">1.5 使用 Symbol 作为属性正常用于对象的【属性】</p>
+
+                    <pre>
+                    <code>
+                    // 1. symbol 定义
+                    let s1 = Symbol('1'),
+                    s2 = Symbol('2'),
+                    s3 = Symbol('3'),
+                    s4 = Symbol('4'),
+                    s5 = Symbol('5');
+
+                    // 2. 多种赋值方式，和普通对象属性一致
+                    let o = {
+                    [s1]: 's1',
+                    num: 1,
+                    str: 'hello'
+                    }
+
+                    o[s2] = 's2'
+
+                    Object.defineProperty(o, s3, { value: 's3' });
+
+                    Object.defineProperties(o, {
+                    [s4]: { value: 's4' },
+                    [s5]: { value: 's5' },
+                    });
+
+                    console.log(o); // {num: 1, str: 'hello', Symbol(1): 's1', Symbol(2): 's2', Symbol(3): 's3', Symbol(4): 's4', Symbol(5): 's5',}
+
+                    // 3. 获取 key 的方式不一致，getOwnPropertyNames 和 getOwnPropertySymbols 方法是互斥的
+                    console.log(Object.getOwnPropertyNames(o)); // ['num', 'str']
+                    console.log(Object.getOwnPropertySymbols(o)); // [Symbol(1), Symbol(2), Symbol(3), Symbol(4), Symbol(5)]
+
+                    // 4. 获取所有的对象自身上的属性（普通属性 + symbol属性）
+                    console.log(Object.getOwnPropertyDescriptors(o)); // {num: {…}, str: {…}, Symbol(1): {…}, Symbol(2): {…}, Symbol(3): {…}, …}
+                    console.log(Reflect.ownKeys(o)); // ['num', 'str', Symbol(1), Symbol(2), Symbol(3), Symbol(4), Symbol(5)]
+                </code>
+        </pre>
+
+                    <p style="font-weight:bold;">1.6 常用内置符号</p>
+
+                    <p>ECMAScript 6 引入了一批常用内置符号（well-known symbol）</p>
+                    <p>目的是用于暴露语言内部的行为，开发者可以直接访问、重写或模拟这些行为.</p>
+                    <p>内置符号都以 Symbol 工厂函数字符串属性的形式存在【例如：Symbol.iterator】.</p>
+                    <p>所有内置符号属性都是不可写、不可枚举、不可配置的.</p>
+
+                    <p style="font-weight:bold;">1.6.1. 与遍历有关（Symbol.asyncIterator & Symbol.Iterator）</p>
+                    <p>Symbol.asyncIterator 表示实现异步迭代器 API 的函数，可 for-await-of 循环会利用这个函数执行异步迭代操作</p>
+                    <p> PS：ES2018 规范中定义的，只有在最新版的浏览器才支持 </p>
+
+                    <pre>
+                    <code>
+                        class Emitter {
+                            constructor(max) {
+                                this.max = max;
+                                this.asyncIndex = 0;
+                            }
+                            async *[Symbol.asyncIterator]() {
+                                while (this.asyncIndex < this.max) {
+                                    yield new Promise((resolve) => resolve(this.asyncIndex++));
+                                }
+                            }
+                        }
+
+                        let emitter = new Emitter(5);
+                        for await (const x of emitter) {
+                            console.log(x);
+                        }
+
+                    </code>
+                </pre>
+
+                    <p>
+                        Symbol.Iterator 表示实现迭代器 API 的函数，可用 for-of 循环这个函数执行迭代操作
+                    </p>
+                    <p>
+                        能够使用 for-of 遍历的对象，要么自身实现了或者原型上存在键名为 [Symbol.iterator] 的函数，并且这个函数默认会返回一个对象，这个对象带有 next 函数的实现，比如 Generator 函数.
+                    </p>
+
+                    <pre><code>
+                    // 1. 未实现 [Symbol.iterator] 迭代器
+                    let obj = {};
+                    // 抛出错误： Uncaught TypeError: obj is not iterable
+                    for(const x of obj) {
+                        console.log(x);
+                    }
+
+                    // 2. 实现 [Symbol.iterator]
+                    let obj = {
+                        [Symbol.iterator]: function* () {
+                            let i = 0
+                            while (i < 5) {
+                                yield i++;
+                            }
+                        }
+                    }
+
+                    for (const x of obj) {
+                        console.log(x); // 0 1 2 3 4
+                    }
+                </code></pre>
+
+
+                    <p style="font-weight:bold;">1.6.2. 与 instanceof 相关（Symblo.hasInstance | Symbol.species）</p>
+                    <p>instanceof 操作符可以用来确定一个对象实例的原型链上是否有原型.</p>
+                    <p>Symblo.hasInstance 作为一个属性表示“一个方法，该方法决定一个构造器对象是否认可一个对象是它的实例，由 instanceof 操作符使用.</p>
+                    <pre><code>
+    // 1. 通过 instanceof 判断
+    class Foo {}
+    let f = new Foo();
+    console.log(f instanceof Foo) // true
+
+    // 2. 通过 [Symbol.hasInstance] 的判断
+    class Foo {}
+    let f = new Foo();
+    console.log(Foo[Symbol.hasInstance]) // ƒ [Symbol.hasInstance]() { [native code] }
+    console.log(Foo[Symbol.hasInstance](f)) // true
+
+    // 3. 自定义 instanceof 的返回值
+    class Foo {
+        static [Symbol.hasInstance] = function () {
+            return false;
+        }
+    }
+    let f = new Foo();
+    console.log(f instanceof Foo); // false
+</code></pre>
+
+                    <p>Symbol.species 作为一个属性表示一个函数值，该函数作为创建派生对象的构造函数.</p>
+<pre><code>
+    class Arr1 extends Array {}
+
+    class Arr2 extends Array {
+        static get [Symbol.species]() {
+            return Array
+        }
+    }
+
+    let arr1 = new Arr1();
+    arr1 = arr1.concat('arr111');
+    console.log(arr1 instanceof Arr1); // true
+    console.log(arr1 instanceof Array); // true
+
+    let arr2 = new Arr2();
+    arr2 = arr2.concat('arr222');
+    console.log(arr2 instanceof Arr2); // false
+    console.log(arr2 instanceof Array); // true
+</code></pre>
+
+
+                    <p style="font-weight:bold;">1.6.3. 与数组有关（Symbol.isConcatSpreadable）</p>
+                    <p>Symbol.isConcatSpreadable 表示一个布尔值，如果是 true，则意味着对象应 该用 Array.prototype.concat() 打平其（数组 || 伪数组）的元素.</p>
+<pre><code>
+    // 1. 正常使用 Array.prototype.concat
+    let arr1 = [1,2];
+    let arr2 = [3,4];
+
+    // 直接访问得到 undefinded ，但合并的结果是被拍平的，因此，可以认为默认情况下需要被拍平
+    console.log(arr2[Symbol.isConcatSpreadable]); // undefinded
+
+    let newArr = arr1.concat(arr2);
+    console.log(newArr);// [1, 2, 3, 4]
+
+    // 2. 修改不需要被拍平的元素
+    let arr1 = [1,2];
+    let arr2 = [3,4];
+    console.log(arr2[Symbol.isConcatSpreadable]); // undefined
+    arr2[Symbol.isConcatSpreadable] = false;
+    console.log(arr2[Symbol.isConcatSpreadable]); // false
+    let newArr = arr1.concat(arr2);
+    console.log(newArr); // [1, 2, Array(2)]
+
+    // 3. 伪数组也具备这个属性
+    let likeObj = { length: 2, 0: 'name', 1: 'age' };
+    let  arr = [];
+    console.log(likeObj[Symbol.isConcatSpreadable]); // undefined
+    console.log(arr.concat(likeObj)); // [{ length: 1, 0: 'name', 1: 'age' }]
+    likeObj[Symbol.isConcatSpreadable] = true;
+    console.log(arr.concat(likeObj)); // ['name', 'age']
+</code></pre>
+
+
+                    <p style="font-weight:bold;">1.6.4. 与字符串相关 Symbol.[match | replace | search | split]</p>
+                    <p>PS：以上这些方法，在正则表达式 RegExp.protype 上都有默认实现，因此字符串的大多数 api 都和 RegExp 对象一起使用，默认情况下，即便传递的不是 RegExp 类型，也会被强制转换为 RegExp 类型去使用.</p>
+                    <p>Symbol.match 作为一个属性表示一个正则表达式方法，该方法用正则表达式 去匹配字符串。由 String.prototype.match()方法使用</p>
+                    <p>string.match(exp)，如果传入的参数(exp) 是非 RegExp 类型，就会被转成 RegExp 类型，如：'11'.macth( {num:11} ) ==> '11'.macth(new RegExp( {num:11} ))</p>
+                    <p>string.match(exp) ，如果不想让参数(exp) 被强转成 RegExp 类型，可以给传入的 exp 实现 Symbol.match 方法</p>
+<pre><code>
+    // 1. string.match(RegExp)
+    console.log('hello'.match(/llo/)); // ["llo", index: 2, input: "hello", groups: undefined]
+
+    // 2. string.match(非 RegExp 类型)
+    var obj = {};
+    var result = 'hello'.match(obj);// 这里相当于 'hello'.match( new RegExp(obj) )
+    console.log(result); // ["e", index: 1, input: "hello", groups: undefined]
+
+    // 3. 自定义 string.match 的匹配规则
+    var obj = {
+        [Symbol.match]: (target) => { // target 是 foobar
+            let index = target.indexOf('oo');
+            return {
+                value: target.slice(index,3),
+            index
+            };
+        }
+    };
+    console.log('foobar'.match(obj)); // {value: "oo", index: 1}
+</code></pre>
+
+                    <p>Symbol.replace 作为一个属性表示一个正则表达式方法，该方法替换一个字符 串中匹配的子串。由 String.prototype.replace()方法使用</p>
+                    <p>string.replace(exp, str)，如果传入的参数(exp) 是非 RegExp 类型，就会被转成 RegExp 类型</p>
+                    <p>string.replace(exp, str)，如果不想让参数(exp) 被强转成 RegExp 类型，可以给传入的 exp 实现 Symbol.replace 方法</p>
+
+<pre><code>
+    // 1. Symbol.replace(exp, str)
+    var target = 'hello';
+    var newStr = target.replace(/o/,'66');
+    console.log(newStr); // hell66
+
+    // 2. Symbol.replace(非 RegExp 类型, str)
+    var target = 'hello';
+    var newStr = target.replace(['o'],'77'); // 相当于 target.replace(new RegExp(['o']),'77')
+    console.log(newStr); // hell77
+
+    // 3. 实现自定义 Symbol.replace 替换规则
+    var target = 'hello';
+    var obj = {
+        [Symbol.replace]: function(target){
+            var index = target.indexOf('e');
+            return 'haha' + target.slice(index);
+        }
+    };
+    var newStr = target.replace(obj,'66');
+    console.log(newStr); // hahaello
+</code></pre>
+
+
+                    <p style="font-weight:bold;">Symbol.search 作为一个属性表示一个正则表达式方法，该方法返回字符串中匹配正则表达式的索引。由 String.prototype.search()方法使用</p>
+                    <p>string.search(exp)，如果传入的参数(exp) 是非 RegExp 类型，就会被转成 RegExp 类型</p>
+                    <p>string.search(exp) ，如果不想让参数(exp) 被强转成 RegExp 类型，可以给传入的 exp 实现 Symbol.search 方法</p>
+<pre><code>
+    // 1. string.search(exp)
+    var target = 'hello';
+    var index = target.search('ll');
+    console.log(index); // 2
+
+    // 2. string.search(非 RegExp 类型)
+    var target = 'hello';
+    var obj =  {};
+    var index = target.search(obj); // target.search(new RegExp(obj))
+    console.log(index); // 1
+
+    // 3. 实现自定义 string.search 查找规则
+    var target = 'hello';
+    var obj = {
+        [Symbol.search]: function(target){
+            var index = target.indexOf('ll');
+            return index;
+        }
+    };
+    var index = target.search(obj);
+    console.log(index); // 2
+</code></pre>
+
+
+
+                    <p style="font-weight:bold;">Symblo.split 作为一个属性表示一个正则表达式方法，该方法在匹配正则表达式的索引位置拆分字符串。由 String.prototype.split()方法使用.</p>
+                    <p>string.split(exp)，如果传入的参数(exp) 是非 RegExp 类型，就会被转成 RegExp 类型</p>
+                    <p>string.split(exp) ，如果不想让参数(exp) 被强转成 RegExp 类型，可以给传入的 exp 实现 Symbol.split 方法</p>
+<pre><code>
+    // 1. string.split(RegExp)
+    var target = 'hello-world';
+    var arr = target.split('-');
+    console.log(arr); // ["hello", "world"]
+
+    // 2. string.split(非 RegExp 类型)
+    var target = 'hello-world';
+    var arr = target.split(['-']);// 相当于 target.split(new RegExp(['-']))
+    console.log(arr); // ["hello", "world"]
+
+    // 3. 实现自定义 string.split 拆分规则
+    var target = 'hello-world';
+    var obj = {
+        [Symbol.split]: function(target){
+            var length = target.length;
+            var arr = [];
+            for(var index = 0; index < length; index++){
+                arr[index] = target[index];
+            }
+            return arr;
+        }
+    };
+    var arr = target.split(obj);
+    console.log(arr); // ["h", "e", "l", "l", "o", "-", "w", "o", "r", "l", "d"]
+</code></pre>
+
+
+                    <p style="font-weight:bold;">1.6.5. 与复杂类型相关 Symbol.[toPrimitive | toStringTag | unscopables]</p>
+                    <p>Symbol.toPrimitive表示一个方法，该方法将对象转换为相应的原始值. 由 ToPrimitive 抽象操作使用</p>
+<pre><code>
+    // 1. 复杂类型 转 基本类型
+    var obj = {};
+    // 1.1 obj 转 string
+    console.log(obj + ' & hello'); // [object Object] & hello
+    // 1.2 obj 转 number
+    console.log(obj - 1); // NaN
+    // 1.3 obj 转 boolean
+    console.log(!!obj); // true
+
+    // 2. 实现自定义的转换规则
+    var obj = {
+        [Symbol.toPrimitive]: function (type) {
+            switch (type) {
+                case 'string':
+                    return '666';
+
+                case 'number':
+                    return 889;
+
+                case 'default':
+                    default:
+                    return 0;
+            }
+        }
+    };
+    // 2.1 obj 转 string
+    console.log(String(obj)); // 666 & hello
+    // 2.2 obj 转 number
+    console.log(obj - 1); // 888
+    // 2.3 obj 转 boolean
+    console.log(Boolean(obj)); // true
+
+</code></pre>
+
+
+                    <p>Symbol.toStringTag 表示一个字符串，该字符串用于创建对象的默认字符串描述。由内置方法 Object.prototype.toString()使用</p>
+<pre><code>
+    // 1. Object.prototype.toString() 用于返回数据类型
+    var arr = [1],
+        obj = { name: 'zs' },
+        func = function getName() {
+            console.log(obj.name);
+        };
+    // 1.1 调用 Object.prototype.toString()
+    console.log(obj.toString()); // [object Object]
+    // 1.2 这两个调用的都不是 Object.prototype.toString 方法
+    // 1.2.1 Array.prototype.toString()
+    console.log(arr.toString()); // 1
+    // 1.2.2 Function.prototype.toString()
+    console.log(func.toString()); // function getName() { console.log(obj.name); }
+
+    // 3. 通过 Symbol.toStringTag 更改 Object 类型
+    obj[Symbol.toStringTag] = 'Array';
+    console.log(obj.toString()); // [object Array]
+
+    // typeof 返回类型不会受影响
+    console.log(typeof obj); // object
+</code></pre>
+
+
+                    <p style="font-weight:bold;">Symbol.unscopables 表示一个对象，该对象所有的以及继承的属性，都会从关联对象的 with 环境绑定中排除</p>
+                    <p>不推荐使用 with，因此也不推荐使用 Symbol.unscopables</p>
+<pre><code>
+    // 1. 正常可见
+    let o = { foo: 'bar' };
+    with (o) {
+        console.log(foo); // bar
+    }
+
+    // 2. 设置不可见
+    o[Symbol.unscopables] = {
+        foo: true
+    };
+    with (o) {
+        console.log(foo); // ReferenceError
+    }
+</code></pre>
+
+
+                </div>
+
+
+                <div class="row-fluid">
+
+                    <h5>2. BigInt(大数)</h5>
+                    <p style="font-weight:bold;">BigInt的定义</p>
+                    <p>BigInt是一种内置对象，用来表示大于2^53 - 1的整数，它可以表示任意大的整数，如果有小数的话会向下取整。</p>
+                    <p>因为在使用Number类型来表示特别大的数的时候，会变成科学计数法的形式，会有一些偏差的问题，使用BigInt可以避免这种问题</p>
+
+                    <p style="font-weight:bold;">BigInt的创建</p>
+<pre><code>
+    let big = BigInt(1) // 1n
+
+    // 它们之间也可以进行运算
+    1n + 1n = 2n
+    3n - 1n = 2n
+    7n / 4n = 1n // 向下取整
+    3n * 2n = 6n
+</code></pre>
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>3. Set(集合)</h5>
+                    <p style="font-weight:bold;">3.1 集合的定义</p>
+                    <p>集合就是一组值，与数组类似。但是与数组不同的是，集合没有索引或顺序，也不允许重复</p>
+                    <p style="font-weight:bold;">3.2 集合的创建</p>
+
+<pre><code>
+    let set1 = new Set("2213") // Set(3) {'2', '1', '3'}
+
+    // https://blog.csdn.net/m0_71485750/article/details/125448429
+    // 迭代器（iterator），是使用户在容器对象（container，例如链表或数组）上可以遍历访问的对象，使用该接口无需关心容器对象的内部实现细节。
+    // Iterable对象，就是可迭代对象，即可以用for...in...进行遍历的对象，就叫可迭代对象。
+    // 比如列表，元组，字符串，字典等都属于可迭代对象。
+
+    // 在创建集合时传入的值必须是一个可迭代对象
+    let set2 = new Set(1) // number 1 is not iterable
+
+    // 这两个数组存的引用不一样，所以没有去重
+    let set3 = new Set([1,2,3,[123],[123]]) // Set(5) {1, 2, 3, Array(1), Array(1)}
+    ————————————————
+    版权声明：本文为CSDN博主「codeCat!」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+    原文链接：https://blog.csdn.net/weixin_60547084/article/details/123445139
+</code></pre>
+
+                    <script type="text/javascript">
+                        let set1 = new Set("2213"); // Set(3) {'2', '1', '3'}
+                        console.log(set1);
+
+                        //let set2 = new Set(1) // number 1 is not iterable
+                        //console.log(set2);
+
+                        class Person {
+                            constructor(name, age, friends) {
+                                this.name = name
+                                this.age = age
+                                this.friends = friends
+                            }
+
+                            // 添加实例方法, 迭代器
+                            [Symbol.iterator]() {
+                                let index = 0
+                                return {
+                                    next: () => {
+                                        if (index < this.friends.length) {
+                                            return { done: false, value: this.friends[index++] }
+                                        } else {
+                                            return { done: true }
+                                        }
+                                    },
+                                    // 添加一个return方法, 用于监听迭代中断, 当迭代器中断就会执行return方法
+                                    return: () => {
+                                        console.log("监听到迭代器中断")
+                                        // 迭代器需要返回对象
+                                        return { done: true }
+                                    }
+                                }
+                            }
+                        }
+
+                        const p1 = new Person("kaisa", 18, ["aaa", "bbb", "ccc"])
+
+                        for (item of p1) {
+                            console.log(item) // aaa bbb
+
+                            // 如果在某种情况写退出了循环, 我们需要告知迭代器
+                            if (item === "bbb") {
+                                break
+                            }
+                        }
+
+
+                    </script>
+
+                    <p style="font-weight:bold;">3.3 集合常用api</p>
+                    <div class="table-box"><table class="table table-striped table-sm table-hover"><thead><tr><th>方法</th><th>作用</th><th>返回值</th></tr></thead><tbody><tr><td>1. size：属性</td><td>查看集合中的元素个数，和数组的length类似</td><td>数字</td></tr><tr><td>2. add(data)</td><td>向集合的末尾添加数据</td><td>Set对象本身</td></tr><tr><td>3. delete(data)</td><td>删除集合中的指定数据</td><td>布尔值</td></tr><tr><td>4. clear()</td><td>清空集合</td><td>undefined</td></tr><tr><td>5. has(data)</td><td>查询集合中是否存在该数据</td><td>布尔值</td></tr><tr><td>6. forEach(callback)</td><td>和数组的方法一样，按插入的顺序遍历</td><td></td></tr><tr><td>7. values()</td><td>按照插入顺序，返回一个具有set对象每个属性的迭代器</td><td>迭代器对象</td></tr><tr><td>8. entries()</td><td>返回一个 [value, value] 形式的数组迭代器对象</td><td>迭代器对象</td></tr></tbody></table></div>
+
+                    <pre><code>
+    //set类型的创建，利用new来创建，所传入的参数以数组形式传入
+    let s1=new Set([1,2,3,4,5,5,5])
+    //对数组进行去重
+    let arr1=[1,2,3,4,5,5,5]
+    let s2=new Set(arr1)
+    arr=Array.from(s2)
+    console.log(arr)
+</code></pre>
+
+                    <script type="text/javascript">
+
+                        //set类型的创建，利用new来创建，所传入的参数以数组形式传入
+                        //let arr0 = [1, 2, 3, 4, 5, 5, 5];
+                        //let s1 = new Set(arr0);
+                        //对数组进行去重
+                        let arr1 = [1, 2, 3, 4, 5, 5, 5];
+                        let s2 = new Set(arr1);
+                        let arr = Array.from(s2);
+                        console.log(arr);
+
+                    </script>
+
+
+                    <p style="font-weight:bold;">3.4 集合的补充</p>
+                    <p>
+                        Set类是可迭代的，可以for of遍历，也可以使用 … 扩展操作符；
+                        集合中不会出现重复数据的判断，是类似于 === 的，而不是 ==；
+                        因为通过add操作是返回集合本身，所以可以使用 add(1).add(2).add(3) 这种链式的方法去添加数据
+                    </p>
+                    <p>从集合开始，下面的都是引用数据类型</p>
+
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>4. Map(映射)</h5>
+                    <p style="font-weight:bold;">4.1 映射的定义</p>
+                    <p>Map对象表示一组被称为键(key)的值，其中每个键都关联着(或映射到)另一个值，它的key可以为引用数据类型</p>
+                    <p style="font-weight:bold;">4.2 映射的创建</p>
+<pre><code>
+    // 映射的创建也必须为一个可迭代对象，每一个值为[key, value]
+    let map = new Map([
+        ["one", 111],
+        [123, 222],
+        [true, 333],
+        [function () { }, 444],
+        [new Set(), 555]
+    ]) // Map(5) {'one' => 111, 123 => 222, true => 333, ƒ => 444, Set(0) => 555}
+
+</code></pre>
+
+                    <script type="text/javascript">
+                        // 映射的创建也必须为一个可迭代对象，每一个值为[key, value]
+                        let map = new Map([
+                            ["one", 111],
+                            [123, 222],
+                            [true, 333],
+                            [function () { }, 444],
+                            [new Set(), 555]
+                        ]) // Map(5) {'one' => 111, 123 => 222, true => 333, ƒ => 444, Set(0) => 555}
+
+                        console.log(map);
+
+                    </script>
+
+                    <button id="bt1"></button>
+<pre><code>
+    //我在html页面中创建了一个按钮。
+    var bt1=document.getElementById("bt1")
+    let m=new Map()
+    m.set(bt1,"按钮")
+    console.log(m.get(bt1)
+</code></pre>
+
+                    <script type="text/javascript">
+
+                        //我在html页面中创建了一个按钮。
+                        var bt1 = document.getElementById("bt1");
+                        let m = new Map();
+                        m.set(bt1, "按钮");
+                        console.log(m.get(bt1));
+
+                    </script>
+
+                    <p style="font-weight:bold;">map方法：将数组中每一个元素依次取出，进行遍历，返回一个新的数组</p>
+<pre><code>
+    let movies=[
+        {id:1,name:"大话西游",author:"xxxx",imgUrl:"http://xxx.douban.com/1.jpg"},
+        {id:2,name:"逃学威龙",author:"xxxx",imgUrl:"http://xxx.douban.com/2.jpg"},
+        {id:3,name:"喜剧之王",author:"xxxx",imgUrl:"http://xxx.douban.com/3.jpg"}
+    ]
+
+    movies = movies.map(item => {
+        item.imgUrl = item.imgUrl.replace("xxx","www")
+        return item;
+    })
+
+    console.log(movies);
+
+</code></pre>
+
+
+
+                    <p style="font-weight:bold;">4.3 映射常用api</p>
+                    <div class="table-box"><table class="table table-striped table-sm table-hover"><thead><tr><th>方法</th><th>作用</th><th>返回值</th></tr></thead><tbody><tr><td>1. size：属性</td><td>查看映射的成员数量，和数组的length类似</td><td>数字</td></tr><tr><td>2. set(key,value)</td><td>向映射中添加或修改了指定key和value</td><td>Map对象本身</td></tr><tr><td>3. get(key)</td><td>返回映射中指定key的value，如果没有返回undefined</td><td>value</td></tr><tr><td>4. clear()</td><td>清空映射</td><td>undefined</td></tr><tr><td>5. delete(key)</td><td>删除指定元素</td><td>布尔值</td></tr><tr><td>6. has(key)</td><td>查看元素</td><td>布尔值</td></tr><tr><td>7. keys()</td><td>按照插入顺序，返回key</td><td>迭代器对象</td></tr><tr><td>8. values()</td><td>按照插入顺序，返回value</td><td>迭代器对象</td></tr><tr><td>9. entries()</td><td>返回一个 [key, value] 形式的数组迭代器对象</td><td>迭代器对象</td></tr><tr><td>10. forEach()</td><td>forEach(callback(value, key, map))，先value后key</td><td></td></tr></tbody></table></div>
+
+                    <p style="font-weight:bold;">4.4 映射的补充</p>
+                    <p>Map类也是可迭代的，它使用for of遍历要注意，是先key后value，和forEach()相反</p>
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>5. WeakMap和WeakSet</h5>
+                    <p style="font-weight:bold;">5.1 WeakMap(弱映射)</p>
+
+                    <ul>
+                        <li>
+                            <p>弱映射是映射的变体(不是子类)，它不会阻止键值被当作<a href="https://so.csdn.net/so/search?q=%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6&amp;spm=1001.2101.3001.7020" target="_blank" class="hl hl-1" data-report-click="{&quot;spm&quot;:&quot;1001.2101.3001.7020&quot;,&quot;dest&quot;:&quot;https://so.csdn.net/so/search?q=%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6&amp;spm=1001.2101.3001.7020&quot;,&quot;extra&quot;:&quot;{\&quot;searchword\&quot;:\&quot;垃圾回收\&quot;}&quot;}" data-tit="垃圾回收" data-pretit="垃圾回收">垃圾回收</a></p>
+                            <blockquote>
+                                <p>垃圾回收：比如在函数调用后会被浏览器垃圾回收，如果没有去调用这个函数，而是保存到一个变量中，那么他就不会被浏览器垃圾回收</p>
+                                <p>在弱映射中，即使没有去使用它，它也会被浏览器给垃圾回收</p>
+                            </blockquote>
+                        </li>
+                        <li> <p>弱映射不是可迭代对象，它只实现了set()、get()、has()、delete()方法</p> </li>
+                        <li> <p>弱映射的主要用途是实现值与对象的关联，因为它容易被垃圾回收，所以不会造成内存泄漏</p> </li>
+                        <li> <p>弱映射的key只能为引用数据类型，value可以为任意类型</p> </li>
+                    </ul>
+
+
+                    <p style="font-weight:bold;">5.2 WeakSet(弱集合)</p>
+                    <ul><li>在弱集合只允许添加对象，存储在集合中，弱集合中的数据很容易被浏览器垃圾回收</li><li>弱集合也不是可迭代对象，只实现了add()、delete()、has()方法</li></ul>
+<pre><code>
+    class Person {
+        constructor() {
+            this.set = new Set([{}, {}])
+            this.map = new Map([
+                [{}, {}],
+                [{}, {}]
+            ])
+            this.wSet = new WeakSet([{}, {}])
+            this.wMap = new WeakMap([
+                [{}, {}],
+                [{}, {}]
+            ])
+        }
+    }
+
+    let p1 = new Person()
+    // 这里可以很明显的看出，在wMap和wSet中的数据已经被回收了
+    console.log(p1);
+    // Person {set: Set(2), map: Map(2), wSet: WeakSet, wMap: WeakMap}
+    // ----> 下面是展开的部分 <---- // map: Map(2) { {… }=>
+        {… }, {… } => {… } }
+        // set: Set(2) { {… }, {… } }
+        // wMap: WeakMap { }
+        // wSet: WeakSet { }
+
+        // 但是直接获取是可以获取到的，弱引用中的数据是可以获取到的，但是不去使用它就会被浏览器回收
+        // 获取也是代表建立了引用关系，所以获取并不会被回收
+        console.log(p1.wMap); // WeakMap {{…} => {…}, {…} => {…}}
+        console.log(p1.wSet); // WeakSet {{…}, {…}}
+
+</code></pre>
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>6. 新增数组方法</h5>
+                    <p style="font-weight:bold;">6.1 map()方法 给数组的每个元素做特殊的处理 返回一个新的数组</p>
+                    <p>例1 给每个数组元素后面加上“元”</p>
+
+<pre><code>
+    let arr1 = [20,30,40,]   // 给每个数组元素后面加上“元”    [20元,30元,40元,]
+
+    let arr2 = arr1.map(item =>{
+        item +="元"
+        return item
+    })
+
+    //上面箭头函数也可以简写为
+    let arr2 = arr1.map(item => item +="元")
+    console.log(arr2) //  [20元,30元,40元,]
+</code></pre>
+                    <p>例 2 豆瓣影评中电影地址的修改 将“xxx” 都改为“www”</p>
+                    <pre><code>
+    // 例2   豆瓣影评中电影地址的修改 将“xxx” 都改为“www”
+    let movies=[{id:1,name:"逃学威龙",imgUrl:"http://xxx.douban.com/1dda.png",number:1000},  {id:2,name:"大话西游",imgUrl:"http://xxx.douban.com/222.png",number:300000}]
+
+    movies = movies.map(item =>{
+        item.imgUrl = item.imgUrl.replace("xxx","wwww")
+        return item
+    })
+    console.log(movies)
+</code></pre>
+
+
+                    <p style="font-weight:bold;">2. filter() 方法  过滤一个数组中符合要求的元素，返回一个新数组    </p>
+                    <p>常用场景：数据量较小的时候 比如：地址搜索</p>
+                    <p>例1 将数组中大于60的元素全部找出   （例题中给出了箭头函数的简写方式）</p>
+                    <pre><code>
+    let counts=[40,50,80,100,20,45]
+    let countsArr = counts.filter(item =>{
+        // 只要 返回true  就返回item
+        if(item>=60){
+            return item
+        }
+    })
+    console.log(countsArr)  // [80,100]
+    // 写法2
+    let countsArr2 = counts.filter(item =>{
+        if(item>=60){
+            return true  // 只要 返回true  就返回item
+        }
+    })
+    console.log(countsArr2) // [80,100]
+    // 写法3
+    let countsArr3=counts.filter(item=>item>=60)
+    //只要返回true，就是返回对应item
+    console.log(countsArr3) // [80,100]
+</code></pre>
+
+
+                    <p style="font-weight:bold;">3. some()方法  用于数组判断  当数组中只要有一个符合条件就返回 true (只要有一个符合要求，整体都为真)</p>
+                    <p>例1 判断数组中是否有大于60的元素</p>
+                    <pre><code>
+    let chengji = [50,60,80,100,20,]
+
+    let result = counts.some(item => item>=60)    // 只要有一个成绩大于60 就返回真
+    console.log(result)   // true
+</code></pre>
+
+                    <p style="font-weight:bold;">4. every方法  用于数组判断  当数组中所有元素都符合条件才返回 true(全体为真才为真)</p>
+                    <p>例2  登录校验器 假设判断name的长度 和密码的长度</p>
+                    <pre><code>
+    let bt1=document.getElementById("bt1")
+    let username=document.getElementById("username")
+    let password=document.getElementById("password")
+    let results=[]  // 只有当 所有输入框都是真的时候 才可以登录
+    username.onblur=function(){  // 当账号框失去焦点时判断 如果不符合要求 返回 false
+        let name=this.value
+        if(name.length>8){
+            results[0]=true
+        }else{
+            results[0]=false
+        }
+    }
+    password.onblur=function(){  // 当密码框失去焦点时判断 如果不符合要求 返回 false
+        let ps=this.value
+        if(ps.length>8){
+            results[1]=true
+        }else{
+            results[1]=false
+        }
+        // console.log(results)
+    }
+    bt1.onclick=function(){
+        let result3 = results.every(item =>item)
+        console.log(result3) //  false  只有当 所有输入框都是真的时候 才可以登录
+    }
+</code></pre>
+
+                    <p style="font-weight:bold;">5. reduce()方法   对数组的每一个元素进行相应的处理</p>
+                    <p>reduce(prev,item,index,array) 有四个参数，常用的是prev 和 item</p>
+                    <p>prev:表示上次返回的结果，可以设置默认值</p>
+                    <p>item 当前进来的数据，index 当前数据的下标，array 当前操作的数组</p>
+                    <p>默认情况下运行次数为长度减1，第一个参数既自动作为默认值，又作为第二的数据的prev</p>
+
+                    <pre><code>
+    let  reduceArr = [1,2,3,4]
+    let  result5 =  reduceArr.reduce( (prev,item,index,array) => {
+        console.log("prev "+prev)
+        console.log("item "+item)
+        console.log("index "+index)
+        console.log("array "+array)
+        console.log("---------每次运行的分割线---------")
+    })
+    console.log(result5)
+</code></pre>
+
+                    <pre><code>
+    运行结果：
+
+    prev 1    第一个数组元素 作为默认值
+
+    item 2
+
+    index 1
+
+    array 1,2,3,4
+
+    ---------每次运行的分割线---------
+
+    prev undefined       因为函数中没有返回值 所以除第一次默认值以外，其他均是 undefined
+
+    item 3
+
+    index 2
+
+    array 1,2,3,4
+
+    ---------每次运行的分割线---------
+
+    prev undefined
+
+    item 4
+
+    index 3
+
+    array 1,2,3,4
+
+    ---------每次运行的分割线---------
+
+</code></pre>
+
+                    <p>例1 如何添加默认参数     将数组元素加上li标签  <li>百度</li> <li>腾讯</li> </p>
+                    <p>将默认值设置为空 </p>
+
+                    <pre><code>
+    reduceArr = ["百度","腾讯","阿里","字节跳动"]
+    let result6 = reduceArr.reduce( (prev,item) =>{
+        return prev +'&lt;li>'+item+"&lt;/li>"
+    },"") // 默认值可设置为空   第一个prev就不会是underfind
+    console.log(result6)     //&lt;li>百度&lt;/li>&lt;li>腾讯&lt;/li>&lt;li>阿里&lt;/li>&lt;li>字节跳动&lt;/li>
+</code></pre>
+
+                    <p>例2  数组去重  后续会介绍几种数组去重的方法</p>
+                    <p>给一个数组 返回一个没有重复数据的数组</p>
+<pre><code>
+    reduceArr=["百度","腾讯","阿里","字节跳动","百度","腾讯","字节跳动","阿里"]
+    //返回一个没有重复元素的数组
+    let result7=reduceArr.reduce((prev,item)=>{
+        //如果当前item，是prev中没有的，那么就放入prev中
+        if(!prev.includes(item)){
+            prev.push(item)
+        }
+        return prev
+    },[])  //设置prev默认值是个数组
+    console.log(result7)    //["百度","腾讯","阿里","字节跳动"]
+</code></pre>
+
+                    <p>例3 检测数组中每个元素出现的次数</p>
+<pre><code>
+    let ss = [0,1,1,1,1,1,2,2,2,2,3,3,3,4,4,9,5,5,7,5,5,7]
+    let result8 = ss.reduce( (prev,item) =>{
+        if(item in prev){   // 如果对象中存在这个key  则key值 加1
+            prev[item] ++
+        }else{              // 如果prev对象中不存在 则把改元素位置prev的key 赋值 为1
+            prev[item] = 1
+        }
+        return prev
+    },{})//设置prev默认值是个对象
+    console.log(result8)  // Object { 0: 1, 1: 5, 2: 4, 3: 3, 4: 2, 5: 4, 7: 2, 9: 1 }
+</code></pre>
+
+
+
+
+
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>6. 模板字符串与箭头函数</h5>
+                    <p style="font-weight:bold;">模板字符串</p>
+
+<pre><code>
+    const person = {
+        username: 'name',
+        age: 20,
+        sex: 'male'
+    };
+    const info1 = '我叫' + person.username + ',性别: ' + person.sex + ',今年' + person.age + '岁了';
+    console.log(info1);
+
+    const info2 = `我叫${person.username},性别: ${person.sex},今年${person.age}岁了`;
+    console.log(info);
+
+</code></pre>
+
+                    <p style="font-weight:bold;">注意：</p>
+                    <p>模板字符串中，所有空格、换行或缩进都会被保留在输出中</p>
+                    <p>只要最终可以得出一个值的就可以通过${}注入到模板字符串中</p>
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>7. 箭头函数</h5>
+                    <p style="font-weight:bold;">省略了function关键字</p>
+
+<pre><code>
+    (x, y) => {
+    return x + y;
+    };    // 此时是一个匿名函数
+
+    const add = (x, y) => {
+    return x + y;
+    }
+
+</code></pre>
+
+                    <p style="font-weight:bold;">注意：</p>
+                    <p>7.1 单个参数：可以将参数的括号省略掉</p>
+<pre><code>
+    const add = x => {
+        return x + 1;
+    };
+
+</code></pre>
+
+                    <p>7.2 单行函数体：可以同时省略{}和return</p>
+                    <pre><code>
+    const add = (x, y) => {
+        return x + y;
+    };
+    const add = (x, y) => x + y;
+
+</code></pre>
+
+                    <p>7.3 单行对象：如果箭头函数返回单行对象，可以在{}外面加上（），让浏览器不再认为那是函数体的花括号</p>
+                    <pre><code>
+    const add = (x, y) => {
+        return {
+            value: x + y
+        };
+    };
+
+    const add = (x, y) => ({
+        value: x + y
+    });
+
+</code></pre>
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>8. 解构赋值</h5>
+                    <p style="font-weight:bold;">什么是解构赋值：解析某一数据的结构，将我们想要的东西提取出来，赋值给变量或常量</p>
+
+                    <pre><code>
+    const arr = [1, 2, 3];
+    const a = arr[0];
+    const b = arr[1];
+    const c = arr[2];
+    console.log(a, b, c);
+    // 通过下标来访问元素比较麻烦
+    // 可通过如下方式简化
+
+    const [a, b, c] = [1, 2, 3];
+    console.log(a, b, c);
+
+</code></pre>
+
+                    <p style="font-weight:bold;">数组的解构赋值</p>
+                    <p>模式（解构）匹配</p>
+                    <p>索引值相同的完成赋值</p>
+                    <pre><code>
+    const [a, [, , b], c] = [1, [2, 4, 5], 3];
+    console.log(a, b, c);    // 1, 5, 3
+
+</code></pre>
+
+                    <p style="font-weight:bold;">数组解构赋值的默认值</p>
+                    <p>默认值的生效条件：只有当一个数组成员严格等于 === undefined 时，对应的默认值才会生效</p>
+                    <pre><code>
+    const [a, b] = [];  // 等价于 const [a, b] = [undefined, undefined];
+    console.log(a, b);    // undefined undefined
+
+    // 给取到undefined元素一个默认值
+    const [a = 1, b = 2] = [];
+    console.log(a, b);    // 1 2
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">默认值表达式</p>
+                    <p>如果默认值是表达式，默认值表达式是惰性求值的</p>
+                    <pre><code>
+    // 如果用不到表达式，那么表达式就不会执行
+    const func = () => {
+        console.log('执行了表达式');
+    };
+    const [a = func()] = [1];
+    console.log(a);   // 1
+
+</code></pre>
+
+                    <!--https://blog.csdn.net/weixin_46531416/article/details/125675643?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-125675643-blog-125302992.235%5Ev27%5Epc_relevant_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-125675643-blog-125302992.235%5Ev27%5Epc_relevant_default&utm_relevant_index=1-->
+
+                    <p style="font-weight:bold;">类数组的解构赋值</p>
+                    <pre><code>
+    function func() {
+        const [a, b] = arguments;
+        console.log(a, b);    // 1 2
+    }
+    func(1, 2);
+
+</code></pre>
+
+                    <pre><code>
+    &lt;p>123&lt;/p>
+    &lt;p>456&lt;/p>
+    &lt;script>
+        const [p1, p2] = document.querySelectAll('p');
+        console.log(p1, p2);
+    &lt;/script>
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">函数参数的解构赋值</p>
+                    <pre><code>
+    const array = [1, 1];
+    const add = arr => arr[0] + arr[1];
+    // 用解构赋值之后
+    const add = ([a, b]) => a + b;
+    console.log(add(array));  // 2
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">交换变量的值</p>
+                    <pre><code>
+    [x, y] = [y, x];
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">对象的解构赋值</p>
+                    <p>模式匹配</p>
+                    <p>属性名相同的完成赋值（和书写顺序无关）</p>
+                    <pre><code>
+    const {age, username} = {username: 'lisi', age: 18};
+
+    // 完整写法
+    const {age: age, username: username} = {username: 'lisi', age: 18};
+
+    // 起别名
+    const {age: nage, username: nname} = {username: 'lisi', age: 18};
+    console.log(nage, nname); // 18 'lisi'
+    console.log(age, username); // 报错
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">对象解构赋值的默认值</p>
+                    <p>对象的属性值严格等于undefined时，对应的默认值才会生效</p>
+                    <pre><code>
+    const {username = 'niubi', age = 0} = {username: 'lisi'};
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">默认值表达式</p>
+                    <p>如果默认值是表达式，那么默认值表达式是惰性求值的</p>
+                    <p>将一个已经声明的变量用于解构赋值</p>
+                    <pre><code>
+    let x = 2;
+    ({x} = {x: 1});     // 加上圆括号，防止{}被浏览器认为是代码块
+
+</code></pre>
+                    <p>可以取到继承的属性</p>
+                    <pre><code>
+    const {a = 1} = {};
+    console.log(a);   // 1
+
+    const {toString} = {};
+    console.log(toString);  // 不是undefined
+    // Object.prototype   可以取到继承的属性
+    console.log(Object.prototype);
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">其他数据类型的解构赋值</p>
+                    <p>字符串的解构赋值</p>
+                    <p>数组形式的解构赋值</p>
+                    <pre><code>
+    const [a, b, , , c] = 'hello';
+    console.log(a,b,c);
+
+</code></pre>
+
+                    <p>对象形式的解构赋值</p>
+                    <pre><code>
+    const {0: a, 1: b, length} = 'hello';    // 属性名就是索引值
+
+</code></pre>
+
+
+                </div>
+
+                <div class="row-fluid">
+                    <h5>9. 对象字面量的增强与函数参数的默认值</h5>
+                    <p style="font-weight:bold;">对象字面量的增强</p>
+                    <p>对象字面量</p>
+
+<pre><code>
+    // 对象字面量
+    const person = {
+    age: 18,
+    speak: function () {};
+    };
+
+</code></pre>
+
+                    <p style="font-weight:bold;">属性简洁表示</p>
+                    <p>当键名和变量或常量名一样的时候，可以只写一个</p>
+                    <pre><code>
+    const age = 18;
+    const person2 = {
+        age: age
+    };
+
+    const person3 = {
+        age
+    };
+
+</code></pre>
+
+                    <p>方法的简洁表示</p>
+                    <pre><code>
+    const person = {
+        // speak: function () {}
+        speak(){};
+    };
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">方括号语法</p>
+                    <p>给对象添加属性</p>
+                    <pre><code>
+    const prop = 'age';
+    const person = {};
+    person[prop] = 18;
+
+    // 此时person对象如下
+    {age: 18}
+
+</code></pre>
+
+                    <pre><code>
+    // 方括号语法可以写在对象字面量中
+    const person = {
+        [prop]: 18
+    };
+
+</code></pre>
+
+                    <p>方括号中可以放什么？</p>
+                    <p>
+                        [值或通过计算可以得到值的（表达式）]
+                    </p>
+                    <p>方括号语法和点语法的区别</p>
+                    <p>点语法是方括号语法的特殊形式，当属性名或方法名是合法标识符时，可以使用点语法，其他情况使用方括号语法</p>
+
+                    <p style="font-weight:bold;">函数参数的默认值</p>
+                    <p>和解构赋值时设置默认值的方式类似</p>
+
+<pre><code>
+    const multiply = (x, y) => {
+        if (typeof y === 'undefined') {
+            y = 1;
+        }
+        return x * y;
+    };
+
+    // 设置参数默认值
+    const multiply2 = (x, y = 1) => {
+        return x * y;
+    };
+
+</code></pre>
+                    <p></p>
+                    <p style="font-weight:bold;">注意：</p>
+
+                    <blockquote>
+                        <ol><li>默认值生效条件：不传参，或明确传undefined为参数的情况下，默认值才会生效</li><li>默认值表达式：惰性求值</li><li>函数参数的默认值最好从参数列表的右边开始设置</li></ol>
+                    </blockquote>
+
+                    <p>经典用法</p>
+<pre><code>
+    const loguser = ({username = 'zhangsan', age = 0, sex = 'male'} = {}) => console.log(username, age, sex);
+    logUser();
+
+</code></pre>
+
+
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>10. 剩余参数与展开运算符</h5>
+                    <p style="font-weight:bold;">剩余参数</p>
+                    <p>当不确定要传几个参数的时候就用剩余参数</p>
+
+<pre><code>
+    [1, 2, 3] --->  1, 2, 3
+</code></pre>
+
+<pre><code>
+    const add = (x, y, z, ...args) => {
+        console.log(x, y, z, args);
+    };
+
+</code></pre>
+
+                    <p>实参与形参中的固定参数进行对应，剩余的就归剩余参数管（放入数组当中）</p>
+                    <p>剩余参数永远是个数组，若没有取到值，那就是空数组</p>
+
+
+
+                    <p style="font-weight:bold;">注意：</p>
+                    <p>10.1 箭头函数的剩余参数</p>
+                    <p>箭头函数的参数部分当只有一个剩余参数时，不能省略圆括号</p>
+<pre><code>
+    const add = (...args) => {
+
+    }
+
+</code></pre>
+
+                    <p>10.2 使用剩余参数代替arguments获取实际参数</p>
+                    <p>由于箭头函数中没有arguments，所以要想获取参数数组，就可以用剩余参数</p>
+
+<pre><code>
+    const add = (...args) => {
+        console.log(args);
+    };
+    add(1, 2);
+
+</code></pre>
+
+                    <p>10.3 剩余参数的位置</p>
+                    <p>剩余参数只能是最后一个参数，之后不能再有其他参数，否则会报错</p>
+
+
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>11. 字符串新增方法</h5>
+                    <p style="font-weight:bold;">includes()</p>
+                    <p>判断字符串中是否含有某些字符</p>
+
+<pre><code>
+    console.log('abc'.includes('a'));   // true
+    console.log('abc'.includes('ab'));  // true
+    console.log('abc'.includes('ac'));  // false
+
+</code></pre>
+
+
+                    <p>第二个参数表示开始搜索的位置（默认是0）</p>
+
+                    <pre><code>
+    console.log('abc'.includes('a', 0));   // true
+    console.log('abc'.includes('a', 1));   // false
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">padStart() 和 padEnd()</p>
+                    <p>补全字符串长度</p>
+                    <pre><code>
+    'm'.padStart(6,'ab');   // 'ababam'
+    'm'.padEnd(6, 'ab');    // 'mababa'
+
+</code></pre>
+
+
+                    <p style="font-weight:bold;">trimStart() 和 trimEnd()</p>
+                    <p>清除字符串的首或尾空格，对应和trimLeft() 和 trimRight() 一样，trim()首尾空格全部清除</p>
+
+                    <p style="font-weight:bold;">replace() 和replace()</p>
+                    <p>replace()用来替换第一个匹配的内容</p>
+                    <p>replaceAll() 用来替换所有匹配的内容</p>
+<pre><code>
+    'aabbcc'.replace('b', 'x');    // aaxbcc
+    'aabbcc'.replaceAll('b', 'x');    // aaxxcc
+
+</code></pre>
+
+
+                </div>
+
+
+                <div class="row-fluid">
+                    <h5>12. Class类</h5>
+                    <p style="font-weight:bold;">21.1. 初始Class</p>
+                    <pre><code>
+    class Person {
+        // 构造函数，实例化的时候将会被调用，如果不指定，那么会有一个不带参数的默认构造函数.
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        sayHello() {
+            console.log(this.name, this.age);
+        }
+
+        // toString 是原型对象上的属性
+        toString() {
+            console.log('name:' + this.name + ',color:' + this.color);
+        }
+    }
+    const p = new Person('姓名', 18); //实例化Person
+    p.toString();
+    console.log(p);
+    p.sayHello();
+
+    console.log(p.hasOwnProperty('name')); //true
+    console.log(p.hasOwnProperty('toString')); // false
+    console.log(p.__proto__.hasOwnProperty('toString')); // true
+
+    // class 和 构造函数其实底层是一样的，只是在语法层面是class，但作用效果和构造函数一样
+</code></pre>
+                    <p>两种定义形式</p>
+                    <pre><code>
+    // 声明形式
+    class Person {}
+
+    // 表达式形式
+    const Person2 = class {}
+
+    // 立即执行的类
+    new (class {
+        constructor() {
+            console.log('constructor');
+        }
+    })();
+
+</code></pre>
+                    <p style="font-weight:bold;">12.2 属性与方法</p>
+                    <p>实例属性和实例方法</p>
+                    <pre><code>
+    class Person {
+        age = 18;    // 实例属性
+        sex = 'male';
+        static version = '1.0';     // 静态属性（目前只是提案，有兼容性问题），可以考虑将它写成方法的形式
+        static getVersion() {
+            return '1.0';
+        }
+        getAge = function () {    // 实例方法
+            return this.age;
+        }
+        constructor(age, sex) {    // 构造方法
+            this.age = age;
+            this.sex = sex;
+        }
+        static getAge() {         // 静态方法
+            console.log('666');
+        }
+    }
+
+</code></pre>
+
+                    <!--https://blog.csdn.net/weixin_46531416/article/details/125675643?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-125675643-blog-125302992.235%5Ev27%5Epc_relevant_default&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-125675643-blog-125302992.235%5Ev27%5Epc_relevant_default&utm_relevant_index=1-->
+
+                    <p></p>
+
+
+                    <pre><code>
+    class Animal {
+    // 构造函数，实例化的时候将会被调用，如果不指定，那么会有一个不带参数的默认构造函数.
+    constructor(name,color) {
+    this.name = name;
+    this.color = color;
+    }
+    // toString 是原型对象上的属性
+    toString() {
+    console.log('name:' + this.name + ',color:' + this.color);
+
+
+    }
+    }
+
+
+    var animal = new Animal('dog','white');//实例化Animal
+    animal.toString();
+
+
+    console.log(animal.hasOwnProperty('name')); //true
+    console.log(animal.hasOwnProperty('toString')); // false
+    console.log(animal.__proto__.hasOwnProperty('toString')); // true
+
+
+    class Cat extends Animal {
+    constructor(action) {
+    // 子类必须要在constructor中指定super 函数，否则在新建实例的时候会报错.
+    // 如果没有置顶consructor,默认带super函数的constructor将会被添加、
+    super('cat','white');
+    this.action = action;
+    }
+    toString() {
+    console.log(super.toString());
+    }
+    }
+
+
+    var cat = new Cat('catch')
+    cat.toString();
+
+
+    // 实例cat 是 Cat 和 Animal 的实例，和Es5完全一致。
+    console.log(cat instanceof Cat); // true
+    console.log(cat instanceof Animal); // true
+
+    var animal = new Animal('dog','white');//实例化Animal
+    animal.toString();
+
+    console.log(animal.hasOwnProperty('name')); //true
+    console.log(animal.hasOwnProperty('toString')); // false
+    console.log(animal.__proto__.hasOwnProperty('toString')); // true
+
+    class Cat extends Animal {
+    constructor(action) {
+    // 子类必须要在constructor中指定super 函数，否则在新建实例的时候会报错.
+    // 如果没有置顶consructor,默认带super函数的constructor将会被添加、
+    super('cat','white');
+    this.action = action;
+    }
+    toString() {
+    console.log(super.toString());
+    }
+    }
+
+    var cat = new Cat('catch')
+    cat.toString();
+
+    // 实例cat 是 Cat 和 Animal 的实例，和Es5完全一致。
+    console.log(cat instanceof Cat); // true
+    console.log(cat instanceof Animal); // true
+
+</code></pre>
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+    <br /><br />
+
+</body>
+</html>
+
+<script type="text/javascript"></script>
+
+<div class="row-fluid"></div>
+
+<div class="row-fluid">
+    <h5></h5>
+    <p style="font-weight:bold;"></p>
+    <p></p>
+    <p></p>
+    <p style="font-weight:bold;"></p>
+<pre><code>
+    
+</code></pre>
+
+</div>
+
+<!--class="table table-striped table-sm table-hover"-->

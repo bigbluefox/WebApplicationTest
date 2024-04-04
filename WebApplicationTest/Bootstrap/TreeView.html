@@ -1,0 +1,1822 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Tree View</title>
+
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link href="../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+<link href="../Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+<link href="../Scripts/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+
+<link href="../Scripts/bootstrap/css/bootstrap-validator.css" rel="stylesheet"/>
+<link href="../Scripts/bootstrap/css/bootstrap-fileinput.css" rel="stylesheet"/>
+<link href="../Scripts/bootstrap/css/bootstrap-treeview.css" rel="stylesheet"/>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="../Scripts/html5shiv.min.js"></script>
+    <script src="../Scripts/respond.min.js"></script>
+<![endif]-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../Scripts/jquery/jquery-1.12.4.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="../Scripts/bootstrap/js/bootstrap.min.js"></script>
+<script src="../Scripts/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../Scripts/bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+<script src="../Scripts/bootstrap/js/bootstrap-validator.js"></script>
+<script src="../Scripts/bootstrap/js/locales/bootstrap-validator-zh-CN.js"></script>
+<script src="../Scripts/bootstrap/js/bootstrap-fileinput.js"></script>
+<script src="../Scripts/bootstrap/js/locales/bootstrap-fileinput-zh-CN.js"></script>
+
+<script src="../Scripts/bootstrap/js/bootstrap-treeview.js"></script>
+
+<style type="text/css">
+    body { padding: 10px 0;}
+    .col-md-4, .col-md-12{ border: 1px solid #00ff00;}
+</style>
+
+<script type="text/javascript">
+
+    var $treeView = null, selectedNode = null, nodeId = 0, id = '', nodeLevel = -1;
+    var checkAll = false;
+
+    $(function() {
+        $treeView = $('#treeView');
+
+        initTree();
+
+
+        //$('#tree').treeview('selectNode', [nodeId, { silent: true }]);
+
+        //btnExpandAll
+        $('#btnExpandAll').unbind("click").bind('click', function() {
+
+            //debugger;
+
+            //$treeView.treeview('collapseAll', { silent: true });
+            //$treeView.treeview('checkAll', { silent: true });
+            //alert(this.innerText);
+
+            //if (this.innerText == "全部展开") {
+            //    //this.innerHTML = "dfsfs";
+            //    $(this).html("dfdsfd");
+            //    $(this).text("dfdsfd");
+            //    $treeView.treeview('expandAll', { levels: 2, silent: true });
+            //} else {
+            //    $treeView.treeview('collapseAll', { silent: true });
+            //}
+
+            $treeView.treeview('toggleNodeExpanded', [nodeId, { silent: true }]);
+
+
+        });
+
+        $('#btnCollapseAll').unbind("click").bind('click', function() {
+            $treeView.treeview('collapseAll', { silent: true });
+            //$treeView.treeview('checkAll', { silent: true });
+            //$treeView.treeview('expandAll', { levels: 2, silent: true });
+        });
+
+        //btnCollapseAll btnDataCopy btnSetSelect
+
+        $('#btnDataCopy').unbind("click").bind('click', function () { // 数据拷贝
+            $("#nodeId1").val($("#nodeId").val());
+            $("#txtId1").val($("#txtId").val());
+            $("#nodeName1").val($("#nodeName").val());
+        });
+
+        $('#btnSetSelect').unbind("click").bind('click', function () {
+
+            //selectedNode
+            selectSingleTreeViewNode($treeView, parseInt($("#nodeId1").val()))
+
+        });
+
+        // 全选/取消全选
+        $('#btnCheckAll').unbind("click").bind('click', function () {
+
+            //selectedNode
+            if (checkAll) {
+                checkAll = false;
+                $treeView.treeview('uncheckAll', { silent: true });
+            } else {
+                checkAll = true;
+                $treeView.treeview('checkAll', { silent: true });
+            }
+            //$treeView.treeview('collapseAll', { silent: true });
+            //$treeView.treeview('selectNode', [parseInt($("#nodeId1").val()), { silent: true }]);
+            //$treeView.treeview('expandNode', [parseInt($("#nodeId1").val()), { silent: true }]);
+        });
+
+
+        //btnSelectById">
+        //                        <i class="glyphicon glyphicon-list"></i> 根据编号设置选中
+
+        // 根据编号设置选中
+        $('#btnSelectById').unbind("click").bind('click', function () {
+
+            //debugger;
+
+            var $pattern = $("#nodeName1").val();
+            var nodes = null, node = null; // $treeView.treeview('getNodeById', [$pattern, 'g', 'text']);
+
+            //var aa = nodes;
+
+            // $treeView.treeview('findNodes', ['Parent', 'text']);
+            $pattern = $("#txtId1").val();
+            nodes = $treeView.treeview('getNodeById', [$pattern, { ignoreCase: false, exactMatch: false }, 'id']);
+
+            if (nodes.length > 0) {
+                node = nodes[0];
+                selectSingleTreeViewNode($tree, node.nodeId);
+            }
+
+            //var s = nodes.id;
+
+            //this.findNodes('true', 'g', 'state.disabled');
+            //$treeView.treeview('collapseAll', { silent: true });
+            //$treeView.treeview('selectNode', [parseInt($("#nodeId1").val()), { silent: true }]);
+            //$treeView.treeview('expandNode', [parseInt($("#nodeId1").val()), { silent: true }]);
+        });
+
+
+        //btnRemove
+        // 根据编号删除节点
+        $('#btnSelectById').unbind("click").bind('click', function () {
+
+            var $nodeId = nodeId;
+            $treeView.treeview('remove');
+
+        });
+    });
+
+    // 选中树节点
+    function selectSingleTreeViewNode($tree, $nodeId) {
+        $tree.treeview('collapseAll', { silent: true });
+        $tree.treeview('expandNode', [$nodeId, { silent: true }]);
+
+        $tree.treeview('unselectAll', { silent: true });
+        $tree.treeview('selectNode', [$nodeId, { silent: true }]);
+
+        $tree.treeview('uncheckAll', { silent: true });
+        $tree.treeview('checkNode', [$nodeId, { silent: true }]);
+
+        // 显示一个树节点，展开从这个节点开始到根节点的所有节点。 
+        $tree.treeview('revealNode', [$nodeId, { silent: true }]);
+
+        //var node = $tree.treeview('getSelected');
+        //if (node.length > 0) {
+        //    //expandTreeViewNode($tree, node[0]);
+
+        //    $tree.treeview('revealNode', [$nodeId, { silent: true }]);
+        //}
+        //if (node) {
+        //    $tree.treeview('revealNode', [$nodeId, { silent: true }]);
+        //}
+    }
+
+    // 递归展开树父级节点
+    //function expandTreeViewNode($tree, node) {
+    //    if (node.attributes.nodeLevel > 0) {
+    //        $tree.treeview('expandNode', [node.parentId, { silent: true }]);
+    //        var parentNode = $tree.treeview('getNode', node.parentId);
+    //        if (parentNode[0].attributes.nodeLevel > 0) {
+    //            expandTreeViewNode($tree, parentNode);
+    //        }
+    //    }
+    //}
+
+
+    // 树节点点击事件
+    function clickTreeNode(node) {
+        nodeId = node.nodeId;
+        id = node.id;
+        selectedNode = node;
+        nodeLevel = node.nodeLevel;
+
+        //alert(nodeId + " * " + id);
+        //alert("dffd");
+        //refreshTable();
+
+        $("#nodeId").val(node.nodeId);
+        $("#txtId").val(node.id);
+        $("#nodeName").val(node.text);
+    };
+
+    // 初始化树
+    function initTree() {
+
+        var treeData = [
+            {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "97DCB257-3CD0-4635-A362-66CF2ACCD012",
+                        "text": "文学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "A7048E9B-CFF6-47C8-8C04-46072EE4901D",
+                        "text": "哲学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "DCFE1803-9EC1-499B-9CFF-2A23A4FB45D7",
+                        "text": "历史学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "5E34D118-B6DD-4B10-A484-6CBF97EB34D0",
+                        "text": "新闻传播"
+                    }
+                ],
+                "tags": ["4"],
+                "attributes": {
+                    "nodeLevel": 0,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    //"checked": true,
+                    //"disabled": false,
+                    "expanded": false,
+                    //"selected": true
+                },
+                "id": "ACAA978E-1707-4D3D-9B96-4838CF98242A",
+                "text": "文史哲"
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "7AC6DFA6-D087-4ACE-BF7E-735FDF8348B7",
+                        "text": "法学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "34EA173A-82FF-4D6A-B97D-E110974EBA2E",
+                        "text": "政治学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "CDA624B8-240B-47B3-BD30-32756E04B9E2",
+                        "text": "社会学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "A318B611-C6B2-48B8-B553-5526BC23CED5",
+                        "text": "心理学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "20726DAF-B3C8-4AEA-BBD6-B0232C3E05EF",
+                        "text": "教育学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "9B052656-8736-46FA-94F0-2DEE37A53D32",
+                        "text": "军事学"
+                    }
+                ],
+                "tags": ["6"],
+                "attributes": {
+                    "nodeLevel": 0,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": true,
+                    "disabled": false,
+                    "expanded": true,
+                    "selected": true
+                },
+                "id": "C7E5DACA-9CD4-4253-A6D4-51248A128660",
+                "text": "社会科学"
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "FD38519A-FAE3-41C6-88C3-2A09E4FBE2D3",
+                        "text": "数学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "0523C821-039D-44D1-A1DE-ED530C40D3ED",
+                        "text": "物理学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "7A21A2F2-23C7-4033-B5FD-BDBE40D5E1BC",
+                        "text": "化学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "60156E47-DF1B-46FC-AF1A-6969B0D49EC9",
+                        "text": "医学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "CE765D2D-8CA8-42A9-AEE5-EB18BE0DB315",
+                        "text": "生物学"
+                    }
+                ],
+                "tags": ["5"],
+                "attributes": {
+                    "nodeLevel": 0,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "34D7326A-53B9-4955-922F-A9EE502E8BDE",
+                "text": "理学"
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "52FD5108-911B-45BB-8A97-67BA9FFC5403",
+                        "text": "机械学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "F163A073-6902-4A47-859C-810371139623",
+                        "text": "电子信息学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "B0402F1F-4EE9-4514-B2C9-4E6B2E5B6B50",
+                        "text": "化工"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "A06D0860-873D-430B-8F8E-AE0DDC49B968",
+                        "text": "材料科学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "D5519168-1706-4DD3-9B1F-948B46F0AFCD",
+                        "text": "环境工程"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "40731DE7-371F-43E5-B659-C866FF2618BC",
+                        "text": "建筑及土木工程"
+                    }
+                ],
+                "tags": ["6"],
+                "attributes": {
+                    "nodeLevel": 0,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "52322B48-006E-4CFD-B76E-CBBA05D22434",
+                "text": "工学"
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "26D266D0-63D3-4822-B8D2-80E178671A08",
+                        "text": "经济学"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "1550C18F-8043-4242-A381-FD639C087BB3",
+                        "text": "管理学"
+                    }
+                ],
+                "tags": ["2"],
+                "attributes": {
+                    "nodeLevel": 0,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "8B79340E-9344-4C0C-90DC-1DADFA8E3A1A",
+                "text": "经济管理"
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "79D565ED-A8D8-4189-AA5E-74C06A587F4B",
+                        "text": "英语"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "CA13C432-3980-4711-9755-E2AE6A299E72",
+                        "text": "日语"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "766BAF20-7E34-49DD-9006-BC39BA46E873",
+                        "text": "法语"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "447AB3A5-7042-4913-A148-3EB325A0CEA4",
+                        "text": "德语"
+                    }
+                ],
+                "tags": ["4"],
+                "attributes": {
+                    "nodeLevel": 0,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "9156869E-AB1E-4396-BF88-D4BF9A07E81A",
+                "text": "外语"
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "D1D8FD90-D1D9-4406-BCFA-130325E36ABC",
+                        "text": "语言学概论"
+                    }, {
+                        "nodes": null,
+                        "tags": null,
+                        "attributes": {
+                            "nodeLevel": 1,
+                            "nodePath": null,
+                            "childNodeCount": 0
+                        },
+                        "state": {
+                            "checked": false,
+                            "disabled": false,
+                            "expanded": false,
+                            "selected": false
+                        },
+                        "id": "0233FA87-8613-45F3-BF7D-14CEF5EFF33E",
+                        "text": "金融学"
+                    }
+                ],
+                "tags": ["2"],
+                "attributes": {
+                    "nodeLevel": 0,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "C556DA42-BAA8-4B97-9A8F-B4F5AA506ADB",
+                "text": "艺术"
+            }
+        ];
+
+
+        treeData = [
+            {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001021",
+                        "text": "科技研发管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["21"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001022",
+                        "text": "科技研发管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["19"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001023",
+                        "text": "科技研发管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001024",
+                        "text": "科技研发管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["41"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000955",
+                "text": "科技研发类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001017",
+                        "text": "市场投资管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001018",
+                        "text": "市场投资管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["34"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001019",
+                        "text": "市场投资管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["15"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001020",
+                        "text": "市场投资管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["50"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000956",
+                "text": "市场投资类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001013",
+                        "text": "工程建设管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001014",
+                        "text": "工程建设管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["73"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001015",
+                        "text": "工程建设管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["5"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001016",
+                        "text": "工程建设管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["79"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000957",
+                "text": "工程建设类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001009",
+                        "text": "生产运维管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["2"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001010",
+                        "text": "生产运维管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["9"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001011",
+                        "text": "生产运维管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["4"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001012",
+                        "text": "生产运维管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["15"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000958",
+                "text": "生产运维类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001005",
+                        "text": "招标采购管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001006",
+                        "text": "招标采购管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001007",
+                        "text": "招标采购管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["9"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001008",
+                        "text": "招标采购管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["10"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000959",
+                "text": "招标采购类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001001",
+                        "text": "战略经营管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["3"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001002",
+                        "text": "战略经营管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["8"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001003",
+                        "text": "战略经营管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001004",
+                        "text": "战略经营管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["11"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000960",
+                "text": "战略经营类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000997",
+                        "text": "安全生产管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000998",
+                        "text": "安全生产管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000999",
+                        "text": "安全生产管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001000",
+                        "text": "安全生产管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["1"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000961",
+                "text": "安全生产类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000993",
+                        "text": "人力资源管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["5"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000994",
+                        "text": "人力资源管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["34"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000995",
+                        "text": "人力资源管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000996",
+                        "text": "人力资源管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["39"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000962",
+                "text": "人力资源类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000989",
+                        "text": "财务管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000990",
+                        "text": "财务管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["10"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000991",
+                        "text": "财务管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000992",
+                        "text": "财务管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["11"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000963",
+                "text": "财务管理类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000985",
+                        "text": "法律风控管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["3"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000986",
+                        "text": "法律风控管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["3"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000987",
+                        "text": "法律风控管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["15"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000988",
+                        "text": "法律风控管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["21"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000964",
+                "text": "法律风控类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000981",
+                        "text": "审计管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000982",
+                        "text": "审计管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["3"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000983",
+                        "text": "审计管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["2"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000984",
+                        "text": "审计管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["6"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000965",
+                "text": "审计类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000977",
+                        "text": "行政办公管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000978",
+                        "text": "行政办公管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["11"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000979",
+                        "text": "行政办公管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000980",
+                        "text": "行政办公管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["12"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000966",
+                "text": "行政办公类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001028",
+                        "text": "IT信息化管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["3"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001029",
+                        "text": "IT信息化管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["5"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001030",
+                        "text": "IT信息化管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001031",
+                        "text": "IT信息化管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["8"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "001025",
+                "text": "IT信息化类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001032",
+                        "text": "品牌管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["2"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001033",
+                        "text": "品牌管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["3"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001034",
+                        "text": "品牌管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001035",
+                        "text": "品牌管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["5"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "001026",
+                "text": "品牌管理类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001036",
+                        "text": "企业文化管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001037",
+                        "text": "企业文化管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001038",
+                        "text": "企业文化管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "001039",
+                        "text": "企业文化管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["0"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "001027",
+                "text": "企业文化类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000973",
+                        "text": "党群管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000974",
+                        "text": "党群管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000975",
+                        "text": "党群管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000976",
+                        "text": "党群管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["1"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000967",
+                "text": "党群类",
+                "fileType": null
+            }, {
+                "nodes": [
+                    {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000969",
+                        "text": "纪检管理制度",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["1"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000970",
+                        "text": "纪检管理手册",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["12"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000971",
+                        "text": "纪检管理表单",
+                        "fileType": null
+                    }, {
+                        "nodes": null,
+                        "tags": ["0"],
+                        "attributes": null,
+                        "textValue": null,
+                        "state": null,
+                        "id": "000972",
+                        "text": "纪检管理样本",
+                        "fileType": null
+                    }
+                ],
+                "tags": ["13"],
+                "attributes": null,
+                "textValue": null,
+                "state": null,
+                "id": "000968",
+                "text": "纪检类",
+                "fileType": null
+            }
+        ];
+
+
+
+
+
+
+
+
+
+
+
+        var expandTree = function(node, isSelect) {
+            if (node.nodes != null) {
+
+                //debugger;
+
+                var selectNode = $treeView.treeview('getSelected');
+                //selectNode = selectNode || $treeView.treeview('getSelected');
+                var expand = selectNode[0].state.expanded ? "collapseNode" : "expandNode";
+                $treeView.treeview(expand, selectNode);
+                selectNode[0].state.selected = isSelect;
+            }
+        };
+
+        var options = {
+            bootstrap2: false,
+            showTags: true,
+            levels: 2,
+            multiSelect: $("#chk-select-multi").is(':checked'), // 是否可以同时选择多个节点。
+            showCheckbox: true, // 是否在节点上显示checkboxes
+            data: treeData,
+            onNodeSelected: function(event, data) {
+                expandTree(data, true);
+                if (window.clickTreeNode) clickTreeNode(data);
+            },
+            onNodeUnselected: function(event, data) { // 节点取消选中事件
+                //alert("onNodeUnselected");
+                //expandTree(data);
+            },
+            onNodeCollapsed: function(event, data) { // 节点被折叠事件
+                //alert("onNodeCollapsed");
+            },
+            onNodeExpanded: function(event, data) { // 节点被展开事件
+                //alert("onNodeCollapsed");
+            }
+        };
+
+        $treeView.treeview(options);
+        //$treeView.treeview('collapseAll', { silent: true });
+
+        //debugger;
+
+        selectedNode = selectedNode || $treeView.treeview('getSelected');
+        var node = null;
+        if (selectedNode.length > 0) {
+            node = selectedNode[0];
+            //var id = selectedNode[0].id;
+            //var nodeId = selectedNode[0].nodeId;
+            //var nodeName = selectedNode[0].text;
+            //$("#nodeId").val(node.nodeId);
+            //$("#txtId").val(node.id);
+            //$("#nodeName").val(node.text);
+        } else {
+            nodeId = nodeId || 0;
+            $treeView.treeview('collapseAll', { silent: true });
+            $treeView.treeview('selectNode', [nodeId, { silent: true }]);
+            $treeView.treeview('expandNode', [nodeId, { silent: true }]);
+            node = $treeView.treeview('getSelected')[0];
+            //var id = selectedNode[0].id;
+            //var nodeId = selectedNode[0].nodeId;
+            //var nodeName = selectedNode[0].text;
+        }
+
+        $("#nodeId").val(node.nodeId);
+        $("#txtId").val(node.id);
+        $("#nodeName").val(node.text);
+
+        //$treeView.treeview('expandNode', [selectedNode.nodeId, { silent: true }]);
+        //$.ajax({
+        //    type: "GET",
+        //    url: parentTreeUrl + "&Id=" + nodeId + "&rnd=" + (Math.random() * 10),
+        //    success: function (rst) {}
+        //});
+    }
+    
+</script>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <label for="treeView">分类目录树</label>
+            <div id="treeView"></div>
+        </div>
+        <div class="col-md-8" style="border: 1px solid #00bfff;">
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <input id="nodeId" class="form-control" type="text" placeholder="节点序号...">
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <input id="txtId" class="form-control" type="text" placeholder="节点编号...">
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <input id="nodeName" class="form-control" type="text" placeholder="节点名称...">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <input id="nodeId1" class="form-control" type="text" placeholder="设置节点序号...">
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <input id="txtId1" class="form-control" type="text" placeholder="设置节点编号...">
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <input id="nodeName1" class="form-control" type="text" placeholder="设置节点名称...">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-primary" id="btnExpandAll">
+                        <i class="glyphicon glyphicon-plus"></i> 全部展开
+                    </button>
+                    <button class="btn btn-danger" id="btnCollapseAll">
+                        <i class="glyphicon glyphicon-minus"></i> 全部折叠
+                    </button>
+                    <button class="btn btn-primary" id="btnDataCopy">
+                        <i class="glyphicon glyphicon-list"></i> 数据拷贝
+                    </button>
+
+                    <button class="btn btn-primary" id="btnSetSelect">
+                        <i class="glyphicon glyphicon-list"></i> 设置选中
+                    </button>
+
+                    <button class="btn btn-primary" id="btnCheckAll">
+                        <i class="glyphicon glyphicon-list"></i> 全选/取消全选
+                    </button>
+
+                    <button class="btn btn-primary" id="btnSelectById">
+                        <i class="glyphicon glyphicon-list"></i> 根据编号设置选中
+                    </button>
+
+
+                </div>
+            </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                    <button class="btn btn-primary" id="btnRemove">
+                        <i class="glyphicon glyphicon-remove"></i> 清除节点
+                    </button>
+
+                <div class="checkbox">
+                    <label>
+                        <input class="checkbox" id="chk-select-multi" type="checkbox" value="false">
+                         多选(Multi Select)
+                    </label>
+                </div>
+                            </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+</body>
+</html>

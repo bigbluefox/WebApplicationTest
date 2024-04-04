@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <title>Previous/Next example</title>
+    <script src="/Scripts/jquery/jquery-1.8.3.js"></script>
+</head>
+<body>
+
+<h1>'Previous/Next' example</h1>
+
+<div style="padding-bottom: 10px;">
+  <button id="prev">Previous</button>
+  <button id="next">Next</button>
+  &nbsp; &nbsp;
+  <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+</div>
+
+<div>
+  <canvas id="the-canvas" style="border: 1px solid #00bfff;"></canvas>
+</div>
+
+<script src="../../js/pdf.js"></script>
+<!--<a href="../../../pdfs/compressed.tracemonkey-pldi-09.pdf">../../../pdfs/compressed.tracemonkey-pldi-09.pdf</a>-->
+<script id="script">
+  //
+  // If absolute URL from the remote server is provided, configure the CORS
+  // header on that server.
+  //
+    var url = '../../../pdfs/compressed.tracemonkey-pldi-09.pdf';
+
+    var pdfData = "";
+
+    $.ajax({
+
+        type: "get", //如果报405错误就把post改成get
+        async: false,
+        mimeType: 'text/plain; charset=x-user-defined',
+        url: "/Handler/ReadPdfHandler.ashx", //请求服务器数据 
+        success: function (data) {
+
+            pdfData = data; //data就是byte[]数组，下面有介绍  
+
+        }
+        , complete: function (xhr, errorText, errorType) {
+
+            //debugger;
+
+            var p = "";
+
+            //alert("请求完成后");
+
+            //console.log(xhr.getAllResponseHeaders());
+
+            var contentDisposition = xhr.getResponseHeader('Content-Disposition');
+            var arr = contentDisposition.split(";filename=");
+            var filename = decodeURI(arr.length > 0 ? arr[1] : ""); // 解析URL编码
+            //filename = decodeURI(filename);
+
+
+            console.log(filename);
+
+        }
+        , error: function(xhr, errorText, errorType) {
+            alert("请求错误后");
+        }
+        , beforSend: function() {
+            alert("请求之前");
+        }
+
+    });
+
+
+
+  //
+  // In cases when the pdf.worker.js is located at the different folder than the
+  // PDF.js's one, or the PDF.js is executed via eval(), the workerSrc property
+  // shall be specified.
+  //
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    '../../js/pdf.worker.js';
+
+  var pdfDoc = null,
+      pageNum = 1,
+      pageRendering = false,
+      pageNumPending = null,
+      scale = 1.5,// 0.8,
+      canvas = document.getElementById('the-canvas'),
+      ctx = canvas.getContext('2d');
+
+  /**
+   * Get page info from document, resize canvas accordingly, and render page.
+   * @param num Page number.
+   */
+  function renderPage(num) {
+    pageRendering = true;
+    // Using promise to fetch the page
+    pdfDoc.getPage(num).then(function(page) {
+      var viewport = page.getViewport(scale);
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      // Render PDF page into canvas context
+      var renderContext = {
+        canvasContext: ctx,
+        viewport: viewport
+      };
+      var renderTask = page.render(renderContext);
+
+      // Wait for rendering to finish
+      renderTask.promise.then(function () {
+        pageRendering = false;
+        if (pageNumPending !== null) {
+          // New page rendering is pending
+          renderPage(pageNumPending);
+          pageNumPending = null;
+        }
+      });
+    });
+
+    // Update page counters
+    document.getElementById('page_num').textContent = num;
+  }
+
+  /**
+   * If another page rendering in progress, waits until the rendering is
+   * finised. Otherwise, executes rendering immediately.
+   */
+  function queueRenderPage(num) {
+    if (pageRendering) {
+      pageNumPending = num;
+    } else {
+      renderPage(num);
+    }
+  }
+
+  /**
+   * Displays previous page.
+   */
+  function onPrevPage() {
+    if (pageNum <= 1) {
+      return;
+    }
+    pageNum--;
+    queueRenderPage(pageNum);
+  }
+  document.getElementById('prev').addEventListener('click', onPrevPage);
+
+  /**
+   * Displays next page.
+   */
+  function onNextPage() {
+    if (pageNum >= pdfDoc.numPages) {
+      return;
+    }
+    pageNum++;
+    queueRenderPage(pageNum);
+  }
+  document.getElementById('next').addEventListener('click', onNextPage);
+
+  /**
+   * Asynchronously downloads PDF.
+   */
+  //pdfjsLib.getDocument(url).then(function (pdfDoc_) {
+  pdfjsLib.getDocument({ data: pdfData }).then(function (pdfDoc_) {
+    pdfDoc = pdfDoc_;
+    document.getElementById('page_count').textContent = pdfDoc.numPages;
+
+    // Initial/first page rendering
+    renderPage(pageNum);
+  });
+</script>
+
+</body>
+</html>

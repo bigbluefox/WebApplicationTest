@@ -1,0 +1,1167 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>弹出窗体Tab页测试</title>
+<link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+<link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+<link href="../Styles/css.css" rel="stylesheet" />
+<link href="../Styles/common-window.css" rel="stylesheet"/>
+
+    <!--[if lte IE 9]>
+        <script src="/Scripts/respond.min.js"></script>
+        <script src="/Scripts/html5shiv.min.js"></script>
+    <![endif]-->
+
+<script src="/Scripts/jquery/jquery-1.7.1.min.js"></script>
+
+<script src="/Scripts/jquery.easyui.min.js"></script>
+<script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+<script src="/Scripts/My97DatePicker/WdatePicker.js"></script>
+
+<script src="/Scripts/Hsp.js"></script>
+<script src="/Scripts/Hsp.Common.js"></script>
+<script src="/Scripts/placeholder.js"></script>
+
+<style type="text/css">
+ /* 已有样式 */   
+               
+    /*.content-div label{width:80px;text-align:right;font-size:12px;display:inline-block; vertical-align:top;padding-top:2px;font-weight:bold;}*/
+    /*.content-div textarea{height:90px;width:462px;}*/
+
+    .two-columns-left-label {display:block; }
+    .two-columns-whole-item {display:block;width:320px; }
+    .two-columns-whole-item input[type="text"]{width:278px;}
+
+    #postNameOrNo, #NameOrCode {height:22px;border: 1px solid lightgray;padding-left: 3px; padding-top: 1px;margin-top: 1px;}
+    .selectcommon-div{ margin: 5px 2px 5px 2px; height: 25px; width: 520px;}
+    .selectcommomtree-div{ width:379px; height:270px; overflow:auto; }
+    .selectcommon-input { width:120px;height:22px; float:left; }
+
+    .panel-body{ overflow-x: hidden;} /*防止弹出窗体出现横向滚动条*/
+    select, textarea, input[type='text'], input[type='button'] { border: 1px solid #a4bed4; font-size: 12px;}
+    
+    .btn-div input[type='button'] { height: 24px; }
+
+    /*
+    .row-line-div input[type='text'], .row-line-div select {display: inline-block;float: left;}
+    .row-line-div textarea{width:412px;}
+    .row-line-div input[type='text'], .row-line-div select { width: 150px; }*/
+
+    textarea { padding-top: 2px; }
+
+    .documentTab {
+        overflow: hidden;
+        padding: 5px;
+    }
+
+    .documentTab .row-line-div textarea,
+    .documentTab .row-block-div textarea {
+        height: 58px;
+        width: 405px;
+    }
+</style>
+
+<style type="text/css">
+    * { font-family: 微软雅黑; }
+
+    html, body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .window-div { width: 688px; }
+
+
+
+    /*
+    .content-div label {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+        padding-top: 2px;
+        text-align: right;
+        vertical-align: top;
+        width: 80px;
+    }*/
+
+    /*.content-div textarea {
+        height: 90px;
+        width: 462px;
+    }*/
+
+
+
+    .row-line-div {
+        clear: both;
+        float: left;
+        height: 24px;
+        line-height: 24px;
+        margin: 2px 0 2px 8px;
+    }
+
+    .row-title-div {
+        clear: both;
+        float: left;
+        height: 26px;
+        line-height: 26px;
+        margin: 2px 0 2px 8px;
+        border-bottom: 1.5px solid #00bfff;
+    }
+
+    .row-block-div {
+        clear: both;
+        float: left;
+        margin: 2px 0 2px 8px;
+    }
+
+
+
+
+    .row-title-div h3 {
+         padding-left: 10px;width: 75%;
+         display: inline-block;
+    }
+    .row-title-div a {
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
+    }
+
+
+    .row-line-div>label, 
+    .row-block-div>label {
+        display: inline-block;
+        float: left;
+        text-align: right;
+        font-weight: bold;
+         /*font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;*/
+    }
+
+    /*.row-line-div select {
+        font-weight: normal;
+        text-align: left;
+    }*/
+
+    .row-line-div>label {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .row-block-div>label {
+        vertical-align: text-top; 
+    }
+
+    .row-line-div img {
+        cursor: pointer;
+        padding: 4px 0 0 3px;
+    }
+
+    .row-line-div input, 
+    .row-line-div select, 
+    .row-line-div textarea, 
+    .row-line-div .input-group {
+        display: inline-block;
+        float: left;
+    }
+
+    .row-block-div .input-group {
+        display: block;
+        float: left;
+    }
+
+    .row-line-div .input-group>label,
+    .row-block-div .input-group>label {
+        display: block;
+        float: left;
+        line-height: 12px;
+        padding-right: 15px;
+        padding-top: 5px;
+    }
+
+    .row-line-div input[type='text'], 
+    .row-line-div input[type='password'] {
+        border: #a4bed4 1px solid;
+        height: 24px;
+        line-height: 24px;
+    }
+
+    /* 页面元素尺寸 */
+    
+
+    /* 页面元素尺寸 */
+    
+    .row-line-div, 
+    .row-title-div, 
+    .row-block-div {
+         width: 580px;
+    }
+
+    .row-line-div>label, 
+    .row-block-div>label {
+        width: 80px;
+    }
+
+    .quarter-input {
+        width: 58.4px;
+    }
+
+    select.quarter-input {
+        width: 61.6px;
+    }
+
+    .third-input {
+        width: 105.5px;
+    }
+
+    select.third-input {
+        width: 108.8px;
+    }
+
+    .half-input {
+        width: 200px;
+    }
+
+    select.half-input {
+        width: 203.5px;
+    }
+
+    .half-icon-input {
+        width: 179.5px;
+    }
+    
+    .full-input {
+        width: 484px;
+    }
+
+    select.full-input {
+        width: 487.5px;
+    }
+
+    textarea.full-input {
+        width: 483.5px;
+    }
+
+    input.combo-text {
+        border: 0!important;
+        width: 466.5px;
+        height: 24px!important;
+        line-height: 24px!important;
+    }
+
+    .row-line-div .combo {
+        border: #a4bed4 1px solid!important;
+    }
+
+    span.combo-arrow {
+        height: 26px!important;
+    }
+
+    .full-icon-input {
+        width: 463px;
+    }
+
+    #userPhoto
+    {
+        position: absolute;
+        top: 40px;
+        left: 440px;
+        width: 144px;
+        height: 192px;
+        cursor: pointer;
+        border: 1px solid #c0c0c0;
+    }
+
+    /*防止弹出窗体出现横向滚动条*/
+    .panel-body { overflow-x: hidden; }
+
+</style>
+
+<script type="text/javascript">
+
+    $(function () {
+        var $tabs = $("#user-tabs");
+        //var $party = $('<div title="党员信息" style="padding: 10px">abcdef</div>');
+        //$party.appendTo($tabs);
+
+        //debugger;
+
+        //var $dis = $('<div title="纪检信息1" style="padding: 10px">abcdef</div>');
+        //$dis.appendTo($tabs);
+        //$.parser.parse('#div_UserMainWin');
+
+        // tabs的高度与宽度自适应处理
+        $tabs.tabs();
+
+        //var $dis2 = $('<div title="纪检信息2" style="padding: 10px">abcdef</div>');
+        //$dis.appendTo($dis2);
+        //$.parser.parse('#div_UserMainWin');
+
+        //// tabs的高度与宽度自适应处理
+        //$tabs.tabs({ width: 'auto', height: 'auto' });
+        var disciplineInfo = '<table id="userDisciplineList" title="员工纪检信息"></table>';
+        addTab($tabs, "纪检信息", 425, disciplineInfo);
+
+        $('#user-tabs').tabs('select', "员工信息");
+
+        // 根据政治面貌选择来显示或者隐藏党员信息标签
+        //$("#selPoliticalStatus").change(function () {
+        //    alert(this.value);
+
+        //    if (this.value == 0) {
+        //        var tab = $tabs.tabs('getTab', "党员信息");
+        //        var index = $tabs.tabs('getTabIndex', tab);
+        //        $tabs.tabs('close', index);
+        //    } else {
+        //        var partyInfo = '<div title="党员信息" style="padding: 10px">abc党员信息def</div>';
+        //        addTab($tabs, "党员信息", 425, partyInfo);
+        //    }
+        //});
+
+        //var tab = $('#user-tabs').tabs('getTab', "党员信息");
+        ////var tab = $('#user-tabs').tabs('getSelected');
+        //var index = $('#user-tabs').tabs('getTabIndex', tab);
+        //alert(index);
+
+        // 检查页面上是否加载了bootstrap.js
+        // Will be true if bootstrap is loaded, false otherwise
+        var bootstrap_enabled = (typeof $().modal == 'function');
+
+        //alert(bootstrap_enabled);
+
+
+        if (typeof ($.fn.popover) != 'undefined') {
+            // your stuff here
+
+            alert('undefined');
+        }
+
+        if (typeof $.fn.popover == 'function') {
+            // your stuff here
+
+            alert('function');
+        }
+
+        // 选择民族
+        $("#btnNation").unbind("click").bind('click', function () {
+        
+        });
+
+    });
+
+    //function addPanel() {
+    //    $('#user-tabs').tabs('add', {
+    //        width: 'auto',
+    //        height: 425,
+    //        title: '纪检信息2',
+    //        content: '<div title="纪检信息2" style="padding: 10px">abcdef</div>',
+    //        closable: false
+    //    });
+    //}
+
+    /// <summary>
+    /// 添加EasyUI Tab页
+    /// </summary>
+    function addTab(tabObj, title, height, content) {
+        if (tabObj.tabs('exists', title)) {
+            tabObj.tabs('select', title);
+        } else {
+            tabObj.tabs('add', {
+                width: 'auto',
+                height: height,
+                title: title,
+                closable: true,
+                content: content
+            });
+        }
+    }
+
+</script>
+
+<!--class="easyui-tabs"-->
+</head>
+<body>
+
+<div id="div_UserMainWin" class="window-div">
+    <div class="content-div">
+        <div id="user-tabs" style="height: 420px; width: auto;">
+            <div title="员工信息" style="padding: 10px">
+                <div class="row-line-div" style="margin-top: 10px;">
+                    <label for="userCode" class="required-field"><span style="color: red;">* </span>账号：</label>
+                    <input class="third-input" type="text" id="userCode" placeholder="3-16个英文字符或数字"/>
+                    <label for="userName"><span style="color: red;">* </span>姓名：</label>
+                    <input class="third-input" type="text" id="userName" placeholder="2-16个汉字或32个英文字符"/>
+                    <div class="input-group third-input">
+                        <img id="userPhoto" src="/Content/images/default-user-photo.png" title="选择所属民族"/>
+                    </div>
+                </div>
+                <div class="row-line-div">
+                    <label for="userPaw"><span style="color: red;">* </span>密码：</label>
+                    <input class="third-input" type="password" id="userPaw" placeholder="3-16个英文字符或数字"/>
+                    <label for="isavailable">是否有效：</label>
+                    <select class="third-input" id="isavailable">
+                        <option value="1" selected="selected">有效</option>
+                        <option value="0">无效</option>
+                    </select>
+                </div>
+                <div class="row-line-div">
+                    <label for="telephone">办公电话：</label>
+                    <input class="third-input" type="text" id="telephone" placeholder="办公电话"/>
+                    <label for="mobilephone">手机号码：</label>
+                    <input class="third-input" type="text" id="mobilephone" placeholder="手机号码"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtHomeTel">家庭电话：</label>
+                    <input class="third-input" type="text" id="txtHomeTel" placeholder="家庭电话"/>
+                    <label for="userorder">排序号码：</label>
+                    <input class="third-input" type="text" id="userorder" value="0"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="selUserRights">用户权限：</label>
+                    <select class="full-input" id="selUserRights" name="selUserRights"></select>
+                </div>
+                <div class="row-line-div" style="display: none;">
+                    <label for="enterpriseID">所属企业：</label>
+                    <input type="hidden" id="enterpriseID"/>
+                    <input class="full-input" type="text" id="enterpriseName" readonly="readonly"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="userOrganNo"><span style="color: red;">* </span>所属部门：</label>
+                    <input type="hidden" id="userOrganNo"/>
+                    <input class="full-icon-input" type="text" id="userOrganName" readonly="readonly"/>
+                    <img id="selectOrgan" src="/Content/images/imgfolder.gif" title="选择部门"/>
+                </div>
+                <div class="row-block-div">
+                    <label for="nodePath">组织路径：</label>
+                    <textarea id="nodePath" class="full-input" style="height: 33px;" readonly="readonly"></textarea>
+                </div>
+                <div class="row-block-div">
+                    <label for="txtRemark">用户备注：</label>
+                    <textarea id="txtRemark" class="full-input" style="height: 50px;" placeholder="员工备注信息，最多127汉字"></textarea>
+                </div>
+                <div style="display: none;">
+                    <label for="defaultProcessSpaceID">缺省空间：</label>
+                    <input type="hidden" id="defaultProcessSpaceID" value="1"/>
+                    <input type="text" id="defaultProcessSpaceName" readonly="readonly"/>
+                    <img id="selectDefaultProcessSpace" src="/Content/images/imgfolder.gif" title="选择"/>
+                    <label for="issuper">超级用户：</label>
+                    <select id="issuper">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+
+
+                <div class="row-line-div">
+                    <label for="userCode"><span style="color: red;">* </span>账号：</label>
+                    <input class="third-input" type="text" id="Text4" placeholder="3-16个英文字符或数字"/>
+                    <label for="userName"><span style="color: red;">* </span>姓名：</label>
+                    <input class="third-input" type="text" id="Text5" placeholder="2-16个汉字或32个英文字符"/>
+                    <label for="userName"><span style="color: red;">* </span>姓名：</label>
+                    <input class="third-input" type="text" id="Text6" placeholder="2-16个汉字或32个英文字符"/>
+                </div>
+
+                <div class="row-line-div">
+                    <label for="issuper">超级用户：</label>
+                    <select id="Select1" class="third-input">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <label for="issuper">超级用户：</label>
+                    <select id="Select2" class="third-input">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <label for="issuper">超级用户：</label>
+                    <select id="Select3" class="third-input">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div title="个人信息" style="padding: 10px">
+                <div class="row-line-div" style="margin-top: 10px;">
+                    <label for="txtNationality"><span style="color: red;">* </span>国籍：</label>
+                    <input class="half-input" type="text" id="txtNationality" value="中国"/>
+                    <label for="selSex">性别：</label>
+                    <select class="half-input" id="selSex">
+                        <option value="0" selected="selected">男</option>
+                        <option value="1">女</option>
+                    </select>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtNation"><span style="color: red;">* </span>民族：</label>
+                    <div class="input-group">
+                        <input type="hidden" id="txtNationId"/>
+                        <input class="half-icon-input" type="text" id="txtNation" readonly="readonly" placeholder="所属民族"/>
+                        <img id="btnNation" src="/Content/images/imgfolder.gif" title="选择所属民族"/>
+                    </div>
+                    <label for="txtBirthday"><span style="color: red;">* </span>出生日期：</label>
+                    <input class="half-input" type="text" id="txtBirthday" onclick="WdatePicker();" placeholder="出生日期"/>
+                </div>
+
+                <div class="row-line-div">
+                    <label for="txtNativePlace"><span style="color: red;">* </span>籍贯：</label>
+                    <input class="half-input" type="text" id="txtNativePlace" placeholder="籍贯"/>
+                    <label for="txtBirthPlace">出生地：</label>
+                    <input class="half-input" type="text" id="txtBirthPlace" placeholder="出生地"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtPoliticalStatus">政治面貌：</label>
+                    <div class="input-group">
+                        <input type="hidden" id="txtPoliticalStatusId"/>
+                        <input class="half-icon-input" type="text" id="txtPoliticalStatus" readonly="readonly" placeholder="政治面貌"/>
+                        <img id="btnPoliticalStatus" src="/Content/images/imgfolder.gif" title="选择政治面貌"/>
+                    </div>
+                    <label for="selMaritalStatus" title="变更婚姻状况，将有可能删除配偶信息">婚姻状况：</label>
+                    <select class="half-input" id="selMaritalStatus">
+                        <option value="0" selected="selected">未婚</option>
+                        <option value="1">已婚</option>
+                        <option value="2">离异</option>
+                        <option value="3">丧偶</option>
+                    </select>
+                </div>
+                <div class="row-line-div">
+                    <label for="selHasLTRRO" title="是否具有海外长期居住权">海外居住权：</label>
+                    <select class="half-input" id="selHasLTRRO">
+                        <option value="0" selected="selected">无</option>
+                        <option value="1">有</option>
+                    </select>                    
+                    <label for="txtCountryLTRRO" title="海外长期居住权所在国家或地区">所属国家：</label>
+                    <input class="half-input" type="text" id="txtCountryLTRRO" placeholder="海外长期居住权所在国家或地区"/>
+                </div>
+                <div class="row-line-div">
+                    <!--<label for="txtAge">年龄：</label>-->
+                    <!--<input class="half-input" type="text" id="txtAge" disabled="disabled"/>-->
+                    <label for="txtIdCardNo">身份证号：</label>
+                    <input class="half-input" type="text" id="txtIdCardNo" placeholder="身份证号码"/>
+                    <label for="txtForeignLanguageLevel">外语水平：</label>
+                    <input class="half-input" type="text" id="txtForeignLanguageLevel" placeholder="外语水平"/>
+                </div>
+
+                <!--<div class="row-line-div"></div>-->
+
+                <div class="row-line-div">
+                    <label for="txtHomeAddr">现住址：</label>
+                    <input class="full-input" type="text" id="txtHomeAddr" placeholder="现居住地址..."/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtRegisteredResidence" title="户口所在地">户口所在地：</label>
+                    <input class="full-input" type="text" id="txtRegisteredResidence" placeholder="户口所在地..."/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtArchivesLocation" title="档案所在地">档案所在地：</label>
+                    <input class="full-input" type="text" id="txtArchivesLocation" placeholder="档案所在地..."/>
+                </div>
+                <div class="row-line-div">
+                    <label for="email">电子邮箱：</label>
+                    <input class="half-input" type="text" id="email" placeholder="电子邮箱账号"/>
+                    <label for="txtPostalCode">邮政编码：</label>
+                    <input class="half-input" type="text" id="txtPostalCode" placeholder="邮政编码"/>
+                </div>
+
+
+                <div class="row-line-div">
+                    <label for="userCode"><span style="color: red;">* </span>账号：</label>
+                    <input class="quarter-input" type="text" id="Text1" placeholder="3-16个英文字符或数字"/>
+                    <label for="userName"><span style="color: red;">* </span>姓名：</label>
+                    <input class="quarter-input" type="text" id="Text2" placeholder="2-16个汉字或32个英文字符"/>
+                    <label for="userName"><span style="color: red;">* </span>姓名：</label>
+                    <input class="quarter-input" type="text" id="Text3" placeholder="2-16个汉字或32个英文字符"/>
+                    <label for="userName"><span style="color: red;">* </span>姓名：</label>
+                    <input class="quarter-input" type="text" id="Text7" placeholder="2-16个汉字或32个英文字符"/>
+                </div>
+
+                <div class="row-line-div">
+                    <label for="issuper">超级用户：</label>
+                    <select id="Select4" class="quarter-input">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <label for="issuper">超级用户：</label>
+                    <select id="Select5" class="quarter-input">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <label for="issuper">超级用户：</label>
+                    <select id="Select6" class="quarter-input">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <label for="issuper">超级用户：</label>
+                    <select id="Select7" class="quarter-input">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+            </div>
+            <div title="工作信息" style="padding: 10px">
+                <div class="row-line-div" style="margin-top: 10px;">
+                    <label for="txtEntryCompanyTime" title="本公司入职时间"><span style="color: red;">* </span>入职时间：</label>
+                    <input class="half-input" type="text" id="txtEntryCompanyTime" onclick="WdatePicker();" placeholder="本公司的入职时间..."/>
+                    <label for="txtCompanyLength">司龄：</label>
+                    <input class="half-input" type="text" id="txtCompanyLength" disabled="disabled"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtEntryServiceTime" title="参加工作时间"><span style="color: red;">* </span>工作时间：</label>
+                    <input class="half-input" type="text" id="txtEntryServiceTime" onclick="WdatePicker();" placeholder="参加工作的时间..."/>
+                    <label for="txtServiceLength">工龄：</label>
+                    <input class="half-input" type="text" id="txtServiceLength" disabled="disabled"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="selStaffCategory">员工类别：</label>
+                    <select class="half-input" id="selStaffCategory">
+                        <option value="0" selected="selected">请选择员工类别...</option>
+                        <option value="1">公司领导</option>
+                        <option value="2">中层干部</option>
+                        <option value="3">普通员工</option>
+                        <option value="4">其他人员</option>
+                    </select>
+                    <label for="txtStaffCategoryRemark" title="员工类别选择其他人员时必填">类别备注：</label>
+                    <input class="half-input" type="text" id="txtStaffCategoryRemark" placeholder="员工类别选择其他人员时必填..."/>
+                </div>
+                <div class="row-line-div">
+                    <label for="selHireStatus">雇佣状态：</label>
+                    <select class="half-input" id="selHireStatus">
+                        <option value="0" selected="selected">请选择雇佣状态...</option>
+                        <option value="1">在岗</option>
+                        <option value="2">返聘</option>
+                    </select>
+                </div>
+
+
+                <div class="row-title-div">
+                    <h3>工作经历：</h3>
+                    <a id="btnExperienceAdd" href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-add" onclick=" javascript:void(0);" plain="true" title="添加工作经历"></a>
+                </div>
+                <div class="row-block-div">
+                    <table id="experience-Info-Tb"></table>
+                </div>
+
+                <div class="row-line-div">
+                    <label for="selIsCompany" title="是否本公司工作">本公司工作：</label>
+                    <select class="half-input" id="selIsCompany">
+                        <option value="1" selected="selected">是</option>
+                        <option value="0">否</option>
+                    </select>
+                    <input type="hidden" id="txtExpId"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtCompany">单位：</label>
+                    <input class="half-input" type="text" id="txtCompany" placeholder="工作单位"/>
+                    <label for="txtDepartment">部门：</label>
+                    <input class="half-input" type="text" id="txtDepartment" placeholder="所属部门"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtPosition">职务：</label>
+                    <input class="half-input" type="text" id="txtPosition" placeholder="职务"/>
+                    <label for="txtRank">职级：</label>
+                    <input class="half-input" type="text" id="txtRank" placeholder="职级"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtEntryTime">入岗时间：</label>
+                    <input class="half-input" type="text" id="txtEntryTime" onclick="WdatePicker();" placeholder="入岗时间"/>
+                    <label for="txtEndTime">结束时间：</label>
+                    <input class="half-input" type="text" id="txtEndTime" onclick="WdatePicker();" placeholder="结束时间"/>
+                </div>
+                <div class="row-block-div">
+                    <label for="txtBriefDesc" title="工作内容简述">工作简述：</label>
+                    <textarea id="txtBriefDesc" class="full-input" style="height: 75px;" placeholder="工作内容简述，最多255汉字"></textarea>
+                </div>
+
+
+            </div>
+
+            <div title="其他信息" style="padding: 10px">
+                 <!--style="margin-top: 10px;"-->
+
+                <div class="row-block-div">
+                    <label for="txtProcessionalSkills">专业技能：</label>
+                    <textarea id="txtProcessionalSkills" class="full-input" style="height: 75px;" placeholder="专业技能信息，最多999汉字"></textarea>
+                </div>
+                <div class="row-block-div">
+                    <label for="txtPereformance">主要业绩：</label>
+                    <textarea id="txtPereformance" class="full-input" style="height: 75px;" placeholder="主要业绩，最多999汉字"></textarea>
+                </div>
+
+                <div class="row-title-div">
+                    <h3>学历与培训：</h3>
+                    <a id="btnEducationeAdd" href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-add" plain="true" title="添加学历与培训"></a>
+                </div>
+                <div class="row-block-div">
+                    <table id="education-Info-Tb"></table>
+                </div>
+
+                <div class="row-line-div">
+                    <label for="selEducation">学历：</label>
+                    <input id="txtEduId" type="hidden" />
+                    <select class="half-input" id="selEducation">
+                        <option value="0" selected="selected">请选择学历...</option>
+                        <option value="1">九年义务教育</option>
+                        <option value="2">高中（含中职、中专）</option>
+                        <option value="3">专科</option>
+                        <option value="4">本科</option>
+                        <option value="5">硕士研究生</option>
+                        <option value="6">博士研究生</option>
+                    </select>
+                    <label for="selDegree">学位：</label>
+                    <select class="half-input" id="selDegree">
+                        <option value="0" selected="selected">请选择学位...</option>
+                        <option value="1">学士</option>
+                        <option value="2">硕士</option>
+                        <option value="3">博士</option>
+                    </select>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtSubject">专业：</label>
+                    <input class="half-input" type="text" id="txtSubject" placeholder="专业"/>
+                    <label for="txtSchool">学校：</label>
+                    <input class="half-input" type="text" id="txtSchool" placeholder="学校或培训机构"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtStartingTime">开始时间：</label>
+                    <input class="half-input" type="text" id="txtStartingTime" onclick="WdatePicker();" placeholder="开始时间"/>
+                    <label for="txtGraduationTime">毕业时间：</label>
+                    <input class="half-input" type="text" id="txtGraduationTime" onclick="WdatePicker();" placeholder="毕业时间"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="selIsFirstDegree" title="是否第一学历">第一学历：</label>
+                    <select class="half-input" id="selIsFirstDegree">
+                        <option value="0" selected="selected">否</option>                        
+                        <option value="1">是</option>
+                    </select>
+                    <label for="selIsHighestDegree" title="是否最高学历">最高学历：</label>
+                    <select class="half-input" id="selIsHighestDegree">
+                        <option value="0" selected="selected">否</option>                        
+                        <option value="1">是</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div title="配偶信息" style="padding: 10px">
+                <div class="row-line-div" style="margin-top: 10px;">
+                    <label for="txtSpouseName"><span style="color: red;">* </span>配偶姓名：</label>
+                    <input id="txtSpouseRId" type="hidden" />
+                    <input class="half-input" type="text" id="txtSpouseName" placeholder="配偶姓名"/>
+                    <label for="txtSpouseBirthday"><span style="color: red;">* </span>出生日期：</label>
+                    <input class="half-input" type="text" id="txtSpouseBirthday" onclick="WdatePicker();" placeholder="配偶出生日期"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtSpouseNativePlace"><span style="color: red;">* </span>配偶籍贯：</label>
+                    <input class="half-input" type="text" id="txtSpouseNativePlace" placeholder="配偶籍贯"/>
+                    <label for="txtSpouseEnterServiceTime" title="配偶参加工作时间">工作时间：</label>
+                    <input class="half-input" type="text" id="txtSpouseEnterServiceTime" onclick="WdatePicker();" placeholder="配偶参加工作的时间"/>
+                </div>
+                <div class="row-line-div">
+<!--                    <label for="txtSpousePoliticalStatus" title="配偶政治面貌">政治面貌：</label>
+                    <div class="input-group">
+                        <input type="hidden" id="txtSpousePoliticalStatusId"/>
+                        <input class="half-icon-input" type="text" id="txtSpousePoliticalStatus" readonly="readonly" placeholder="配偶政治面貌"/>
+                        <img id="btnSpousePoliticalStatus" src="/Content/images/imgfolder.gif" title="配偶的政治面貌"/>
+                    </div>-->
+                    <label for="selSpousePoliticalStatus">政治面貌：</label>
+                    <select class="half-input" id="selSpousePoliticalStatus">
+                        <option value="0" selected="selected">请选择政治面貌...</option>
+                        <option value="1">群众</option>
+                        <option value="2">共青团员</option>
+                        <option value="3">中共党员</option>
+                        <option value="4">民主党派</option>
+                    </select>
+                    <label for="txtSpouseNation">配偶民族：</label>
+                    <div class="input-group">
+                        <input type="hidden" id="txtSpouseNationId"/>
+                        <input class="half-icon-input" type="text" id="txtSpouseNation" readonly="readonly" placeholder="配偶所属民族"/>
+                        <img id="btnSpouseNation" src="/Content/images/imgfolder.gif" title="配偶所属民族"/>
+                    </div>
+                </div>
+                <div class="row-line-div">
+                    <label for="selSpouseEducation">配偶学历：</label>
+                    <!--<input class="half-input" type="text" id="txtSpouseEducation" placeholder="配偶学历"/>-->
+                    <select class="half-input" id="selSpouseEducation">
+                        <option value="0" selected="selected">请选择学历...</option>
+                        <option value="1">九年义务教育</option>
+                        <option value="2">高中（含中职、中专）</option>
+                        <option value="3">专科</option>
+                        <option value="4">本科</option>
+                        <option value="5">硕士研究生</option>
+                        <option value="6">博士研究生</option>
+                    </select>
+                    <label for="txtSpouseSubject">配偶专业：</label>
+                    <input class="half-input" type="text" id="txtSpouseSubject" placeholder="配偶专业"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtSpouseJobTitle">配偶职称：</label>
+                    <input class="half-input" type="text" id="txtSpouseJobTitle" placeholder="配偶职称"/>
+                    <label for="txtSpousePosition">配偶职务：</label>
+                    <input class="half-input" type="text" id="txtSpousePosition" placeholder="配偶职务"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtSpouseNationality">配偶国籍：</label>
+                    <input class="half-input" type="text" id="txtSpouseNationality" placeholder="配偶国籍" value="中国"/>
+                    <label for="txtSpouseCountryLTRRO" title="配偶海外长期居住权所在国家或地区">海外居住地：</label>
+                    <input class="half-input" type="text" id="txtSpouseCountryLTRRO" placeholder="配偶海外长期居住权所在国家或地区"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtSpouseSchool">毕业院校：</label>
+                    <input class="half-input" type="text" id="txtSpouseSchool" placeholder="配偶毕业院校..."/>
+                    <label for="txtSpouseCompany">工作单位：</label>
+                    <input class="half-input" type="text" id="txtSpouseCompany" placeholder="配偶工作单位"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtSpouseTelPhone">联系电话：</label>
+                    <input class="half-input" type="text" id="txtSpouseTelPhone" placeholder="配偶联系电话"/>
+                </div>
+
+            </div>
+
+            <div title="社会关系" style="padding: 10px">
+<!--                <div class="row-line-div" style="text-align: right;">
+                    <a id="btnSocialRelationAdd" href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-add" onclick=" javascript:void(0); " plain="true" style="float: right;" title="">社会关系添加</a>
+                </div>-->
+                <div class="row-title-div">
+                    <h3 title="家庭主要成员包括：配偶、父母、子女、兄弟姐妹；国内外主要社会关系包括：联系紧密的三代以内血亲；集团公司系统内亲属包括：三代以内所有亲属。">其他社会关系：</h3>
+                    <a href="javascript:void(0);" id="btnSocialRelationsAdd" class="easyui-linkbutton" iconcls="icon-add" plain="true" title="添加其他社会关系"></a>
+                </div>
+                <div class="row-block-div">
+                    <table id="social-Relation-Tb" title="其他社会关系"></table>
+                </div>
+
+                <!--类型：0-其他家庭成员；1-社会关系；2-系统内亲属-->
+
+                <div class="row-line-div">
+                    <label for="selSROType">关系类型：</label>
+                    <select class="half-input" id="selSROType">
+                        <option value="0" selected="selected">其他家庭成员</option>
+                        <option value="1">社会关系</option>
+                        <option value="2">系统内亲属</option>
+                    </select>
+                    <label for="txtSRORelationship">关系：</label>
+                    <input id="txtSRORId" type="hidden" />
+                    <input class="half-input" type="text" id="txtSRORelationship" placeholder="关系"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtSROName">姓名：</label>
+                    <input class="half-input" type="text" id="txtSROName" placeholder="姓名"/>
+                    <label for="txtSROBirthday">出生日期：</label>
+                    <input class="half-input" type="text" id="txtSROBirthday" onclick="WdatePicker();" placeholder="出生日期"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="selSROPoliticalStatus">政治面貌：</label>
+                    <select class="half-input" id="selSROPoliticalStatus">
+                        <option value="0" selected="selected">请选择政治面貌...</option>
+                        <option value="1">群众</option>
+                        <option value="2">共青团员</option>
+                        <option value="3">中共党员</option>
+                        <option value="4">民主党派</option>
+                    </select>
+                    <label for="txtSROIdx">排序号码：</label>
+                    <input class="half-input" type="text" id="txtSROIdx" value="0"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtSRONationality">国籍：</label>
+                    <input class="half-input" type="text" id="txtSRONationality" placeholder="国籍" value="中国"/>
+                    <label for="txtSROCountryLTRRO" title="海外长期居住权所在国家或地区">海外居住地：</label>
+                    <input class="half-input" type="text" id="txtSROCountryLTRRO" placeholder="海外长期居住权所在国家或地区"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtSROCompany">工作单位：</label>
+                    <input class="half-input" type="text" id="txtSROCompany" placeholder="工作单位"/>
+                    <label for="txtSROPosition">职务：</label>
+                    <input class="half-input" type="text" id="txtSROPosition" placeholder="职务"/>
+                </div>
+
+                <div class="row-line-div">
+                    注：家庭主要成员包括：配偶、父母、子女、兄弟姐妹。
+                    国内外主要社会关系包括：联系紧密的三代以内血亲。
+                    集团公司系统内亲属包括：三代以内所有亲属。
+                </div>
+
+                <br/><br/>
+
+                <div class="row-title-div">
+                    <h3>用户政治面貌履历：</h3>
+                    <a id="A4" href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-add" onclick=" javascript:void(0);" plain="true" title="添加用户政治面貌履历"></a>
+                </div>
+                <div class="row-block-div">
+                    <table id="political-Resume-Tb" title="用户政治面貌履历表"></table>
+                </div>
+
+                <div class="row-line-div">
+                    <label for="selPoliticalStatus"><span style="color: red;">* </span>政治面貌：</label>
+                    <input id="txtRId" type="hidden" />
+                    <select class="half-input" id="selPoliticalStatus">
+                        <option value="0" selected="selected">请选择政治面貌...</option>
+                        <option value="1">群众</option>
+                        <option value="2">共青团员</option>
+                        <option value="3">中共党员</option>
+                        <option value="4">民主党派</option>
+                    </select>
+                    <label for="txtPsIdx">排序号码：</label>
+                    <input class="half-input" type="text" id="txtPsIdx" placeholder="排序号码"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtJoinTime">加入时间：</label>
+                    <input class="half-input" type="text" id="txtJoinTime" onclick="WdatePicker();" placeholder="加入时间"/>
+                    <label for="txtExitTime">退出时间：</label>
+                    <input class="half-input" type="text" id="txtExitTime" onclick="WdatePicker();" placeholder="退出时间"/>
+                </div>
+                <div class="row-block-div">
+                    <label for="txtPoliticalResume">履历备注：</label>
+                    <textarea id="txtPoliticalResume" class="full-input" style="height: 75px;" placeholder="履历备注，最多255汉字"></textarea>
+                </div>
+
+
+            </div>
+            <div title="培训信息" style="padding: 10px">
+                <div class="row-title-div">
+                    <h3>用户培训信息：</h3>
+                </div>
+                <div class="row-block-div">
+                    <table id="user-Trainling-Tb" title="员工培训信息"></table>
+                </div>
+
+                <div class="row-title-div">
+                    <h3>用户职称情况：</h3>
+                    <a id="btnJobTitleAdd" href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-add" onclick=" javascript:void(0);" plain="true" title="添加用户职称信息"></a>
+                </div>
+                <div class="row-block-div">
+                    <table id="jobTitle-Info-Tb" title="用户职称情况表"></table>
+                </div>
+
+                <div class="row-line-div">
+                    <label for="selTitleCategory" title="职称类别：0-主要职称；1-其他职业资格">职称类别：</label>
+                    <input id="txtTId" type="hidden" />
+                    <select class="half-input" id="selTitleCategory">
+                        <option value="0" selected="selected">主要职称</option>                        
+                        <option value="1">其他职业资格</option>
+                    </select>
+                    <label for="selTitleLevel">职称级别：</label>
+                    <select class="half-input" id="selTitleLevel">
+                        <option value="0" selected="selected">请选择职称级别...</option>                        
+                        <option value="1">助理</option>
+                        <option value="2">中级</option>
+                        <option value="3">高级</option>
+                        <option value="4">正高</option>
+                    </select>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtJobTitle">职称名称：</label>
+                    <input class="half-input" type="text" id="txtJobTitle" placeholder="职称名称"/>
+                    <label for="txtJobGetTime">获得时间：</label>
+                    <input class="half-input" type="text" id="txtJobGetTime" onclick="WdatePicker();" placeholder="获得时间"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtJobIdx">排序号码：</label>
+                    <input class="half-input" type="text" id="txtJobIdx" value="0"/>
+                </div>
+
+
+
+                <div class="row-title-div">
+                    <h3>用户获得荣誉情况：</h3>
+                    <a id="btnHonorAdd" href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-add" onclick=" javascript:void(0);" plain="true" title="添加用户获得荣誉"></a>
+                </div>
+                <div class="row-block-div">
+                    <table id="honor-Info-Tb" title="用户获得荣誉情况表"></table>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtHonorTitle">荣誉名称：</label>
+                    <input id="txtHId" type="hidden" />
+                    <input class="half-input" type="text" id="txtHonorTitle" placeholder="荣誉名称"/>
+                    <label for="txtHonorTime">获得时间：</label>
+                    <input class="half-input" type="text" id="txtHonorTime" onclick="WdatePicker();" placeholder="获得时间"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtHonorIdx">排序号码：</label>
+                    <input class="half-input" type="text" id="txtHonorIdx" value="0"/>
+                </div>
+
+
+
+            </div>
+
+            <div title="合同社保" style="padding: 10px">
+                <div class="row-title-div">
+                    <h3>劳动合同签订情况：</h3>
+                </div>
+                <div class="row-line-div" style="display: none;">
+                    <label for="txtLaborContract">劳动合同：</label>
+                    <input type="hidden" id="txtLaborContractId"/>
+                    <input class="full-icon-input" type="text" id="txtLaborContract" disabled="disabled" placeholder="劳动合同签订情况"/>
+                    <img id="btnLaborContract" src="/Content/images/imgfolder.gif" title="劳动合同"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="selContractCategory">合同类别：</label>
+                    <select class="half-input" id="selContractCategory">
+                        <option value="0" selected="selected">请选择合同类别...</option>
+                        <option value="1">固定期限</option>
+                        <option value="2">无固定期限</option>
+                        <option value="3">以完成一定工作任务为期限</option>
+                        <option value="4">劳务派遣</option>
+                        <option value="5">非全日制用工</option>
+                    </select>
+                    <label for="txtSigningCompany">签订单位：</label>
+                    <input id="txtLcId" type="hidden" />
+                    <input class="half-input" type="text" id="txtSigningCompany" placeholder="签订单位"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtLcStartTime">开始时间：</label>
+                    <input class="half-input" type="text" id="txtLcStartTime" onclick="WdatePicker();" placeholder="开始时间"/>
+                    <label for="txtLcEndTime">结束时间：</label>
+                    <input class="half-input" type="text" id="txtLcEndTime" onclick="WdatePicker();" placeholder="结束时间"/>
+                </div>
+                <div class="row-title-div">
+                    <h3>社会保险缴纳情况：</h3>
+                </div>
+                <div class="row-line-div" style="display: none;">
+                    <label for="txtSocialInsurance">社保缴纳：</label>
+                    <input type="hidden" id="txtSocialInsuranceId"/>
+                    <input class="full-icon-input" type="text" id="txtSocialInsurance" disabled="disabled" placeholder="社保缴纳情况"/>
+                    <img id="btnSocialInsurance" src="/Content/images/imgfolder.gif" title="社保缴纳"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="selHasPaid" title="是否已经缴纳当地各项社会保险：0-否；1-是">已经缴纳：</label>
+                    <input id="txtSId" type="hidden" />
+                    <select class="half-input" id="selHasPaid">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <label for="txtUnpaidReasons">未缴纳原因：</label>
+                    <input class="half-input" type="text" id="txtUnpaidReasons" placeholder="未缴纳社会保险原因，最多255汉字"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtPoliticalResume">缴纳详细：</label>
+                    <div class="input-group">
+                        <label for="cbxSID_1"><input id="cbxSID_1" name="cbxInsuranceDetail" type="checkbox" value="1" />&nbsp;基本养老保险</label>
+                        <label for="cbxSID_2"><input id="cbxSID_2" name="cbxInsuranceDetail" type="checkbox" value="2" />&nbsp;基本医疗保险</label>
+                        <label for="cbxSID_4"><input id="cbxSID_4" name="cbxInsuranceDetail" type="checkbox" value="4" />&nbsp;失业保险</label>
+                        <label for="cbxSID_8"><input id="cbxSID_8" name="cbxInsuranceDetail" type="checkbox" value="8" />&nbsp;工伤保险</label>
+                        <label for="cbxSID_16"><input id="cbxSID_16" name="cbxInsuranceDetail" type="checkbox" value="16" />&nbsp;生育保险</label>                     
+                    </div>
+                </div>
+                <div class="row-line-div">
+                    <label for="selHasPaymentInterruption" title="是否有缴费中断：0-否；1-是">有缴费中断：</label>
+                    <select class="half-input" id="selHasPaymentInterruption">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <label for="txtInterruptedMonths">中断累计：</label>
+                    <input class="half-input" type="text" id="txtInterruptedMonths" placeholder="中断期限累计（月）" value="0"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtInterruptCause">中断原因：</label>
+                    <input class="full-input" type="text" id="txtInterruptCause" placeholder="中断原因，最多255汉字"/>
+                </div>
+
+
+                <div class="row-title-div">
+                    <h3>因私证件持有情况：</h3>
+                    <a id="btnHoldingDocumentsAdd" href="javascript:void(0);" class="easyui-linkbutton" iconcls="icon-add" onclick=" javascript:void(0);" plain="true" title="添加因私证件持有"></a>
+                </div>
+                <div class="row-block-div">
+                    <table id="holding-Documents-Tb" title="因私证件持有情况"></table>
+                </div>
+
+                <div class="row-line-div">
+                    <label for="selDocumentType"><span style="color: red;">* </span>证件类型：</label>
+                    <input id="txtUdId" type="hidden" />
+                    <select class="half-input" id="selDocumentType">
+                        <option value="0" selected="selected">请选择证件类型...</option>
+                        <option value="1">因私护照</option>
+                        <option value="2">因私港澳通行证</option>
+                        <option value="3">赴台通行证</option>
+                    </select>
+                    <label for="txtIDNumber"><span style="color: red;">* </span>证件号码：</label>
+                    <input class="half-input" type="text" id="txtIDNumber" placeholder="证件号码"/>
+                </div>
+                <div class="row-line-div">
+                    <label for="txtValidFrom"><span style="color: red;">* </span>有效期起：</label>
+                    <input class="half-input" type="text" id="txtValidFrom" onclick="WdatePicker();" placeholder="有效期起"/>
+                    <label for="txtValidTo"><span style="color: red;">* </span>有效期止：</label>
+                    <input class="half-input" type="text" id="txtValidTo" onclick="WdatePicker();" placeholder="有效期止"/>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="btn-div">
+        <input id="userTypeSum" type="hidden"/>
+        <input id="txtUserno" type="hidden" />
+        <input type="button" value="确定" id="btnUserSave" style="margin-right: 3px; width: 74px;"/>
+        <input type="button" value="取消" id="btnUserExit" style="width: 74px;"/>
+    </div>
+</div>
+
+
+
+
+<style type="text/css">
+
+    /*.right-col-div {
+        float: left;
+        height: 24px;
+        margin-left: 20px;
+        width: 235px;
+    }
+
+    .left-col-div {
+        display: table;
+        float: left;
+        height: 24px;
+        width: 235px;
+    }
+
+    .label-span {
+        display: block;
+        float: left;
+        font-weight: bold;
+        line-height: 24px;
+        text-align: right;
+        width: 70px;
+    }
+
+    .middlelabel-span {
+        display: block;
+        float: left;
+        line-height: 24px;
+        text-align: center;
+        width: 30px;
+    }
+
+    .input-text-span {
+        display: block;
+        float: left;
+        width: 150px;
+    }
+
+    .input-datetext-span {
+        display: block;
+        float: left;
+        width: 60px;
+    }
+
+
+    .window-div { width: 532px; }
+
+
+    .row-block-div textarea { width: 405px; }
+
+    .left-col-div input[type='text'], .right-col-div input[type='text'] { width: 150px; }
+
+    .left-col-div select, .right-col-div select { width: 150px; }
+
+    .left-col-div span, .left-col-div label, .left-col-div input, .left-col-div select { display: inline-block; }
+
+    .right-col-div span, .right-col-div label, .right-col-div input, .right-col-div select { display: inline-block; }*/
+    
+    
+    </style>
+
+
+</body>
+</html>

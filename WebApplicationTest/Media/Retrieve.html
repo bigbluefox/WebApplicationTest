@@ -1,0 +1,236 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>媒体检索</title>
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet">
+    <link href="/Scripts/themes/icon.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Scripts/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/Scripts/bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/Scripts/bootstrap/css/navbar.css" rel="stylesheet">
+    <link href="/Scripts/bootstrap/css/docs.min.css" rel="stylesheet">
+
+    <!--[if lte IE 9]>
+        <script src="/Scripts/respond.min.js"></script>
+        <script src="/Scripts/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery-1.12.4.js"></script>
+    <script src="/Scripts/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+
+    <script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/Scripts/ie10-viewport-bug-workaround.js"></script>
+    <script src="/Scripts/docs.min.js"></script>
+
+    <style type="text/css">
+        /*body { font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }*/
+
+        /*.mytable {
+            margin: 0px;
+            table-layout: fixed;
+            width: 98%;
+             border:0px;
+        }*/
+
+        /*.bs-callout *:last-child { margin-bottom: 0; }*/
+        /*.page-header{ padding-top: 10px!important;}*/
+
+
+        /*body { background: #F5F6F8; }*/
+
+        .table { table-layout: fixed; }
+
+        tr td {
+            -moz-text-overflow: ellipsis; /* for Firefox, mozilla */
+            overflow: hidden;
+            text-align: left;
+            text-overflow: ellipsis; /* for IE */
+            white-space: nowrap;
+        }
+
+        /*.aligncenter { text-align: center; }
+
+        .tdhide { display: none; }
+
+        .heading-title {
+            color: #fff;
+            line-height: 20px;
+        }
+
+        .panel-default > .panel-heading { background-color: #68778e; }
+
+        #templateTable thead {
+            color: #26477c;
+            font-size: 15px;
+            font-weight: 200;
+        }
+
+        #templateTable tbody { font-size: 14px; }*/
+
+    </style>
+
+<script type="text/javascript">
+
+    $(function () {
+
+    });
+
+</script>
+</head>
+<body>
+<%--<form id="form1" runat="server"></form>--%>
+
+<div class="container">
+
+    <h1 class="page-header">媒体检索</h1>
+
+    <div class="panel panel-default" style="display: none;">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Panel heading</div>
+        <div class="panel-body">
+            <p>...</p>
+        </div>
+
+        <!-- Table -->
+        <table class="table">
+            ...
+        </table>
+    </div>
+
+    <div class="table-responsive panel panel-default" style="display: none;">
+
+        <!-- Default panel contents -->
+        <div class="panel-heading" style="height: 40px;">
+            <span class="heading-title">ddd</span>
+            <span style="float: right;">
+                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-id="" data-target="#myModal">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加清单模板
+                </button>
+                <button type="button" class="btn btn-default btn-sm" style="display: none;">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>清空清单模板数据
+                </button>
+            </span>
+        </div>
+
+        <%--        <table class="table table-striped" id="templateTable">
+            <thead>
+                <tr>
+                    <th style="text-align: center; width: 45px;">序号</th>
+                    <th style="width: 75px;">标准类型</th>
+                    <th style="width: 90px;">标准号</th>
+                    <th style="width: 40%;">标准名称</th>
+                    <th style="display: none;">英文名称</th>
+                    <th style="text-align: right; width: 60px;">标准价格</th>
+                    <th style="text-align: center; width: 60px;">操作</th>
+                    <th style="display: none;">模板编号</th>
+                </tr>
+            </thead>
+
+
+
+            <tbody>
+
+            </tbody>
+        </table>--%>
+
+            </div>      
+      
+               
+<%--<div class="bs-example" data-example-id="simple-table"></div>--%>  
+    
+    <h3>文件检索</h3>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="txtMediaDirectory" class="col-sm-2 control-label">媒体目录</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="txtMediaDirectory" placeholder="媒体目录">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="selMediaType" class="col-sm-2 control-label">媒体类型</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="selMediaType">
+                        <option value="0">默认媒体</option>
+                        <option value="1">图片</option>
+                        <option value="2">音频</option>
+                        <option value="3">视频</option>
+                    </select>
+                </div>
+            </div>
+
+<%--            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>--%>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-primary">文件检索</button>
+                    <%--<button type="button" class="btn btn-default">Sign in</button>--%>
+                    <%--<button type="button" class="btn btn-default">Sign in</button>--%>
+                </div>
+            </div>
+        </form>
+    
+    
+     <h3>文件名称修正</h3>   
+    
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="txtSourceString" class="col-sm-2 control-label">字符串</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="txtSourceString" placeholder="要替换的文件名称字符串">
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="txtTargetString" class="col-sm-2 control-label">替换为</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="txtTargetString" placeholder="替换为字符串">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-primary">文件名称修正</button>
+                    <%--<button type="button" class="btn btn-default">Sign in</button>--%>
+                    <%--<button type="button" class="btn btn-default">Sign in</button>--%>
+                </div>
+            </div>
+        </form>   
+
+    </div>
+
+</body>
+</html>

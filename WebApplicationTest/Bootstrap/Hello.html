@@ -1,0 +1,2317 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title></title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+
+    <link href="/Scripts/bootstrap/css/docs.min.css" rel="stylesheet" />
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <!-- <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+
+    <!--[endif]-->
+
+    <style type="text/css">
+        .row>div{ border: 1px solid #00bfff;}
+    </style>
+
+</head>
+<body>
+<div class="container">
+<div class="row">
+    <h1>你好，Bootstrap！</h1>
+</div>
+
+<div class="row">
+    <div class="col-xs-6">.col-md-4</div>
+    <div class="col-xs-6">.col-md-4</div>
+    <div class="col-xs-6">.col-md-4</div>
+</div>
+
+<span class="badge">1</span>
+<span class="badge badge-primary">2</span>
+<span class="badge badge-secondary">3</span>
+<span class="badge badge-success">4</span>
+<span class="badge badge-warning">5</span>
+<span class="badge badge-danger">6</span>
+<span class="badge badge-success">Allmobilize</span>
+<br>
+<a class="badge badge-primary">Free</a>
+<a class="badge badge-secondary">Secondary</a>
+<a class="badge badge-success">Success</a>
+<a class="badge badge-warning">Warning</a>
+<a class="badge badge-danger">Danger</a>
+
+
+<h1 style="overflow: hidden;">h1. Bootstrap heading <small>Secondary text</small>
+</h1>
+<h2>h2. Bootstrap heading <small>Secondary text</small>
+</h2>
+<h3>h3. Bootstrap heading <small>Secondary text</small>
+</h3>
+<h4>h4. Bootstrap heading <small>Secondary text</small></h4>
+<h5>h5. Bootstrap heading <small>Secondary text</small></h5>
+<h6>h6. Bootstrap heading <small>Secondary text</small></h6>
+
+<blockquote>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+</blockquote>
+
+<blockquote>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+</blockquote>
+
+<address>
+    <strong>Twitter, Inc.</strong><br>
+    1355 Market Street, Suite 900<br>
+    San Francisco, CA 94103<br>
+    <abbr title="Phone">P:</abbr> (123) 456-7890
+</address>
+
+<address>
+    <strong>Full Name</strong><br>
+    <a href="mailto:#">first.last@example.com</a>
+</address>
+
+<dl>
+    <dt>Description lists</dt>
+    <dd>A description list is perfect for defining terms.</dd>
+    <dt>Euismod</dt>
+    <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+    <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+    <dt>Malesuada porta</dt>
+    <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+</dl>
+
+<dl class="dl-horizontal">
+    <dt>Description lists</dt>
+    <dd>A description list is perfect for defining terms.</dd>
+    <dt>Euismod</dt>
+    <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+    <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+    <dt>Malesuada porta</dt>
+    <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+    <dt>Felis euismod semper eget lacinia</dt>
+    <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+</dl>
+
+To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd><br>
+
+<var>y</var> = <var>m</var><var>x</var> + <var>b</var><br>
+
+<samp>This text is meant to be treated as sample output from a computer program.</samp><br>
+
+<table class="table table-hover">
+    <caption>Optional table caption.</caption>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <caption>Optional table caption.</caption>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+    <caption>Optional table caption.</caption>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
+
+<table class="table table-condensed">
+    <caption>Optional table caption.</caption>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
+
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Check me out
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<br/>
+
+<form class="form-inline">
+    <div class="form-group">
+        <label for="exampleInputName2">Name</label>
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail2">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+    </div>
+    <button type="submit" class="btn btn-default">Send invitation</button>
+</form>
+
+<br/>
+
+<form class="form-inline">
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputEmail3">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputPassword3">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Remember me
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">Sign in</button>
+</form>
+
+<br/>
+
+<form class="form-inline">
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+            <div class="input-group-addon">.00</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Transfer cash</button>
+</form>
+
+<br/>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Remember me
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Sign in</button>
+        </div>
+    </div>
+</form>
+
+<br/>
+
+<div class="checkbox">
+    <label>
+        <input type="checkbox" value="">
+        Option one is this and that&mdash;be sure to include why it's great
+    </label>
+</div>
+<div class="checkbox disabled">
+    <label>
+        <input type="checkbox" value="" disabled>
+        Option two is disabled
+    </label>
+</div>
+
+<div class="radio">
+    <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Option one is this and that&mdash;be sure to include why it's great
+    </label>
+</div>
+<div class="radio">
+    <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        Option two can be something else and selecting it will deselect option one
+    </label>
+</div>
+<div class="radio disabled">
+    <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+        Option three is disabled
+    </label>
+</div>
+
+<br/>
+
+<label class="checkbox-inline">
+    <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+</label>
+<label class="checkbox-inline">
+    <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+</label>
+<label class="checkbox-inline">
+    <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+</label>
+
+<br/>
+
+<label class="radio-inline">
+    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+</label>
+<label class="radio-inline">
+    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+</label>
+<label class="radio-inline">
+    <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+</label>
+
+<br/>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">email@example.com</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+    </div>
+</form>
+
+<br/>
+
+<form>
+    <fieldset disabled>
+        <div class="form-group">
+            <label for="disabledTextInput">Disabled input</label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+        </div>
+        <div class="form-group">
+            <label for="disabledSelect">Disabled select menu</label>
+            <select id="disabledSelect" class="form-control">
+                <option>Disabled select</option>
+            </select>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> Can't check this
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+</form>
+<br/>
+
+<div class="form-group has-success">
+    <label class="control-label" for="inputSuccess1">Input with success</label>
+    <input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2">
+    <span id="helpBlock2" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+</div>
+<div class="form-group has-warning">
+    <label class="control-label" for="inputWarning1">Input with warning</label>
+    <input type="text" class="form-control" id="inputWarning1">
+</div>
+<div class="form-group has-error">
+    <label class="control-label" for="inputError1">Input with error</label>
+    <input type="text" class="form-control" id="inputError1">
+</div>
+<div class="has-success">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" id="checkboxSuccess" value="option1">
+            Checkbox with success
+        </label>
+    </div>
+</div>
+<div class="has-warning">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" id="checkboxWarning" value="option1">
+            Checkbox with warning
+        </label>
+    </div>
+</div>
+<div class="has-error">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" id="checkboxError" value="option1">
+            Checkbox with error
+        </label>
+    </div>
+</div>
+
+<br/>
+
+<div class="form-group has-success has-feedback">
+    <label class="control-label" for="inputSuccess2">Input with success</label>
+    <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+    <span id="inputSuccess2Status" class="sr-only">(success)</span>
+</div>
+<div class="form-group has-warning has-feedback">
+    <label class="control-label" for="inputWarning2">Input with warning</label>
+    <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status">
+    <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+    <span id="inputWarning2Status" class="sr-only">(warning)</span>
+</div>
+<div class="form-group has-error has-feedback">
+    <label class="control-label" for="inputError2">Input with error</label>
+    <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status">
+    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+    <span id="inputError2Status" class="sr-only">(error)</span>
+</div>
+<div class="form-group has-success has-feedback">
+    <label class="control-label" for="inputGroupSuccess1">Input group with success</label>
+    <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+    </div>
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+    <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+</div>
+
+<br/>
+
+<form class="form-horizontal">
+    <div class="form-group has-success has-feedback">
+        <label class="control-label col-sm-3" for="inputSuccess3">Input with success</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputSuccess3" aria-describedby="inputSuccess3Status">
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputSuccess3Status" class="sr-only">(success)</span>
+        </div>
+    </div>
+    <div class="form-group has-success has-feedback">
+        <label class="control-label col-sm-3" for="inputGroupSuccess2">Input group with success</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <span class="input-group-addon">@</span>
+                <input type="text" class="form-control" id="inputGroupSuccess2" aria-describedby="inputGroupSuccess2Status">
+            </div>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess2Status" class="sr-only">(success)</span>
+        </div>
+    </div>
+</form>
+
+<br/>
+
+<form class="form-inline">
+    <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputSuccess4">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess4" aria-describedby="inputSuccess4Status">
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess4Status" class="sr-only">(success)</span>
+    </div>
+</form>
+
+<br/>
+
+<form class="form-inline">
+    <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputGroupSuccess3">Input group with success</label>
+        <div class="input-group">
+            <span class="input-group-addon">@</span>
+            <input type="text" class="form-control" id="inputGroupSuccess3" aria-describedby="inputGroupSuccess3Status">
+        </div>
+        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span id="inputGroupSuccess3Status" class="sr-only">(success)</span>
+    </div>
+</form>
+
+<br/>
+
+<div class="form-group has-success has-feedback">
+    <label class="control-label sr-only" for="inputSuccess5">Hidden label</label>
+    <input type="text" class="form-control" id="inputSuccess5" aria-describedby="inputSuccess5Status">
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+    <span id="inputSuccess5Status" class="sr-only">(success)</span>
+</div>
+<div class="form-group has-success has-feedback">
+    <label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
+    <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="text" class="form-control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">
+    </div>
+    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+    <span id="inputGroupSuccess4Status" class="sr-only">(success)</span>
+</div>
+
+<br/>
+
+<form>
+    <div class="controls">
+        <input class="form-control input-lg" type="text" placeholder=".input-lg">
+        <input class="form-control" type="text" placeholder="Default input">
+        <input class="form-control input-sm" type="text" placeholder=".input-sm">
+
+        <select class="form-control input-lg">
+            <option value="">.input-lg</option>
+        </select>
+        <select class="form-control">
+            <option value="">Default select</option>
+        </select>
+        <select class="form-control input-sm">
+            <option value="">.input-sm</option>
+        </select>
+    </div>
+</form>
+
+<br/>
+
+<!-- Standard button -->
+<button type="button" class="btn btn-default">（默认样式）Default</button>
+
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<button type="button" class="btn btn-primary">（首选项）Primary</button>
+
+<!-- Indicates a successful or positive action -->
+<button type="button" class="btn btn-success">（成功）Success</button>
+
+<!-- Contextual button for informational alert messages -->
+<button type="button" class="btn btn-info">（一般信息）Info</button>
+
+<!-- Indicates caution should be taken with this action -->
+<button type="button" class="btn btn-warning">（警告）Warning</button>
+
+<!-- Indicates a dangerous or potentially negative action -->
+<button type="button" class="btn btn-danger">（危险）Danger</button>
+
+<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+<button type="button" class="btn btn-link">（链接）Link</button>
+<br/>
+
+<p>
+    <button type="button" class="btn btn-primary btn-lg">（大按钮）Large button</button>
+    <button type="button" class="btn btn-default btn-lg">（大按钮）Large button</button>
+</p>
+<p>
+    <button type="button" class="btn btn-primary">（默认尺寸）Default button</button>
+    <button type="button" class="btn btn-default">（默认尺寸）Default button</button>
+</p>
+<p>
+    <button type="button" class="btn btn-primary btn-sm">（小按钮）Small button</button>
+    <button type="button" class="btn btn-default btn-sm">（小按钮）Small button</button>
+</p>
+<p>
+    <button type="button" class="btn btn-primary btn-xs">（超小尺寸）Extra small button</button>
+    <button type="button" class="btn btn-default btn-xs">（超小尺寸）Extra small button</button>
+</p>
+
+
+<br/>
+
+<button type="button" class="btn btn-primary btn-lg btn-block">（块级元素）Block level button</button>
+<button type="button" class="btn btn-default btn-lg btn-block">（块级元素）Block level button</button>
+
+<br/>
+
+<div class="bs-example bs-example-images" data-example-id="image-shapes">
+    <img class="img-rounded" style="width: 140px; height: 140px;" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTQwIDE0MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTQweDE0MApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjJjYzM3ZWU0IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMmNjMzdlZTQiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiAvPjxnPjx0ZXh0IHg9IjQ0LjA2NSIgeT0iNzQuNTk5Ij4xNDB4MTQwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-src="holder.js/140x140" data-holder-rendered="true">
+    <img class="img-circle" style="width: 140px; height: 140px;" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTQwIDE0MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTQweDE0MApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjJjYzM4NTQ5IHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMmNjMzg1NDkiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiAvPjxnPjx0ZXh0IHg9IjQ0LjA2NSIgeT0iNzQuNTk5Ij4xNDB4MTQwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-src="holder.js/140x140" data-holder-rendered="true">
+    <img class="img-thumbnail" style="width: 140px; height: 140px;" alt="140x140" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTQwIDE0MCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTQweDE0MApDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4jaG9sZGVyXzE1ZjJjYzM4ZjQzIHRleHQgeyBmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdCB9IDwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTVmMmNjMzhmNDMiPjxyZWN0IGZpbGw9IiNlZWVlZWUiIHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiAvPjxnPjx0ZXh0IHg9IjQ0LjA2NSIgeT0iNzQuNTk5Ij4xNDB4MTQwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-src="holder.js/140x140" data-holder-rendered="true">
+</div>
+<br/>
+
+<div class="bs-example bs-example-bg-classes" data-example-id="contextual-backgrounds-helpers">
+    <p class="bg-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+    <p class="bg-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+    <p class="bg-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    <p class="bg-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+    <p class="bg-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+</div>
+
+<br/>
+
+
+<div class="bs-glyphicons">
+<ul class="bs-glyphicons-list">
+
+<li>
+    <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-plus</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-euro</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-eur" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-eur</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-minus</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-cloud</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-envelope</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-pencil</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-glass" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-glass</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-music</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-search</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-heart</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-star</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-star-empty</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-user</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-film</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-th-large</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-th</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-th-list</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-ok</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-remove</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-zoom-in</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-zoom-out" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-zoom-out</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-off</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-signal</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-cog</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-trash</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-home</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-file</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-time</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-road" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-road</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-download-alt</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-download</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-upload</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-inbox</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-play-circle</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-repeat</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-refresh</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-list-alt</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-lock</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-flag</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-headphones</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-volume-off</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-volume-down" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-volume-down</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-volume-up</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-qrcode</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-barcode</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-tag</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-tags</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-book</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-bookmark</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-print</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-camera</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-font" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-font</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-bold" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-bold</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-italic" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-italic</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-text-height" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-text-height</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-text-width" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-text-width</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-align-left</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-align-center" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-align-center</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-align-right" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-align-right</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-align-justify</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-list</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-indent-left" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-indent-left</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-indent-right" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-indent-right</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-facetime-video</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-picture</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-map-marker</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-adjust" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-adjust</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-tint</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-edit</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-share</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-check</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-move</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-step-backward</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-fast-backward</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-backward</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-play</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-pause</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-stop</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-forward</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-fast-forward</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-step-forward</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-eject" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-eject</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-chevron-left</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-chevron-right</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-plus-sign</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-minus-sign</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-remove-sign</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-ok-sign</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-question-sign</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-info-sign</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-screenshot</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-remove-circle</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-ok-circle</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-ban-circle</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-arrow-left</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-arrow-right</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-arrow-up</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-arrow-down</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-share-alt</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-resize-full</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-resize-small</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-exclamation-sign</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-gift</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-leaf</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-fire</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-eye-open</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-eye-close</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-warning-sign</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-plane" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-plane</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-calendar</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-random</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-comment</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-magnet" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-magnet</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-chevron-up</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-chevron-down</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-retweet</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-shopping-cart</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-folder-close</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-folder-open</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-resize-vertical" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-resize-vertical</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-resize-horizontal</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-hdd</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-bullhorn</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-bell</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-certificate</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-thumbs-up</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-thumbs-down</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-hand-right</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-hand-left</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-hand-up</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-hand-down" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-hand-down</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-circle-arrow-right</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-circle-arrow-left</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-circle-arrow-up</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-circle-arrow-down</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-globe</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-wrench</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-tasks</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-filter</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-briefcase</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-fullscreen</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-dashboard</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-paperclip</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-heart-empty</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-link</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-phone</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-pushpin</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-usd</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-gbp</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sort" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sort</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sort-by-alphabet</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sort-by-alphabet-alt</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sort-by-order" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sort-by-order</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sort-by-order-alt" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sort-by-order-alt</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sort-by-attributes</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sort-by-attributes-alt</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-unchecked</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-expand</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-collapse-down</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-collapse-up" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-collapse-up</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-log-in</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-flash</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-log-out</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-new-window</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-record</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-save</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-open</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-saved</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-import" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-import</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-export" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-export</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-send</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-floppy-disk</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-floppy-saved</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-floppy-remove</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-floppy-save</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-floppy-open</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-credit-card</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-transfer</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-cutlery</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-header" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-header</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-compressed" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-compressed</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-earphone</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-phone-alt</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-tower</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-stats</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sd-video" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sd-video</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-hd-video" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-hd-video</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-subtitles" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-subtitles</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sound-stereo" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sound-stereo</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sound-dolby" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sound-dolby</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sound-5-1" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sound-5-1</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sound-6-1" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sound-6-1</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sound-7-1" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sound-7-1</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-copyright-mark</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-registration-mark</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-cloud-download</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-cloud-upload</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-tree-conifer</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-tree-deciduous" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-tree-deciduous</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-cd</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-save-file</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-open-file" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-open-file</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-level-up" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-level-up</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-copy</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-paste" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-paste</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-alert</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-equalizer</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-king" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-king</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-queen" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-queen</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-pawn" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-pawn</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-bishop" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-bishop</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-knight" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-knight</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-baby-formula" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-baby-formula</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-tent" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-tent</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-blackboard</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-bed</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-apple" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-apple</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-erase</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-hourglass</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-lamp" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-lamp</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-duplicate</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-piggy-bank</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-scissors" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-scissors</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-bitcoin</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-btc" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-btc</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-xbt" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-xbt</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-yen" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-yen</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-jpy" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-jpy</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-ruble</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-rub" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-rub</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-scale" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-scale</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-ice-lolly" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-ice-lolly</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-ice-lolly-tasted</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-education</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-option-horizontal</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-option-vertical</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-menu-hamburger</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-modal-window</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-oil" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-oil</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-grain</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-sunglasses</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-text-size" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-text-size</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-text-color" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-text-color</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-text-background" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-text-background</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-object-align-top" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-object-align-top</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-object-align-bottom</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-object-align-horizontal" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-object-align-horizontal</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-object-align-left" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-object-align-left</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-object-align-vertical" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-object-align-vertical</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-object-align-right" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-object-align-right</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-triangle-right</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-triangle-left</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-triangle-bottom</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-triangle-top</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-console" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-console</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-superscript" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-superscript</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-subscript" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-subscript</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-menu-left</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-menu-right</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-menu-down</span>
+</li>
+
+<li>
+    <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+    <span class="glyphicon-class">glyphicon glyphicon-menu-up</span>
+</li>
+
+</ul>
+</div>
+
+<br/>
+
+
+
+
+<h2 id="glyphicons-examples"><a class="anchorjs-link " style="line-height: inherit; padding-right: 0.5em; font-family: anchorjs-icons; font-style: normal; font-variant: normal; font-weight: normal; margin-left: -1em; position: absolute;" aria-label="Anchor link for: glyphicons examples" href="#glyphicons-examples" data-anchorjs-icon=""></a>实例
+</h2>
+
+<div class="bs-example" data-example-id="glyphicons-general">
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+            <button class="btn btn-default" aria-label="Left Align" type="button"><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></button>
+            <button class="btn btn-default" aria-label="Center Align" type="button"><span class="glyphicon glyphicon-align-center" aria-hidden="true"></span></button>
+            <button class="btn btn-default" aria-label="Right Align" type="button"><span class="glyphicon glyphicon-align-right" aria-hidden="true"></span></button>
+            <button class="btn btn-default" aria-label="Justify" type="button"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></button>
+        </div>
+    </div>
+    <div class="btn-toolbar" role="toolbar">
+        <button class="btn btn-default btn-lg" type="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star</button>
+        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star</button>
+        <button class="btn btn-default btn-sm" type="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star</button>
+        <button class="btn btn-default btn-xs" type="button"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star</button>
+    </div>
+</div>
+<br/>
+<div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <span class="sr-only">Error:</span>
+    Enter a valid email address
+</div>
+
+<br/>
+
+<div class="dropup">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropup
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+    </ul>
+</div>
+
+<br/>
+
+<div class="dropdown clearfix">
+    <button class="btn btn-default dropdown-toggle" id="dropdownMenu3" aria-expanded="false" aria-haspopup="true" type="button" data-toggle="dropdown">
+        Dropdown
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+        <li class="dropdown-header">Dropdown header</li>
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="dropdown-header">Dropdown header</li>
+        <li><a href="#">Separated link</a></li>
+    </ul>
+</div>
+
+<br/>
+
+
+<OL><LI title=公司#2机组荣获中电联能效对标竞赛二等奖 class=relevant-info-first><A href="/SystemMgmt/SystemNotice/PreView/?id=7778">公司#2机组荣获中电联能效对标竞赛二等奖</A></LI>
+    <LI title=公司技术支持部召开2018年技术改造项目审查会 class=relevant-info-first><A href="/SystemMgmt/SystemNotice/PreView/?id=7776">公司技术支持部召开2018年技术改造项目审查会</A></LI>
+    <LI title=公司召开安全生产专项工作调度会 class=relevant-info-first><A href="/SystemMgmt/SystemNotice/PreView/?id=7775">公司召开安全生产专项工作调度会</A></LI>
+    <LI title=公司调度数据网改造方案顺利通过华东网调、江苏省调审查 class=relevant-info-first><A href="/SystemMgmt/SystemNotice/PreView/?id=7785">公司调度数据网改造方案顺利通过华东网调、江苏省调审查</A></LI>
+    <LI title=公司第二期PPT操作与排版培训圆满举办 class=relevant-info-first><A href="/SystemMgmt/SystemNotice/PreView/?id=7791">公司第二期PPT操作与排版培训圆满举办</A></LI></OL>
+
+
+
+    <div class="search">
+        <div class="list-screen">
+            <div class="screen-term">
+                <div class="selectNumberScreen">
+                    <div id="selectList" class="screenBox screenBackground">
+                        <dl class="listIndex" id="politicsSelect" attr="政治面貌">
+                            <dt>政治面貌：</dt>
+                            <dd>
+                                <label><a href="javascript:void(0);" values2="" values1="" attrval="全部">全部</a></label>
+                                <label for="">
+                                    <input name="cbxPoliticalStatus"  type="checkbox" value="3" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="中共党员">中共党员</a>
+                                </label>
+                                <label>
+                                    <input name="cbxPoliticalStatus" type="checkbox" value="2" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="共青团员">共青团员</a>
+                                </label>
+                                <label>
+                                    <input name="cbxPoliticalStatus" type="checkbox" value="4" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="民主党派">民主党派</a>
+                                </label>
+                                <label>
+                                    <input name="cbxPoliticalStatus" type="checkbox" value="1" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="群众">群众</a>
+                                </label>
+                            </dd>
+                        </dl>
+                        <dl class="listIndex" attr="学历">
+                            <dt>学历：</dt>
+                            <dd>
+                                <label><a href="javascript:void(0);" values2="" values1="" attrval="全部">全部</a> </label>
+                                <label>
+                                    <input name="cbxEducation" type="checkbox" value="6" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="博士">博士</a>
+                                </label>
+                                <label>
+                                    <input name="cbxEducation" type="checkbox" value="5" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="硕士">硕士</a>
+                                </label>
+                                <label>
+                                    <input name="cbxEducation" type="checkbox" value="4" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="本科">本科</a>
+                                </label>
+                                <label>
+                                    <input name="cbxEducation" type="checkbox" value="3" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="专科">专科</a>
+                                </label>
+                                <label>
+                                    <input name="cbxEducation" type="checkbox" value="1,2" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="其他">其他</a>
+                                </label>
+                            </dd>
+                        </dl>
+                        <dl class="listIndex" attr="年龄">
+                            <dt>年龄：</dt>
+                            <dd>
+                                <label><a href="javascript:void(0);" values2="" values1="" attrval="全部">全部</a></label>
+                                <label>
+                                    <input name="rdoAge" type="radio" value="0-30" />
+                                    <a href="javascript:void(0);" values2="30" values1="0" attrval="0-30">30岁以下</a>
+                                </label>
+                                <label>
+                                    <input name="rdoAge" type="radio" value="30-45" />
+                                    <a href="javascript:void(0);" values2="45" values1="30" attrval="30-45">30-45岁</a>
+                                </label>
+                                <label>
+                                    <input name="rdoAge" type="radio" value="45-99" />
+                                    <a href="javascript:void(0);" values2="65" values1="45" attrval="45-99">45以上</a>
+                                </label>
+                                <div class="custom">
+                                    <input type="number" id="txtMinAge" class="customTxt" title="最小年龄"/>
+                                    &nbsp;-&nbsp;
+                                    <input type="number" id="txtMaxAge" class="customTxt" title="最大年龄"/>
+                                    <!--<input type="button" id="ageBtn" class="cusbtn" />-->
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class="listIndex" attr="性别">
+                            <dt>性别：</dt>
+                            <dd>
+                                <label><a href="javascript:void(0);" values2="" values1="" attrval="全部">全部</a></label>
+                                <label>
+                                    <input name="rdoSex" type="radio" value="0" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="男">男</a>
+                                </label>
+                                <label>
+                                    <input name="rdoSex" type="radio" value="1" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="女">女</a>
+                                </label>
+                            </dd>
+                        </dl>
+
+                        <dl class="listIndex" attr="司龄">
+                            <dt>司龄：</dt>
+                            <dd>
+                                <label><a href="javascript:void(0);" values2="" values1="" attrval="全部">全部</a></label>
+                                <label>
+                                    <input name="rdoCompanyLength" type="radio" value="0-3" />
+                                    <a href="javascript:void(0);" values2="3" values1="0" attrval="0-3">3年以内</a>
+                                </label>
+                                <label>
+                                    <input name="rdoCompanyLength" type="radio" value="0-5" />
+                                    <a href="javascript:void(0);" values2="5" values1="0" attrval="0-5">5年以内</a>
+                                </label>
+                                <label>
+                                    <input name="rdoCompanyLength" type="radio" value="0-10" />
+                                    <a href="javascript:void(0);" values2="10" values1="0" attrval="0-10">10年以内</a>
+                                </label>
+                                <label>
+                                    <input name="rdoCompanyLength" type="radio" value="10-99" />
+                                    <a href="javascript:void(0);" values2="100" values1="10" attrval="10-99">10年以上</a>
+                                </label>
+                                <div class="custom">
+                                    <input type="text" id="txtMinSen" class="customTxt" title="最低司龄"/>
+                                    &nbsp;-&nbsp;
+                                    <input type="text" id="txtMaxSen" class="customTxt" title="最高司龄"/>
+                                    <!--<input type="button" id="senBtn" class="cusbtn" />-->
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl class=" listIndex" attr="职称">
+                            <dt>职称：</dt>
+                            <dd>
+                                <label><a href="javascript:void(0);" values2="" values1="" attrval="全部">全部</a> </label>
+                                <label>
+                                    <input name="cbxJobTitle" type="checkbox" value="1" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="初级">初级</a>
+                                </label>
+                                <label>
+                                    <input name="cbxJobTitle" type="checkbox" value="2" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="中级">中级</a>
+                                </label>
+                                <label>
+                                    <input name="cbxJobTitle" type="checkbox" value="3" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="高级">高级</a>
+                                </label>
+                                <label>
+                                    <input name="cbxJobTitle" type="checkbox" value="4" autocomplete="off" />
+                                    <a href="javascript:void(0);" values2="" values1="" attrval="正高">正高</a>
+                                </label>
+                            </dd>
+                        </dl>
+                        
+                        <dl class="listIndex" style="margin-left: 10px;">
+                            <a id="btnQuery" class="btn btn-primary" href="javascript:void(0);">
+                                <i class="glyphicon glyphicon-search" aria-hidden="true"></i>&nbsp;查询
+                            </a>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hasBeenSelected clearfix">
+            <div style="float: right;" class="eliminateCriteria">【清空全部】 </div>
+            <dl>
+                <dt>已选条件：</dt>
+                <dd style="DISPLAY: none" class="clearDd">
+                    <div class="clearList"></div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+
+
+<br/>
+<br>
+    <label for="rdoNation_01"><input type="radio" id="rdoNation_01" name="rdoNation" value="01" title="高铁对稳定性" checked="checked"/>&nbsp;高铁对稳定性</label>
+    <label for="rdoNation_02"><input type="radio" id="rdoNation_02" name="rdoNation" value="02"/>&nbsp;的控制极其严</label>
+<br><br>
+
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+    <script src="../Scripts/jquery/jquery-1.12.4.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="js/bootstrap.min.js"></script>-->
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+<script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+    String.prototype.replaceAll = function (s1, s2) {
+        return this.replace(new RegExp(s1, "gm"), s2);
+    };
+
+    // 敏感字符编码
+    String.prototype.encodeQuotes = function () {
+        return this.replaceAll("'", "&!#39;").replaceAll("<script", "<+script").replaceAll('"', '&quot;');
+    };
+
+    // 敏感字符解码
+    String.prototype.decodeQuotes = function () {
+        return this.replaceAll("&!#39;", "'").replaceAll('&quot;', '"');
+    };
+
+
+    $(function() {
+        // 检查页面上是否加载了bootstrap.js
+        // Will be true if bootstrap is loaded, false otherwise
+        var bootstrap_enabled = (typeof $().modal == 'function');
+
+        //alert(bootstrap_enabled);
+
+        if (typeof ($.fn.popover) != 'undefined') {
+            // your stuff here
+
+            //alert('undefined');
+        }
+
+        if (typeof $.fn.popover == 'function') {
+            // your stuff here
+
+            //alert('function');
+        }
+
+        var ss = "Hello, world, he,he,";
+        ss = ss.rTrim(",");
+
+        console.log(ss);
+        //alert(ss);
+
+        var abc = "";
+        //abc = abc.encodeQuotes();
+        //abc = null;
+        //abc = abc.encodeQuotes();
+        //abc = undefined;
+        //abc = abc.encodeQuotes();
+        abc = $("#abc").val();
+        //abc = abc.encodeQuotes();
+
+        console.log(abc);
+
+    });
+
+    String.prototype.rTrim = function (s) {
+        s = (s ? s : "\\s");
+        s = ("(" + s + ")");
+        var regRTrim = new RegExp(s + "*$", "g");
+        return this.replace(regRTrim, "");
+    };
+
+</script>
+
+
+</body>
+</html>

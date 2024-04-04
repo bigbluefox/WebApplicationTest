@@ -1,0 +1,431 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  font-size: 62.5%;
+  font-family: 'Lato', sans-serif;
+  background: #0dc5c1;
+  color: #FFF;
+}
+main {
+  overflow: hidden;
+}
+.overlay {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.source {
+  background: #FFF;
+  border-radius: 10px;
+  width: 600px;
+  height: 500px;
+  position: absolute;
+  margin: 0 auto;
+  top: 120px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.source textarea {
+  padding: 1em;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0 none;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  outline: 0 none;
+  font-family: arial, sans-serif;
+  font-size: 1.2em;
+}
+.source .markup {
+  height: 15%;
+  border-bottom: 1px solid #ddd;
+}
+.source .css {
+  height: 84%;
+  border-radius: 10px;
+}
+.hidden {
+  display: none;
+}
+h1 {
+  font-size: 4em;
+  padding: 1em 0 1em 0;
+}
+.inner {
+  width: 960px;
+  margin: 0 auto;
+}
+.load-container {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 240px;
+  height: 240px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+a:link,
+a:visited {
+  color: inherit;
+}
+.load-container a:link,
+.load-container a:visited {
+  position: absolute;
+  bottom: 3px;
+  font-size: 1.15em;
+  text-align: center;
+  left: 0;
+  right: 0;
+  text-decoration: none;
+}
+.load-container a:link:hover,
+.load-container a:visited:hover {
+  text-decoration: underline;
+}
+.github {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+.social-buttons {
+  position: absolute;
+  top: 12px;
+  right: 136px;
+}
+.social-buttons iframe:first-child {
+  margin-right: 5px;
+}
+.me {
+  float: left;
+  margin: 30px 0 0 0;
+}
+a.twitter:link,
+a.twitter:visited {
+  font-size: 1.3em;
+  display: block;
+  text-decoration: none;
+}
+a.twitter:link:hover,
+a.twitter:visited:hover {
+  text-decoration: underline;
+}
+a.twitter img {
+  border-radius: 50%;
+  float: left;
+  border: 1px solid #bbb;
+  padding: 0.1em;
+  background: #FFF;
+}
+a.twitter span {
+  padding: 0 0 0 0.6em;
+  float: left;
+}
+.coffee {
+  float: left;
+  padding: 0 0 0 0.6em;
+  position: relative;
+}
+.coffee-hover {
+  display: none;
+  box-shadow: 0 10px 30px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  left: 0px;
+  bottom: 33px;
+  text-align: left;
+  background: #0dc5c1;
+  padding: 10px;
+  font-size: 1.2em;
+}
+.coffee:focus > .coffee-hover,
+.coffee:hover > .coffee-hover {
+  display: block;
+}
+.coffee-hover p.lead {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+.coffee-hover p {
+  margin: 0 0 8px 0;
+  padding: 0;
+  font-size: 1em;
+}
+.bit-address {
+  font-size: 0.6em;
+}
+.qr-code .b {
+  background: white;
+}
+.qr-code .w {
+  background: transparent;
+}
+.qr-code tr {
+  height: 4px;
+}
+.qr-code td {
+  border-top-width: 0;
+  width: 4px;
+  height: 4px;
+}
+.link {
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 960px) {
+  .inner {
+    width: 480px;
+  }
+}
+.back:link,
+.back:visited {
+  text-decoration: none;
+  line-height: 4em;
+  font-size: 1.3em;
+  position: absolute;
+  left: 20px;
+  top: 0px;
+}
+.back:hover,
+.back:focus {
+  text-decoration: underline;
+}
+@media (max-width: 700px) {
+  h1 {
+    padding-top: 1.2em;
+  }
+}
+@media (max-width: 500px) {
+  .inner {
+    width: 100%;
+  }
+  .load-container {
+    width: 100%;
+  }
+  footer {
+    text-align: center;
+  }
+  footer #carbonads {
+    float: none;
+    margin: 20px auto;
+  }
+  footer #carbonads a {
+    float: none;
+  }
+  footer .me {
+    width: 200px;
+    margin: 30px auto 0 auto;
+    float: none;
+  }
+  .back:link,
+  .back:visited {
+    left: 5px;
+  }
+  h1 {
+    padding-top: 1.5em;
+  }
+}
+@media (max-width: 410px) {
+  h1 {
+    padding-top: 2.2em;
+  }
+  .coffee-hover {
+    left: -50px;
+  }
+  .social-buttons {
+    top: 47px;
+    right: auto;
+    left: 2px;
+  }
+}
+#carbonads {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  float: right;
+  width: 130px;
+}
+#carbonads a {
+  float: left;
+  clear: left;
+  text-decoration: none;
+}
+#carbonads a:hover {
+  text-decoration: underline;
+}
+.pickers {
+  display: none;
+  padding-bottom: 8px;
+}
+.pickers span {
+  font-size: 1.3em;
+  margin-right: 10px;
+}
+.pickers input {
+  margin-right: 10px;
+}
+.colorpicker .pickers {
+  display: block;
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+/* Import this if you are using modernizr (recommended) 
+It means that loaders will fallback to a text state of simply saying "Loading..." in older browsers
+*/
+.no-cssanimations .load-container .loader {
+  text-indent: 0;
+  text-align: center;
+  color: #FFF;
+  font-size: 17px;
+  background: none;
+  border: 0 none;
+  width: auto;
+  height: auto;
+  margin: 1em auto;
+  overflow: visible;
+  box-shadow: none;
+  -webkit-animation: none;
+  animation: none;
+}
+.no-cssanimations .load-container .loader:before,
+.no-cssanimations .load-container .loader:after {
+  display: none;
+}

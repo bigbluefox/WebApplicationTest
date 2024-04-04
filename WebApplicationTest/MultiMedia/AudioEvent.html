@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Html 5 Audio 事件</title>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <script src="http://api.html5media.info/1.2.2/html5media.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Scripts/Hsp.js"></script>
+
+    <style type="text/css">
+        body { margin: 5px; }
+
+        audio { width: 100%; }
+
+    </style>
+
+    <script type="text/javascript">
+        
+        //<video controls preload>
+        //    <source src="cohagenPhoneCall.ogv" type="video/ogg; codecs='vorbis, theora'" />
+        //    <source src="cohagenPhoneCall.mp4" type="video/mp4; 'codecs='avc1.42E01E, mp4a.40.2'" />
+        //    <p> Your browser is old. <a href="cohagenPhoneCall.mp4">Download this video instead.</a> </p>
+        //</video>
+        //无论是”ogg”格式还是”mp4″格式的视频Chrome浏览器都能正确编码
+        //还有一个值得注意的一些事情：
+        //我们技术上不需要来设置type属性，但是，如果我们不这样做，浏览器不得不自己去寻找类型。节省一些带宽，还是你自己声明下吧。
+        //不是所有的浏览器理解HTML5视频。在资源元素的下面，我们可以提供一个下载链接，或嵌入视频的Flash版本代替。这取决于你。
+        //controls和preload属性就会在下面提及。
+        //有方法可以让所有的浏览器支持video标签，具体参见我前面的“让所有浏览器支持HTML5 video视频标签”一文。
+
+
+
+        
+        //http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp
+
+        var $media = null, audioTimer = null, audioUrl = "";
+
+        $(function() {
+            $media = $('#media')[0], audioUrl = "moonlight.mp3";
+            $media.src = "audio/Scarborough%20Fair.mp3";
+
+            //当音频 / 视频处于加载过程中时，会依次发生以下事件：
+            //loadstart
+            //durationchange
+            //loadedmetadata
+            //loadeddata
+            //progress
+            //canplay
+            //canplaythrough
+
+            //// 浏览器开始在网上寻找媒体数据
+            //$media.onloadstart = function(e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+
+            // 当指定音频/视频的时长数据发生变化时，发生 durationchange 事件。
+            //当音频/视频加载后，时长将由 "NaN" 变为音频/视频的实际时长。
+            //$media.ondurationchange = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 当指定的音频/视频的元数据已加载时，会发生 loadedmetadata 事件。
+            //// 音频/视频的元数据包括：时长、尺寸（仅视频）以及文本轨道。
+            //$media.onloadedmetadata = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 浏览器能够播放媒体，但估计以当前的播放速率不能直接播放完毕，播放期间需要缓冲
+            //$media.oncanplay = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 浏览器能够播放媒体，而且以当前播放速率能够将媒体播放完毕，不再需要进行缓冲
+            //$media.oncanplaythrough = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 即将开始播放，当执行了play方法时触发，或数据下载后元素被设为autoplay属性
+            //$media.onplay = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 声频、视频暂停后又开始播放时触发的事件
+            //$media.onplaying = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 播放暂停，当执行了pause方式时触发
+            //$media.onpause = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// seeking属性变为true，浏览器正在请求数据
+            //$media.onseeking = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// seeking属性变为false，浏览器停止请求数据
+            //$media.onseeked = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 播放结束后停止播放
+            //$media.onended = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 由于播放位置被改变，可能是播放过程中的自然改变，也可能是被人为的改变，或由于播放不能连续而发生的跳变
+            //$media.ontimeupdate = function (e) {
+            //    //console.log((new Date()).getTime(), e);
+            //};
+
+            //// volume属性（音量）被改变或muted属性（静音状态）被改变
+            //$media.onvolumechange = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 浏览器暂停获取媒体数据，但是下载过程平滑，正常结束, firefox, chrome
+            //$media.onsuspend = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 当浏览器正在下载指定的音频/视频时，会发生 progress 事件, firefox, chrome
+            //$media.onprogress = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 当当前帧的数据已加载，但没有足够的数据来播放指定音频/视频的下一帧时，会发生 loadeddata 事件
+            //$media.onloadeddata = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+
+
+
+
+
+
+            //// 下述尚未实现
+
+            //// 播放过程由于得不到下一帧而暂停播放（例如下一帧尚未加载完毕），但很快就能够得到下一帧
+            //$media.onwaiting = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 浏览器在下载完全部媒体数据之前中止获取媒体数据，但是并不是由错误引起的
+            //$media.onabort = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 获取媒体数据过程中出错
+            //$media.onerror = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+            //// 浏览器尝试获取媒体数据失败
+            //$media.onstalled = function (e) {
+            //    console.log((new Date()).getTime(), e);
+            //};
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <audio controls="controls" preload="auto" id="media">
+            你的浏览器不支持audio标签。
+        </audio>
+    </div>
+</div>
+
+</body>
+</html>

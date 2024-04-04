@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <style type="text/css">
+        * {
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            text-decoration: none;
+        }
+
+        .crp-logo {
+            float: left;
+            height: 100%;
+            width: 100%;
+        }
+
+        .crp-logo:hover { cursor: pointer; }
+
+        .crp-logo .main-logo, .crp-logo .sub-logo, .crp-logo .name-logo {
+            display: block;
+            float: left;
+            margin-top: 5px;
+        }
+
+        .crp-logo img, .crp-logo .name-logo { }
+
+        .crp-logo .main-logo { }
+
+        .crp-logo .sub-logo { margin-left: 20px; }
+
+        .crp-logo .name-logo {
+            border: 1px solid #00bfff;
+            display: table;
+            height: 90px;
+            margin-left: 15px;
+        }
+
+        .name-logo .cn-title, .name-logo .en-title {
+            color: #705f57;
+            width: 100%;
+        }
+
+        .name-logo .cn-title { font-size: 25px; }
+
+        .name-logo .en-title { font-size: 16px; }
+
+
+        .name-logo .name-title {
+            border: 1px solid #7fff00;
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+<div class="crp-logo">
+    <div class="sub-logo"></div>
+    <div class="main-logo"></div>
+    <div class="name-logo">
+        <div class="name-title">
+            <div class="cn-title">物业公司网站A</div>
+            <div class="en-title">China Resources Power Xuzhou(Tongshan) Co.,Ltd. </div>
+        </div>
+    </div>
+
+    <div class="name-logo">
+        <div class="name-title">
+            <div class="cn-title">物业公司网站B</div>
+            <!--<p class="en-title">China Resources Power Xuzhou(Tongshan) Co.,Ltd. </p>-->
+        </div>
+    </div>
+
+
+    <!--html代码-->
+    <div class="outer">
+        <div class="middle">
+            <div class="cn-title">这是固定高度多行文本垂直居中，</div>
+            <div class="en-title">这是固定高度多行文本垂直居中，</div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    .outer {
+        /*margin: 50px auto;*/
+        border: 1px solid red;
+        display: table;
+        height: 90px;
+        margin-left: 10px;
+        padding-left: 10px;
+        width: 480px;
+    }
+
+    .middle {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+    }
+
+    #outer {
+        /*margin: 50px auto;*/
+        border: 1px solid red;
+        display: table;
+        height: 90px;
+        *position: relative; /*兼容IE7及以下版本*/
+        width: 480px;
+    }
+
+    #middle {
+        display: table-cell;
+        *position: absolute; /*兼容IE7及以下版本*/
+        text-align: center; /*设置文本水平居中*/
+        *top: 50%;
+        vertical-align: middle;
+        width: 100%;
+    }
+
+    #content {
+        *position: relative; /*兼容IE7及以下版本 */
+        *top: -50%;
+    }
+
+    .cn-title, .en-title {
+        color: #705f57;
+        width: 100%;
+    }
+
+    .cn-title { font-size: 25px; }
+
+    .en-title { font-size: 16px; }
+
+
+</style>
+
+<!--html代码-->
+<div class="outer">
+    <div class="middle">
+        <div id="content">
+            <div class="cn-title">这是固定高度多行文本垂直居中(兼容IE7)，</div>
+            <div class="en-title">这是固定高度多行文本垂直居中(兼容IE7)。</div>
+        </div>
+    </div>
+</div>
+
+<div class="para">
+<p>新春长假过后，检修公司彭城项目部于2月24日开展安全联系日活动，公司副总经理陈超虎和技术总监张峰携技术支持部部长张井雷、EHS部管理人员参加了活动，彭城项目部各部长、专业主管、副主管、安全管理人员全员参加。</p>
+
+<p>活动首先学习了能源局及控股下发的《关于切实做好2018年全国“两会”期间电力安全生产工作的通知》；接着对2月份彭城项目部缺陷消除情况进行了统计分析；并对节假日期间值班情况及节后复工劳动纪律、安全生产检查情况进行了回顾和剖析；最后结合实际工作对《防止电力生产事故二十五荐重点要求》进行了学习、落实。</p>
+
+<p>活动中，各专业对近期实际工作中发现的问题进行了总结和反思，并各抒己见提出意见和建议；针对大家提出的问题，陈超虎、张峰及张井雷给予了详细的解答与指导，并对项目部工作进行了点评，给予了肯定和鼓励，同时提出了殷切的希望的具体的要求。</p>
+
+<p>项目部李瑞永部长对部门近期工作进行了小结，对领导给予的肯定和鼓励表示了感谢，并要求部门全体人员在以后的工作中再接再厉，不辜负领导希望和要求。</p>
+
+<p>活动结束之际，陈超虎对项目部全体员工提出了要求，从态度、技能、水平、素养各方面全面提高，发挥团队凝聚力，使项目部各项工作再上新的高度。</p>
+</div>
+
+<style type="text/css">
+    
+    .para{ width: 300px;}
+     .para p {
+         line-height: 1.75em;
+         padding-bottom: 15px;
+
+         text-align: justify;
+         text-justify: distribute;
+     }
+</style>
+
+
+</body>
+</html>

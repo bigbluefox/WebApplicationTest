@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>V2.1.1 pdf Test</title>
+    <link href="js/2.1.1/examples.css" rel="stylesheet"/>
+
+    <script src="js/2.1.1/pdfobject.js"></script>
+    <style type="text/css">
+		/*
+		PDFObject appends the classname "pdfobject-container" to the target element.
+		This enables you to style the element differently depending on whether the embed was successful.
+		In this example, a successful embed will result in a large box.
+		A failed embed will not have dimensions specified, so you don't see an oddly large empty box.
+		*/
+
+        .pdfobject-container {
+            height: 600px;
+            margin: 2em 0;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .pdfobject { border: solid 1px #666; }
+
+        #results { padding: 1rem; }
+
+        .hidden { display: none; }
+
+        .success {
+            background-color: #DFF2BF;
+            color: #4F8A10;
+        }
+
+        .fail {
+            background-color: #FFBABA;
+            color: #D8000C;
+        }
+    </style>
+
+</head>
+<body>
+<!--
+<div style="max-width: 595px; margin: 0 auto;">
+    <div id="example1"></div>
+</div>
+
+<div id="results" class="success">PDFObject successfully embedded '../pdf/sample-3pp.pdf'!</div>
+
+-->
+
+<p>
+    <a href="/Files/《兵器知识》2011年9A期.pdf" class="embed-link">Click this link to embed the first PDF ("sample-3pp.pdf").</a>
+</p>
+<p>
+    <a href="/Files/G395办安环〔2014〕104号 转发国家能源局关于印发《防止电力生产事故的二十五项重点要求》的通知.pdf" class="embed-link">Click this link to embed the second PDF ("sample.pdf").</a>
+</p>
+
+<div id="results" class="success">This browser supports inline PDFs</div>
+<div id="pdf"></div>
+
+<script type="text/javascript">
+    /*
+    if (PDFObject.supportsPDFs) {
+        //PDFObject.embed("/Files/《兵器知识》2011年9A期.pdf", "#example1");
+        //PDFObject.embed("/Files/《兵器知识》2011年9A期.pdf");
+        //PDFObject.embed("/Files/G395办安环〔2014〕104号 转发国家能源局关于印发《防止电力生产事故的二十五项重点要求》的通知.pdf");
+        PDFObject.embed("/Files/X-办安环〔2018〕305号%20关于印发《班组安全建设指导意见》的通知.pdf");
+    } else {
+
+    }*/
+
+/*
+var status = (PDFObject.supportsPDFs) ? "supports" : "does not support";
+
+var el = document.querySelector("#results");
+el.setAttribute("class", (PDFObject.supportsPDFs) ? "success" : "fail");
+el.innerHTML = "This browser " + status + " inline PDFs";
+
+*/
+
+
+
+</script>
+
+
+<script>
+    /*
+    var options = {
+        pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            view: "FitV",
+            pagemode: "thumbs",
+            page: 2
+        },
+        forcePDFJS: true,
+        PDFJS_URL: "../pdfjs/web/viewer.html"
+    };
+
+    var myPDF = PDFObject.embed("/Files/X-办安环〔2018〕305号%20关于印发《班组安全建设指导意见》的通知.pdf",  options);*/
+/*
+    var el = document.querySelector("#results");
+    el.setAttribute("class", (myPDF) ? "success" : "fail");
+    el.innerHTML = (myPDF) ? "PDFObject was successful!" : "Uh-oh, the embed didn't work.";*/
+
+
+var clickHandler = function(e) {
+
+    e.preventDefault();
+
+    var pdfURL = this.getAttribute("href");
+
+    var options = {
+        pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            view: "FitV"
+        }
+    };
+
+    var myPDF = PDFObject.embed(pdfURL, "#pdf", options);
+
+    var el = document.querySelector("#results");
+    el.setAttribute("class", (myPDF) ? "success" : "fail");
+    el.innerHTML = (myPDF) ? "PDFObject successfully embedded '" + pdfURL + "'!" : "Uh-oh, the embed didn't work.";
+
+};
+
+var a = document.querySelectorAll(".embed-link");
+
+for (var i = 0; i < a.length; i++) {
+    a[i].addEventListener("click", clickHandler);
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>bootstrap date Test </title>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="../Scripts/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Scripts/bootstrap/js/bootstrap-datetimepicker.js"></script>
+    <script src="../Scripts/bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(function() {
+            $(".datetimepicker").datetimepicker({
+                language: "zh-CN",
+                autoclose: true, //选中之后自动隐藏日期选择框
+                clearBtn: true, //清除按钮
+                todayBtn: true, //今日按钮
+                format: "yyyy-mm-dd" //日期格式
+            });
+
+            $('.datepicker').datepicker({
+                language: "zh-CN",
+                autoclose: true, //选中之后自动隐藏日期选择框
+                clearBtn: true, //清除按钮
+                todayBtn: true, //今日按钮
+                format: "yyyy-mm-dd" //日期格式
+            });
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+
+    <input type="text" class="datepicker form-control" id="txtReportTime" value="" placeholder="选择填报时间">
+
+<div class="form-inline" role="form">
+    <div class="form-group">
+        <input type="text" class="datetimepicker form-control" id="txtBeginDate" placeholder="开始日期">
+    </div>
+    <div class="form-group">
+        <input type="text" class="datetimepicker form-control" id="txtEndDate" placeholder="结束日期">
+    </div>
+</div>
+
+<div class="input-append date datepicker" id="datetimepicker1" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+    <input class="span2" size="16" type="text" value="12-02-2012">
+    <span class="add-on"><i class="icon-th"></i></span>
+</div>
+
+<div class="input-append date datepicker" id="Div1" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+    <input class="span2" size="16" type="text" value="12-02-2012">
+    <span class="add-on"><i class="icon-remove"></i></span>
+    <span class="add-on"><i class="icon-th"></i></span>
+</div>
+
+</body>
+</html>

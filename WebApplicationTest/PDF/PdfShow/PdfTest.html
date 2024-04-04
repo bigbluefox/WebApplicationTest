@@ -1,0 +1,70 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title> PDF Test</title>
+
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+
+    <script src="/Scripts/Hsp.js"></script>
+    <script src="/Scripts/Hsp.Common.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            var height = HSP.Common.AvailHeight();
+            $('iframe').css({
+                height: height - 0
+            });
+
+            var iframe = $("#iframepage");
+            var url = "/Files/职业健康安全管理体系要求.pdf";
+            iframe.attr("src", url);
+            //iframe.load(function () {
+            //    reinitIframe();
+            //});
+        });
+    </script>
+
+
+    <style type="text/css">
+                html, body {
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding: 0;
+            margin: 0;
+        }
+
+        /*body { width: 100%;border: 1px solid #0000ff; }*/
+
+        body { text-align: center; }
+
+        #iframe {
+            -webkit-overflow-scrolling: touch;
+            overflow: scroll;
+        }
+         iframe{ width: 100%;height: 100%;border: 0px solid red;}
+         body{ background: url("/Images/docbg.png") center repeat-y;}
+    </style>
+</head>
+<body>
+<a href="#" onclick="window.open('viewer.html?file=/Files/职业健康安全管理体系要求.pdf','PDF','width:50%;height:50%;top:100;left:100;');">查看09.pdf</a>
+<!--<iframe src="职业健康安全管理体系要求.pdf" width="100%" frameborder="0" marginheight="0" marginwidth="0" border="0" scrolling="no" onload="this.height=this.contentWindow.document.documentElement.scrollHeight"></iframe>-->
+        <div style="max-width: 595px; margin: 10px auto;">
+        <div style="margin: 0 auto; width: 585px;">
+            <iframe id="iframepage" name="iframepage" frameborder="0" scrolling="no" width="100%"></iframe>
+        </div>
+    </div>
+</body>
+</html>

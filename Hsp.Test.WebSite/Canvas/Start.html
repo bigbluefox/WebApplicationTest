@@ -1,0 +1,371 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>canvas绘图演示</title>
+    <style type="text/css">
+        canvas{
+            border: 1px solid #ADACB0;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<canvas id="myCanvas" width="900" height="600" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script type="text/javascript">
+
+    var c = document.getElementById("myCanvas");//用getElementById获取到canvas对象
+    var ctx = c.getContext("2d");//取得上下文
+
+    ctx.fillStyle = '#FFFFBB'; //绘制背景的颜色
+    ctx.fillRect(0, 0, 900, 600);
+
+    ////文字的绘制
+    //ctx.fillStyle = "#FF3333"; //文字颜色
+    //ctx.strokeStyle = "#fff";
+
+    //ctx.font = "20px Georgia";
+    //ctx.fillText("Hello World!", 10, 50);
+
+    //ctx.font = "30px Verdana";
+
+    //// 创建渐变
+    //var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
+    //gradient.addColorStop("0", "magenta");
+    //gradient.addColorStop("0.5", "blue");
+    //gradient.addColorStop("1.0", "red");
+
+    //// 用渐变填色
+    //ctx.fillStyle = gradient;
+    //ctx.fillText("w3school.com.cn", 10, 90);
+
+
+    //ctx.font = "bold 60px '微软雅黑', '宋体'";
+    //ctx.textBaseline = "hanging";//有几种属性值
+    ////context.textAlign = "start";
+    //ctx.fillText('欢迎大家来到', 20, 120);
+    //ctx.fillText('春哥的博客', 90, 180);
+    ////context.fillText('交流学习',170,170);
+    //ctx.fillText('交流学习', 160, 240, 800);//这个800是画布长度，这里是防止文字太多而出现溢出现象
+    ////context.strokeText('winson的BLOG',0,40);
+
+
+
+    ////设置对象起始点和终点
+    //ctx.moveTo(0, 0);
+    //ctx.lineTo(900, 600);
+
+    ////设置样式
+    //ctx.lineWidth = 1;
+    //ctx.strokeStyle = "#F5270B";
+    ////绘制
+    //ctx.stroke();
+
+
+
+    ////使用rect方法
+    //ctx.rect(10, 10, 190, 190);
+    //ctx.lineWidth = 2;
+    //ctx.fillStyle = "#3EE4CB";
+    //ctx.strokeStyle = "#F5270B";
+    //ctx.fill();
+    //ctx.stroke();
+
+    ////使用fillRect方法
+    //ctx.fillStyle = "#1424DE";
+    //ctx.fillRect(210, 10, 190, 190);
+
+    ////使用strokeRect方法
+    //ctx.strokeStyle = "#F5270B";
+    //ctx.strokeRect(410, 10, 190, 190);
+
+    ////同时使用strokeRect方法和fillRect方法
+    //ctx.fillStyle = "#1424DE";
+    //ctx.strokeStyle = "#F5270B";
+    //ctx.strokeRect(610, 10, 190, 190);
+    //ctx.fillRect(610, 10, 190, 190);
+
+
+
+    ////绘制五角星
+    //ctx.beginPath();
+    ////设置是个顶点的坐标，根据顶点制定路径
+    //for (var i = 0; i < 5; i++) {
+    //    ctx.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * 200 + 200,
+    //                    -Math.sin((18 + i * 72) / 180 * Math.PI) * 200 + 200);
+    //    ctx.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * 80 + 200,
+    //                    -Math.sin((54 + i * 72) / 180 * Math.PI) * 80 + 200);
+    //}
+    //ctx.closePath();
+    ////设置边框样式以及填充颜色
+    //ctx.lineWidth = "3";
+    //ctx.fillStyle = "#F6F152";
+    //ctx.strokeStyle = "#F5270B";
+    //ctx.fill();
+    //ctx.stroke();
+
+
+
+
+    //测试lineCap属性
+    //设置基准线便于观察
+    ctx.moveTo(10, 10);
+    ctx.lineTo(10, 200);
+    ctx.moveTo(200, 10);
+    ctx.lineTo(200, 200);
+    ctx.lineWidth = "1";
+    ctx.stroke();
+
+    //butt
+    ctx.beginPath();
+    ctx.moveTo(10, 50);
+    ctx.lineTo(200, 50);
+    ctx.lineCap = "butt";
+    ctx.lineWidth = "10";
+    ctx.stroke();
+
+    //round
+    ctx.beginPath();
+    ctx.moveTo(10, 100);
+    ctx.lineTo(200, 100);
+    ctx.lineCap = "round";
+    ctx.lineWidth = "10";
+    ctx.stroke();
+
+    //square
+    ctx.beginPath();
+    ctx.moveTo(10, 150);
+    ctx.lineTo(200, 150);
+    ctx.lineCap = "square";
+    ctx.lineWidth = "10";
+    ctx.stroke();
+
+    //测试linJoin属性
+    //miter
+    ctx.beginPath();
+    ctx.moveTo(300, 50);
+    ctx.lineTo(450, 100);
+    ctx.lineTo(300, 150);
+    ctx.lineJoin = "miter";
+    ctx.lineWidth = "10";
+    ctx.stroke();
+    //round
+    ctx.beginPath();
+    ctx.moveTo(400, 50);
+    ctx.lineTo(550, 100);
+    ctx.lineTo(400, 150);
+    ctx.lineJoin = "round";
+    ctx.lineWidth = "10";
+    ctx.stroke();
+    //square
+    ctx.beginPath();
+    ctx.moveTo(500, 50);
+    ctx.lineTo(650, 100);
+    ctx.lineTo(500, 150);
+    ctx.lineJoin = "bevel";
+    ctx.lineWidth = "10";
+    ctx.stroke();
+
+    //测试miterLimit属性
+    ctx.beginPath();
+    ctx.moveTo(700, 50);
+    ctx.lineTo(850, 100);
+    ctx.lineTo(700, 150);
+    ctx.lineJoin = "miter";
+    ctx.miterLimit = "2";
+    ctx.lineWidth = "10";
+    ctx.strokeStyle = "#2913EC";
+    ctx.stroke();
+
+
+
+
+
+
+
+
+
+
+    /**
+ * Created by winson on 2016/9/11.
+ */
+    function draw(id) {
+        var canvas = document.getElementById(id);//用getElementById获取到canvas对象
+        var context = canvas.getContext('2d');//取得上下文
+        //context.fillStyle = "green";//绘制背景的颜色
+        context.strokeStyle = "#ccc";//绘制边框的颜色
+        context.lineWidth = 2; //设置画笔宽度
+        //context.fillRect(0, 0, 400, 300);//绘制
+        context.strokeRect(8, 30, 280, 26); // 左，上，宽，高
+    }
+
+    draw("myCanvas");
+
+
+
+    function createRoundRect(ctx, x1, y1, width, height, radius) {
+        // 移动到左上角
+        ctx.moveTo(x1 + radius, y1);
+        // 添加一条连接到右上角的线段
+        ctx.lineTo(x1 + width - radius, y1);
+        // 添加一段圆弧
+        ctx.arcTo(x1 + width, y1, x1 + width, y1 + radius, radius);
+        // 添加一条连接到右下角的线段
+        ctx.lineTo(x1 + width, y1 + height - radius);
+        // 添加一段圆弧
+        ctx.arcTo(x1 + width, y1 + height, x1 + width - radius, y1 + height, radius);
+        // 添加一条连接到左下角的线段
+        ctx.lineTo(x1 + radius, y1 + height);
+        // 添加一段圆弧
+        ctx.arcTo(x1, y1 + height, x1, y1 + height - radius, radius);
+        // 添加一条连接到左上角的线段
+        ctx.lineTo(x1, y1 + radius);
+        // 添加一段圆弧
+        ctx.arcTo(x1, y1, x1 + radius, y1, radius);
+        ctx.closePath();
+    }
+
+    // 获取canvas元素对应的DOM对象
+    //var canvas = document.getElementById('mc');
+    // 获取在canvas上绘图的CanvasRenderingContext2D对象
+    //var ctx = canvas.getContext('2d');
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#F9230B";
+    createRoundRect(ctx, 30, 30, 400, 200, 5);
+    ctx.stroke();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function startDrag(ev) {
+        ev.dataTransfer.setData("Text", ev.target.innerText);
+    }
+
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function decideDrop(ev) {
+        ev.preventDefault();
+        var length = $('.main-target').length;
+        if (length == 0) {
+            dropToMain(ev);
+        } else {
+            dropToRelate(ev);
+        }
+    }
+
+    function dropToMain(ev) {
+        var data = ev.dataTransfer.getData("Text");
+        var _html = '<div class="main-target">' + data + '</div>';
+        $('.main-target-wrap').width('auto').append(_html);
+    }
+
+    function dropToRelate(ev) {
+        //画关系线
+        drawLineOne(document.getElementById('canvasOne'), 'begin');
+        drawLineOne(document.getElementById('canvasTwo'), 'end');
+
+        //插入图片 以及图片初始化点击事件
+        var _img = $('<img src="inner.png">');
+        $('.imgBox').append(_img);
+        _img.click(showRelationBox);
+        //写入数据
+        var data = ev.dataTransfer.getData('Text');
+        var _html = '<div class="item-text">' + data + '</div>';
+        $('.relation-text-box').append(_html);
+    }
+
+
+    function drawLineOne(canvas, flag) {
+        var context = canvas.getContext('2d');
+        var position = {};
+        if (flag == "begin") {
+            position = getCanvasOnePosition();
+        } else {
+            position = getCanvasTwoPosition();
+        }
+        context.beginPath();
+        context.moveTo(position.beginX, position.beginY);
+        context.lineTo(position.endX, position.endY);
+        if (position.endX2 && position.endY2) {
+            context.lineTo(position.endX2, position.endY2);
+        }
+        context.strokeStyle = "#333";
+        context.stroke();
+    }
+
+    /**
+     * 左侧关系线
+     * @returns {{beginX: *, beginY: *, endX: *, endY: *}}
+     */
+    function getCanvasOnePosition() {
+        var imgLength = $('.imgBox img').length;
+        var beginX = (imgLength == 0) ? 0 : 77,
+            beginY = (imgLength == 0) ? 15 : (15 + 60 * (imgLength - 1)),
+            endX = (imgLength == 0) ? 155 : 77,
+            endY = 60 * imgLength + 15;
+        var position = { beginX: beginX, beginY: beginY, endX: endX, endY: endY };
+        if (imgLength > 0) {
+            position.endX2 = 155;
+            position.endY2 = endY;
+        }
+        return position;
+    }
+
+    function getCanvasTwoPosition() {
+        var imgLength = $('.imgBox img').length;
+        var endY = 15 + 60 * imgLength
+        return { beginX: 0, beginY: endY, endX: 155, endY: endY }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

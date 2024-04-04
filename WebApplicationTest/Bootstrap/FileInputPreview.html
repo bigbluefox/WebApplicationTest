@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>bootstrap-file-input</title>
+
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+    <link href="/Scripts/fileinput/css/fileinput.css" rel="stylesheet"/>
+    <!--<link href="/Scripts/fileinput/themes/explorer-fa/theme.css" rel="stylesheet"/>-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+
+        body { padding: 15px; }
+
+        textarea {
+            height: 300px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .file-drop-zone-title{ padding: 0;}
+        .file-input{padding-bottom: 5px!important;}
+        .file-input .form-control{ height: 34px !important;}
+
+        .krajee-default.file-preview-frame .kv-file-content {
+            width: 160px!important;
+            height: 120px!important;
+            /*border: 1px solid #00bfff;*/
+        }
+
+        .krajee-default.file-preview-frame .file-thumbnail-footer {
+            height: 45px;
+        }
+
+
+        .file-preview .fileinput-remove {
+            top: 5px;
+            right: 5px;
+            line-height: 10px;
+        }
+
+        .file-preview-image {
+            height: 100% !important;
+            max-height: 100% !important;
+            max-width: 100% !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bs-section">
+    <h1 class="page-header">Basic Example 7</h1>
+    Using data attributes to configure the entire widget.
+    This example shows how you can pass json within data attributes in the HTML markup (check data-allowed-file-extensions which basically sets the plugin property allowedFileExtensions)
+    <div class="file-loading">
+        <input id="input-b7" name="input-b7[]" multiple type="file" class="file" data-allowed-file-extensions='["csv", "txt", "doc", "docx", "xls", "xlsx", "ppt", "pptx", "pdf"]'>
+    </div>
+</div>
+
+<div class="file-loading" style="height: 60px;">
+    <input id="input-21" type="file" accept="image/*">
+</div>
+
+<div class="file-loading" style="height: 60px;">
+    <input id="input-22" name="input22[]" type="file" accept="text/plain" multiple>
+</div>
+
+
+<!-- KRAJEE EXPLORER FONT AWESOME 5 THEME (ADVANCED) -->
+<div class="file-loading">
+    <input id="input-ke-2" name="input-ke-2[]" type="file" multiple>
+</div>
+
+
+
+<script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+<script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+<script src="/Scripts/jquery.easyui.min.js"></script>
+<script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+<script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="../Scripts/fileinput/js/fileinput.js"></script>
+<script src="../Scripts/fileinput/js/fileinput-zh-CN.js"></script>
+
+ 
+<!-- load the CSS files in the right order -->
+<!--<link href="/path/to/css/fileinput.min.css" rel="stylesheet">-->
+<link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet">
+<!--<link href="/path/to/themes/explorer/theme.css" rel="stylesheet">-->
+    <link href="fileinput/theme.min.css" rel="stylesheet" />
+<!-- load the JS files in the right order -->
+<!--<script src="/path/to/js/fileinput.js"></script>-->
+<!--<script src="/path/to/themes/explorer/theme.js"></script>-->
+<script src="fileinput/theme.min.js"></script>
+
+
+<script>
+    $(document).on('ready', function() {
+        $("#input-22").fileinput({
+            previewFileType: "office",
+            allowedFileExtensions: ["txt", "md", "ini", "text", "doc", "docx"],
+            previewClass: "bg-warning"
+        });
+    });
+</script>
+
+<script>
+    $(document).on('ready', function() {
+        $("#input-21").fileinput({
+            previewFileType: "image",
+            browseClass: "btn btn-success",
+            browseLabel: "Pick Image",
+            browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
+            removeClass: "btn btn-danger",
+            removeLabel: "Delete",
+            removeIcon: "<i class=\"glyphicon glyphicon-trash\"></i> ",
+            uploadClass: "btn btn-info",
+            uploadLabel: "Upload",
+            uploadIcon: "<i class=\"glyphicon glyphicon-upload\"></i> "
+        });
+    });
+</script>
+
+<script type="text/javascript">
+
+    var $uploadfile = $('.input-b7');
+
+    $(function() {
+
+        $uploadfile = $('.input-b7');
+
+        $uploadfile.fileinput({
+            language: 'zh', //设置语言
+            uploadUrl: '/Handler/FileInputHandler.ashx', //上传的地址
+            allowedFileExtensions: ['jpg', 'gif', 'png'], //接收的文件后缀
+            uploadExtraData: { "id": 1, "fileName": '123.mp3' },
+
+            browseLabel: "Pick Image",
+            browseClass: "btn btn-primary", //按钮样式
+            browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
+
+            uploadAsync: true, //默认异步上传
+            showUpload: true, //是否显示上传按钮
+            showRemove: true, //显示移除按钮
+            showPreview: true, //是否显示预览
+            showCaption: false, //是否显示标题
+
+            dropZoneEnabled: false, //是否显示拖拽区域
+
+            //minImageWidth: 50, //图片的最小宽度
+            //minImageHeight: 50,//图片的最小高度
+            //maxImageWidth: 1000,//图片的最大宽度
+            //maxImageHeight: 1000,//图片的最大高度
+            //maxFileSize:0,//单位为kb，如果为0表示不限制文件大小
+            //minFileCount: 0,
+
+            maxFileCount: 10, //表示允许同时上传的最大文件个数
+            enctype: 'multipart/form-data',
+            validateInitialCount: true,
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+
+        }).on("fileuploaded", function(event, data, previewId, index) {
+
+            alert(data);
+
+        });
+
+    });
+
+    var b = function(bytes) {
+        var i = Math.floor(Math.log(bytes) / Math.log(1024)),
+            sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+        return (bytes / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + sizes[i];
+    };
+</script>
+
+    <script>
+<!-- //must load the font-awesome.css for this example -->
+    $("#input-ke-2").fileinput({
+        theme: "explorer-fas",
+        uploadUrl: "/file-upload-batch/2",
+        minFileCount: 2,
+        maxFileCount: 5,
+        overwriteInitial: false,
+        previewFileIcon: '<i class="fa fa-file"></i>',
+        initialPreview: [
+            // IMAGE DATA
+           'https://picsum.photos/800/560?image=1071',
+            // IMAGE RAW MARKUP
+            '<img src="https://picsum.photos/800/560?image=1075" class="kv-preview-data file-preview-image">',
+            // TEXT DATA
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut mauris ut libero fermentum feugiat eu et dui. Mauris condimentum rhoncus enim, sed semper neque vestibulum id. Nulla semper, turpis ut consequat imperdiet, enim turpis aliquet orci, eget venenatis elit sapien non ante. Aliquam neque ipsum, rhoncus id ipsum et, volutpat tincidunt augue. Maecenas dolor libero, gravida nec est at, commodo tempor massa. Sed id feugiat massa. Pellentesque at est eu ante aliquam viverra ac sed est.",
+            // PDF DATA
+            'http://kartik-v.github.io/bootstrap-fileinput-samples/samples/pdf-sample.pdf',
+            // VIDEO DATA
+            "http://kartik-v.github.io/bootstrap-fileinput-samples/samples/small.mp4"
+        ],
+        initialPreviewAsData: true, // defaults markup  
+        initialPreviewConfig: [
+            { caption: "Image 11.jpg", size: 762980, url: "/site/file-delete", downloadUrl: 'https://picsum.photos/800/460?image=11', key: 11 },
+            { previewAsData: false, size: 823782, caption: "Image 13.jpg", url: "/site/file-delete", downloadUrl: 'https://picsum.photos/800/460?image=13', key: 13 },
+            { caption: "Lorem Ipsum.txt", type: "text", size: 1430, url: "/site/file-delete", key: 12 },
+            { type: "pdf", size: 8000, caption: "PDF Sample.pdf", url: "/site/file-delete", key: 14 },
+            { type: "video", size: 375000, filetype: "video/mp4", caption: "Krajee Sample.mp4", url: "/site/file-delete", key: 15 }
+        ],
+        uploadExtraData: {
+            img_key: "1000",
+            img_keywords: "happy, nature"
+        },
+        preferIconicPreview: true, // this will force thumbnails to display icons for following file extensions
+        previewFileIconSettings: { // configure your icon file extensions
+            'doc': '<i class="fas fa-file-word text-primary"></i>',
+            'xls': '<i class="fas fa-file-excel text-success"></i>',
+            'ppt': '<i class="fas fa-file-powerpoint text-danger"></i>',
+            'pdf': '<i class="fas fa-file-pdf text-danger"></i>',
+            'zip': '<i class="fas fa-file-archive text-muted"></i>',
+            'htm': '<i class="fas fa-file-code text-info"></i>',
+            'txt': '<i class="fas fa-file-alt text-info"></i>',
+            'mov': '<i class="fas fa-file-video text-warning"></i>',
+            'mp3': '<i class="fas fa-file-audio text-warning"></i>',
+            // note for these file types below no extension determination logic 
+            // has been configured (the keys itself will be used as extensions)
+            'jpg': '<i class="fas fa-file-image text-danger"></i>',
+            'gif': '<i class="fas fa-file-image text-muted"></i>',
+            'png': '<i class="fas fa-file-image text-primary"></i>'
+        },
+        previewFileExtSettings: { // configure the logic for determining icon file extensions
+            'doc': function (ext) {
+                return ext.match(/(doc|docx)$/i);
+            },
+            'xls': function (ext) {
+                return ext.match(/(xls|xlsx)$/i);
+            },
+            'ppt': function (ext) {
+                return ext.match(/(ppt|pptx)$/i);
+            },
+            'zip': function (ext) {
+                return ext.match(/(zip|rar|tar|gzip|gz|7z)$/i);
+            },
+            'htm': function (ext) {
+                return ext.match(/(htm|html)$/i);
+            },
+            'txt': function (ext) {
+                return ext.match(/(txt|ini|csv|java|php|js|css)$/i);
+            },
+            'mov': function (ext) {
+                return ext.match(/(avi|mpg|mkv|mov|mp4|3gp|webm|wmv)$/i);
+            },
+            'mp3': function (ext) {
+                return ext.match(/(mp3|wav)$/i);
+            }
+        }
+    });
+</script>
+</body>
+</html>

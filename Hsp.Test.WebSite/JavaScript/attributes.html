@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>attributes</title>
+    <link href="../BS4/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Bootstrap/table/bootstrap-table.css" rel="stylesheet" />
+    <link href="css/es.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-3.6.0.js"></script>
+    <script src="../BS4/js/bootstrap.bundle.js"></script>
+    <script src="../Bootstrap/table/bootstrap-table.js"></script>
+    <script src="../Bootstrap/table/locale/bootstrap-table-zh-CN.js"></script>
+
+    <style type="text/css">
+    </style>
+    <style>
+        input.active {
+            background: red;
+        }
+
+        #first > div {
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            display: none;
+        }
+
+            #first > div:first-of-type {
+                display: block;
+            }
+    </style>
+
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="container-fluid">
+
+            <div class="row-fluid">
+                <h5></h5>
+                <p style="font-weight:bold;"></p>
+                <p></p>
+                <p></p>
+                <p style="font-weight:bold;"></p>
+<pre><code>
+    
+</code></pre>
+
+                <button id="btnClick" name="btnClick" type="button" class="btn btn-default" title="Hello World" role="button" onclick="myFunction()">点我</button>
+                <input id="title" name="title" type="text" class="form-control form-control-sm" required placeholder="标题">
+                <p id="demo">单击按钮，查看按钮元素有多少个属性：</p>
+
+                <!-- 宣传内容编辑模态窗体 //-->
+                <div class="modal fade" id="editModel" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" aria-labelledby="editModelLabel">
+                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document" style="max-width: 895px;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModelLabel">宣传内容编辑</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="form-horizontal">
+                                    <input type="hidden" id="txtId">
+                                    <div class="form-group row">
+                                        <label for="txtTitle" class="col-1 col-form-label col-form-label-sm">标题</label>
+                                        <div class="col-5">
+                                            <input type="text" class="form-control form-control-sm" id="txtTitle" required placeholder="标题">
+                                        </div>
+                                        <label for="txtContentType" class="col-1 col-form-label col-form-label-sm">类型</label>
+                                        <div class="col-2">
+                                            <select id="txtContentType" class="form-control form-control-sm" asp-items="Html.GetEnumSelectList<EnumpRromContentType>()">
+                                                <option>请选择</option>
+                                            </select>
+                                        </div>
+                                        <label for="txtDisabled" class="col-1 col-form-label col-form-label-sm">已禁用</label>
+                                        <div class="col-2">
+                                            <select id="txtDisabled" class="form-control form-control-sm" asp-items="Html.GetEnumSelectList<EnumDisabled>()"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtAbstract" class="col-1 col-form-label col-form-label-sm">摘要</label>
+                                        <div class="col-11">
+                                            <input type="text" class="form-control form-control-sm" id="txtAbstract" required placeholder="摘要">
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group row"></div>*@
+                                    <div class="form-group row">
+                                        <div class="col-12">
+                                            <div id="EditorContainer">
+                                                <div class="toolbar" data-role="editor-toolbar" data-target="#FullEditor">
+                                                    <div class="btn-group">
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="字体大小"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a data-edit="fontSize 5" style="font-size: x-large;">大</a></li>
+                                                                <li><a data-edit="fontSize 3" style="font-size: medium;">一般</a></li>
+                                                                <li><a data-edit="fontSize 1" style="font-size: x-small;">小</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="高亮"><i class="fa fa-paint-brush"></i>&nbsp;<b class="caret"></b></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a data-edit="backColor #00FFFF">蓝色</a></li>
+                                                                <li><a data-edit="backColor #00FF00">绿色</a></li>
+                                                                <li><a data-edit="backColor #FF7F00">橙色</a></li>
+                                                                <li><a data-edit="backColor #FF0000">红色</a></li>
+                                                                <li><a data-edit="backColor #FFFF00">黄色</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="字体颜色"><i class="fa fa-font"></i>&nbsp;<b class="caret"></b></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a data-edit="foreColor #000000">黑色</a></li>
+                                                                <li><a data-edit="foreColor #0000FF">蓝色</a></li>
+                                                                <li><a data-edit="foreColor #30AD23">绿色</a></li>
+                                                                <li><a data-edit="foreColor #FF7F00">橙色</a></li>
+                                                                <li><a data-edit="foreColor #FF0000">红色</a></li>
+                                                                <li><a data-edit="foreColor #FFFF00">黄色</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-default" data-edit="bold" title="加粗 (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                                                        <a class="btn btn-default" data-edit="italic" title="斜体 (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                                                        <a class="btn btn-default" data-edit="strikethrough" title="删除线"><i class="fa fa-strikethrough"></i></a>
+                                                        <a class="btn btn-default" data-edit="underline" title="下划线 (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-default" data-edit="insertunorderedlist" title="列表"><i class="fa fa-list-ul"></i></a>
+                                                        <a class="btn btn-default" data-edit="insertorderedlist" title="序列"><i class="fa fa-list-ol"></i></a>
+                                                        <a class="btn btn-default hidden-xs" data-edit="indent" title="重点 (Tab)"><i class="fa fa-indent"></i></a>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-default" data-edit="justifyleft" title="居左 (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+                                                        <a class="btn btn-default" data-edit="justifycenter" title="居中 (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+                                                        <a class="btn btn-default" data-edit="justifyright" title="居右 (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+                                                        <a class="btn btn-default" data-edit="justifyfull" title="适应 (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-default hidden-xs" data-edit="format-pre" title="代码"><i class="fa fa-code"></i></a>
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" title="标题"><i class="fa fa-header"></i>&nbsp;<b class="caret"></b></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a data-edit="format-h1">一级标题</a></li>
+                                                                <li><a data-edit="format-h2">二级标题</a></li>
+                                                                <li><a data-edit="format-h3">三级标题</a></li>
+                                                                <li><a data-edit="format-h4">四级标题</a></li>
+                                                                <li><a data-edit="format-h5">五级标题</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <a class="btn btn-default hidden-xs" title="插入图片(可以拖拽)" id="pictureBtn">
+                                                            <i class="fa fa-picture-o"></i>
+                                                            <input class="imgUpload" type="file" style="opacity: 0; position: absolute; top: 0px; left: 0px; width: 41px; height: 30px;" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="editor" id="FullEditor" data-placeholder="文章正文等待输入..."></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="txtCreatorId">
+                                    <input type="hidden" id="txtCreateTime">
+                                    <input type="hidden" id="txtModifierId">
+                                    <input type="hidden" id="txtModifiedTime">
+                                    <input type="hidden" id="txtAuditId">
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                    <i class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></i>关闭
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btnSave">
+                                    <i class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></i>保存
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script type="text/javascript">
+
+                    $(function () {
+
+                        //debugger;
+
+                        let input = $("#title")[0];
+                        console.log($(input).prop("class"));
+
+                        $.each(input.attributes, function () {
+                            let attribute = this
+                            console.log(attribute, attribute.name, attribute.value)
+                        });
+
+                        //let target = document.getElementsByTagName("BUTTON")[0];
+                        //let target = document.getElementById('editModel');
+                        let target = document.getElementById('title');
+
+                        console.log(target.attributes)
+
+                        //for (var i = 0; i < target.attributes.length; i++) {
+                        //    var attribute = target.attributes[i]
+                        //    var key = this.name
+                        //    var val = this.value
+                        //    console.log(attribute, key, val)
+                        //}
+
+                        $.each(target.attributes, function () {
+                            let attribute = this
+                            console.log(attribute, attribute.name, attribute.value)
+                        });
+
+                    });
+
+                    function myFunction() {
+                        var btn = document.getElementsByTagName("BUTTON")[0];
+                        var x = document.getElementById("demo");
+                        x.innerHTML = btn.attributes.length;
+                    }
+
+                </script>
+
+                <div id="tab"></div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <br /><br />
+
+
+</body>
+</html>
+
+<script>
+    //const $ = obj => [...document.querySelectorAll(obj)];
+    let json = {
+        "input": ["1", "2", "3"],
+        "content": ["第一界面", "第二界面", "第三界面"]
+    };
+    //模板生成
+    let node = data => `<div id=first>
+                        ${data.input.map((i) => `<input type=button value=${i}>`).join('')}
+                        ${data.content.map((i) => `<div>${i}</div>`).join('')}
+                        </div>`;
+
+    let html = node(json);
+
+    console.log(html);
+
+    var tab = document.getElementById("tab");
+    tab.innerHTML = node(json);
+
+    //document.body.innerHTML = node(json);
+    let allInput = new Set($('#first > input'));
+    console.log(allInput);
+    [...allInput][0].className = 'active';
+    let allDiv = new Set($('#first > div'));
+    console.log(allDiv);
+
+    [...allInput].forEach((v, i) => {
+        v['onclick'] = () => {
+            [...allInput].forEach((v) => { v.className = '' });
+            [...allInput][i].className = 'active';
+            [...allDiv].forEach((v) => { v.style.display = 'none'; });
+            [...allDiv][i].style.display = 'block';
+
+        }
+    });
+
+</script>

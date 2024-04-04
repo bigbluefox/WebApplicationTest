@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>多行文本溢出显示省略号</title>
+
+    <style type="text/css">
+        
+        /*line-clamp  firefox占不支持  适合用于移动端*/
+
+         p {
+             -ms-text-overflow: ellipsis;
+             -o-text-overflow: ellipsis;
+             -webkit-box-orient: vertical;
+             -webkit-line-clamp: 2; /* 兼容性有问题 */
+             display: -webkit-box;
+             font-size: 14px;
+             height: 2.8em;
+             line-height: 1.4em;
+             /*height: 32px;*/
+             overflow: hidden;
+             text-overflow: ellipsis;
+             width: 200px;
+             background-color:cornflowerblue;
+
+         }
+
+        div.test {
+            border: 1px solid #cccccc;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 12em;
+            padding: 2px;
+        }
+
+        .ellipsis{/*单行文本溢出*/
+                  
+            overflow: hidden;
+            text-overflow:ellipsis;/*文本溢出显示省略号*/
+            white-space:nowrap;/*文本不会换行（单行文本溢出）*/
+            width:200px;
+            background-color: red;
+            line-height: 1.4em;
+            margin-top: 15px;
+            padding: 2px;
+        }
+
+        .imitate_ellipsis{
+            position:relative;
+            line-height:1.4em;
+            height:2.8em;
+            overflow:hidden;
+            width:200px;
+            background-color: orange;
+        }
+        .imitate_ellipsis::after{
+            content:"...";
+            font-weight:bold;
+            position:absolute;
+            bottom:0;
+            right:0;
+            padding-left:20px;
+            background: -webkit-linear-gradient(left, transparent, #fff 62%);
+            background: -o-linear-gradient(right, transparent, #fff 62%);
+            background: -moz-linear-gradient(right, transparent, #fff 62%);
+            background: linear-gradient(to right, transparent, #fff 62%);
+        }
+
+
+
+
+body {
+  padding: 20px;
+  font: 1.2em/1.2em 'Open Sans', sans-serif;
+}
+.module {
+  width: 250px;
+  margin: 0 0 1em 0;
+  overflow: hidden;
+}
+.module p {
+  margin: 0;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+}
+
+.fade {
+  position: relative;
+  height: 3.6em; /* exactly three lines */
+}
+.fade:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.2em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+
+.last-line {
+  height: 3.6em; /* exactly three lines */
+  text-overflow: -o-ellipsis-lastline;
+}
+
+.ftellipsis {
+  height: 3.6em;
+}
+
+h1 {
+  margin: 0 0 1em 0;
+}
+h2 {
+  font-size: 1.2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+    <script src="../Scripts/jquery/jquery-1.12.4.js"></script>
+    <script src="../Scripts/jquery/plugins/xdlines.jquery.js"></script>
+    <script src="../Scripts/clamp.js"></script>
+
+    <script type="text/javascript">
+
+        $(function() {
+            
+        });
+
+
+    </script>
+
+</head>
+<body>
+<p>多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示</p>
+    <br/>
+<div class="test" style="text-overflow: ellipsis;">This is some long text that will not fit in the box</div>
+    <br/>
+    <div class="test" style="text-overflow: ellipsis;">多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示多行显示</div>
+
+
+<div class="ellipsis">
+    单行文本css溢出部分css溢出部分css溢出部分css溢出部分css溢出部分css溢出部分css溢出部分
+</div>
+    <br/>
+<p>3.跨浏览器兼容的方法</p>
+<div class="imitate_ellipsis">
+    浏览器兼容伪类写法css溢出部分css溢出部分css溢出部分css溢出部分css溢出部分css溢出部分css溢出部分
+</div>
+<br/>
+<div class="imitate_ellipsis">
+    Hello
+</div>
+<br/>
+<div id="ellipsis">
+    浏览器兼容伪类写法css溢出部分css溢出部分css溢出部分css溢出部分css溢出部分css溢出部分css溢出部分
+</div>
+<br/>
+
+
+<h1>Line Clampin'</h1>
+
+<h2>Weird WebKit Flexbox Way</h2>
+<div class="module line-clamp">
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+</div>
+
+<h2>Fade Out Way</h2>
+<div class="module fade">
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+</div>
+
+<h2>Opera Overflow Way</h2>
+<div class="module last-line">
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+</div>
+
+<h2>Clamp.js Way</h2>
+<div class="module js">
+  <p id="clampjs">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+</div>
+
+<h2>ftellipsis Way</h2>
+<div class="module js ftellipsis" id="ftellipsis">
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+</div>
+
+<h2>TextOverflowClamp.js Way</h2>
+<div class="module js textoverflowclamp" id="textoverflowclamp">
+  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    function mitulineHide(num, con) {
+        var contain = document.getElementById(con);
+        console.log(con);
+        var maxSize = num;
+        var txt = contain.innerHTML;
+        if (txt.length > num) {
+            console.log('1');
+            txt = txt.substring(0, num - 1) + "...";
+            contain.innerHTML = txt;
+        } else {
+            console.log("error");
+        }
+    };
+    mitulineHide(20, 'ellipsis');
+
+
+
+
+
+
+
+    // https://github.com/josephschmitt/Clamp.js
+    var module = document.getElementById("clampjs");
+    $clamp(module, { clamp: 3 });
+
+
+
+
+    // https://github.com/ftlabs/ftellipsis
+    var element = document.getElementById('ftellipsis');
+    var ellipsis = new Ellipsis(element);
+
+    ellipsis.calc();
+    ellipsis.set();
+
+
+
+
+
+
+    // https://codepen.io/Merri/pen/Dsuim
+    /**
+      * TextOverflowClamp.js
+      *
+      * Updated 2013-05-09 to remove jQuery dependancy.
+      * But be careful with webfonts!
+      */
+
+    // bind function support for older browsers without it
+    // https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Function/bind
+    if (!Function.prototype.bind) {
+        Function.prototype.bind = function (oThis) {
+            if (typeof this !== "function") {
+                // closest thing possible to the ECMAScript 5 internal IsCallable function
+                throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+            }
+
+            var aArgs = Array.prototype.slice.call(arguments, 1),
+                fToBind = this,
+                fNOP = function () { },
+                fBound = function () {
+                    return fToBind.apply(this instanceof fNOP && oThis
+                                           ? this
+                                           : oThis,
+                                         aArgs.concat(Array.prototype.slice.call(arguments)));
+                };
+
+            fNOP.prototype = this.prototype;
+            fBound.prototype = new fNOP();
+
+            return fBound;
+        };
+    }
+
+    // the actual meat is here
+    (function (w, d) {
+        var clamp, measure, text, lineWidth,
+            lineStart, lineCount, wordStart,
+            line, lineText, wasNewLine,
+        ce = d.createElement.bind(d),
+        ctn = d.createTextNode.bind(d);
+
+        // measurement element is made a child of the clamped element to get it's style
+        measure = ce('span');
+
+        (function (s) {
+            s.position = 'absolute'; // prevent page reflow
+            s.whiteSpace = 'pre'; // cross-browser width results
+            s.visibility = 'hidden'; // prevent drawing
+        })(measure.style);
+
+        clamp = function (el, lineClamp) {
+            // make sure the element belongs to the document
+            if (!el.ownerDocument || !el.ownerDocument === d) return;
+            // reset to safe starting values
+            lineStart = wordStart = 0;
+            lineCount = 1;
+            wasNewLine = false;
+            lineWidth = el.clientWidth;
+            // get all the text, remove any line changes
+            text = (el.textContent || el.innerText).replace(/\n/g, ' ');
+            // remove all content
+            while (el.firstChild !== null)
+                el.removeChild(el.firstChild);
+            // add measurement element within so it inherits styles
+            el.appendChild(measure);
+            // http://ejohn.org/blog/search-and-dont-replace/
+            text.replace(/ /g, function (m, pos) {
+                // ignore any further processing if we have total lines
+                if (lineCount === lineClamp) return;
+                // create a text node and place it in the measurement element
+                measure.appendChild(ctn(text.substr(lineStart, pos - lineStart)));
+                // have we exceeded allowed line width?
+                if (lineWidth < measure.clientWidth) {
+                    if (wasNewLine) {
+                        // we have a long word so it gets a line of it's own
+                        lineText = text.substr(lineStart, pos + 1 - lineStart);
+                        // next line start position
+                        lineStart = pos + 1;
+                    } else {
+                        // grab the text until this word
+                        lineText = text.substr(lineStart, wordStart - lineStart);
+                        // next line start position
+                        lineStart = wordStart;
+                    }
+                    // create a line element
+                    line = ce('span');
+                    // add text to the line element
+                    line.appendChild(ctn(lineText));
+                    // add the line element to the container
+                    el.appendChild(line);
+                    // yes, we created a new line
+                    wasNewLine = true;
+                    lineCount++;
+                } else {
+                    // did not create a new line
+                    wasNewLine = false;
+                }
+                // remember last word start position
+                wordStart = pos + 1;
+                // clear measurement element
+                measure.removeChild(measure.firstChild);
+            });
+            // remove the measurement element from the container
+            el.removeChild(measure);
+            // create the last line element
+            line = ce('span');
+            // give styles required for text-overflow to kick in
+            (function (s) {
+                s.display = 'inline-block';
+                s.overflow = 'hidden';
+                s.textOverflow = 'ellipsis';
+                s.whiteSpace = 'nowrap';
+                s.width = '100%';
+            })(line.style);
+            // add all remaining text to the line element
+            line.appendChild(ctn(text.substr(lineStart)));
+            // add the line element to the container
+            el.appendChild(line);
+        }
+        w.clamp = clamp;
+    })(window, document);
+
+    // the only bit of jQuery
+    $(window).bind('load', function () {
+        clamp(document.getElementById('textoverflowclamp'), 3);
+    });
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

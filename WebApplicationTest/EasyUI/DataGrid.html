@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>-->
+    <link href="../Scripts/V1.5.3/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../Scripts/V1.5.3/themes/icon.css" rel="stylesheet" />
+
+    <link href="../Styles/main.css" rel="stylesheet"/>
+
+    <script src="../Scripts/V1.5.3/jquery.min.js"></script>
+    <!--<script src="/Scripts/jquery-1.12.4.min.js"></script>-->
+    <!--<script src="/Scripts/jquery-migrate-1.4.1.min.js"></script>-->
+    <!--<script src="../Scripts/jquery-3.6.0.js"></script>-->
+    <!--<script src="../Scripts/jquery-3.6.0.intellisense.js"></script>-->
+    <!-- <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>-->
+
+    <script src="../Scripts/V1.5.3/jquery.easyui.min.js"></script>
+    <script src="../Scripts/V1.5.3/locale/easyui-lang-zh_CN.js"></script>
+
+    <script src="../Scripts/Hsp.js"></script>
+    <script src="../Scripts/Hsp.Common.js"></script>
+
+    <script type="text/javascript">
+    var height = 0, width = 0;
+    var navigate = '从印度巡航导弹试射成功说起：为什么巡航导弹这么难造';
+
+    var toolbar = [{
+        text: 'Add',
+        iconCls: 'icon-add',
+        handler: function () { alert('add') }
+    }, {
+        text: 'Cut',
+        iconCls: 'icon-cut',
+        handler: function () { alert('cut') }
+    }, '-', {
+        text: 'Save',
+        iconCls: 'icon-save',
+        handler: function () { alert('save') }
+    }];
+
+
+    $(function() {
+        width = HSP.Common.AvailWidth();
+        height = HSP.Common.AvailHeight();
+
+        var zoom = HSP.Common.BrowserScaling();
+    
+        if (HSP.Browser.IS_EDGE) {
+            //if (zoom == 100) {
+            //    height -= -60; // 824/100
+            //}
+            //if (zoom == 125) {
+            //    height -= -26; // 677/125 
+            //}
+            //if (zoom == 150) {
+            //    height -= -8; // 575/150
+            //}
+            //if (zoom == 175) {
+            //    height -= 2; // 499/175
+            //}
+        }
+
+        if (HSP.Browser.IS_GC) {
+            //height -= 59;
+            // 594/150-100
+        }
+
+        if (HSP.Browser.IS_FF) {
+            //height -= 16; // 525/150-100
+        }
+
+        if (HSP.Browser.IS_IE) {
+            //if (zoom == 100) {
+            //    height -= 3; // 800/100
+            //}
+            //if (zoom == 125) {
+            //    height -= 18; // 640/125 
+            //}
+            //if (zoom == 150) {
+            //    height -= 19; // 524/150
+            //}
+            //if (zoom == 175) {
+            //    height -= 19; // 440/175
+            //}
+        }    
+
+
+        $("#titlePanel").panel({
+            width: 'auto',
+            height: height - 0,
+            title: navigate
+        });
+
+        InitListTb();
+
+    });
+
+    /// <summary>
+    /// 新闻统计表初始化
+    /// </summary>
+
+    function InitListTb() {
+        $('#StatisticsList').datagrid({
+            width: 'auto',
+            height: 'auto',
+            fit: true,
+            fitColumns: true,
+            pagination: true,
+            pageSize: 15,
+            pageList: [100, 50, 30, 15],
+            rownumbers: true,
+            singleselect: true,
+            striped: true,
+            nowrap: true,
+            columns: [ 
+                // n.ID, n.Title, n.BizType, t.TypeName, a.Author, n.Source, n.Hits, n.OrganID
+	            //, CONVERT(VARCHAR(10), n.CreateDate, 120) AS CreateDate
+                [   { field: 'Source', title: '部门', halign: 'center', align: 'left', width: 120 },
+                    { field: 'Author', title: '作者', halign: 'center', align: 'center', width: 120 },
+                    // 添加一个统计页面，通过“部门，标题，作者，开始时间，结束时间”，作为查询条件，以分页列表的形式展现，统计结果可通过execl表格导出；
+                    { field: 'Title', title: '标题', halign: 'center', align: 'left', width: 180 },
+                    { field: 'Hits', title: '点击量', halign: 'center', align: 'right', width: 60 },
+                    { field: 'CreateDate', title: '发布时间', halign: 'center', align: 'left', width: 90 }
+                ]
+            ]
+            //, toolbar: toolbar
+            //, onLoadSuccess: function (data) {
+            //    var viewHeight = $(".datagrid-view").height();
+            //    $(".datagrid-view").css("height", (viewHeight - 24) + "px");
+            //}
+            , toolbar: [
+                {
+                    id: 'btnAdd',
+                    text: '添加值班主数据',
+                    iconCls: 'icon-add',
+                    handler: function() {
+                        //RotaEdit();
+                    }
+                }
+            ]
+        });
+
+
+        //var toolbar = [{
+        //    text: 'Add',
+        //    iconCls: 'icon-add',
+        //    handler: function () { alert('add') }
+        //}, {
+        //    text: 'Cut',
+        //    iconCls: 'icon-cut',
+        //    handler: function () { alert('cut') }
+        //}, '-', {
+        //    text: 'Save',
+        //    iconCls: 'icon-save',
+        //    handler: function () { alert('save') }
+        //}];
+
+        //StatisticsList();
+
+        //$('#btnAdd').attr('title', '添加新闻统计');
+    }
+
+</script>
+
+
+</head>
+<body>
+    <div id="titlePanel" style="padding: 2px;">
+        <div id="StatisticsList" hidden></div>
+        <table id="dg"></table>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(function(){
+
+        $('#dg').datagrid({
+    frozenColumns: [[
+        {
+            field:'name',
+            title:'Name',
+            rowspan: 2,
+            width:100,
+            frozen:true
+        },
+        {
+            field:'detail1',
+            title:'Detail 1',
+            colspan:2,
+            frozen:true
+        }
+    ]],
+    columns: [[
+        {
+            field:'detail2',
+            title:'Detail 2',
+            colspan:2
+        },
+        {
+            field:'value1',
+            title:'Value 1',
+            width:100
+        },
+        {
+            field:'value2',
+            title:'Value 2',
+            width:100
+        },
+        {
+            field:'value3',
+            title:'Value 3',
+            width:100
+        },
+        {
+            field:'value4',
+            title:'Value 4',
+            width:100
+        }
+    ]]
+});
+
+
+    });
+
+
+
+</script>

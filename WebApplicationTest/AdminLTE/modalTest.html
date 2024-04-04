@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>模态窗体Modals使用</title>
+    <link href="/Scripts/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="../Scripts/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <!--<link rel="stylesheet" href="css/skins/_all-skins.min.css">-->
+    <!--<link rel="stylesheet" href="css/doc-style.css">-->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        
+    </style>
+
+</head>
+<body>
+
+
+<button class='btn btn-info' data-btn-type='info' onclick='info()'>提示</button>
+
+<script>
+    function info() {
+        modals.info('提示信息');
+    }
+</script>
+
+<button class='btn btn-success' data-btn-type='success' onclick='correct()'>成功</button>
+
+<script>
+    function correct() {
+        modals.correct('操作成功信息');
+    }
+</script>
+
+<button class='btn btn-warning' data-btn-type='warn' onclick='warn()'>警告</button>
+
+<script>
+    function warn() {
+        modals.warn('警告信息');
+    }
+</script>
+
+<button class='btn btn-danger' data-btn-type='error' onclick='error()'>错误</button>
+
+<script>
+    function error() {
+        modals.error('错误提示信息');
+    }
+</script>
+
+<button class='btn btn-primary' data-btn-type='confirm' onclick='confirm()'>确认提示框</button>
+
+<script>
+    function confirm(){
+        modals.confirm('错误提示信息', function(){
+            alert('do something');
+        });
+
+        //modals.confirm({
+        //    text: "是否为选择的" + userArr.length + "个用户建立群组？",
+        //    callback: function () {
+        //        openGroupAddWin();
+        //        modals.hideWin("receiverWin");
+        //    },
+        //    cancel_call: function () {
+        //        setReceiverUserIds();
+        //        modals.hideWin("receiverWin");
+        //    }
+        //})
+
+
+    }
+</script>
+
+
+<button class='btn btn-info' data-btn-type='window' onclick='openWin()'>自定义模态窗口</button>
+
+<script>
+    function openWin() {
+        modals.openWin({
+            winId: 'userWin',
+            title: '新增用户',
+            width: '900px',
+            url: basePath + "/user/edit"
+        });
+    }
+</script>
+
+
+<script src="/Scripts/jquery/jquery-1.12.4.js"></script>
+<script src="/Scripts/bootstrap/js/bootstrap.js"></script>
+<!--    <script src="plugins/fastclick/fastclick.js"></script>
+    <script src="js/app.js"></script>
+    <script src="plugins/slimScroll/jquery.slimscroll.js"></script>
+    <script src="/Scripts/prettify/run_prettify.js"></script>-->
+
+    <script src="js/base-modal.js"></script>
+
+<script type="text/javascript">
+
+    $(function() {
+        //$.alert({ title: 'Alert!', content: 'Simple alert!' });
+    });
+
+</script>
+
+</body>
+</html>

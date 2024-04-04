@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>BootStrap 按钮</title>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        
+        body { padding: 15px; }
+
+            /* FROM HTTP://WWW.GETBOOTSTRAP.COM
+     * Glyphicons
+     *
+     * Special styles for displaying the icons and their classes in the docs.
+     */
+
+    .bs-glyphicons {
+      padding-left: 0;
+      padding-bottom: 1px;
+      margin-bottom: 20px;
+      list-style: none;
+      overflow: hidden;
+    }
+
+    .bs-glyphicons li {
+      float: left;
+        width: 45px;
+      height: 50px;
+      padding: 5px;
+      margin: 0 -1px -1px 0;
+      font-size: 12px;
+      line-height: 1.4;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    .bs-glyphicons .glyphicon, .bs-glyphicons .fa {
+      margin-top: 5px;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .bs-glyphicons .glyphicon-class {
+      display: block;
+      text-align: center;
+      word-wrap: break-word; /* Help out IE10+ with class names */
+    }
+
+    .bs-glyphicons li:hover,
+    #fa-icons div.col-md-3:hover{
+      /*background-color: rgba(86, 61, 124, .1);*/
+        color:#fff;
+        background:#222d32;
+        cursor:pointer;
+    }
+    
+    @media (min-width: 768px) {
+      .bs-glyphicons li {
+        width: 33.3%;
+      }
+    }
+    
+    .icon-selected{
+        color:#fff;
+        background:#222d32;
+        cursor:pointer;
+    }
+
+        #formula-factor, #formula-operator{ border: 1px solid #00bfff;}
+         
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row" style="padding-bottom: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <textarea class="form-control" rows="3" placeholder="计算公式" readonly="readonly"></textarea>
+        </div>
+    </div>
+
+    <div class="row" style="padding-bottom: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <div class="btn-group">
+                <button class="btn btn-default" aria-label="加" type="button" value="+">+</button>
+                <button class="btn btn-default" aria-label="减" type="button" value="-">-</button>
+                <button class="btn btn-default" aria-label="乘" type="button" value="*">*</button>
+                <button class="btn btn-default" aria-label="除" type="button" value="/">/</button>
+                <button class="btn btn-default" aria-label="百分比" title="百分比" type="button" value="%">%</button>
+                <button class="btn btn-default" aria-label="括号" title="括号" type="button" value="()">()</button>
+                <button class="btn btn-default" aria-label="等于" type="button" value="=">=</button>
+                <button class="btn btn-default" aria-label="清除" title="清除" type="button" value="C">C</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="padding-bottom: 10px;">
+        <div id="formula-factor" class="col-xs-6 col-sm-9 col-md-9 col-lg-9">
+            <div class="btn-group">
+                <button class="btn btn-default col-md-3" aria-label="加" type="button" value="+">+</button>
+                <button class="btn btn-default col-md-3" aria-label="减" type="button" value="-">-</button>
+                <button class="btn btn-default col-md-3" aria-label="百分比" title="百分比" type="button" value="%">%</button>
+
+            </div> <br/>
+            <div class="btn-group">
+                <button class="btn btn-default col-md-3" aria-label="乘" type="button" value="*">*</button>
+                <button class="btn btn-default col-md-3" aria-label="除" type="button" value="/">/</button>
+                <button class="btn btn-default col-md-3" aria-label="括号" title="括号" type="button" value="()">()</button>
+            </div> <br/>
+            <div class="btn-group">
+                <button class="btn btn-default col-md-3" aria-label="等于" type="button" value="=">=</button>
+                <button class="btn btn-default col-md-3" aria-label="" type="button" value="">&nbsp;</button>
+                <button class="btn btn-default col-md-3" aria-label="清除" title="清除" type="button" value="C">C</button>
+            </div><br/>
+            <div class="btn-group">
+
+                <button class="btn btn-default" aria-label="Left Align" type="button">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                <button class="btn btn-default" aria-label="Center Align" type="button">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+                <button class="btn btn-default" aria-label="Right Align" type="button">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <button class="btn btn-default" aria-label="Justify" type="button">
+                    <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></button>
+
+                <button class="btn btn-default" aria-label="Left Align" type="button">
+                    <span class="fa fa-plus" aria-hidden="true"></span></button>
+                <button class="btn btn-default" aria-label="Center Align" type="button">
+                    <span class="fa fa-minus" aria-hidden="true"></span></button>
+                <button class="btn btn-default" aria-label="Right Align" type="button">
+                    <span class="fa fa-times" aria-hidden="true"></span></button>
+                <button class="btn btn-default" aria-label="Justify" type="button">
+                    <span class="fa fa-percent" aria-hidden="true"></span></button>
+
+            </div>
+
+
+
+
+
+
+        </div>
+        <div id="formula-operator" class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                <ul class="bs-glyphicons">
+                  <li>
+                    <span class="fa fa-plus"></span>
+                  </li>
+                  <li>
+                    <span class="fa fa-minus"></span>
+                  </li>
+                  <li>
+                    <span class="fa fa-times"></span>
+                  </li>
+                  <li>
+                    <span class="fa fa-percent"></span>
+                  </li>
+                  <li>
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </li>
+                    <li>
+                        <span class="glyphicon">()</span>
+                    </li>
+                  <li>
+                    <span class="glyphicon glyphicon-class">%</span>
+                  </li>
+                  <li>
+                    <span class="glyphicon glyphicon-class">&nbsp;</span>
+                  </li>
+                    <li>
+                        <span class="glyphicon glyphicon-class">=</span>
+                    </li>
+
+
+
+
+                </ul>
+        </div>
+    </div>
+
+</div>
+
+<div class="container">
+<!--    <div class="row">
+
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='1' onclick='Num(this)'>1</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='2' onclick='Num(this)'>2</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='3' onclick='Num(this)'>3</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='+' onclick='Num(this)'>+</button></div>
+
+    </div>
+    <div class="row">
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='4' onclick='Num(this)'>4</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='5' onclick='Num(this)'>5</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='6' onclick='Num(this)'>6</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='-' onclick='Num(this)'>-</button></div>
+
+    </div>
+     <div class="row">
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='7' onclick='Num(this)'>4</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='8' onclick='Num(this)'>5</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='9' onclick='Num(this)'>6</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"><button class="btn btn-success" id='*' onclick='Num(this)'>*</button></div>
+    </div>
+     <div class="row">
+        <div class = "col-xs-1 col-md-1 col-sm-1"> <button class="col-xs-1 btn btn-success" id='C' onclick='Clear()'>C</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"> <button class="col-xs-1 btn btn-success" id='0' onclick='Num(this)'>0</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"> <button class="col-xs-1 btn btn-danger" id='=' onclick='Eval()'onblur='Clear()'>=</button></div>
+        <div class = "col-xs-1 col-md-1 col-sm-1"> <button class="col-xs-1 btn btn-success" id='/' onclick='Num(this)'>/</button></div>
+    </div>-->
+
+
+
+            <div class="w-60-l pr6-l order-2 order-1-l">
+                <ul class="list ma0 pa0 flex flex-row flex-wrap items-stretch nr4">
+                    <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=sports" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-primary0 hover-bg-primary5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="football-ball" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg-inline--fa fa-football-ball fa-w-16 fa-2x"><path fill="currentColor" d="M481.4 60.9c-4.8-18.2-19.1-32.5-37.2-37.4-23.8-6.4-211.8-59.9-349.7 78.2C-28.2 224.6-2.4 386.9 14.6 451.6c4.8 18.2 19.1 31.6 37.2 36.5 23.8 6.4 211.7 60.9 349.7-77.3 122.7-122.9 96.9-285.3 79.9-349.9zM64.3 442.6c-1.6-.4-2.8-1.7-3.2-3.3-5.4-20.3-11.7-51.9-12.8-88.9l105.1 105.1c-36.8-1.2-68.5-7.4-89.1-12.9zm303.3-66.7c-41.2 41.3-91.6 66.6-150.1 75.9L52.3 286.6c8.2-50.2 29.6-103.9 76.1-150.5 41.2-41.3 91.6-66.6 150.1-75.9l165.1 165.1c-8.1 50.3-29.5 104-76 150.6zm-25-319.4c36.8 1.2 68.5 7.4 89.1 12.9 1.6.4 2.8 1.7 3.2 3.3 5.4 20.3 11.7 51.9 12.8 88.9L342.6 56.5zm-88.9 103.3l-11.3 11.3c-3.1 3.1-3.1 8.2 0 11.3l28.3 28.3-22.7 22.7-28.3-28.3c-3.1-3.1-8.2-3.1-11.3 0l-11.3 11.3c-3.1 3.1-3.1 8.2 0 11.3l28.3 28.3-22.6 22.6-28.3-28.3c-3.1-3.1-8.2-3.1-11.3 0l-11.3 11.3c-3.1 3.1-3.1 8.2 0 11.3l28.3 28.3-28.3 28.3c-3.1 3.1-3.1 8.2 0 11.3l11.3 11.3c3.1 3.1 8.2 3.1 11.3 0l28.3-28.3 28.3 28.3c3.1 3.1 8.2 3.1 11.3 0l11.3-11.3c3.1-3.1 3.1-8.2 0-11.3l-28.3-28.3 22.6-22.6 28.3 28.3c3.1 3.1 8.2 3.1 11.3 0l11.3-11.3c3.1-3.1 3.1-8.2 0-11.3L270.6 256l22.6-22.6 28.3 28.3c3.1 3.1 8.2 3.1 11.3 0l11.3-11.3c3.1-3.1 3.1-8.2 0-11.3l-28.3-28.3 28.3-28.3c3.1-3.1 3.1-8.2 0-11.3l-11.3-11.3c-3.1-3.1-8.2-3.1-11.3 0l-28.3 28.3-28.2-28.4c-3.2-3.1-8.2-3.1-11.3 0z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Sports</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=vehicles" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-cyan0 hover-bg-cyan5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="bus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-bus fa-w-16 fa-2x"><path fill="currentColor" d="M368 368c17.67 0 32-14.33 32-32s-14.33-32-32-32-32 14.33-32 32 14.33 32 32 32zm-224 0c17.67 0 32-14.33 32-32s-14.33-32-32-32-32 14.33-32 32 14.33 32 32 32zm344-240h-8V80c0-44.8-99.2-80-224-80S32 35.2 32 80v48h-8c-13.25 0-24 10.74-24 24v80c0 13.25 10.75 24 24 24h8v160c0 17.67 14.33 32 32 32v32c0 17.67 14.33 32 32 32h16c17.67 0 32-14.33 32-32v-32h224v32c0 17.67 14.33 32 32 32h16c17.67 0 32-14.33 32-32v-32c17.67 0 32-14.33 32-32V256h8c13.25 0 24-10.75 24-24v-80c0-13.26-10.75-24-24-24zm-56 272H80V272h352v128zm0-176H80v-64h352v64zm0-112H80V85.43C94.18 71.6 156.69 48 256 48s161.82 23.6 176 37.43V112z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Vehicles</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=design" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-teal0 hover-bg-teal5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="drafting-compass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-drafting-compass fa-w-16 fa-2x"><path fill="currentColor" d="M450.33 296.36c14.32-13.92 27.51-29.15 38.7-46.11 5.02-7.6 2.23-18.06-5.64-22.62l-13.79-8c-7.39-4.28-16.54-1.77-21.29 5.34-6.52 9.75-13.92 18.7-21.73 27.24l-76.3-141.76c.72-4.75 1.45-9.51 1.45-14.46C351.72 42.98 308.86 0 256 0s-95.72 42.98-95.72 95.99c0 4.95.73 9.71 1.45 14.46L85.46 252.16c-7.85-8.49-15.24-17.44-21.76-27.19-4.75-7.11-13.9-9.63-21.29-5.34l-13.79 8c-7.87 4.56-10.66 15.02-5.64 22.62 11.17 16.92 24.68 31.66 39.06 45.44L0 410.94l7.91 65.75c1.5 12.62 8.63 23.51 19.6 29.89 6.2 3.59 13.06 5.42 19.94 5.42 5.3 0 10.66-1.08 15.74-3.27l61.44-26.33 62.2-115.57c22.37 5.83 45.54 9.13 69.17 9.13 23.65 0 46.91-3.07 69.31-8.87l62.05 115.3 61.48 26.34c5.08 2.17 10.41 3.25 15.7 3.25 6.89 0 13.74-1.83 19.94-5.42 10.97-6.37 18.1-17.26 19.57-29.83l7.95-65.81-61.67-114.56zM256 48c26.43 0 47.86 21.49 47.86 48s-21.43 48-47.86 48-47.86-21.49-47.86-48S229.57 48 256 48zM90.48 444.85l-36.3 15.56-4.83-40.09 138.38-257.15c11.16 11.41 25.27 19.66 40.93 24.37l.15.28L90.48 444.85zM256 327.98c-15.5 0-30.71-1.85-45.58-4.97L256 238.32l45.56 84.65c-14.89 3.03-30.07 5.01-45.56 5.01zm27.18-140.17l.15-.28c15.67-4.71 29.77-12.96 40.93-24.37l65.57 121.85c-13.04 9.27-27.14 16.89-41.8 23.3l-64.85-120.5zm174.64 272.6l-36.3-15.56-50.76-94.31c14.56-6.61 28.6-14.25 41.83-23.24l50.06 93.03-4.83 40.08z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Design</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=users-people" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-green0 hover-bg-green5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-astronaut" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-user-astronaut fa-w-14 fa-2x"><path fill="currentColor" d="M358.6 328.8c20.5-20.2 36.4-45.1 46.2-72.8H416c8.8 0 16-7.2 16-16v-96c0-8.8-7.2-16-16-16h-11.2C378.5 53.5 307.6 0 224 0S69.5 53.5 43.2 128H32c-8.8 0-16 7.2-16 16v96c0 8.8 7.2 16 16 16h11.2c9.8 27.7 25.7 52.6 46.2 72.8C37.4 347.3 0 396.1 0 454.4V488c0 13.3 10.7 24 24 24s24-10.7 24-24v-33.6c0-47.6 38.8-86.4 86.4-86.4h13c23.5 10.2 49.4 16 76.6 16s53.1-5.8 76.6-16h13c47.6 0 86.4 38.8 86.4 86.4V488c0 13.3 10.7 24 24 24s24-10.7 24-24v-33.6c0-58.3-37.4-107.1-89.4-125.6zM224 336c-79.4 0-144-64.6-144-144S144.6 48 224 48s144 64.6 144 144-64.6 144-144 144zm80 80H144c-17.7 0-32 14.3-32 32v64h48v-48c0-8.8 7.2-16 16-16s16 7.2 16 16v48h144v-64c0-17.7-14.3-32-32-32zm-32 64c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm16-352H160c-26.5 0-48 21.5-48 48v16c0 53 43 96 96 96h32c53 0 96-43 96-96v-16c0-26.5-21.5-48-48-48zm-84 92l-12 36-12-36-36-12 36-12 12-36 12 36 36 12-36 12z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Users</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=travel" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-lime0 hover-bg-lime5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="umbrella-beach" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-umbrella-beach fa-w-20 fa-2x"><path fill="currentColor" d="M443.48 18.08C409.77 5.81 375.31 0 341.41 0c-90.47 0-176.84 41.45-233.44 112.33-6.7 8.39-2.67 21.04 7.42 24.71l229.18 83.41L254.84 464H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h544c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H306.01l83.67-227.12 228.66 83.22c1.83.67 3.7.98 5.53.98 8.27 0 15.83-6.35 16.04-15.14 3.03-124.66-72.77-242.85-196.43-287.86zm9.1 190.61L307.4 155.85c14.25-25.26 30.54-47.29 48.16-63.97 25.34-24.03 50.03-34.16 67.41-27.77 17.53 6.38 29.84 29.92 33.84 64.62 2.77 24.11 1.09 51.45-4.23 79.96zm-274.63-99.95c42.89-36.66 97.81-58.24 154.55-60.33-4.47 3.76-36.86 28.45-70.29 91l-84.26-30.67zm319.82 116.4c7.38-35.07 12.06-77.07 4.11-118.28 45.77 38.28 77.14 91.67 86.87 151.39l-90.98-33.11z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Travel</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=emoji" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-yellow0 hover-bg-yellow5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="smile-wink" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="svg-inline--fa fa-smile-wink fa-w-16 fa-2x"><path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm117.8-146.4c-10.2-8.5-25.3-7.1-33.8 3.1-20.8 25-51.5 39.4-84 39.4s-63.2-14.3-84-39.4c-8.5-10.2-23.7-11.5-33.8-3.1-10.2 8.5-11.5 23.6-3.1 33.8 30 36 74.1 56.6 120.9 56.6s90.9-20.6 120.9-56.6c8.5-10.2 7.1-25.3-3.1-33.8zM168 240c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160-60c-25.7 0-55.9 16.9-59.9 42.1-1.7 11.2 11.5 18.2 19.8 10.8l9.5-8.5c14.8-13.2 46.2-13.2 61 0l9.5 8.5c8.5 7.4 21.6.3 19.8-10.8-3.8-25.2-34-42.1-59.7-42.1z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Emoji</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=objects" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-orange0 hover-bg-orange5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="tv-retro" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-tv-retro fa-w-16 fa-2x"><path fill="currentColor" d="M400 244v-8c0-6.6 5.4-12 12-12h8c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12h-8c-6.6 0-12-5.4-12-12zm12 76h8c6.6 0 12-5.4 12-12v-8c0-6.6-5.4-12-12-12h-8c-6.6 0-12 5.4-12 12v8c0 6.6 5.4 12 12 12zm-36-136.5s-1.5-7.5-144-7.5-144.5 7.5-144.5 7.5S80 184 80 288s7.5 104.5 7.5 104.5S88 400 232 400s144-7.5 144-7.5 7.5-.5 7.5-104.5-7.5-104.5-7.5-104.5zM512 144v288c0 26.5-21.5 48-48 48h-16v32h-48l-10.7-32H122.7L112 512H64v-32H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h140.9l-54-55.2c-9.3-9.5-9.1-24.7.3-33.9 9.5-9.3 24.7-9.1 33.9.3L256 96l86.9-88.8c9.3-9.5 24.5-9.6 33.9-.3 9.5 9.3 9.6 24.5.3 33.9l-54 55.2H464c26.5 0 48 21.5 48 48zm-48 0H48v288h416V144z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Objects</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=medical" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-red0 hover-bg-red5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="heartbeat" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-heartbeat fa-w-16 fa-2x"><path fill="currentColor" d="M266.4 427.7c-5.8 5.7-15.1 5.7-20.9 0L136.7 320H68.5l143.3 141.8c24.5 24.2 63.9 24.3 88.4 0L443.5 320h-68.2L266.4 427.7zM354.7 32c-36.5 0-71 12.3-98.7 34.9C228.3 44.3 193.8 32 157.3 32 86.2 32 0 88.9 0 188c0 37.3 13.7 72.1 37.8 100h116.8l29.9-71.7 56.9 126.3c5.5 12.3 22.9 12.7 28.9.6l49.7-99.4 22.1 44.2h132c24.1-27.9 37.8-62.7 37.8-100 .1-99.1-86.1-156-157.2-156zm83.9 224h-76.7l-27.6-55.2c-5.9-11.8-22.7-11.8-28.6 0l-48.9 97.9-58.2-129.3c-5.7-12.8-24-12.5-29.4.4L133.3 256H73.4c-58.8-69.5-7-176 83.9-176 31 0 51 6.2 98.7 53.4C307.1 82.9 325.1 80 354.7 80c91.2 0 142.7 106.5 83.9 176z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Medical</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=interfaces" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-pink0 hover-bg-pink5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-calendar-alt fa-w-14 fa-2x"><path fill="currentColor" d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Interfaces</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=shapes" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-grape0 hover-bg-grape5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="ticket" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-ticket fa-w-18 fa-2x"><path fill="currentColor" d="M568 216h8V112c0-26.51-21.49-48-48-48H48C21.49 64 0 85.49 0 112v104h8c22.091 0 40 17.909 40 40s-17.909 40-40 40H0v104c0 26.51 21.49 48 48 48h480c26.51 0 48-21.49 48-48V296h-8c-22.091 0-40-17.909-40-40s17.909-40 40-40zm-40-38.372c-28.47 14.59-48 44.243-48 78.372s19.53 63.782 48 78.372V400H48v-65.628c28.471-14.59 48-44.243 48-78.372s-19.529-63.782-48-78.372V112h480v65.628z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Shapes</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;c=hands" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-violet0 hover-bg-violet5 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="handshake" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-handshake fa-w-20 fa-2x"><path fill="currentColor" d="M519.2 127.9l-47.6-47.6A56.252 56.252 0 0 0 432 64H205.2c-14.8 0-29.1 5.9-39.6 16.3L118 127.9H0v255.7h64c17.6 0 31.8-14.2 31.9-31.7h9.1l84.6 76.4c30.9 25.1 73.8 25.7 105.6 3.8 12.5 10.8 26 15.9 41.1 15.9 18.2 0 35.3-7.4 48.8-24 22.1 8.7 48.2 2.6 64-16.8l26.2-32.3c5.6-6.9 9.1-14.8 10.9-23h57.9c.1 17.5 14.4 31.7 31.9 31.7h64V127.9H519.2zM48 351.6c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16c0 8.9-7.2 16-16 16zm390-6.9l-26.1 32.2c-2.8 3.4-7.8 4-11.3 1.2l-23.9-19.4-30 36.5c-6 7.3-15 4.8-18 2.4l-36.8-31.5-15.6 19.2c-13.9 17.1-39.2 19.7-55.3 6.6l-97.3-88H96V175.8h41.9l61.7-61.6c2-.8 3.7-1.5 5.7-2.3H262l-38.7 35.5c-29.4 26.9-31.1 72.3-4.4 101.3 14.8 16.2 61.2 41.2 101.5 4.4l8.2-7.5 108.2 87.8c3.4 2.8 3.9 7.9 1.2 11.3zm106-40.8h-69.2c-2.3-2.8-4.9-5.4-7.7-7.7l-102.7-83.4 12.5-11.4c6.5-6 7-16.1 1-22.6L367 167.1c-6-6.5-16.1-6.9-22.6-1l-55.2 50.6c-9.5 8.7-25.7 9.4-34.6 0-9.3-9.9-8.5-25.1 1.2-33.9l65.6-60.1c7.4-6.8 17-10.5 27-10.5l83.7-.2c2.1 0 4.1.8 5.5 2.3l61.7 61.6H544v128zm48 47.7c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16c0 8.9-7.2 16-16 16z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Hands</span></a>
+                    </li> <li class="ma0 pr4 pb4 w-grid-6-xl w-grid-4-ns w-grid-3">
+                        <a href="/icons?d=gallery&amp;s=brands" class="flex flex-column items-stretch justify-center tc link color-inherit hover-white bg-gray1 hover-bg-gray7 br2">
+                            <span class="pa3"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-facebook fa-w-14 fa-2x"><path fill="currentColor" d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z" class=""></path></svg></span> <span class="pv2 ph3 bg-black-05 f2 b br2 br--bottom">Brands</span></a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+</div>
+
+<script type="text/javascript">
+
+    $(function() {
+
+        $(".btn-group button").click(function() {
+            Operator(this);
+        });
+
+    });
+
+
+    function Operator(obj) {
+        //alert(obj.value);
+
+        var $textarea = $("textarea");
+
+        if (obj.value.toUpperCase() === "C") {
+            $textarea.empty();
+        } else {
+            insertAtCursor($textarea.get(0), obj.value);
+        }
+
+        
+
+    }
+
+    //jQuery光标处插入文本
+
+    //$(document).ready(function () {
+    //    $("#btnInsert").click(function() {
+    //        var obj = $("#txtquestion").get(0);
+    //        var str = "[#$%$#]";
+    //        if (document.selection) {
+    //            obj.focus();
+    //            var sel = document.selection.createRange();
+    //            sel.text = str;
+    //        } else if (typeof obj.selectionStart === 'number' && typeof obj.selectionEnd === 'number') {
+    //            var startPos = obj.selectionStart;
+    //            var endPos = obj.selectionEnd;
+    //            var tmpStr = obj.value;
+    //            obj.value = tmpStr.substring(0, startPos) + str + tmpStr.substring(endPos, tmpStr.length);
+    //        } else {
+    //            obj.value += str;
+
+    //        }
+    //        });
+    //    });
+
+    // 在光标处插入字符串
+    // myField    文本框对象
+    // myValue 要插入的值
+    function insertAtCursor(myField, myValue) {
+        //IE support
+        if (document.selection) {
+            myField.focus();
+            var sel = document.selection.createRange();
+            sel.text = myValue;
+            sel.select();
+        }
+            //MOZILLA/NETSCAPE support
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            // save scrollTop before insert
+            var restoreTop = myField.scrollTop;
+            myField.value = myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
+            if (restoreTop > 0) {
+                // restore previous scrollTop
+                myField.scrollTop = restoreTop;
+            }
+            myField.focus();
+            myField.selectionStart = startPos + myValue.length;
+            myField.selectionEnd = startPos + myValue.length;
+        } else {
+            myField.value += myValue;
+            myField.focus();
+        }
+    }
+
+
+    function Num(obj) {
+
+        document.getElementById('Show').innerText += obj.id;
+    }
+    function Clear() {
+        document.getElementById('Show').innerText = null;
+    }
+    function Eval() {
+
+        var Evals = document.getElementById('Show').innerText;
+        document.getElementById('Show').innerText = eval(Evals);
+    }
+</script>
+
+</body>
+</html>

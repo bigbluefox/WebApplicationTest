@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F507563-6DD8-47F6-8911-3FAA157FA0F0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hsp.Test.Bootstrap</RootNamespace>
+    <AssemblyName>Hsp.Test.Bootstrap</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Flatty\.idea\encodings.xml" />
+    <Content Include="Flatty\.idea\misc.xml" />
+    <Content Include="Flatty\.idea\modules.xml" />
+    <Content Include="Flatty\.idea\scopes\scope_settings.xml" />
+    <Content Include="Flatty\.idea\vcs.xml" />
+    <Content Include="Flatty\.idea\workspace.xml" />
+    <Content Include="Flatty\address_book.html" />
+    <Content Include="Flatty\assets\fonts\montserrat-bold-webfont.svg" />
+    <Content Include="Flatty\assets\fonts\montserrat-regular-webfont.svg" />
+    <Content Include="Flatty\assets\images\ajax-loaders\1.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\10.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\11.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\12.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\13.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\14.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\15.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\16.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\17.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\18.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\2.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\3.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\4.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\5.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\6.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\7.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\8.gif" />
+    <Content Include="Flatty\assets\images\ajax-loaders\9.gif" />
+    <Content Include="Flatty\assets\images\avatar.jpg" />
+    <Content Include="Flatty\assets\images\bootstrap\glyphicons-halflings-white.png" />
+    <Content Include="Flatty\assets\images\bootstrap\glyphicons-halflings.png" />
+    <Content Include="Flatty\assets\images\jquery_ui\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Flatty\assets\images\jquery_ui\ui-bg_glass_75_ffffff_1x400.png" />
+    <Content Include="Flatty\assets\images\jquery_ui\ui-icons_222222_256x240.png" />
+    <Content Include="Flatty\assets\images\jquery_ui\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Flatty\assets\images\jquery_ui\ui-icons_454545_256x240.png" />
+    <Content Include="Flatty\assets\images\jquery_ui\ui-icons_888888_256x240.png" />
+    <Content Include="Flatty\assets\images\jquery_ui\ui-icons_f6cf3b_256x240.png" />
+    <Content Include="Flatty\assets\images\plugins\bootstrap_colorpicker\alpha.png" />
+    <Content Include="Flatty\assets\images\plugins\bootstrap_colorpicker\hue.png" />
+    <Content Include="Flatty\assets\images\plugins\bootstrap_colorpicker\saturation.png" />
+    <Content Include="Flatty\assets\images\plugins\dynatree\icons.gif" />
+    <Content Include="Flatty\assets\images\plugins\dynatree\loading.gif" />
+    <Content Include="Flatty\assets\images\plugins\flags\flags.png" />
+    <Content Include="Flatty\assets\images\plugins\select2\select2.png" />
+    <Content Include="Flatty\assets\images\plugins\select2\select2x2.png" />
+    <Content Include="Flatty\assets\images\plugins\select2\spinner.gif" />
+    <Content Include="Flatty\assets\images\plugins\xeditable\clear.png" />
+    <Content Include="Flatty\assets\images\plugins\xeditable\loading.gif" />
+    <Content Include="Flatty\assets\javascripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Flatty\assets\javascripts\demo\charts.js" />
+    <Content Include="Flatty\assets\javascripts\demo\demo.js" />
+    <Content Include="Flatty\assets\javascripts\demo\inplace_editing.js" />
+    <Content Include="Flatty\assets\javascripts\demo\jquery.mockjax.js" />
+    <Content Include="Flatty\assets\javascripts\html5shiv.js" />
+    <Content Include="Flatty\assets\javascripts\jquery\jquery-migrate.min.js" />
+    <Content Include="Flatty\assets\javascripts\jquery\jquery.min.js" />
+    <Content Include="Flatty\assets\javascripts\jquery_ui\jquery-ui.min.js" />
+    <Content Include="Flatty\assets\javascripts\nav.js" />
+    <Content Include="Flatty\assets\javascripts\nav2.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\autosize\jquery.autosize-min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\bootbox\bootbox.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\bootstrap_colorpicker\bootstrap-colorpicker.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\bootstrap_daterangepicker\bootstrap-daterangepicker.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\bootstrap_daterangepicker\moment.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\bootstrap_datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\bootstrap_hover_dropdown\twitter-bootstrap-hover-dropdown.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\bootstrap_maxlength\bootstrap-maxlength.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\bootstrap_switch\bootstrapSwitch.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\charCount\charCount.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\ckeditor\ckeditor.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\ckeditor\config.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\ckeditor\plugins\icons.png" />
+    <Content Include="Flatty\assets\javascripts\plugins\ckeditor\plugins\templates\templates\default.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\ckeditor\styles.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\common\bootstrap-wysihtml5.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\common\wysihtml5.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\datatables\jquery.dataTables.columnFilter.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\datatables\jquery.dataTables.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\dynatree\jquery.dynatree.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fileinput\bootstrap-fileinput.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fileupload\canvas-to-blob.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fileupload\jquery.fileupload-fp.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fileupload\jquery.fileupload-init.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fileupload\jquery.fileupload-ui.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fileupload\jquery.fileupload.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fileupload\jquery.iframe-transport.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fileupload\load-image.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fileupload\tmpl.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\flot\excanvas.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\flot\flot.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\flot\flot.pie.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\flot\flot.resize.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fuelux\wizard.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\input_mask\bootstrap-inputmask.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\jgrowl\jquery.jgrowl.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\mention\mention.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\mobile_events\jquery.mobile-events.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\modernizr\modernizr.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\naked_password\naked_password-0.2.4.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\nestable\jquery.nestable.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\retina\retina.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\select2\select2.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\slider_nav\slidernav-min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\sparklines\jquery.sparkline.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\tabdrop\bootstrap-tabdrop.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\timeago\jquery.timeago.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\validate\additional-methods.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\validate\jquery.validate.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\xeditable\bootstrap-editable.min.js" />
+    <Content Include="Flatty\assets\javascripts\plugins\xeditable\wysihtml5.js" />
+    <Content Include="Flatty\assets\javascripts\tables.js" />
+    <Content Include="Flatty\assets\javascripts\theme.js" />
+    <Content Include="Flatty\assets\javascripts\theme2.js" />
+    <Content Include="Flatty\assets\stylesheets\bootstrap\bootstrap-responsive.css" />
+    <Content Include="Flatty\assets\stylesheets\bootstrap\bootstrap.css" />
+    <Content Include="Flatty\assets\stylesheets\demo.css" />
+    <Content Include="Flatty\assets\stylesheets\jquery_ui\jquery-ui-1.10.0.custom.css" />
+    <Content Include="Flatty\assets\stylesheets\jquery_ui\jquery.ui.1.10.0.ie.css" />
+    <Content Include="Flatty\assets\stylesheets\light-theme.css" />
+    <Content Include="Flatty\assets\stylesheets\light-theme2.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\bootstrap_colorpicker\bootstrap-colorpicker.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\bootstrap_daterangepicker\bootstrap-daterangepicker.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\bootstrap_datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\bootstrap_switch\bootstrap-switch.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\common\bootstrap-wysihtml5.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\datatables\bootstrap-datatable.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\dynatree\ui.dynatree.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\flags\flags.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\fuelux\wizard.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\fullcalendar\fullcalendar.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\jgrowl\jquery.jgrowl.min.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\jquery_fileupload\jquery.fileupload-ui.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\mention\mention.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\select2\select2.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\slider_nav\slidernav.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\tabdrop\tabdrop.css" />
+    <Content Include="Flatty\assets\stylesheets\plugins\xeditable\bootstrap-editable.css" />
+    <Content Include="Flatty\blank.html" />
+    <Content Include="Flatty\blank2.html" />
+    <Content Include="bootstrap\css\bootstrap-theme.css" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="bootstrap\js\npm.js" />
+    <Content Include="Flatty\buttons_and_icons.html" />
+    <Content Include="Flatty\calendar.html" />
+    <Content Include="Flatty\charts.html" />
+    <Content Include="Flatty\chats.html" />
+    <Content Include="Flatty\closed_navigation.html" />
+    <Content Include="Flatty\email_templates.html" />
+    <Content Include="Flatty\err404.html" />
+    <Content Include="Flatty\err500.html" />
+    <Content Include="Flatty\faq.html" />
+    <Content Include="Flatty\filetrees.html" />
+    <Content Include="Flatty\fileupload.html" />
+    <Content Include="Flatty\fixed_header.html" />
+    <Content Include="Flatty\fixed_navigation.html" />
+    <Content Include="Flatty\fixed_navigation_and_header.html" />
+    <Content Include="Flatty\forgot_password.html" />
+    <Content Include="Flatty\form_components.html" />
+    <Content Include="Flatty\form_styles.html" />
+    <Content Include="Flatty\gallery.html" />
+    <Content Include="Flatty\grid.html" />
+    <Content Include="Flatty\index.html" />
+    <Content Include="Flatty\inplace_editing.html" />
+    <Content Include="Flatty\invoice.html" />
+    <Content Include="Flatty\orders.html" />
+    <Content Include="Flatty\pricing_tables.html" />
+    <Content Include="Flatty\search_results.html" />
+    <Content Include="Flatty\sign_in.html" />
+    <Content Include="Flatty\sign_up.html" />
+    <Content Include="Flatty\tables.html" />
+    <Content Include="Flatty\test.html" />
+    <Content Include="Flatty\timeline.html" />
+    <Content Include="Flatty\todo.html" />
+    <Content Include="Flatty\type.html" />
+    <Content Include="Flatty\ui_elements.html" />
+    <Content Include="Flatty\user_profile.html" />
+    <Content Include="Flatty\validations.html" />
+    <Content Include="twitter-bootstrap\bootstrap\bootstrap-2.0.3.css" />
+    <Content Include="twitter-bootstrap\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="twitter-bootstrap\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="twitter-bootstrap\bootstrap\css\bootstrap.css" />
+    <Content Include="twitter-bootstrap\bootstrap\css\bootstrap.min.css" />
+    <Content Include="twitter-bootstrap\bootstrap\images\blogger.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\browser-statistics.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\digo.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\facebook.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\gplus.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\gridbg.gif" />
+    <Content Include="twitter-bootstrap\bootstrap\images\html5_logo.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\ipad.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\javascript-logo.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\json.gif" />
+    <Content Include="twitter-bootstrap\bootstrap\images\linkedin.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\mysql-logo.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\netvibes.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\newsvine.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\orkut.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\php.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\reditt.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\schema.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\twitter.png" />
+    <Content Include="twitter-bootstrap\bootstrap\images\zapface.png" />
+    <Content Include="twitter-bootstrap\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="twitter-bootstrap\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="twitter-bootstrap\bootstrap\js-thumb.png" />
+    <Content Include="twitter-bootstrap\bootstrap\js\bootstrap.js" />
+    <Content Include="twitter-bootstrap\bootstrap\js\bootstrap.min.js" />
+    <Content Include="twitter-bootstrap\bootstrap\mysql-thumb.png" />
+    <Content Include="twitter-bootstrap\bootstrap\php-thumb.png" />
+    <Content Include="twitter-bootstrap\bootstrap\shoes1.jpg" />
+    <Content Include="twitter-bootstrap\bootstrap\shoes2.jpg" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\css\bootstrap-responsive.css" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\css\bootstrap.css" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\css\docs.css" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\css\example-fixed-layout.css" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\css\example-fluid-layout.css" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\ico\bootstrap-apple-114x114.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\ico\bootstrap-apple-57x57.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\ico\bootstrap-apple-72x72.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\ico\favicon.ico" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\bird.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\bootstrap-mdo-sfmoma-01.jpg" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\bootstrap-mdo-sfmoma-02.jpg" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\bootstrap-mdo-sfmoma-03.jpg" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\browsers.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\example-diagram-01.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\example-diagram-02.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\example-diagram-03.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\example-sites\bartop.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\example-sites\fleetio.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\example-sites\jshint.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\example-sites\kippt.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\example-sites\railwayjs.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\example-sites\totalwireframe.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\examples\bootstrap-example-fluid.jpg" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\examples\bootstrap-example-hero.jpg" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\examples\bootstrap-example-starter.jpg" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\github-16px.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons-halflings-white.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons-halflings.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons\glyphicons_009_magic.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons\glyphicons_042_group.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons\glyphicons_079_podium.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons\glyphicons_082_roundabout.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons\glyphicons_155_show_thumbnails.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons\glyphicons_163_iphone.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons\glyphicons_214_resize_small.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\glyphicons\glyphicons_266_book_open.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\grid-18px-masked.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\icon-css3.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\icon-github.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\icon-html5.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\icon-twitter.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\less-logo-large.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\less-small.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\img\responsive-illustrations.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\application.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-alert.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-button.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-carousel.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-collapse.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-dropdown.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-modal.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-popover.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-scrollspy.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-tab.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-tooltip.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-transition.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\bootstrap-typeahead.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\google-code-prettify\prettify.css" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\google-code-prettify\prettify.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\jquery.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\base-css.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\index.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\lib\compiler.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\lib\hogan.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\lib\template.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\html\list.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\index.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\index.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\mustache.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\tools\release.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\tools\web_templates.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\1.0.0\hogan.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\1.0.0\hogan.min.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.0\hogan.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.0\hogan.min.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.3\hogan.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.3\hogan.min.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.amd.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.common.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.min.amd.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.min.common.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.min.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.min.mustache.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.mustache.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\template-1.0.5.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\builds\1.0.5\template-1.0.5.min.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\favicon.ico" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\images\logo.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\images\noise.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\images\small-hogan-icon.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\images\stripes.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\stylesheets\layout.css" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\stylesheets\skeleton.css" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\components.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\download.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\examples.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\examples\fluid.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\examples\hero.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\examples\starter-template.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\index.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\javascript.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\less.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\scaffolding.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\upgrading.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\img\glyphicons-halflings-white.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\img\glyphicons-halflings.png" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-alert.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-button.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-carousel.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-collapse.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-dropdown.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-modal.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-popover.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-scrollspy.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-tab.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-tooltip.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-transition.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\bootstrap-typeahead.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\index.html" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-alert.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-button.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-collapse.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-dropdown.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-modal.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-popover.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-scrollspy.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-tab.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-tooltip.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-transition.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\unit\bootstrap-typeahead.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\vendor\jquery.js" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\vendor\qunit.css" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\tests\vendor\qunit.js" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-alerts-on-error-success-and-information.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-badge.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-basic-alerts.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-Basic-pills-Based-Navigation.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-basic-striped-and-animated-progress-bars.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-Basic-Tab-Based-Navigation.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-breadcrumbs.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-button.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-carousel.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-collapsible-simplet.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-collapsible.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-dropdown-with-navbar.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-dropdown-with-tabs-and-pills.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-dropdown-with-tabs.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-example-fixed-layout.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-example-grid-system-with-responsive-features.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-example-grid-system.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-example-nested-columns.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-example-offestting-column.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-extending-alerts.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-fixed-layout.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-fluid-layout.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-form-browser-status.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-form-error.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-form.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-horizontal-form.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-icon-buttons.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-icon-navigation.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-icon-search-form.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-inline-form.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-inline-label.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-modal.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-Multicon-page-pagination.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-nav-list-with-icons.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-navbar.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-pager-next-previous.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-pager-old-new.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-pills-based-dropdown-Navigation.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-popover-placement.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-popover-title-and-content.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-popover-trigger.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-popover.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-progress-bars-with-additional-colors.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-responsive-design.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-ScrollSpy.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-search-form.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-stacked-navigation-with-nav-list.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-Stacked-or-vertical-Pills-Based-Navigation.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-Stacked-or-vertical-Tab-Based-Navigation.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-tab-based-dropdown-Navigation.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-table.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-thumbnails-customized.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-typehead-with-options.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-typehead.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-typography.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-using-default-thumbnails.html" />
+    <Content Include="twitter-bootstrap\demo\bootstrap-zebra-stripped-table.html" />
+    <Content Include="Web.config" />
+    <Content Include="Flatty\widgets.html" />
+    <Content Include="Flatty\wizard.html" />
+    <Content Include="Flatty\wysiwyg.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Flatty\.idea\.name" />
+    <Content Include="Flatty\.idea\html.iml" />
+    <Content Include="Flatty\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Flatty\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Flatty\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Flatty\assets\fonts\fontawesome-webfont_2d2816fe.eot" />
+    <Content Include="Flatty\assets\fonts\montserrat-bold-webfont.eot" />
+    <Content Include="Flatty\assets\fonts\montserrat-bold-webfont.ttf" />
+    <Content Include="Flatty\assets\fonts\montserrat-bold-webfont.woff" />
+    <Content Include="Flatty\assets\fonts\montserrat-bold-webfont_2d2816fe.eot" />
+    <Content Include="Flatty\assets\fonts\montserrat-regular-webfont.eot" />
+    <Content Include="Flatty\assets\fonts\montserrat-regular-webfont.ttf" />
+    <Content Include="Flatty\assets\fonts\montserrat-regular-webfont.woff" />
+    <Content Include="Flatty\assets\fonts\montserrat-regular-webfont_2d2816fe.eot" />
+    <Content Include="bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="bootstrap\css\bootstrap.css.map" />
+    <Content Include="bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\bootstrap.zip" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\assets\js\README.md" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\bin\hulk" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\LICENSE" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\Makefile" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\package.json" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\README.md" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\Changes" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\Rakefile" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\README.md" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\comments.json" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\comments.yml" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\delimiters.json" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\delimiters.yml" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\interpolation.json" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\interpolation.yml" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\inverted.json" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\inverted.yml" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\partials.json" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\partials.yml" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\sections.json" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\sections.yml" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\~lambdas.json" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\specs\~lambdas.yml" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\spec\TESTING.md" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\test\templates\list.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\web\index.html.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\wrappers\amd.js.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\wrappers\common.js.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\wrappers\js.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\node_modules\hogan.js\wrappers\mustache.js.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\build\package.json" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\layout.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\pages\base-css.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\pages\components.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\pages\download.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\pages\examples.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\pages\index.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\pages\javascript.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\pages\less.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\pages\scaffolding.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\docs\templates\pages\upgrading.mustache" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\js\README.md" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\accordion.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\alerts.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\bootstrap.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\breadcrumbs.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\button-groups.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\buttons.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\carousel.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\close.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\code.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\component-animations.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\dropdowns.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\forms.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\grid.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\hero-unit.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\labels.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\layouts.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\mixins.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\modals.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\navbar.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\navs.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\pager.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\pagination.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\popovers.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\progress-bars.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\reset.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\responsive.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\scaffolding.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\sprites.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\tables.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\thumbnails.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\tooltip.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\type.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\utilities.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\variables.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\less\wells.less" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\LICENSE" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\Makefile" />
+    <Content Include="twitter-bootstrap\bootstrap\twitter-bootstrap-v2\README.md" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48272/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

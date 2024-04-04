@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title> PDF Test </title>
+
+    <!--<link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>-->
+    <!--<link href="/Scripts/themes/icon.css" rel="stylesheet"/>-->
+    <!--<link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>-->
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <!-- <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>-->
+
+    <script src="js/pdfobject.js"></script>
+
+     <script src="/Scripts/Hsp.js"></script>
+    <script src="/Scripts/Hsp.Common.js"></script>
+
+    <script type="text/javascript">
+
+        var url = "/Files/《兵器知识》2011年9A期.pdf";
+
+        $(function () {
+
+            if (PDFObject.supportsPDFs) {
+                console.log("Yay, this browser supports inline PDFs.");
+                console.log("Version: " + PDFObject.pdfobjectversion); //"2.0.20160402"
+            } else {
+                console.log("Boo, inline PDFs are not supported by this browser");
+            }
+
+            //embeds a PDF and makes it fill the browser window
+            //PDFObject.embed(url);
+
+            //embeds a PDF into the element "my-container" with no extra options specified
+            PDFObject.embed(url, "#example1");
+
+            var height = HSP.Common.AvailHeight();
+            $(".pdfobject-container").css({ height: height - 0 });
+
+            //embeds a PDF into the element "my-container" with a few options specified
+            //var options = {
+            //    height: (height - 2) + "px",
+            //    pdfOpenParams: { view: 'FitV', page: '2' }
+            //};
+            //PDFObject.embed("/Files/《兵器知识》2011年9A期.pdf", "#example1", options);
+
+        });
+
+    </script>
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        body { text-align: center; }
+
+        body { background: url("/Images/docbg.png") center repeat-y; }
+
+        .pdfobject { border: 1px solid #ccc; }
+
+        /*
+         html, body {
+             margin: 0;
+             padding: 0;
+         }
+
+        body{ background: url("/Images/docbg.png") center repeat-y;}
+
+        .pdfobject-container {
+            border: 1rem solid #000000;
+            border: 1rem solid rgba(0, 0, 0, .1);
+            height: 40rem;
+        }*/
+
+    </style>
+</head>
+<body>
+<div style="margin: 0px auto; max-width: 995px;">
+    <div style="margin: 0 auto; width: 100%;">
+        <div id="example1"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //PDFObject.embed("/Files/《兵器知识》2011年9A期.pdf", "#example1");
+    //var height = HSP.Common.AvailHeight();
+    //$(".pdfobject-container").css({ height: height - 0 });
+</script>
+
+</body>
+</html>

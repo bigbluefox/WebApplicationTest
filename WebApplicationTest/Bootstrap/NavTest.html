@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bootstrap在导航条中的二级菜单下实现三级菜单</title>
+<link href="../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--<link href="../Scripts/bootstrap/css/bootstrap-treeview.css" rel="stylesheet"/>-->
+
+<!--[if lt IE 9]>
+    <script src="../Scripts/html5shiv.min.js"></script>
+    <script src="../Scripts/respond.min.js"></script>
+<![endif]-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="../Scripts/jquery/jquery-1.12.4.min.js"></script>-->
+<script src="../Scripts/jquery/jquery-2.2.4.js"></script>
+<script src="../Scripts/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--CSS样式-->
+
+    <style type="text/css">
+        body { padding-top: 70px; }
+			
+        /*自定义的css*/
+
+        .dropdown-submenu { position: relative; }
+
+        .dropdown-submenu > .dropdown-menu {
+            -moz-border-radius: 0 6px 6px;
+            -webkit-border-radius: 0 6px 6px 6px;
+            border-radius: 0 6px 6px 6px;
+            left: 100%;
+            margin-left: -1px;
+            margin-top: -6px;
+            top: 0;
+        }
+
+        .dropdown-submenu:hover > .dropdown-menu { display: block; }
+
+        .dropdown-submenu > a:after {
+            border-color: transparent;
+            border-left-color: #ccc;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            content: " ";
+            display: block;
+            float: right;
+            height: 0;
+            margin-right: -10px;
+            margin-top: 5px;
+            width: 0;
+        }
+
+        .dropdown-submenu:hover > a:after { border-left-color: #fff; }
+
+        .dropdown-submenu.pull-left { float: none; }
+
+        .dropdown-submenu.pull-left > .dropdown-menu {
+            -moz-border-radius: 6px 0 6px 6px;
+            -webkit-border-radius: 6px 0 6px 6px;
+            border-radius: 6px 0 6px 6px;
+            left: -100%;
+            margin-left: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--html里的写法，直接搭好bootstrap导航条结构
+这里就用美食来做例子吧-->
+
+<!--反色的导航条-->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-
+                    toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                美食之家 <span class="glyphicon glyphicon-cutlery"></span>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        菜谱
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-submenu">
+                            <a href="#">主食</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">饭</a>
+                                </li>
+                                <li>
+                                    <a href="#">饼</a>
+                                </li>
+                                <li>
+                                    <a href="#">包子</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#">肉类</a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">猪肉</a>
+                                </li>
+                                <li>
+                                    <a href="#">牛肉</a>
+                                </li>
+                                <li>
+                                    <a href="#">羊肉</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#">水产</a>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">鲤鱼</a>
+                                </li>
+                                <li>
+                                    <a href="#">鲫鱼</a>
+                                </li>
+                                <li>
+                                    <a href="#">鲢鱼</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">食材</a>
+                </li>
+                <li>
+                    <a href="#">健康</a>
+                </li>
+                <li>
+                    <a href="#">话题</a>
+                </li>
+                <li>
+                    <a href="#">活动</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+</nav>
+
+
+</body>
+</html>

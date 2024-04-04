@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<!-- 
+  Visual Studio global web project settings.
+-->
+<VisualWebDeveloper>
+
+  <comReferences>
+    <reference Name="interop.addindesignerobjects" ID="{A537E638-AB2A-4308-A502-2EFF280C6E98}\1.0\0"/>
+  </comReferences>
+</VisualWebDeveloper>

@@ -1,0 +1,752 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title></title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="../Scripts/bootstrap/css/jquery-confirm.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+
+    <![endif]-->
+
+</head>
+<body>
+
+<section id="quickfeatures">
+    <h2>Features</h2>
+
+    <p>These features can practically be used like so.</p>
+
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-1">Alerts</button>
+            <p class="text-success">Elegant Alerts.</p>
+        </div>
+
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-2">Confirmation</button>
+            <p class="text-success">Stacked Confirmations</p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-70-type">Alert types</button>
+            <p class="text-success">Success, error, warning</p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-7-1">Prompt</button>
+            <p class="text-success">Need input?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-4">Dialogs</button>
+            <p class="text-success">Its also a Dialog.</p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-3">Background dismiss</button>
+            <p class="text-success">Not so important modal</p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-5">Asynchronous content</button>
+            <p class="text-success">Loading from remote places</p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-6">Auto-close</button>
+            <p class="text-success">Some actions maybe critical</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-7">Keystrokes</button>
+            <p class="text-success">Responds to keystrokes</p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-pc-1">Alignment</button>
+            <p class="text-success">Automatically centered</p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-pc-2">Images</button>
+            <p class="text-success">Loading images</p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-pc-3">Animations</button>
+            <p class="text-success">Clean animations</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block example-p-7-2">Draggable</button>
+            <p class="text-success">Drag me around</p>
+        </div>
+    </div>
+
+    <h2>Themes</h2>
+
+    <p>jquery-confirm comes loaded with themes for all common use cases.</p>
+
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-info btn-block example-the-1">Modern</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-info btn-block example-the-3">Material</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-info btn-block example-the-4">Bootstrap</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-info btn-block example-the-2">Supervan</button>
+        </div>
+    </div>
+
+
+</section>
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+<script src="../Scripts/jquery/jquery-1.12.4.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="js/bootstrap.min.js"></script>-->
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+<script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+<script src="../Scripts/bootstrap/js/jquery-confirm.js"></script>
+
+
+    <section id="usage">
+                <h3>Quick Usage</h3>
+
+                <div class="section">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 id="alert">
+                                <code>$.alert</code>
+                            </h4>
+
+                            <p>
+                                adds one button (okay) if no buttons are specified, this lets the user to close the
+                                modal.
+                            </p>
+                            <button class="example1 btn btn-primary">example alert</button>
+                            <script type="text/javascript">
+                                $('.example1').on('click', function () {
+                                    $.alert({
+                                        title: 'Alert!',
+                                        content: 'Simple alert!',
+                                    });
+                                });
+                            </script>
+                            <div class="space10"></div>
+                            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code class="js"><span class="pln">$</span><span class="pun">.</span><span class="pln">alert</span><span class="pun">({</span></code></li><li class="L1"><code class="js"><span class="pln">    title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Alert!'</span><span class="pun">,</span></code></li><li class="L2"><code class="js"><span class="pln">    content</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Simple alert!'</span><span class="pun">,</span></code></li><li class="L3"><code class="js"><span class="pun">});</span></code></li></ol></pre>
+                        </div>
+                        <div class="col-md-12">
+                            <h4 id="confirm">
+                                <code>$.confirm</code>
+                            </h4>
+
+                            <p>
+                                if no buttons are specified, two buttons (Okay &amp; cancel) will be added.
+                            </p>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="example2 btn btn-primary">example confirm</button>
+                            <script type="text/javascript">
+                                $('.example2').on('click', function () {
+
+                                    var confirm = false;
+
+                                    $.confirm({
+                                        title: '信息确认',
+                                        content: '您修改了数据库名称，提交后该数据库表数据会全部丢失，您确认继续吗？',
+                                        buttons: {
+                                            confirm: {
+                                                text: '确认',
+                                                action: function () {
+                                                    $.alert('Confirmed!');
+                                                    confirm = true;
+                                                }
+                                            },
+                                            cancel: {
+                                                text: '取消',
+                                                action: function() {
+                                                    $.alert('Canceled!');
+                                                    confirm = false;
+                                                }
+                                            }
+                                            //,somethingElse: {
+                                            //    text: 'Something else',
+                                            //    btnClass: 'btn-blue',
+                                            //    keys: [
+                                            //        'enter',
+                                            //        'shift'
+                                            //    ],
+                                            //    action: function () {
+                                            //        this.$content // reference to the content
+                                            //        $.alert('Something else?');
+                                            //    }
+                                            //}
+                                        }
+                                    });
+
+                                    //alert(confirm);
+
+                                    if (confirm) {
+                                        $.alert("您选择了确认信息！");
+
+                                        $.alert({
+                                                title: 'Alert!',
+                                               content: 'Simple alert!',
+                                            });
+
+                                    }
+
+                                });
+                            </script>
+                            <div class="space10"></div>
+                            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code class="js"><span class="pln">$</span><span class="pun">.</span><span class="pln">confirm</span><span class="pun">({</span></code></li><li class="L1"><code class="js"><span class="pln">    title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Confirm!'</span><span class="pun">,</span></code></li><li class="L2"><code class="js"><span class="pln">    content</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Simple confirm!'</span><span class="pun">,</span></code></li><li class="L3"><code class="js"><span class="pln">    buttons</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L4"><code class="js"><span class="pln">        confirm</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L5"><code class="js"><span class="pln">            $</span><span class="pun">.</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'Confirmed!'</span><span class="pun">);</span></code></li><li class="L6"><code class="js"><span class="pln">        </span><span class="pun">},</span></code></li><li class="L7"><code class="js"><span class="pln">        cancel</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L8"><code class="js"><span class="pln">            $</span><span class="pun">.</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'Canceled!'</span><span class="pun">);</span></code></li><li class="L9"><code class="js"><span class="pln">        </span><span class="pun">},</span></code></li><li class="L0"><code class="js"><span class="pln">        somethingElse</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L1"><code class="js"><span class="pln">            text</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Something else'</span><span class="pun">,</span></code></li><li class="L2"><code class="js"><span class="pln">            btnClass</span><span class="pun">:</span><span class="pln"> </span><span class="str">'btn-blue'</span><span class="pun">,</span></code></li><li class="L3"><code class="js"><span class="pln">            keys</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="str">'enter'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'shift'</span><span class="pun">],</span></code></li><li class="L4"><code class="js"><span class="pln">            action</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></code></li><li class="L5"><code class="js"><span class="pln">                $</span><span class="pun">.</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'Something else?'</span><span class="pun">);</span></code></li><li class="L6"><code class="js"><span class="pln">            </span><span class="pun">}</span></code></li><li class="L7"><code class="js"><span class="pln">        </span><span class="pun">}</span></code></li><li class="L8"><code class="js"><span class="pln">    </span><span class="pun">}</span></code></li><li class="L9"><code class="js"><span class="pun">});</span></code></li><li class="L0"><code class="js"><span class="pln">                                </span></code></li></ol></pre>
+
+                            <h5>Showing prompt using confirm</h5>
+                            <p>
+                                Simply add form to the content and bind the events you want. <br>
+                                This form can also be loaded via ajax.
+                            </p>
+                            <button class="example2-2 btn btn-primary">example prompt</button>
+                            <script type="text/javascript">
+                                $('.example2-2').on('click', function () {
+                                    $.confirm({
+                                        title: 'Prompt!',
+                                        content: '' +
+                                            '<form action="" class="formName">' +
+                                            '<div class="form-group">' +
+                                            '<label>Enter something here</label>' +
+                                            '<input type="text" placeholder="Your name" class="name form-control" required />' +
+                                            '</div>' +
+                                            '</form>',
+                                        buttons: {
+                                            formSubmit: {
+                                                text: 'Submit',
+                                                btnClass: 'btn-blue',
+                                                action: function () {
+                                                    var name = this.$content.find('.name').val();
+                                                    if (!name) {
+                                                        $.alert('provide a valid name');
+                                                        return false;
+                                                    }
+                                                    $.alert('Your name is ' + name);
+                                                }
+                                            },
+                                            cancel: function () {
+                                                //close
+                                            },
+                                        },
+                                        onContentReady: function () {
+                                            // you can bind to the form
+                                            var jc = this;
+                                            this.$content.find('form').on('submit', function (e) { // if the user submits the form by pressing enter in the field.
+                                                e.preventDefault();
+                                                jc.$$formSubmit.trigger('click'); // reference the button and click it
+                                            });
+                                        }
+                                    });
+                                });
+                            </script>
+                            <div class="space10"></div>
+                            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code class="js"><span class="pln">$</span><span class="pun">.</span><span class="pln">confirm</span><span class="pun">({</span></code></li><li class="L1"><code class="js"><span class="pln">    title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Prompt!'</span><span class="pun">,</span></code></li><li class="L2"><code class="js"><span class="pln">    content</span><span class="pun">:</span><span class="pln"> </span><span class="str">''</span><span class="pln"> </span><span class="pun">+</span></code></li><li class="L3"><code class="js"><span class="pln">    </span><span class="str">'&lt;form action="" class="formName"&gt;'</span><span class="pln"> </span><span class="pun">+</span></code></li><li class="L4"><code class="js"><span class="pln">    </span><span class="str">'&lt;div class="form-group"&gt;'</span><span class="pln"> </span><span class="pun">+</span></code></li><li class="L5"><code class="js"><span class="pln">    </span><span class="str">'&lt;label&gt;Enter something here&lt;/label&gt;'</span><span class="pln"> </span><span class="pun">+</span></code></li><li class="L6"><code class="js"><span class="pln">    </span><span class="str">'&lt;input type="text" placeholder="Your name" class="name form-control" required /&gt;'</span><span class="pln"> </span><span class="pun">+</span></code></li><li class="L7"><code class="js"><span class="pln">    </span><span class="str">'&lt;/div&gt;'</span><span class="pln"> </span><span class="pun">+</span></code></li><li class="L8"><code class="js"><span class="pln">    </span><span class="str">'&lt;/form&gt;'</span><span class="pun">,</span></code></li><li class="L9"><code class="js"><span class="pln">    buttons</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L0"><code class="js"><span class="pln">        formSubmit</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L1"><code class="js"><span class="pln">            text</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Submit'</span><span class="pun">,</span></code></li><li class="L2"><code class="js"><span class="pln">            btnClass</span><span class="pun">:</span><span class="pln"> </span><span class="str">'btn-blue'</span><span class="pun">,</span></code></li><li class="L3"><code class="js"><span class="pln">            action</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L4"><code class="js"><span class="pln">                </span><span class="kwd">var</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">$content</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">'.name'</span><span class="pun">).</span><span class="pln">val</span><span class="pun">();</span></code></li><li class="L5"><code class="js"><span class="pln">                </span><span class="kwd">if</span><span class="pun">(!</span><span class="pln">name</span><span class="pun">){</span></code></li><li class="L6"><code class="js"><span class="pln">                    $</span><span class="pun">.</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'provide a valid name'</span><span class="pun">);</span></code></li><li class="L7"><code class="js"><span class="pln">                    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></code></li><li class="L8"><code class="js"><span class="pln">                </span><span class="pun">}</span></code></li><li class="L9"><code class="js"><span class="pln">                $</span><span class="pun">.</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'Your name is '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> name</span><span class="pun">);</span></code></li><li class="L0"><code class="js"><span class="pln">            </span><span class="pun">}</span></code></li><li class="L1"><code class="js"><span class="pln">        </span><span class="pun">},</span></code></li><li class="L2"><code class="js"><span class="pln">        cancel</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L3"><code class="js"><span class="pln">            </span><span class="com">//close</span></code></li><li class="L4"><code class="js"><span class="pln">        </span><span class="pun">},</span></code></li><li class="L5"><code class="js"><span class="pln">    </span><span class="pun">},</span></code></li><li class="L6"><code class="js"><span class="pln">    onContentReady</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L7"><code class="js"><span class="pln">        </span><span class="com">// bind to events</span></code></li><li class="L8"><code class="js"><span class="pln">        </span><span class="kwd">var</span><span class="pln"> jc </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">;</span></code></li><li class="L9"><code class="js"><span class="pln">        </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">$content</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">'form'</span><span class="pun">).</span><span class="pln">on</span><span class="pun">(</span><span class="str">'submit'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L0"><code class="js"><span class="pln">            </span><span class="com">// if the user submits the form by pressing enter in the field.</span></code></li><li class="L1"><code class="js"><span class="pln">            e</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></code></li><li class="L2"><code class="js"><span class="pln">            jc</span><span class="pun">.</span><span class="pln">$$formSubmit</span><span class="pun">.</span><span class="pln">trigger</span><span class="pun">(</span><span class="str">'click'</span><span class="pun">);</span><span class="pln"> </span><span class="com">// reference the button and click it</span></code></li><li class="L3"><code class="js"><span class="pln">        </span><span class="pun">});</span></code></li><li class="L4"><code class="js"><span class="pln">    </span><span class="pun">}</span></code></li><li class="L5"><code class="js"><span class="pun">});</span></code></li></ol></pre>
+
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <h4 id="dialog">
+                                <code>$.dialog</code>
+                            </h4>
+
+                            <p>
+                                removes buttons and explicitly shows the closeIcon (×)
+                            </p>
+                            <button class="example2-1 btn btn-primary">example dialog</button>
+                            <script type="text/javascript">
+                                $('.example2-1').on('click', function () {
+                                    $.dialog({
+                                        title: 'Text content!',
+                                        content: 'Simple modal!',
+                                        buttons: {
+                                            aRandomButton: function () {
+                                                // this will be removed.
+                                            }
+                                        }
+                                    });
+                                });
+                            </script>
+                            <div class="space10"></div>
+                            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code class="js"><span class="pln">$</span><span class="pun">.</span><span class="pln">dialog</span><span class="pun">({</span></code></li><li class="L1"><code class="js"><span class="pln">    title</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Text content!'</span><span class="pun">,</span></code></li><li class="L2"><code class="js"><span class="pln">    content</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Simple modal!'</span><span class="pun">,</span></code></li><li class="L3"><code class="js"><span class="pun">});</span></code></li></ol></pre>
+                        </div>
+                        <div class="col-md-12">
+                            <h4 id="jquery-fn"><code>$.fn.confirm</code></h4>
+                            <p>This can be used to bind to a element directly <br>
+                                If no buttons are defined, the default buttons (okay and cancel) will be added, and
+                                default action for okay will be to redirect on the given href.
+                                use
+                                <a href="#api-target">this.$target</a>
+                                to get the clicked element.
+                            </p>
+                            <p>
+                                <a class="example2-1-1 btn btn-primary" data-title="Goto twitter?" href="http://twitter.com/craftpip" jc-attached="true">Goto twitter
+                                </a>
+                            </p>
+                            <script>
+                                $('.example2-1-1').confirm({
+                                    content: "This will take you to my twitter <br> You can access the clicked element by <code>this.$target</code>",
+                                });
+                            </script>
+                            <span>HTML</span>
+                            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code class="html"><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"twitter"</span><span class="pln"> </span><span class="atn">data-title</span><span class="pun">=</span><span class="atv">"Goto twitter?"</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">"http://twitter.com/craftpip"</span><span class="tag">&gt;</span><span class="pln">Goto twitter</span><span class="tag">&lt;/a&gt;</span></code></li></ol></pre>
+                            <span>Javascript</span>
+                            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code class="js"><span class="pln">$</span><span class="pun">(</span><span class="str">'a.twitter'</span><span class="pun">).</span><span class="pln">confirm</span><span class="pun">({</span></code></li><li class="L1"><code class="js"><span class="pln">    content</span><span class="pun">:</span><span class="pln"> </span><span class="str">"..."</span><span class="pun">,</span></code></li><li class="L2"><code class="js"><span class="pun">});</span></code></li><li class="L3"><code class="js"><span class="pln">$</span><span class="pun">(</span><span class="str">'a.twitter'</span><span class="pun">).</span><span class="pln">confirm</span><span class="pun">({</span></code></li><li class="L4"><code class="js"><span class="pln">    buttons</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></code></li><li class="L5"><code class="js"><span class="pln">        hey</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(){</span></code></li><li class="L6"><code class="js"><span class="pln">            location</span><span class="pun">.</span><span class="pln">href </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">$target</span><span class="pun">.</span><span class="pln">attr</span><span class="pun">(</span><span class="str">'href'</span><span class="pun">);</span></code></li><li class="L7"><code class="js"><span class="pln">        </span><span class="pun">}</span></code></li><li class="L8"><code class="js"><span class="pln">    </span><span class="pun">}</span></code></li><li class="L9"><code class="js"><span class="pun">});</span></code></li></ol></pre>
+
+                        </div>
+                        <div class="col-md-12">
+                            <h4 id="shorthand">Shorthand usage</h4>
+
+                            <p>
+                                The shorthand thingy takes in two string arguments, first one is the content of the
+                                dialog and second the title of the dialog.
+                                The second argument is optional.
+                            </p>
+                            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code class="js"><span class="pln">$</span><span class="pun">.</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'Content here'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Title here'</span><span class="pun">);</span><span class="pln"> </span><a href="#" class="example-sh-1"><span class="kwd">try</span><span class="pln"> me</span></a></code></li><li class="L1"><code class="js"><span class="pln">$</span><span class="pun">.</span><span class="pln">confirm</span><span class="pun">(</span><span class="str">'A message'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Title is optional'</span><span class="pun">);</span><span class="pln"> </span><a href="#" class="example-sh-2"><span class="kwd">try</span><span class="pln"> me</span></a></code></li><li class="L2"><code class="js"><span class="pln">$</span><span class="pun">.</span><span class="pln">dialog</span><span class="pun">(</span><span class="str">'Just to let you know'</span><span class="pun">);</span><span class="pln"> </span><a href="#" class="example-sh-3"><span class="kwd">try</span><span class="pln"> me</span></a></code></li></ol></pre>
+                        </div>
+                        <script>
+                            $('.example-sh-1').click(function (e) {
+                                e.preventDefault();
+                                $.alert('Content here', 'Title here');
+                            });
+                            $('.example-sh-2').click(function (e) {
+                                e.preventDefault();
+                                $.confirm('A message', 'Title is optional');
+                            });
+                            $('.example-sh-3').click(function (e) {
+                                e.preventDefault();
+                                $.dialog('Just to let you know');
+                            });
+                        </script>
+                        <div class="col-md-12">
+                            <h4 id="lazy-open">Lazy open</h4>
+                            <p>
+                                If you want to create a instance of jconfirm and save it for later use.
+                            </p>
+                            <pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><code class="js"><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">.</span><span class="pln">confirm</span><span class="pun">({</span></code></li><li class="L1"><code class="js"><span class="pln">    lazyOpen</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></code></li><li class="L2"><code class="js"><span class="pun">});</span></code></li><li class="L3"><code class="js"><span class="pln">a</span><span class="pun">.</span><span class="pln">open</span><span class="pun">();</span></code></li><li class="L4"><code class="js"><span class="pln">a</span><span class="pun">.</span><span class="pln">close</span><span class="pun">();</span></code></li><li class="L5"><code class="js"><span class="pln">a</span><span class="pun">.</span><span class="pln">toggle</span><span class="pun">();</span><span class="pln"> </span><span class="com">// toggle open close.</span></code></li></ol></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<script type="text/javascript">
+
+    $(function() {
+
+    });
+
+    String.prototype.rTrim = function(s) {
+        s = (s ? s : "\\s");
+        s = ("(" + s + ")");
+        var regRTrim = new RegExp(s + "*$", "g");
+        return this.replace(regRTrim, "");
+    };
+
+</script>
+
+<script type="text/javascript">
+
+    $('.example-the-1').on('click', function() {
+        $.confirm({
+            icon: 'fa fa-smile-o',
+            theme: 'modern',
+            closeIcon: true,
+            animation: 'scale',
+            type: 'blue',
+        });
+    });
+    $('.example-the-2').on('click', function() {
+        $.confirm({
+            icon: 'fa fa-question-circle-o',
+            theme: 'supervan',
+            closeIcon: true,
+            animation: 'scale',
+            type: 'orange',
+        });
+    });
+    $('.example-the-3').on('click', function() {
+        $.confirm({
+            icon: 'fa fa-question',
+            theme: 'material',
+            closeIcon: true,
+            animation: 'scale',
+            type: 'orange',
+        });
+    });
+    $('.example-the-4').on('click', function() {
+        $.confirm({
+            icon: 'fa fa-question',
+            theme: 'bootstrap',
+            closeIcon: true,
+            animation: 'scale',
+            type: 'orange',
+        });
+    });
+
+    // alert
+    $('.example-p-1').on('click', function() {
+        $.alert({
+            title: '错误提示',
+            content: 'This is a simple alert. <br> with some <strong>HTML</strong> <em>contents</em>',
+            icon: 'fa fa-rocket',
+            animation: 'scale',
+            closeAnimation: 'scale',
+            buttons: {
+                okay: {
+                    text: '确定',
+                    btnClass: 'btn-blue'
+                }
+            }
+        });
+    });
+
+    // confirmation
+    $('.example-p-2').on('click', function() {
+        $.confirm({
+            title: 'A secure action',
+            content: 'Its smooth to do multiple confirms at a time. <br> Click confirm or cancel for another modal',
+            icon: 'fa fa-question-circle',
+            animation: 'scale',
+            closeAnimation: 'scale',
+            opacity: 0.5,
+            buttons: {
+                'confirm': {
+                    text: 'Proceed',
+                    btnClass: 'btn-blue',
+                    action: function() {
+                        $.confirm({
+                            title: 'This maybe critical',
+                            content: 'Critical actions can have multiple confirmations like this one.',
+                            icon: 'fa fa-warning',
+                            animation: 'scale',
+                            closeAnimation: 'zoom',
+                            buttons: {
+                                confirm: {
+                                    text: 'Yes, sure!',
+                                    btnClass: 'btn-orange',
+                                    action: function() {
+                                        $.alert('A very critical action <strong>triggered!</strong>');
+                                    }
+                                },
+                                cancel: function() {
+                                    $.alert('you clicked on <strong>cancel</strong>');
+                                }
+                            }
+                        });
+                    }
+                },
+                cancel: function() {
+                    $.alert('you clicked on <strong>cancel</strong>');
+                },
+                moreButtons: {
+                    text: 'something else',
+                    action: function() {
+                        $.alert('you clicked on <strong>something else</strong>');
+                    }
+                },
+            }
+        });
+    });
+
+    // prompt
+    $('.example-p-7-1').on('click', function() {
+        $.confirm({
+            title: 'A simple form',
+            content: 'url:form.html',
+            buttons: {
+                sayMyName: {
+                    text: 'Say my name',
+                    btnClass: 'btn-orange',
+                    action: function() {
+                        var input = this.$content.find('input#input-name');
+                        var errorText = this.$content.find('.text-danger');
+                        if (!input.val().trim()) {
+                            $.alert({
+                                content: "Please don't keep the name field empty.",
+                                type: 'red'
+                            });
+                            return false;
+                        } else {
+                            $.alert('Hello ' + input.val() + ', i hope you have a great day!');
+                        }
+                    }
+                },
+                later: function() {
+                    // do nothing.
+                }
+            }
+        });
+    });
+
+    // alert types
+    $('.example-p-70-type').on('click', function() {
+        $.alert({
+            title: 'Error',
+            icon: 'fa fa-warning',
+            type: 'orange',
+            content: 'Something went wrong, please retry again after sometime.' +
+                '<hr>' +
+                'More types: red, green, orange, blue, purple, dark',
+        });
+    });
+
+    // background dismiss
+    $('.example-p-3').on('click', function() {
+        $.alert({
+            title: 'Background dismiss',
+            content: 'Click outside the modal to close it.' +
+                '<br>this modal has the `bottom` close animation',
+            animation: 'scale',
+            closeAnimation: 'bottom',
+            backgroundDismiss: true,
+            buttons: {
+                okay: {
+                    text: 'okay',
+                    btnClass: 'btn-blue',
+                    action: function() {
+                        // do nothing
+                    }
+                }
+            }
+        });
+    });
+
+    // using as dialogs
+    $('.example-p-4').on('click', function() {
+        $.dialog({
+            title: 'Title comes here',
+            content: 'Just need a popup without buttons, <strong>no problem!</strong><br>' +
+                '<h3>disable the buttons</h3>' +
+                '<h4><strong>and you get a dialog modal</strong></h4>' +
+                '<h5><em>Well, that close icon is shown if no buttons are here (u need something to close the modal right), u can explicitly control that too.</em></h5>' +
+                '<button type="button" class="btn btn-success">Click me to change the content</button>',
+            animation: 'scale',
+            onOpen: function() {
+                var that = this;
+                this.$content.find('button').click(function() {
+                    that.setContent('As simple as that !');
+                });
+            }
+        });
+    });
+
+    // asynchronous content
+    $('.example-p-5').on('click', function() {
+        $.dialog({
+            title: 'Asynchronous content',
+            content: 'url:table.html',
+            animation: 'scale',
+            columnClass: 'medium',
+            closeAnimation: 'scale',
+            backgroundDismiss: true,
+        });
+    });
+
+    // auto close
+    $('.example-p-6').on('click', function() {
+        $.confirm({
+            title: 'Auto close',
+            content: 'Some actions maybe critical, prevent it with the Auto close. This dialog will automatically trigger cancel after the timer runs out.',
+            autoClose: 'cancelAction|10000',
+            escapeKey: 'cancelAction',
+            buttons: {
+                confirm: {
+                    btnClass: 'btn-red',
+                    text: 'Delete ben\'s account',
+                    action: function() {
+                        $.alert('You deleted Ben\'s account!');
+                    }
+                },
+                cancelAction: {
+                    text: 'Cancel',
+                    action: function() {
+                        $.alert('Ben just got saved!');
+                    }
+                }
+            }
+        });
+    });
+
+    // key strokes
+    $('.example-p-7').on('click', function() {
+        $.confirm({
+            title: 'Keystrokes',
+            escapeKey: true, // close the modal when escape is pressed.
+            content: 'Press the <strong>escape key</strong> to close the modal. That works.' +
+                '<br> press <strong>enter key</strong> to trigger okay.' +
+                '<br> press <strong>shift or ctrl key</strong> to trigger cancel.',
+            backgroundDismiss: true, // for escapeKey to work, backgroundDismiss should be enabled.
+            buttons: {
+                okay: {
+                    keys: [
+                        'enter'
+                    ],
+                    action: function() {
+                        $.alert('<strong>Okay button</strong> was triggered.');
+                    }
+                },
+                cancel: {
+                    keys: [
+                        'ctrl',
+                        'shift'
+                    ],
+                    action: function() {
+                        $.alert('<strong>Cancel button</strong> was triggered.');
+                    }
+                }
+            },
+        });
+    });
+
+    // alignment
+    $('.example-pc-1').on('click', function() {
+        $.confirm({
+            title: 'Gracefully center aligned',
+            content: '<p>You can add content and not worry about the alignment. The goal is to make a Interactive dialog!.</p>' +
+                '<button type="button" class="btn btn-success">Click me to add more content</button> <div id="contentArea"></div> ',
+            buttons: {
+                someButton: {
+                    text: 'Add wow',
+                    btnClass: 'btn-green',
+                    action: function() {
+                        this.$content.find('#contentArea').append('<br>Wowww');
+                        return false; // prevent dialog from closing.
+                    }
+                },
+                someOtherButton: {
+                    text: 'Clear it',
+                    btnClass: 'btn-orange',
+                    action: function() {
+                        this.$content.find('#contentArea').html('');
+                        return false; // prevent dialog from closing.
+                    }
+                },
+                close: function() {
+                    // lets the user close the modal.
+                }
+            },
+            onOpen: function() {
+                // onOpen attach the events.
+                var that = this;
+                this.$content.find('button').click(function() {
+                    that.$content.find('#contentArea').append('<br>This is awesome!!!!');
+                });
+            },
+        });
+    });
+
+    // working with images
+    var getNewMeme = function() {
+        var prevTitle = $('.meme-text').html();
+        $('.meme-text').html('Loading memes 👌');
+        $.get('https://craftpip.com/api/memes.json', {
+            previousTitle: prevTitle,
+        }).then(function(data) {
+            console.log(data);
+            $('.meme-text').html(data.title);
+            $('.meme-image img').attr('src', data.image);
+        }).catch(function(err) {
+
+        });
+    };
+    // todo: images is not tested yet.
+    $('.example-pc-2').on('click', function() {
+        $.confirm({
+            title: 'Adding images',
+            content: '' +
+                '<div class="meme-image"><img style="    border: solid 1px #ddd;\n' +
+                '    margin-bottom: 10px;\n' +
+                '    border-radius: 4px;" src="" alt=""></div>' +
+                '<div class="meme-text" style="font-weight: bold;margin-bottom: 20px;"></div>' +
+                '<div>Memes from <a target="_blank" href="https://www.reddit.com/r/programminghumor">ProgrammingHumor</a></div>' +
+                '',
+            animation: 'scale',
+            animationClose: 'top',
+            buttons: {
+                confirm: {
+                    text: 'Next meme',
+                    btnClass: 'btn-blue',
+                    action: function() {
+                        getNewMeme();
+                        return false;
+                    }
+                },
+                cancel: function() {
+                    // lets the user close the modal.
+                }
+            },
+            onContentReady: function() {
+                getNewMeme();
+            }
+        });
+    });
+
+    // animations
+    $('.example-pc-3').on('click', function() {
+        $.alert({
+            title: 'Animations',
+            content: 'jquery-confirm provides a lot of open &amp; close animations out of the box. <br>The best part is, you can add custom ones too.',
+            animation: 'scale',
+            closeAnimation: 'right',
+            buttons: {
+                zoom: function() {
+                    this.setCloseAnimation('zoom');
+                },
+                rotate: function() {
+                    this.setCloseAnimation('rotate');
+                },
+                scale: function() {
+                    this.setCloseAnimation('scale');
+                },
+                top: function() {
+                    this.setCloseAnimation('top');
+                }
+            },
+            backgroundDismiss: function() {
+                return false;
+            },
+        });
+    });
+
+    $('.example-p-7-2').on('click', function() {
+        $.alert({
+            title: 'A draggable dialog',
+            content: 'This dialog is draggable, use the title to drag it around. It wont touch the screen borders',
+            type: 'blue',
+            animation: 'scale',
+            draggable: true,
+        });
+    });
+</script>
+
+</body>
+</html>

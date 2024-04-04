@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>布局测试</title>
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+    <link href="/Styles/main.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+
+    <script src="/Scripts/Hsp.js"></script>
+    <script src="/Scripts/Hsp.Common.js"></script>
+
+    <style type="text/css">
+        
+        body { margin: 0 auto; }
+    </style>
+
+    <script type="text/javascript">
+
+        var height = 0, width = 0;
+
+        $(function() {
+
+            width = HSP.Common.AvailWidth();
+            height = HSP.Common.AvailHeight();
+
+            $("#el").layout({
+                width: 'auto',
+                height: height - 0
+            });
+
+            $("#el .easyui-datagrid").layout({
+                width: 'auto',
+                height: height - 0
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+<div id="el" class="easyui-layout" style="height: 350px; width: 700px;">
+    <div region="center" border="false">
+        <table class="easyui-datagrid" title="Basic DataGrid" style="height: 250px; width: auto;"
+               data-options="singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">
+            <thead>
+            <tr>
+                <th data-options="field:'itemid',width:80">Item ID</th>
+                <th data-options="field:'productid',width:100">Product</th>
+                <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+                <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+                <th data-options="field:'attr1',width:250">Attribute</th>
+                <th data-options="field:'status',width:60,align:'center'">Status</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div region="south" split="true" border="false" style="height: 40px; overflow: hidden; padding: 0px; text-align: right;">
+        <div style="float: right; margin: 5px;">
+            <a href="javascript:void(0);" id="btnSave" class="easyui-linkbutton" style="display: block; float: left; margin-right: 5px; width: 60px;">确定</a>
+            <a href="javascript:void(0);" id="btnClose" class="easyui-linkbutton" style="display: block; float: left; width: 60px;">关闭</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="easyui-layout">
+    <div region="center" border="false">
+        <div class="chart"></div>
+    </div>
+    <div region="west" split="true" border="false" style="width: 50%;">
+        <div class="chart">
+            <select id="a"></select>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

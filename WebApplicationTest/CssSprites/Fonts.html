@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>字体测试</title>
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+
+    <style type="text/css">
+        * { font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif, "Microsoft Yahei", "微软雅黑"; }
+        body{ margin: 10px 120px;}
+        p {
+            font-size: 12px;
+            line-height: 1.75em;
+            text-indent: 2em;
+        }
+
+        p.left {
+            color: #666;
+            text-align: left;
+        }
+
+        /* 左对齐 */
+
+        p.right { text-align: right; }
+
+        /* 右对齐 */
+
+        p.center { text-align: center; }
+
+        /* 居中对齐 */
+
+        p.justify { text-align: justify; }
+
+        /* 两端对齐 */ 
+
+
+
+        p span {
+            color: yellow; /* 字体颜色 */
+            float: left; /* 首字下沉 */
+            font-family: 黑体; /* 黑体字 */
+            font-size: 60px; /* 首字大小 */
+            font-weight: bold; /* 粗体字 */
+            padding-right: 5px; /* 与右边的间隔 */
+        } 
+
+
+    </style>
+</head>
+<body>
+
+<p><span>人</span>生若只如初见，何事秋风悲画扇。等闲变却故人心，却道故人心易变。
+</p>
+<p>骊山语罢清宵半，夜雨霖铃终不怨。何如薄幸锦衣郎，比翼连枝当日愿。</p>
+
+<p class="a">
+    通过6S管理活动达到办公管理规范化、现场管理系统化、安全生产统一化、标准化、便于检查工作质量、服务质量、安全质量、生产效率，改善一些企业办公管理的松散作风，杜绝生产现场脏、乱、差和安全事故隐患发生，达到遵章守法、人员和谐，创建新的企业文化及和谐氛围。
+    整理整顿明确区分需要的和不需要的东西，在生产现场不放置与生产无关的物品
+    整顿就是使所需物品始终处于在需用时能够高效地可取和放回状态
+    清扫就是在生产现场始终处于无垃圾、灰尘的整洁状态
+    清洁就是经常进行整理、整顿和清扫，始终保持清洁的状态
+    素养就是正确执行企业的规定和规则，并养成良好的习惯
+    安全就是养成良好的安全防范意识，减少和杜绝安全事故，人身伤亡事件的发生
+
+    6S管理的目标是通过消除的浪费现象和推行持续改进，使企业管理维持在比较理想的状态水平。通过6S管理活动整体综合推进，互有侧重，效果显著。所以企业只要全面推行6S管理，就能取得显著成效，提升公司的管理水平。
+</p>
+
+<p class="left">
+    这个段落采用左对齐的方式，text-align:left，因此文字都采用左对齐。<br>
+    床前明月光，疑是地上霜。<br>举头望明月，低头思故乡。<br>李白
+</p>
+<p class="right">
+    这个段落采用右对齐的方式，text-align:right，因此文字都采用右对齐。<br>
+    床前明月光，疑是地上霜。<br>举头望明月，低头思故乡。<br>李白
+</p>
+<p class="center">
+    这个段落采用居中对齐的方式，text-align:center，因此文字都采用居中对齐。<br>
+    床前明月光，疑是地上霜。<br>举头望明月，低头思故乡。<br>李白
+</p>
+<p class="justify">
+    这个段落采用左对齐的方式，text-align:justify，因此文字都采用左对齐。床前明月光，疑是地上霜。举头望明月，低头思故乡。<br>李白
+</p>
+
+<div class="input-container">
+    <input type="input" id="input" placeholder="请输入内容">
+    <label for="input">请输入内容</label>
+    <div class="bottom-line"></div>
+</div>
+
+<style type="text/css">
+/*a  upload */
+    .a-upload {
+        background: #fafafa;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        color: #888;
+        cursor: pointer;
+        display: inline-block;
+        *display: inline;
+        height: 20px;
+        line-height: 20px;
+        overflow: hidden;
+        padding: 4px 10px;
+        position: relative;
+        *zoom: 1
+    }
+
+    .a-upload input {
+        cursor: pointer;
+        filter: alpha(opacity=0);
+        font-size: 100px;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .a-upload:hover {
+        background: #eee;
+        border-color: #ccc;
+        color: #444;
+        text-decoration: none
+    }
+
+    .file {
+        background: #D0EEFF;
+        border: 1px solid #99D3F5;
+        border-radius: 4px;
+        color: #1E88C7;
+        display: inline-block;
+        line-height: 20px;
+        overflow: hidden;
+        padding: 4px 12px;
+        position: relative;
+        text-decoration: none;
+        text-indent: 0;
+    }
+
+    .file input {
+        font-size: 100px;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .file:hover {
+        background: #AADFFD;
+        border-color: #78C3F3;
+        color: #004974;
+        text-decoration: none;
+    }
+
+
+</style>
+
+<br/>
+
+<a href="javascript:;" class="a-upload">
+    <input type="file" name="" id="">点击这里上传文件
+</a>
+
+<a href="javascript:;" class="file">
+    选择文件
+    <input type="file" name="" id="File1">
+</a>
+
+<script type="text/javascript">
+    $(".a-upload").on("change", "input[type='file']", function() {
+        var filePath = $(this).val();
+        if (filePath.indexOf("jpg") != -1 || filePath.indexOf("png") != -1) {
+            $(".fileerrorTip").html("").hide();
+            var arr = filePath.split('\\');
+            var fileName = arr[arr.length - 1];
+            $(".showFileName").html(fileName);
+        } else {
+            $(".showFileName").html("");
+            $(".fileerrorTip").html("您未上传文件，或者您上传文件类型有误！").show();
+            return false;
+        }
+    })
+</script>
+
+<a href="javascript:;" class="file">
+    选择图片文件
+    <input id="fileId1" type="file" accept="image/png,image/gif" name="file"/>
+</a>
+
+<a href="javascript:;" class="file">
+    选择(多)图片文件
+    <input id="fileId2" type="file" multiple="multiple" name="file"/>
+</a>
+
+<h1>锦瑟</h1>
+<p>【作者】李商隐 <br>【朝代】唐
+</p>
+<pre>  
+        锦瑟无端五十弦，  
+                       一弦一柱思华年。  
+    </pre>  
+<blockquote>
+    庄生晓梦迷蝴蝶,
+    望帝春心托杜鹃。
+</blockquote>
+<hr/>
+<pre>  
+        <u>沧海月明珠有泪, </u>  
+        <i>蓝田日暖玉生烟.</i>  
+        <b>此情可待成追忆？ 只是当时已惘然。</b>  
+    </pre> 
+
+    
+    <div id="page1"></div>
+    <div id="page2"></div>
+    <script>
+        $("#page1").load("page/Page_1.html");
+        $("#page2").load("page/Page_2.html");
+    </script>
+
+
+    <!--#000 #333 #666 #999 #ccc #eee-->
+
+<style type="text/css">
+    p{    font: 16px/1.5em "宋体", "Lucida Grande", Lucida Sans Unicode, Hiragino Sans GB, WenQuanYi Micro Hei, Verdana, Aril, sans-serif;
+    -webkit-font-smoothing: antialiased;}
+</style>
+
+<p style="color: #000;">据新京报报道称，正在进行的全国代表大会上，国家也已经开始敦促三大运营商继续提速降费，整体来说就是，加大网络提速降费力度，实现高速宽带城乡全覆盖，扩大公共场所免费上网范围，明显降低家庭宽带、企业宽带和专线使用费。</p>
+<p style="color: #333;">据新京报报道称，正在进行的全国代表大会上，国家也已经开始敦促三大运营商继续提速降费，整体来说就是，加大网络提速降费力度，实现高速宽带城乡全覆盖，扩大公共场所免费上网范围，明显降低家庭宽带、企业宽带和专线使用费。</p>
+<p style="color: #666;">据新京报报道称，正在进行的全国代表大会上，国家也已经开始敦促三大运营商继续提速降费，整体来说就是，加大网络提速降费力度，实现高速宽带城乡全覆盖，扩大公共场所免费上网范围，明显降低家庭宽带、企业宽带和专线使用费。</p>
+<p style="color: #999;">据新京报报道称，正在进行的全国代表大会上，国家也已经开始敦促三大运营商继续提速降费，整体来说就是，加大网络提速降费力度，实现高速宽带城乡全覆盖，扩大公共场所免费上网范围，明显降低家庭宽带、企业宽带和专线使用费。</p>
+<p style="color: #ccc;">据新京报报道称，正在进行的全国代表大会上，国家也已经开始敦促三大运营商继续提速降费，整体来说就是，加大网络提速降费力度，实现高速宽带城乡全覆盖，扩大公共场所免费上网范围，明显降低家庭宽带、企业宽带和专线使用费。</p>
+<p style="color: #eee;">据新京报报道称，正在进行的全国代表大会上，国家也已经开始敦促三大运营商继续提速降费，整体来说就是，加大网络提速降费力度，实现高速宽带城乡全覆盖，扩大公共场所免费上网范围，明显降低家庭宽带、企业宽带和专线使用费。</p>
+
+<p style="color: #705f57;">据新京报报道称，正在进行的全国代表大会上，国家也已经开始敦促三大运营商继续提速降费，整体来说就是，加大网络提速降费力度，实现高速宽带城乡全覆盖，扩大公共场所免费上网范围，明显降低家庭宽带、企业宽带和专线使用费。</p>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

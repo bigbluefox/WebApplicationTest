@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Tree View</title>
+    <link href="/Scripts/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="./css/bootstrap-treeview.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Bootstrap Tree View - DOM Tree</h1>
+    <br/>
+    <div class="row">
+        <div class="col-sm-12">
+            <label for="treeview"></label>
+            <div id="treeview"/>
+        </div>
+    </div>
+</div>
+<script src="/Scripts/jquery/jquery-2.2.4.js"></script>
+<script src="./js/bootstrap-treeview.js"></script>
+<script type="text/javascript">
+
+    function buildDomTree() {
+
+        var data = [];
+
+        function walk(nodes, data) {
+            if (!nodes) {
+                return;
+            }
+            $.each(nodes, function(id, node) {
+                var obj = {
+                    id: id,
+                    text: node.nodeName + " - " + (node.innerText ? node.innerText : ''),
+                    tags: [node.childElementCount > 0 ? node.childElementCount + ' child elements' : '']
+                };
+                if (node.childElementCount > 0) {
+                    obj.nodes = [];
+                    walk(node.children, obj.nodes);
+                }
+                data.push(obj);
+            });
+        }
+
+        walk($('html')[0].children, data);
+        return data;
+    }
+
+    var treeData = [
+    {
+        "nodes": [
+            {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "97DCB257-3CD0-4635-A362-66CF2ACCD012",
+                "text": "文学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "A7048E9B-CFF6-47C8-8C04-46072EE4901D",
+                "text": "哲学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "DCFE1803-9EC1-499B-9CFF-2A23A4FB45D7",
+                "text": "历史学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "5E34D118-B6DD-4B10-A484-6CBF97EB34D0",
+                "text": "新闻传播"
+            }
+        ],
+        "tags": ["4"],
+        "attributes": {
+            "nodeLevel": 0,
+            "nodePath": null,
+            "childNodeCount": 0
+        },
+        "state": {
+            //"checked": true,
+            //"disabled": false,
+            "expanded": false,
+            //"selected": true
+        },
+        "id": "ACAA978E-1707-4D3D-9B96-4838CF98242A",
+        "text": "文史哲"
+    }, {
+        "nodes": [
+            {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "7AC6DFA6-D087-4ACE-BF7E-735FDF8348B7",
+                "text": "法学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "34EA173A-82FF-4D6A-B97D-E110974EBA2E",
+                "text": "政治学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "CDA624B8-240B-47B3-BD30-32756E04B9E2",
+                "text": "社会学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "A318B611-C6B2-48B8-B553-5526BC23CED5",
+                "text": "心理学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "20726DAF-B3C8-4AEA-BBD6-B0232C3E05EF",
+                "text": "教育学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "9B052656-8736-46FA-94F0-2DEE37A53D32",
+                "text": "军事学"
+            }
+        ],
+        "tags": ["6"],
+        "attributes": {
+            "nodeLevel": 0,
+            "nodePath": null,
+            "childNodeCount": 0
+        },
+        "state": {
+            "checked": true,
+            "disabled": false,
+            "expanded": true,
+            "selected": true
+        },
+        "id": "C7E5DACA-9CD4-4253-A6D4-51248A128660",
+        "text": "社会科学"
+    }, {
+        "nodes": [
+            {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "FD38519A-FAE3-41C6-88C3-2A09E4FBE2D3",
+                "text": "数学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "0523C821-039D-44D1-A1DE-ED530C40D3ED",
+                "text": "物理学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "7A21A2F2-23C7-4033-B5FD-BDBE40D5E1BC",
+                "text": "化学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "60156E47-DF1B-46FC-AF1A-6969B0D49EC9",
+                "text": "医学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "CE765D2D-8CA8-42A9-AEE5-EB18BE0DB315",
+                "text": "生物学"
+            }
+        ],
+        "tags": ["5"],
+        "attributes": {
+            "nodeLevel": 0,
+            "nodePath": null,
+            "childNodeCount": 0
+        },
+        "state": {
+            "checked": false,
+            "disabled": false,
+            "expanded": false,
+            "selected": false
+        },
+        "id": "34D7326A-53B9-4955-922F-A9EE502E8BDE",
+        "text": "理学"
+    }, {
+        "nodes": [
+            {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "52FD5108-911B-45BB-8A97-67BA9FFC5403",
+                "text": "机械学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "F163A073-6902-4A47-859C-810371139623",
+                "text": "电子信息学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "B0402F1F-4EE9-4514-B2C9-4E6B2E5B6B50",
+                "text": "化工"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "A06D0860-873D-430B-8F8E-AE0DDC49B968",
+                "text": "材料科学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "D5519168-1706-4DD3-9B1F-948B46F0AFCD",
+                "text": "环境工程"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "40731DE7-371F-43E5-B659-C866FF2618BC",
+                "text": "建筑及土木工程"
+            }
+        ],
+        "tags": ["6"],
+        "attributes": {
+            "nodeLevel": 0,
+            "nodePath": null,
+            "childNodeCount": 0
+        },
+        "state": {
+            "checked": false,
+            "disabled": false,
+            "expanded": false,
+            "selected": false
+        },
+        "id": "52322B48-006E-4CFD-B76E-CBBA05D22434",
+        "text": "工学"
+    }, {
+        "nodes": [
+            {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "26D266D0-63D3-4822-B8D2-80E178671A08",
+                "text": "经济学"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "1550C18F-8043-4242-A381-FD639C087BB3",
+                "text": "管理学"
+            }
+        ],
+        "tags": ["2"],
+        "attributes": {
+            "nodeLevel": 0,
+            "nodePath": null,
+            "childNodeCount": 0
+        },
+        "state": {
+            "checked": false,
+            "disabled": false,
+            "expanded": false,
+            "selected": false
+        },
+        "id": "8B79340E-9344-4C0C-90DC-1DADFA8E3A1A",
+        "text": "经济管理"
+    }, {
+        "nodes": [
+            {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "79D565ED-A8D8-4189-AA5E-74C06A587F4B",
+                "text": "英语"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "CA13C432-3980-4711-9755-E2AE6A299E72",
+                "text": "日语"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "766BAF20-7E34-49DD-9006-BC39BA46E873",
+                "text": "法语"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "447AB3A5-7042-4913-A148-3EB325A0CEA4",
+                "text": "德语"
+            }
+        ],
+        "tags": ["4"],
+        "attributes": {
+            "nodeLevel": 0,
+            "nodePath": null,
+            "childNodeCount": 0
+        },
+        "state": {
+            "checked": false,
+            "disabled": false,
+            "expanded": false,
+            "selected": false
+        },
+        "id": "9156869E-AB1E-4396-BF88-D4BF9A07E81A",
+        "text": "外语"
+    }, {
+        "nodes": [
+            {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "D1D8FD90-D1D9-4406-BCFA-130325E36ABC",
+                "text": "语言学概论"
+            }, {
+                "nodes": null,
+                "tags": null,
+                "attributes": {
+                    "nodeLevel": 1,
+                    "nodePath": null,
+                    "childNodeCount": 0
+                },
+                "state": {
+                    "checked": false,
+                    "disabled": false,
+                    "expanded": false,
+                    "selected": false
+                },
+                "id": "0233FA87-8613-45F3-BF7D-14CEF5EFF33E",
+                "text": "金融学"
+            }
+        ],
+        "tags": ["2"],
+        "attributes": {
+            "nodeLevel": 0,
+            "nodePath": null,
+            "childNodeCount": 0
+        },
+        "state": {
+            "checked": false,
+            "disabled": false,
+            "expanded": false,
+            "selected": false
+        },
+        "id": "C556DA42-BAA8-4B97-9A8F-B4F5AA506ADB",
+        "text": "艺术"
+    }
+    ];
+
+    $(function() {
+
+        var options = {
+            bootstrap2: false,
+            showTags: true,
+            levels: 5,
+            data: treeData//buildDomTree()
+        };
+
+        $('#treeview').treeview(options);
+    });
+</script>
+</body>

@@ -1,0 +1,757 @@
+﻿
+<!--//We are sorry to inform you that CKEditor 5 does not support Internet Explorer 11 yet.-->
+
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>CKEditor 5 Builds | CKEditor.com</title><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="CKEditor 5 Builds | CKEditor.com">
+    <meta property="og:description" content="The fastest and easiest way to integrate a rich text editor into your application. ">
+    <meta property="og:image" content="https://ckeditor.comhttps://ckeditor.com/assets/images/og/ogimage-ck5.png">
+    <link href="https://ckeditor.com/assets/libs/ckeditor5/1.0.0-alpha.2/editor-classic.css" rel="stylesheet" type="text/css" title="classic">
+    <link href="https://ckeditor.com/assets/libs/ckeditor5/1.0.0-alpha.2/editor-balloon.css" rel="alternate stylesheet" type="text/css" title="balloon">
+    <link href="https://ckeditor.com/assets/libs/ckeditor5/1.0.0-alpha.2/editor-inline.css" rel="alternate stylesheet" type="text/css" title="inline">
+    <script>
+        (function insertCKE5Script() {
+            if (/rv:11.0/i.test(navigator.userAgent)) {
+                return;
+            }
+
+            const versions = {
+                classic: "1.0.0-alpha.2",
+                balloon: "1.0.0-alpha.2",
+                inline: "1.0.0-alpha.2",
+            };
+            const types = Object.keys(versions);
+            const hash = window.location.hash.substring(1);
+            const type = types.indexOf(hash) > -1 ? hash : types[0];
+
+            //<![CDATA[
+            document.write(("<script src='https://ckeditor.com/assets/libs/ckeditor5/VERSION/editor-TYPE.js'><\/script>").replace('TYPE', type).replace('VERSION', versions[type]));
+            //]]>
+        })();
+    </script>
+    <link rel="icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/167x167.png" sizes="167x167">
+    <link rel="apple-touch-icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/180x180.png" sizes="180x180">
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="https://ckeditor.com/rss.xml">
+    <link rel="stylesheet" href="https://ckeditor.com/assets/styles/libs.css">
+    <link rel="stylesheet" href="https://ckeditor.com/assets/styles/main.css">
+    <!-- Google Tag Manager-->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KFSS6L');
+    </script>
+    <!-- End Google Tag Manager-->
+    <script>
+if (/MSIE/i.test(navigator.userAgent)) {
+window.location.href = '/browser-support/';
+}
+</script>
+</head>
+<body>
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFSS6L" height="0" width="0" style="display: none; visibility: hidden;"></iframe>
+</noscript><ul class="skip-link__list">
+    <li class="skip-link skip-link--main-nav">
+        <a href="#main-navigation" tabindex="1">Main navigation</a>
+    </li><li class="skip-link skip-link--product-nav">
+        <a href="#product-menu" tabindex="1">Product navigation</a>
+    </li><li class="skip-link skip-link--main-content">
+        <a href="#main-content" tabindex="1">Main content</a>
+    </li>
+</ul>
+<div class="menu menu--ckeditor-5-builds ">
+    <div class="menu__page-title">
+        <h1>
+            <a href="https://ckeditor.com/ckeditor-5-builds">CKEditor 5 Builds</a>
+        </h1>
+    </div><nav class="menu-product" id="product-menu" role="navigation" aria-label="product navigation">
+        <ul>
+            <li>
+                <a class="menu-product__current-link" href="/ckeditor-5-builds">Overview</a>
+            </li><li>
+                <a href="http://docs.ckeditor.com/ckeditor5/latest/builds/">Documentation</a>
+            </li><li>
+                <a href="/ckeditor-5-builds/support">Support</a>
+            </li><li>
+                <a href="/ckeditor-5-builds/download">Download</a>
+            </li><li>
+                <a href="/ckeditor-5-builds/pricing">Pricing</a>
+            </li>
+        </ul>
+        <div class="menu-more dropdown dropdown--dark" aria-hidden="true">
+            <button class="btn btn--dropdown menu-more__toggler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1" id="menu-more-dropdown">More</button><ul class="menu-more__list dropdown__list" aria-labelledby="menu-more-dropdown"></ul>
+        </div>
+        <div class="github-btn__wrapper">
+            <a class="btn btn-icon" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub.">
+                <svg>
+                    <use xlink:href="#github"></use>
+                </svg>
+            </a>
+        </div>
+    </nav>
+    <div class="progress-bar" aria-hidden="true">
+        <span class="progress-bar__fill"></span></div>
+</div>
+<div class="site-nav">
+    <button class="site-nav__toggler" id="site-nav__toggler" aria-label="Show website navigation" aria-expanded="false" tabindex="1">
+        <span class="bar" aria-hidden="true"></span><span class="bar" aria-hidden="true"></span><span class="bar" aria-hidden="true"></span></button>
+</div>
+<div class="site-nav__panel" aria-hidden="true" aria-controls="site-nav__toggler">
+    <nav id="main-navigation" role="navigation" aria-label="main navigation">
+        <ul class="site-nav__menu">
+            <li class="site-nav__menu-item">
+                <a href="/" tabindex="-1" title="home page">Home</a>
+            </li>
+        </ul>
+        <p class="site-nav__menu-category">Products</p><ul class="site-nav__menu" aria-label="links to product pages">
+            <li class="site-nav__menu-item site-nav__menu-item--current">
+                <a href="/ckeditor-5-builds" tabindex="-1" title="CKEditor 5 Builds product overview page">CKEditor 5 Builds</a>
+            </li><li class="site-nav__menu-item">
+                <a href="/ckeditor-5-framework" tabindex="-1" title="CKEditor 5 Framework product overview page">CKEditor 5 Framework</a>
+            </li><li class="site-nav__menu-item">
+                <a href="/ckeditor-4" tabindex="-1" title="CKEditor 4 product overview page">CKEditor 4</a>
+            </li><li class="site-nav__menu-item">
+                <a href="/letters" tabindex="-1" title="Letters product overview page">Letters</a>
+            </li><li class="site-nav__menu-item">
+                <a href="/ckeditor-cloud-services" tabindex="-1" title="CKEditor Cloud Services product overview page">CKEditor Cloud Services</a>
+            </li>
+        </ul>
+        <p class="site-nav__menu-category">Other</p><ul class="site-nav__menu" aria-label="links general pages">
+            <li class="site-nav__menu-item">
+                <a href="http://docs.ckeditor.com/" tabindex="-1" title="Documentation page">Documentation</a>
+            </li><li class="site-nav__menu-item">
+                <a href="https://support.ckeditor.com/hc/en-us" tabindex="-1" title="Help center page">Help center</a>
+            </li><li class="site-nav__menu-item">
+                <a href="/blog" tabindex="-1" title="Blog page">Blog</a>
+            </li><li class="site-nav__menu-item">
+                <a href="/contact" tabindex="-1" title="Contact us page">Contact us</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="site-cover"></div><header class="header header--ckeditor-5-builds" role="banner">
+    <picture>
+        <source srcset="https://ckeditor.com/assets/images/header/ckeditor-5-builds-cover.jpg" media="( max-width: 1279px )"><source srcset="https://ckeditor.com/assets/images/header/ckeditor-5-builds.jpg"><img src="https://ckeditor.com/assets/images/header/ckeditor-5-builds.jpg" alt="CKEditor 5 Builds">
+    </picture>
+    <div class="header-content">
+        <h1>CKEditor 5 Builds</h1>
+        <h2>The fastest and easiest way to integrate a rich text editor into your application. </h2>
+    </div><a class="header__goto-content" href="#" aria-label="Scroll to the content"></a>
+</header><main class="site-content site-content--ckeditor-5-builds site-content--product site-content--blue-bg" id="main-content" role="main">
+<section class="demo">
+    <div class="section-container">
+        <div class="tabs__wrapper" data-demo-switchers="data-demo-switchers">
+            <div class="tabs__header visible__inline--sm">
+                <div class="tabs__list" id="demo-controls" title="Display demo controls" role="toolbar">
+                    <button class="tab" id="classic" data-demo-switcher="data-demo-switcher" aria-pressed="false" aria-controls="cke5-demo" aria-label="Classic Editor version" data-target-state="classic">Classic</button><button class="tab" id="balloon" data-demo-switcher="data-demo-switcher" aria-pressed="false" aria-controls="cke5-balloon-demo" aria-label="Balloon Editor version" data-target-state="balloon">Balloon</button><button class="tab" id="inline" data-demo-switcher="data-demo-switcher" aria-pressed="false" aria-controls="cke5-inline-demo" aria-label="Inline Editor version" data-target-state="inline">Inline</button>
+                </div>
+                <div class="marker__move-line" aria-hidden="true"></div>
+                <div class="active__tab-marker" aria-hidden="true"></div>
+            </div>
+            <div class="tabs__content-section">
+                <div class="ckloader">
+                    <div class="ckloader__spinner">
+                        <svg class="circular" viewbox="25 25 50 50">
+                            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="tabs__content tabs__content--demo tabs__content--active" id="ckeditor5-tabs-content">
+                    <div class="demo-anchor" data-demo-type="classic">
+                        <div id="cke5-demo">
+                            <h2>The three greatest things you learn from traveling</h2>
+                            <p>Like all the great things on earth traveling teaches us by example. Here are some of the most precious lessons I’ve learned over the years of traveling.</p><figure class="image illustration" style="height: 400px;">
+                                <img alt="Three Monks walking on ancient temple." src="https://ckeditor.com/assets/images/bg/umbrellas.jpg"><figcaption>Leaving your comfort zone might lead you to such beautiful sceneries like this one.</figcaption>
+                            </figure>
+                            <h3>Appreciation of diversity</h3>
+                            <p>Getting used to an entirely different culture can be challenging. While it’s also nice to learn about cultures online or from books, nothing comes close to experiencing cultural diversity in person. You learn to appreciate each and every single one of the differences while you become more culturally fluid.</p><blockquote>
+                                <p>The real voyage of discovery consists not in seeking new landscapes, but having new eyes.</p>
+                                <p>
+                                    <strong>Marcel Proust</strong>
+                                </p>
+                            </blockquote>
+                            <h3>Improvisation</h3>
+                            <p>Life doesn't allow us to execute every single plan perfectly. This especially seems to be the case when you travel. You plan it down to every minute with a big checklist; but when it comes to executing it, something always comes up and you’re left with your improvising skills. You learn to adapt as you go. Here’s how my travel checklist looks now:</p><ul>
+                                <li>buy the ticket</li><li>start your adventure</li>
+                            </ul>
+                            <h3>Confidence</h3>
+                            <p>Going to a new place can be quite terrifying. While change and uncertainty makes us scared, traveling teaches us how ridiculous it is to be afraid of something before it happens. The moment you face your fear and see there was nothing to be afraid of, is the moment you discover bliss.</p>
+                        </div>
+                    </div>
+                    <div class="demo-anchor demo-anchor--bordered" data-demo-type="balloon">
+                        <div id="cke5-balloon-demo">
+                            <h2>Walking the capitals of Europe: Warsaw</h2><figure class="image">
+                                <img alt="Picture of the Warsaw Old Town." src="https://ckeditor.com/assets/images/bg/warsaw.jpg"><figcaption>Medieval Old Town square, destroyed in 1944 & rebuilt after WWII.</figcaption>
+                            </figure>
+                            <p>If you enjoyed my previous articles in which we discussed wandering around <a href="https://en.wikipedia.org/wiki/Copenhagen" target="_blank" rel="external">Copenhagen</a> and <a href="https://en.wikipedia.org/wiki/Vilnius" target="_blank" rel="external">Vilnius</a>, you’ll definitely love exploring <a href="https://en.wikipedia.org/wiki/Warsaw" target="_blank" rel="external">Warsaw</a>.
+                            </p>
+                            <h3>Time to put comfy sandals on!</h3>
+                            <p>Best time to visit the city is July and August, when it’s cool enough to not break a sweat and hot enough to enjoy summer. The city which has quite a combination of both old and modern textures is located by the river of Vistula.</p>
+                            <p>The historic <strong>Old Town</strong>, which was reconstructed after the World War II, with its late 18th century characteristics, is a must-see. You can start your walk from the <strong>Nowy Świat Street</strong> which will take you straight to the Old Town.
+                            </p>
+                            <p>Then you can go to the <strong>Powiśle</strong> area and take a walk on the newly renovated promenade on the riverfront. There are also lots of cafes, bars and restaurants where you can shake off the exhaustion of the day. On Sundays, there are many parks where you can enjoy nature or listen to pianists from around the world playing Chopin.
+                            </p>
+                            <p>For museum lovers, you can add these to your list:</p><ul>
+                                <li>
+                                    <a href="http://www.polin.pl/en" target="_blank" rel="external">POLIN</a>
+                                </li><li>
+                                    <a href="http://www.1944.pl/en" target="_blank" rel="external">Warsaw Uprising Museum</a>
+                                </li><li>
+                                    <a href="http://chopin.museum/en" target="_blank" rel="external">Fryderyk Chopin Museum</a>
+                                </li>
+                            </ul>
+                            <h3>Next destination</h3>
+                            <p>We will go to Berlin and have a night's walk in the city that never sleeps! Make sure you subscribe to our newsletter!</p>
+                        </div>
+                    </div>
+                    <div class="demo-anchor" data-demo-type="inline">
+                        <div id="cke5-inline-demo">
+                            <header data-inline-inject="true">
+                                <h2>Gone traveling</h2>
+                                <h3>Monthly travel news and inspiration</h3>
+                            </header>
+                            <div data-inline-inject="true">
+                                <h3>Destination of the Month</h3><h4>Valletta</h4><figure class="image image-style-side">
+                                    <img alt="Picture of a sunlit facade of a Maltan building." src="https://ckeditor.com/assets/images/bg/malta.jpg"><figcaption>It's siesta time in Valletta.</figcaption>
+                                </figure>
+                                <p>The capital city of <a href="https://en.wikipedia.org/wiki/Malta" target="_blank" rel="external">Malta</a> is the top destination this summer. It’s home to a cutting-edge contemporary architecture, baroque masterpieces, delicious local cuisine and at least 8 months of sun. It’s also a top destination for filmmakers, so you can take a tour through locations familiar to you from Game of Thrones, Gladiator, Troy and many more.
+                                </p>
+                            </div>
+                            <div class="demo-row">
+                                <div class="demo-row__half">
+                                    <div data-inline-inject="true">
+                                        <h3>The three greatest things you learn from traveling</h3>
+                                        <p>
+                                            <a href="#">Find out more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="demo-row__half">
+                                    <div data-inline-inject="true">
+                                        <h3>Walking the capitals of Europe: Warsaw</h3>
+                                        <p>
+                                            <a href="#">Find out more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="demo-anchor" id="cke5-mobile" data-demo-type="classic">
+            <p>Try CKEditor 5 on your mobile device.</p>
+        </div>
+    </div>
+</section><section class="no-browser-support">
+    <div class="no-browser-support__content">
+        <h3>We are sorry to inform you that CKEditor 5 does not support Internet Explorer 11 yet.</h3>
+        <p>Don't worry - we have it on our roadmap.</p><a class="btn" href="https://docs.ckeditor.com/ckeditor5/latest/builds/guides/browser-compatibility.html" target="_blank">Browser compatibility section</a>
+    </div>
+</section><section class="section-1">
+    <div class="section-container">
+        <div class="row section-wrapper">
+            <div class="col-xs-12 col-sm-5 section-describe__wrapper">
+                <div class="section-describe section-describe--left">
+                    <h2>Improved user experience</h2>
+                    <p>In CKEditor 5 Builds we put emphasis on user experience with fewer buttons and more usability enhancements. All this to help users improve the semantic quality of the content they create.</p><a class="btn" href="http://docs.ckeditor.com/ckeditor5/latest/builds/guides/whats-new.html#Enhanced-UX" target="_blank">Find out more</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 thumb-wrapper col-sm-offset-1">
+                <div class="composition hidden-xs" aria-hidden="true">
+                    <div class="composition__thumb"></div>
+                    <div class="composition__image"></div>
+                </div>
+                <div class="composition__mobile" aria-hidden="true">
+                    <img src="https://ckeditor.com/assets/images/composition/ckeditor-5-builds/section-1/image-mo.png" alt="Improved user experience">
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="section-2">
+    <div class="section-container">
+        <div class="row section-wrapper">
+            <div class="col-xs-12 col-sm-6 section-describe__wrapper visible-xs-inline" data-mobile="true">
+                <div class="section-describe section-describe--right">
+                    <h2>Designed for a purpose</h2>
+                    <p>Choose between various CKEditor 5 Builds designed to satisfy a specific use case scenario or create your own custom build.</p><a class="btn" href="http://docs.ckeditor.com/ckeditor5/latest/examples/builds/classic-editor.html" target="_blank">See examples</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 thumb-wrapper thumb-wrapper--left">
+                <div class="composition hidden-xs" aria-hidden="true">
+                    <div class="composition__thumb"></div>
+                    <div class="composition__image composition__image--1"></div>
+                    <div class="composition__image composition__image--2"></div>
+                </div>
+                <div class="composition__mobile" aria-hidden="true">
+                    <img src="https://ckeditor.com/assets/images/composition/ckeditor-5-builds/section-2/image-mo.png" alt="Designed for a purpose">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5 section-describe__wrapper hidden-xs col-sm-offset-1">
+                <div class="section-describe section-describe--right">
+                    <h2>Designed for a purpose</h2>
+                    <p>Choose between various CKEditor 5 Builds designed to satisfy a specific use case scenario or create your own custom build.</p><a class="btn" href="http://docs.ckeditor.com/ckeditor5/latest/examples/builds/classic-editor.html" target="_blank">See examples</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="section-3">
+    <div class="section-container">
+        <div class="row section-wrapper">
+            <div class="col-xs-12 col-sm-5 section-describe__wrapper">
+                <div class="section-describe section-describe--left hint">
+                    <h2>Easy Image</h2>
+                    <p>Insert images which are automatically rescaled, optimized, responsive and delivered through a blazing-fast CDN. All this with virtually zero server setup.</p>
+                    <p>Coming soon</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 thumb-wrapper col-sm-offset-1">
+                <div class="composition composition--hint" aria-hidden="true">
+                    <div class="composition__thumb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="section-4">
+    <div class="section-container">
+        <div class="row section-wrapper">
+            <div class="col-xs-12 col-sm-6 section-describe__wrapper visible-xs-inline" data-mobile="true">
+                <div class="section-describe section-describe--right">
+                    <h2>CKFinder</h2>
+                    <p>Install CKFinder to increase daily website content management productivity. Enrich CKEditor with image and file uploads.</p><a class="btn" href="/ckeditor-4/ckfinder">Find out more</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 thumb-wrapper thumb-wrapper--left">
+                <div class="composition hidden-xs" aria-hidden="true">
+                    <div class="composition__thumb"></div>
+                    <div class="composition__image"></div>
+                </div>
+                <div class="composition__mobile" aria-hidden="true">
+                    <img src="https://ckeditor.com/assets/images/composition/ckfinder/section-3/image-mo.png" alt="CKFinder - enrich CKEditor with image and file upload">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5 section-describe__wrapper hidden-xs col-sm-offset-1">
+                <div class="section-describe section-describe--right">
+                    <h2>CKFinder</h2>
+                    <p>Install CKFinder to increase daily website content management productivity. Enrich CKEditor with image and file uploads.</p><a class="btn" href="/ckeditor-4/ckfinder">Find out more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="section-5">
+    <div class="section-container">
+        <div class="row section-wrapper">
+            <div class="col-xs-12 col-sm-5 section-describe__wrapper">
+                <div class="section-describe section-describe--left">
+                    <h2>CKEditor 5 Framework</h2>
+                    <p>All CKEditor 5 Builds are powered by the CKEditor 5 Framework.</p><a class="btn" href="/ckeditor-5-framework">Find out more</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 thumb-wrapper col-sm-offset-1">
+                <div class="composition" aria-hidden="true">
+                    <div class="composition__thumb"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="module module-cta module-cta--1">
+    <div class="section-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>CKEditor 5 and CKEditor 4 comparison</h2>
+                <div class="module-cta__actions">
+                    <!-- Waiting for real link.--><a class="btn btn--frame btn-cta btn-cta--long" href="https://support.ckeditor.com/hc/en-us/sections/115001489149-The-CKEditor-4-and-CKEditor-5-Comparison" target="_blank">Find out more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="module module-subscribe  module-subscribe--short">
+    <div class="section-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Interested in enabling real-time collaborative editing in your software solution?</h2>
+                <form action="//ckeditor.us10.list-manage.com/subscribe/post?u=9c10324d9c722f3329b855dfd&amp;id=844b2127ac&amp;&amp;group[8965][1]=1&amp;SOURCE=Collaboration" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                    <div class="module-subscribe__actions">
+                        <div class="form-group-inline__wrapper">
+                            <div class="form-group form-group-inline form-group-inline--long">
+                                <label class="sr-only" for="mce-EMAIL">Company e-mail address</label><input class="form-control" type="email" placeholder="Your company email" name="EMAIL" id="mce-EMAIL">
+                            </div>
+                            <div class="form-group form-group-inline">
+                                <button class="btn btn--big" name="subscribe" id="mc-embedded-subscribe" type="submit">Get in touch!</button>
+                            </div><input type="hidden" name="b_9c10324d9c722f3329b855dfd_844b2127ac" tabindex="-1" value="" aria-hidden="true">
+                        </div>
+                    </div>
+                    <div class="clear" id="mce-responses">
+                        <div class="response" id="mce-error-response"></div>
+                        <div class="response" id="mce-success-response"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section><section class="module module-trustedby">
+    <div class="section-container">
+        <h2>Trusted by</h2>
+        <div class="module-trustedby__wrapper">
+            <div class="module-trustedby__logotype-container">
+                <div class="module-trustedby__logotype module-trustedby__logotype--adobe">
+                    <div class="sr-only">Adobe</div>
+                </div>
+            </div>
+            <div class="module-trustedby__logotype-container">
+                <div class="module-trustedby__logotype module-trustedby__logotype--citi">
+                    <div class="sr-only">Citi</div>
+                </div>
+            </div>
+            <div class="module-trustedby__logotype-container">
+                <div class="module-trustedby__logotype module-trustedby__logotype--ibm">
+                    <div class="sr-only">IBM</div>
+                </div>
+            </div>
+            <div class="module-trustedby__logotype-container">
+                <div class="module-trustedby__logotype module-trustedby__logotype--microsoft">
+                    <div class="sr-only">Microsoft</div>
+                </div>
+            </div>
+            <div class="module-trustedby__logotype-container">
+                <div class="module-trustedby__logotype module-trustedby__logotype--oracle">
+                    <div class="sr-only">Oracle</div>
+                </div>
+            </div>
+            <div class="module-trustedby__logotype-container">
+                <div class="module-trustedby__logotype module-trustedby__logotype--disney">
+                    <div class="sr-only">Disney</div>
+                </div>
+            </div>
+            <div class="module-trustedby__logotype-container">
+                <div class="module-trustedby__logotype module-trustedby__logotype--siemens">
+                    <div class="sr-only">Siemens</div>
+                </div>
+            </div>
+            <div class="module-trustedby__logotype-container">
+                <div class="module-trustedby__logotype module-trustedby__logotype--att">
+                    <div class="sr-only">AT&T</div>
+                </div>
+            </div>
+            <div class="module-trustedby__logotype-container">
+                <div class="module-trustedby__logotype module-trustedby__logotype--nbc">
+                    <div class="sr-only">NBC</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main><footer class="footer footer--ckeditor-5-builds" role="contentinfo">
+<div class="section-container footer-site-map">
+    <div class="row footer-menu__row">
+        <div class="col-xs-12 col-sm-4 footer-menu__container">
+            <div class="footer-menu__wrapper" role="navigation" aria-labelledby="menu-category-0-0">
+                <h2 id="menu-category-0-0">CKEditor 5 Builds</h2><ul class="footer-menu">
+                    <li>
+                        <a href="/ckeditor-5-builds">Overview</a>
+                    </li><li>
+                        <a href="http://docs.ckeditor.com/ckeditor5/latest/builds/">Documentation</a>
+                    </li><li>
+                        <a href="/ckeditor-5-builds/support">Support</a>
+                    </li><li>
+                        <a href="/ckeditor-5-builds/download">Download</a>
+                    </li><li>
+                        <a href="/ckeditor-5-builds/pricing">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 footer-menu__container">
+            <div class="footer-menu__wrapper" role="navigation" aria-labelledby="menu-category-0-1">
+                <h2 id="menu-category-0-1">CKEditor 5 Framework</h2><ul class="footer-menu">
+                    <li>
+                        <a href="/ckeditor-5-framework">Overview</a>
+                    </li><li>
+                        <a href="http://docs.ckeditor.com/ckeditor5/latest/framework/">Documentation</a>
+                    </li><li>
+                        <a href="/ckeditor-5-framework/support">Support</a>
+                    </li><li>
+                        <a href="/ckeditor-5-framework/pricing">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 footer-menu__container">
+            <div class="footer-menu__wrapper" role="navigation" aria-labelledby="menu-category-0-2">
+                <h2 id="menu-category-0-2">CKEditor 4</h2><ul class="footer-menu">
+                    <li>
+                        <a href="/ckeditor-4">Overview</a>
+                    </li><li>
+                        <a href="/ckeditor-4/ckfinder">CKFinder</a>
+                    </li><li>
+                        <a href="/ckeditor-4/accessibility-checker">Accessibility Checker</a>
+                    </li><li>
+                        <a href="/cke4/addons/plugins/all/">Add-ons</a>
+                    </li><li>
+                        <a href="http://docs.ckeditor.com/ckeditor4/">Documentation</a>
+                    </li><li>
+                        <a href="/ckeditor-4/support">Support</a>
+                    </li><li>
+                        <a href="/ckeditor-4/download">Download</a>
+                    </li><li>
+                        <a href="/ckeditor-4/pricing">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row footer-menu__row">
+        <div class="col-xs-12 col-sm-4 footer-menu__container">
+            <div class="footer-menu__wrapper" role="navigation" aria-labelledby="menu-category-1-0">
+                <h2 id="menu-category-1-0">Letters</h2><ul class="footer-menu">
+                    <li>
+                        <a href="/letters">Overview</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 footer-menu__container">
+            <div class="footer-menu__wrapper" role="navigation" aria-labelledby="menu-category-1-1">
+                <h2 id="menu-category-1-1">CKEditor Cloud Services</h2><ul class="footer-menu">
+                    <li>
+                        <a href="/ckeditor-cloud-services">Overview</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 footer-menu__container">
+            <div class="footer-menu__wrapper" role="navigation" aria-labelledby="menu-category-1-2">
+                <h2 id="menu-category-1-2">Connect with us</h2><ul class="footer-menu">
+                    <li>
+                        <a href="/contact">Contact us</a>
+                    </li><li>
+                        <a href="https://support.ckeditor.com/hc/en-us">Help center</a>
+                    </li><li>
+                        <a href="https://cksource.com">About us</a>
+                    </li><li>
+                        <a href="/blog">Blog</a>
+                    </li><li>
+                        <a href="#" data-dialog="newsletter">Newsletter</a>
+                    </li><li class="footer-social">
+                        <ul>
+                            <li>
+                                <a class="icon icon--small" href="https://www.facebook.com/CKEditor" target="_blank">
+                                    <svg class="icon__body">
+                                        <use xlink:href="#facebook"></use>
+                                    </svg>
+                                </a>
+                            </li><li>
+                                <a class="icon icon--small" href="https://www.twitter.com/ckeditor" target="_blank">
+                                    <svg class="icon__body">
+                                        <use xlink:href="#twitter"></use>
+                                    </svg>
+                                </a>
+                            </li><li>
+                                <a class="icon icon--small" href="https://plus.google.com/+ckeditor/posts" target="_blank">
+                                    <svg class="icon__body">
+                                        <use xlink:href="#g-plus"></use>
+                                    </svg>
+                                </a>
+                            </li><li>
+                                <a class="icon icon--small" href="https://medium.com/content-uneditable" target="_blank">
+                                    <svg class="icon__body">
+                                        <use xlink:href="#medium"></use>
+                                    </svg>
+                                </a>
+                            </li><li>
+                                <a class="icon icon--small" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub.">
+                                    <svg class="icon__body">
+                                        <use xlink:href="#github"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-mobile" role="navigation" aria-hidden="true" data-mobile="true">
+    <div class="section-container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 footer-mobile__column">
+                <h2>Products</h2><ul class="footer-mobile__menu">
+                    <li>
+                        <a href="https://ckeditor.com/ckeditor-5-builds">CKEditor 5 Builds</a>
+                    </li><li>
+                        <a href="https://ckeditor.com/ckeditor-5-framework">CKEditor 5 Framework</a>
+                    </li><li>
+                        <a href="https://ckeditor.com/ckeditor-4">CKEditor 4</a>
+                    </li><li>
+                        <a href="https://ckeditor.com/letters">Letters</a>
+                    </li><li>
+                        <a href="https://ckeditor.com/ckeditor-cloud-services">CKEditor Cloud Services</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 footer-mobile__column">
+                <h2>Connect with us</h2><ul class="footer-mobile__menu">
+                    <li>
+                        <a href="/contact">Contact us</a>
+                    </li><li>
+                        <a href="https://support.ckeditor.com/hc/en-us">Help center</a>
+                    </li><li>
+                        <a href="https://cksource.com">About us</a>
+                    </li><li>
+                        <a href="/blog">Blog</a>
+                    </li><li>
+                        <a href="#">Newsletter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row footer-mobile__social">
+            <ul>
+                <li class="footer-social">
+                    <ul>
+                        <li>
+                            <a class="icon icon--small" href="https://www.facebook.com/CKEditor" target="_blank">
+                                <svg class="icon__body">
+                                    <use xlink:href="#facebook"></use>
+                                </svg>
+                            </a>
+                        </li><li>
+                            <a class="icon icon--small" href="https://www.twitter.com/ckeditor" target="_blank">
+                                <svg class="icon__body">
+                                    <use xlink:href="#twitter"></use>
+                                </svg>
+                            </a>
+                        </li><li>
+                            <a class="icon icon--small" href="https://plus.google.com/+ckeditor/posts" target="_blank">
+                                <svg class="icon__body">
+                                    <use xlink:href="#g-plus"></use>
+                                </svg>
+                            </a>
+                        </li><li>
+                            <a class="icon icon--small" href="https://medium.com/content-uneditable" target="_blank">
+                                <svg class="icon__body">
+                                    <use xlink:href="#medium"></use>
+                                </svg>
+                            </a>
+                        </li><li>
+                            <a class="icon icon--small" href="https://github.com/ckeditor/ckeditor5" target="_blank" title="CKEditor 5 on GitHub.">
+                                <svg class="icon__body">
+                                    <use xlink:href="#github"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="section-container footer-policy">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <p class="footer-policy__rights">© 2003 - 2017 CKSource sp. z o.o. sp.k. All rights reserved.</p>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <ul class="footer-policy__menu">
+                <li class="footer-policy__menu-item">
+                    <a href="/legal">Legal</a>
+                </li><li class="footer-policy__menu-item">
+                    <a href="/legal/privacy-policy">Privacy policy</a>
+                </li><li class="footer-policy__menu-item">
+                    <a href="https://opensource.org/docs/definition.php">Proud to be Open Source</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</footer><svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="twitter" viewBox="0 0 27 22">
+        <title>Twitter</title><path d="M25.992.409a11.12 11.12 0 0 1-3.476 1.285A5.536 5.536 0 0 0 18.525.02c-3.018 0-5.467 2.376-5.467 5.306 0 .416.047.82.14 1.208C8.655 6.313 4.625 4.203 1.927.99a5.178 5.178 0 0 0-.74 2.67c0 1.84.964 3.465 2.433 4.416a5.601 5.601 0 0 1-2.48-.661v.064c0 2.572 1.886 4.718 4.39 5.203a5.491 5.491 0 0 1-1.441.188c-.352 0-.696-.033-1.03-.095.697 2.107 2.715 3.642 5.109 3.683a11.186 11.186 0 0 1-6.792 2.272c-.442 0-.878-.024-1.305-.072a15.849 15.849 0 0 0 8.384 2.381c10.06 0 15.56-8.083 15.56-15.096 0-.23-.005-.46-.014-.687a10.882 10.882 0 0 0 2.727-2.746c-.98.421-2.034.707-3.14.835A5.349 5.349 0 0 0 25.992.409"/>
+    </symbol>
+
+    <symbol id="facebook" viewBox="0 0 27 25">
+        <title>Facebook</title><path d="M26.97 23.518c0 .754-.645 1.365-1.441 1.365H18.87v-9.574h3.397l.509-3.73H18.87V9.195c0-1.08.318-1.817 1.955-1.817h2.088V4.04c-.361-.045-1.6-.147-3.043-.147-3.01 0-5.071 1.74-5.071 4.933v2.751h-3.405v3.73h3.405v9.575H2.284c-.796 0-1.442-.611-1.442-1.365V1.525C.842.771 1.488.16 2.284.16H25.53c.796 0 1.442.611 1.442 1.365v21.993"/>
+    </symbol>
+
+    <symbol id="facebook-flat" viewBox="0 0 29 50">
+        <title>Facebook</title><path d="M18.75 18.75h9.375v9.375H18.75V50H9.375V28.125H0V18.75h9.375v-3.922c0-3.715 1.169-8.41 3.494-10.975C15.194 1.281 18.097 0 21.575 0h6.55v9.375h-6.563a2.808 2.808 0 0 0-2.812 2.81v6.565z"/>
+    </symbol>
+
+    <symbol id="instagram" viewBox="0 0 27 26">
+        <title>Instagram</title><path d="M23.79 0H3.21C1.436 0 0 1.38 0 3.083v19.834C0 24.619 1.437 26 3.21 26h20.58c1.773 0 3.21-1.38 3.21-3.083V3.083C27 1.38 25.563 0 23.79 0zm-4.383 4.062c0-.448.377-.812.843-.812h2.531c.466 0 .844.364.844.812V6.5c0 .448-.378.812-.844.812H20.25c-.466 0-.843-.364-.843-.812V4.062zm-5.876 3.98c2.868 0 5.193 2.234 5.193 4.988 0 2.755-2.325 4.988-5.193 4.988-2.867 0-5.192-2.233-5.192-4.988 0-2.754 2.325-4.988 5.192-4.988zM24.47 22.75c0 .448-.378.813-.844.813H3.375c-.466 0-.844-.365-.844-.813V10.562h3.375c-.44.61-.588 1.746-.588 2.468 0 4.35 3.685 7.891 8.213 7.891 4.53 0 8.215-3.54 8.215-7.89 0-.723-.107-1.842-.652-2.469h3.375V22.75z"/>
+    </symbol>
+
+    <symbol id="medium" viewBox="0 0 24 24">
+        <title>Medium</title><path d="M7.45 2.67l5.38 11.74H13c.86-1.93 1.6-3.91 2.4-5.87s1.6-3.9 2.35-5.86h5.66a3.67 3.67 0 0 1-.24.35c-.42.47-.83 1-1.28 1.41a1.61 1.61 0 0 0-.48 1.23v13a1.08 1.08 0 0 0 .38.86c.44.39.86.8 1.28 1.21l.41.42h-8.77a2.81 2.81 0 0 1 .26-.33c.41-.39.82-.79 1.25-1.16a1.22 1.22 0 0 0 .44-1V9.33c0-.44 0-.88.07-1.31V7.3h-.13c-.08.16-.18.31-.24.48l-5.3 13c-.07.18-.16.35-.25.52h-.12L4.23 7.16h-.14v9.26a1.93 1.93 0 0 0 .43 1.26c.77 1 1.52 2 2.28 3 .1.13.18.27.32.46H.5c.1-.17.17-.29.25-.39.79-1.05 1.59-2.11 2.39-3.15a1.81 1.81 0 0 0 .4-1.17v-10a1.51 1.51 0 0 0-.33-1C2.57 4.67 2 3.85 1.34 3c-.07-.1-.13-.21-.23-.36z"/>
+    </symbol>
+
+    <symbol id="g-plus" viewBox="0 0 29 18">
+        <title>Google+</title><path d="M9.144 7.123h8.761c.61 4.144-1.23 10.359-8.76 10.359-5.038 0-9.123-3.872-9.123-8.647S4.107.189 9.144.189c2.364 0 4.518.852 6.138 2.25-1.908 1.709-1.846 1.81-2.596 2.522-.937-.735-1.96-1.262-3.542-1.262-2.992 0-5.328 2.3-5.328 5.136 0 2.837 2.336 5.137 5.328 5.137 2.958 0 4.16-1.21 4.932-3.43-1.427 0-4.932.005-4.932.005V7.123zm16.438.171h3.16v2.14h-3.16v3.082h-2.258V9.434h-3.252v-2.14h3.252V4.298h2.258v2.996z"/>
+    </symbol>
+
+    <svg id="github" viewBox="0 0 24 24">
+        <title id="simpleicons-github-icon">GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </svg>
+
+    <symbol id="arrow-down" viewBox="0 0 78 37">
+        <title>Arrow down</title><g stroke-width="3" fill="none" fill-rule="evenodd" stroke-linecap="square">
+            <path d="M2.081 2.135L39.37 34.347M39.533 34.347L76.82 2.135 39.533 34.347z"/>
+        </g>
+    </symbol>
+
+    <symbol id="phone" viewBox="0 0 28 28">
+        <title>Phone</title><path d="M5.6 12.133c2.178 4.356 5.911 7.934 10.267 10.267l3.422-3.422c.467-.467 1.089-.622 1.555-.311 1.712.622 3.578.933 5.6.933.934 0 1.556.622 1.556 1.556v5.288c0 .934-.622 1.556-1.556 1.556C11.822 28 0 16.178 0 1.556 0 .622.622 0 1.556 0H7c.933 0 1.556.622 1.556 1.556 0 1.866.31 3.733.933 5.6.155.466 0 1.088-.311 1.555L5.6 12.133z"/>
+    </symbol>
+
+    <symbol id="menu" viewBox="0 0 25 17">
+        <title>Menu</title><path d="M0 17h25v-3H0v3zm0-7h25V7H0v3zM0 0v3h25V0H0z"/>
+    </symbol>
+
+    <symbol id="close" viewBox="0 0 18 18">
+        <title>Close icon</title><path d="M18 1.813L16.187 0 9 7.187 1.813 0 0 1.813 7.187 9 0 16.187 1.813 18 9 10.813 16.187 18 18 16.187 10.813 9z"/>
+    </symbol>
+
+    <symbol id="check" viewBox="0 0 20 14">
+        <title>Check</title><path d="M7 11.17L2.83 7 1.41 8.41 7 14 19 2 17.59.59z" stroke="#19B159"/>
+    </symbol>
+</svg>
+<script src="https://ckeditor.com/downloads.mailchimp.com/js/mc-validate.js"></script><script src="https://ckeditor.com/assets/js/main.js"></script><script>window.zESettings = { "webWidget": { "chat": { "suppress": true } } };</script><script>
+               /*<![CDATA[*/
+               window.zEmbed || function(e, t) {
+                   var n, o, d, i, s, a = [], r = document.createElement("iframe");
+                   window.zEmbed = function() { a.push(arguments) }, window.zE = window.zE || window.zEmbed, r.src = "javascript:false", r.title = "", r.role = "presentation", (r.frameElement || r).style.cssText = "display: none", d = document.getElementsByTagName("script"), d = d[d.length - 1], d.parentNode.insertBefore(r, d), i = r.contentWindow, s = i.document;
+                   try {
+                       o = s;
+                   } catch (e) {
+                       n = document.domain, r.src = 'javascript:var d=document.open();d.domain="' + n + '";void(0);', o = s;
+                   }
+                   o.open()._l = function() {
+                       var e = this.createElement("script");
+                       n && (this.domain = n), e.id = "js-iframe-async", e.src = "https://assets.zendesk.com/embeddable_framework/main.js", this.t = +new Date, this.zendeskHost = "ckeditor.zendesk.com", this.zEQueue = a, this.body.appendChild(e);
+                   }, o.write('<body onload="document._l();">'), o.close();
+               }(); /*]]>*/
+           </script><script>
+                        zE(function() { zE.setLocale('en-US'); });
+                    </script>
+</body>
+</html>

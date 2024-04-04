@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>家谱组织结构图</title>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="demo/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/jquery.orgchart.css" rel="stylesheet"/>
+
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <!-- <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>-->
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+
+    <!--[endif]-->
+
+
+    <script src="demo/js/jquery.min.js"></script>
+    <script src="demo/js/jquery.mockjax.min.js"></script>
+    <script src="js/jquery.orgchart.js"></script>
+
+
+</head>
+<body>
+
+<script type="text/javascript">
+    
+
+    //1.加载树形数据：ajax请求获取json格式的数据（flag参数可以无视，我自己的业务逻辑需要）
+    function setTreeInfo(flag) {
+        $('#chart-container').empty();
+        $.ajax({
+            url: "clan/getAllClanInfo.action",
+            type: "POST",
+            dataType: "json",
+            success: function (res) {
+                //开始加载家谱图
+                setTreeView(res.jiclan[0], flag);
+                console.log("数据加载成功！");
+            },
+            error: function () {
+                console.log("加载数据异常！");
+            }
+        });
+    }
+
+    //2.加载树形结构
+    function setTreeView(dataJson, flag) {
+        //orgchart的初始化参数可以去github官方看文档，比较简单
+        jiclan = $('#chart-container').orgchart({
+            'data': dataJson,
+            'pan': false,
+            'zoom': false,
+            'zoominLimit': 3,
+            'zoomoutLimit': 0.5,
+            'toggleSiblingsResp': true,
+            'draggable': false,
+            'direction': 'l2r',
+            'exportButton': true,
+            'exportFilename': 'XX家谱',
+            'exportFileextension': 'png',
+            'nodeTemplate': setNodeTemplate
+        });
+
+        //当家谱加载完成后执行，这个函数与家谱图加载已经无关了，执行此函数之前已经完成了家谱图的生成；
+        // orgchartCompleted(flag);
+    }
+
+
+    //3.设定树形模板。这个是重点，对于每个节点的生成样式与内容都在这里进行控制
+    function setNodeTemplate(data) {
+        var str = "";
+        //如果为男性
+        if (data.sex == "0") {
+            //是否已经结婚
+            if (data.wifeName != null && data.wifeName != "") {
+                str += '<div class="title clan-man">' + data.name + '</div>';
+                str += '<div class="content clan-wife">' + data.wifeName + '</div>';
+                //下面这一行是为了加载每个节点上面的三个按钮，可以进行查询，修改，增加等操作
+                str += "<div class='opBtns display-none'>" +
+                            "<i class='clan-btn clan-dtalBtn'></i>" +
+                            "<i class='clan-btn clan-editBtn'></i>" +
+                            "<i class='clan-btn clan-addChildBtn'></i>" +
+                        "</div>";
+            } else {
+                str += '<div class="title clan-man">' + data.name + '</div>';
+                str += '<div class="content clan-single"></div>';
+                str += "<div class='opBtns display-none'>" +
+                            "<i class='clan-btn clan-dtalBtn'></i>" +
+                            "<i class='clan-btn clan-editBtn'></i>" +
+                        "</div>";
+            }
+        } else {
+            str += '<div class="title clan-woman">' + data.name + '</div>';
+            str += '<div class="content clan-single"></div>';
+            str += "<div class='opBtns display-none'>" +
+                        "<i class='clan-btn clan-dtalBtn'></i>" +
+                        "<i class='clan-btn clan-editBtn'></i>" +
+                    "</div>";
+        }
+        return str;
+    }
+
+
+</script>
+
+<img src="images/1045988-20180619174256554-1848250537.png" alt="" />
+
+
+</body>
+</html>

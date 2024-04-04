@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Mobile Table</title>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-table.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/bootstrap/js/bootstrap.js"></script>
+    <script src="../Scripts/bootstrap/js/bootstrap-table.js"></script>
+    <script src="../Scripts/bootstrap/js/locales/bootstrap-table-zh-CN.js"></script>
+    <script src="../Scripts/bootstrap/js/extensions/mobile/bootstrap-table-mobile.js"></script>
+
+    <style type="text/css">
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body { font: 14px/1.4 Georgia, Serif; }
+
+        #page-wrap { margin: 20px; }
+
+        p { margin: 20px 0; }
+
+        /* 
+	     * Generic Styling, for Desktops/Laptops 
+	     */
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        /* Zebra striping */
+
+        tr:nth-of-type(odd) { background: #eee; }
+
+        th {
+            background: #333;
+            color: white;
+            font-weight: bold;
+        }
+
+        td, th {
+            border: 1px solid #ccc;
+            padding: 6px;
+            text-align: left;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="page-wrap">
+
+    <h1>Responsive Table</h1>
+
+    <p>
+        Go to <a href="index.html">Non-Responsive Table</a>
+    </p>
+
+    <p>This is the exact same table, only has @media queries applied to is so that when the screen is too narrow, it reformats (via only CSS) to make each row a bit like it's own table. This makes for much more repetition and vertical space needed, but it fits within the horizontal space, so only natural vertical scrolling is needed to explore the data.</p>
+
+    <table style="display: none;">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Job Title</th>
+            <th>Favorite Color</th>
+            <th>Wars or Trek?</th>
+            <th>Porn Name</th>
+            <th>Date of Birth</th>
+            <th>Dream Vacation City</th>
+            <th>GPA</th>
+            <th>Arbitrary Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>James</td>
+            <td>Matman</td>
+            <td>Chief Sandwich Eater</td>
+            <td>Lettuce Green</td>
+            <td>Trek</td>
+            <td>Digby Green</td>
+            <td>January 13, 1979</td>
+            <td>Gotham City</td>
+            <td>3.1</td>
+            <td>RBX-12</td>
+        </tr>
+        <tr>
+            <td>The</td>
+            <td>Tick</td>
+            <td>Crimefighter Sorta</td>
+            <td>Blue</td>
+            <td>Wars</td>
+            <td>John Smith</td>
+            <td>July 19, 1968</td>
+            <td>Athens</td>
+            <td>N/A</td>
+            <td>Edlund, Ben (July 1996).</td>
+        </tr>
+        <tr>
+            <td>Jokey</td>
+            <td>Smurf</td>
+            <td>Giving Exploding Presents</td>
+            <td>Smurflow</td>
+            <td>Smurf</td>
+            <td>Smurflane Smurfmutt</td>
+            <td>Smurfuary Smurfteenth, 1945</td>
+            <td>New Smurf City</td>
+            <td>4.Smurf</td>
+            <td>One</td>
+        </tr>
+        <tr>
+            <td>Cindy</td>
+            <td>Beyler</td>
+            <td>Sales Representative</td>
+            <td>Red</td>
+            <td>Wars</td>
+            <td>Lori Quivey</td>
+            <td>July 5, 1956</td>
+            <td>Paris</td>
+            <td>3.4</td>
+            <td>3451</td>
+        </tr>
+        <tr>
+            <td>Captain</td>
+            <td>Cool</td>
+            <td>Tree Crusher</td>
+            <td>Blue</td>
+            <td>Wars</td>
+            <td>Steve 42nd</td>
+            <td>December 13, 1982</td>
+            <td>Las Vegas</td>
+            <td>1.9</td>
+            <td>Under the couch</td>
+        </tr>
+        </tbody>
+    </table>
+
+<div class="table-responsive"> <table class="table table-bordered"> <thead> <tr> <th>#</th> <th>Table heading</th> <th>Table heading</th> <th>Table heading</th> <th>Table heading</th> <th>Table heading</th> <th>Table heading</th> </tr> </thead> <tbody> <tr> <th scope="row">1</th> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> </tr> <tr> <th scope="row">2</th> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> </tr> <tr> <th scope="row">3</th> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> <td>Table cell</td> </tr> </tbody> </table> </div>
+
+
+
+</div>
+
+
+</body>
+</html>

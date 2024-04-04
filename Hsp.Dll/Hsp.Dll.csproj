@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6B926E7-5137-42E8-919A-3F3DF56040E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hsp.Dll</RootNamespace>
+    <AssemblyName>Hsp.Dll</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Aspose\Aspose.Cells.dll" />
+    <Content Include="Aspose\Aspose.Pdf.dll" />
+    <Content Include="Aspose\Aspose.Words.dll" />
+    <Content Include="Bass\x64\bass.dll" />
+    <Content Include="Bass\x64\Bass.Net.dll" />
+    <Content Include="Bass\x64\bassenc_ogg.dll" />
+    <Content Include="Bass\x64\bassflac.dll" />
+    <Content Include="Bass\x64\bassmidi.dll" />
+    <Content Include="Bass\x64\bassmix.dll" />
+    <Content Include="Bass\x64\bass_aac.dll" />
+    <Content Include="Bass\x64\bass_ac3.dll" />
+    <Content Include="Bass\x64\bass_ape.dll" />
+    <Content Include="Bass\x64\bass_fx.dll" />
+    <Content Include="Bass\x64\tags.dll" />
+    <Content Include="Data\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="Data\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+    <Content Include="Data\Microsoft.Practices.ObjectBuilder.dll" />
+    <Content Include="Data\System.Data.SQLite.dll" />
+    <Content Include="Data\System.Data.SQLite.EF6.dll" />
+    <Content Include="Data\System.Data.SQLite.Linq.dll" />
+    <Content Include="Data\System.Data.SqlServerCe.dll" />
+    <Content Include="ICSharpCode.SharpZipLib.dll" />
+    <Content Include="json\Newtonsoft.Json.dll" />
+    <Content Include="json\Newtonsoft.Json.pdb" />
+    <Content Include="json\Newtonsoft.Json.xml" />
+    <Content Include="JumonyCore\Ivony.Core.dll" />
+    <Content Include="JumonyCore\Ivony.Core.xml" />
+    <Content Include="JumonyCore\Ivony.Html.dll" />
+    <Content Include="JumonyCore\Ivony.Html.Parser.dll" />
+    <Content Include="JumonyCore\Ivony.Html.Parser.Regulars.dll" />
+    <Content Include="JumonyCore\Ivony.Html.Parser.XML" />
+    <Content Include="JumonyCore\Ivony.Html.xml" />
+    <Content Include="log4net.dll" />
+    <Content Include="MediaInfo.dll" />
+    <Content Include="MediaInfoNET.dll" />
+    <Content Include="Media\mp3\ID3.dll" />
+    <Content Include="Media\mp3\Interop.Shell32.dll" />
+    <Content Include="Quartz\Common.Logging.Core.dll" />
+    <Content Include="Quartz\Common.Logging.Core.XML" />
+    <Content Include="Quartz\Common.Logging.dll" />
+    <Content Include="Quartz\Common.Logging.xml" />
+    <Content Include="Quartz\log4net.dll" />
+    <Content Include="Quartz\log4net.xml" />
+    <Content Include="Quartz\Quartz.dll" />
+    <Content Include="Quartz\Quartz.xml" />
+    <Content Include="SmartThreadPool.dll" />
+    <Content Include="SQLite\x64\EntityFramework.dll" />
+    <Content Include="SQLite\x64\SQLite.Designer.dll" />
+    <Content Include="SQLite\x64\SQLite.Interop.dll" />
+    <Content Include="SQLite\x64\System.Data.SQLite.dll" />
+    <Content Include="SQLite\x64\System.Data.SQLite.EF6.dll" />
+    <Content Include="SQLite\x64\System.Data.SQLite.Linq.dll" />
+    <Content Include="SQLite\x86\EntityFramework.dll" />
+    <Content Include="SQLite\x86\SQLite.Designer.dll" />
+    <Content Include="SQLite\x86\SQLite.Interop.dll" />
+    <Content Include="SQLite\x86\System.Data.SQLite.dll" />
+    <Content Include="SQLite\x86\System.Data.SQLite.EF6.dll" />
+    <Content Include="SQLite\x86\System.Data.SQLite.Linq.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Aspose\Aspose.Words.chm" />
+    <None Include="Bass\BassNet.chm" />
+    <None Include="SQLite\SQLite.NET.chm" />
+    <None Include="SQLite\x64\northwindEF.db" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

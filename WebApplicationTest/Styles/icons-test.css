@@ -1,0 +1,124 @@
+﻿/* 48X48 */
+
+.icon-black, .icon-white{ background: url('icons/bw.jpg') no-repeat; }
+
+.icon-black-mail { background-position:  -14px -12px; }
+
+.icon-black-cal { background-position:  -60px -12px; }
+
+.icon-black-home { background-position:  -106px -12px; }
+
+.icon-black-print { background-position:  -152px -12px; }
+
+.icon-black-camera { background-position:  -14px -60px; }
+
+.icon-black-envelop { background-position:  -60px -60px; }
+
+.icon-black-message { background-position:  -106px -60px; }
+
+.icon-black-lock { background-position:  -152px -60px; }
+
+.icon-black-unlock { background-position:  -14px -106px; }
+
+.icon-black-global { background-position:  -60px -106px; }
+
+.icon-black-download { background-position:  -106px -106px; }
+
+.icon-black-upload { background-position:  -152px -106px; }
+
+.icon-black-atom { background-position:  -14px -152px; }
+
+.icon-black-chart { background-position:  -60px -152px; }
+
+.icon-black-movie { background-position:  -106px -152px; }
+
+.icon-black-cart { background-position:  -152px -152px; }
+
+/* */
+
+.icon-white-mail { background-position:  -230px -12px; }
+
+.icon-white-cal { background-position:  -276px -12px; }
+
+.icon-white-home { background-position:  -322px -12px; }
+
+.icon-white-print { background-position:  -368px -12px; }
+
+.icon-white-camera { background-position:  -230px -60px; }
+
+.icon-white-envelop { background-position:  -276px -60px; }
+
+.icon-white-message { background-position:  -322px -60px; }
+
+.icon-white-lock { background-position:  -368px -60px; }
+
+.icon-white-unlock { background-position:  -230px -106px; }
+
+.icon-white-global { background-position:  -276px -106px; }
+
+.icon-white-download { background-position:  -322px -106px; }
+
+.icon-white-upload { background-position:  -368px -106px; }
+
+.icon-white-atom { background-position:  -230px -152px; }
+
+.icon-white-chart { background-position:  -276px -152px; }
+
+.icon-white-movie { background-position:  -322px -152px; }
+
+.icon-white-cart { background-position:  -368px -152px; }
+
+/* 32X32*/
+
+.icon-32-new { background: url('icons/01.jpg') no-repeat -71px -57px; }
+
+.icon-32-edit { background: url('icons/01.jpg') no-repeat -135px -57px; }
+
+.icon-32-search { background: url('icons/01.jpg') no-repeat -201px -57px; }
+
+.icon-32-print { background: url('icons/01.jpg') no-repeat -267px -57px; }
+
+.icon-32-save { background: url('icons/01.jpg') no-repeat -329px -57px; }
+
+.icon-32-saveas { background: url('icons/01.jpg') no-repeat -396px -56px; }
+
+.icon-32-radio { background: url('icons/01.jpg') no-repeat -71px -122px; }
+
+.icon-32-blade { background: url('icons/01.jpg') no-repeat -138px -122px; }
+
+.icon-32-chem { background: url('icons/01.jpg') no-repeat -201px -122px; }
+
+.icon-32-time { background: url('icons/01.jpg') no-repeat -266px -121px; }
+
+.icon-32-inje { background: url('icons/01.jpg') no-repeat -331px -122px; }
+
+.icon-32-echo { background: url('icons/01.jpg') no-repeat -397px -123px; }
+
+
+/* 128X128 */
+
+.icon-128-panel { background: url('icons/01.jpg') no-repeat -58px -605px; }
+
+.icon-128-chem { background: url('icons/01.jpg') no-repeat -198px -600px; }
+
+.icon-128-switch { background: url('icons/01.jpg') no-repeat -325px -605px; }
+
+.icon-128-edit { background: url('icons/01.jpg') no-repeat -58px -886px; }
+
+.icon-128-time { background: url('icons/01.jpg') no-repeat -190px -886px; }
+
+.icon-128-chart { background: url('icons/01.jpg') no-repeat -325px -886px; }
+
+
+
+/* season */
+
+.icon-season { background: url('icons/4j.jpg') no-repeat }
+
+.icon-season-spring { background-position: 0px 0px; }
+
+.icon-season-summer { background-position: -51px 0; }
+
+.icon-season-autumn { background-position: -102px 0; }
+
+.icon-season-winter { background-position: -153px 0; }

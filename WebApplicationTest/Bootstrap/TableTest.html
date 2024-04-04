@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 表格测试</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link href="../Scripts/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+    <link href="../Scripts/bootstrap/css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-table.css" rel="stylesheet"/>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/Scripts/bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
+    <link href="../Scripts/bootstrap/css/docs.min.css" rel="stylesheet"/>
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="/Scripts/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/Scripts/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="/Scripts/html5shiv.min.js"></script>
+        <script src="/Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.9.1.js"></script>
+    <script src="../Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Scripts/bootstrap/js/bootstrap-table.js"></script>
+    <script src="../Scripts/bootstrap/js/locales/bootstrap-table-zh-CN.js"></script>
+    
+    <style type="text/css">
+        .mytable {
+            margin: 0px;
+            table-layout: fixed;
+            width: 98%;
+             border:1px;
+        }
+
+        tr td {
+            -moz-text-overflow: ellipsis; /* for Firefox,mozilla */
+            /*border: 1px solid;*/
+            overflow: hidden;
+            text-align: left;
+            text-overflow: ellipsis; /* for IE */
+            white-space: nowrap;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+    
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2 id="tables-example">表格内容溢出隐藏</h2>
+
+    <table class="mytable table table-condensed table-bordered table-hover table-striped" border="1" >
+    <tr>
+        <td width="20%">再别康桥</td>
+        <td width="80%">
+            轻轻我走了，正如我轻轻地来，我挥一挥衣袖，不带走一片云彩
+        </td>
+
+    </tr>
+</table>
+
+<table class="mytable table table-condensed table-bordered table-hover table-striped">
+    <caption>Optional table caption.</caption>
+    <thead>
+    <tr>
+        <th width="15%">#</th>
+        <th width="45%">First Name</th>
+        <th width="20%">Last Name</th>
+        <th width="20%">Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th width="15%" scope="row">1</th>
+        <td width="45%">398493243849324l32kl4i324i32l4k32oi4o32k4l32i4o32k4l32k4o32lkkkklllllllllllllkjlkjsdfsdfsdfsdfd222222222222222222222lkjsdlkfjslkdjflskdjflkssdjfksjdlfjldskjflksdjflkjsdlkjflkdsjflksjdlkfjdskjfksdjfdjflksdjflkjsdlkfjslkdjflksjdflkjdskf</td>
+        <td width="20%">Otto</td>
+        <td width="20%">@mdo</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>bootstrap-table组合表头</h2>
+
+<table id="table"></table>
+
+</div>
+
+<script type="text/javascript">
+    
+    //先销毁表格  
+    $("#table").bootstrapTable('destroy');
+
+    $("#table").bootstrapTable({
+        dataType: "json",
+        method: 'get',
+        contentType: "application/x-www-form-urlencoded",
+        cache: false,
+        //url: "../data/mergeData.json",
+        columns: [
+
+            [
+                {
+                    "title": "洗衣机统计表",
+                    "halign": "center",
+                    "align": "center",
+                    "colspan": 5
+                }
+            ],
+            [
+                {
+                    field: 'name',
+                    title: "功能分组",
+                    valign: "middle",
+                    align: "center",
+                    colspan: 1,
+                    rowspan: 2
+                },
+                {
+                    title: "美的",
+                    valign: "middle",
+                    align: "center",
+                    colspan: 2,
+                    rowspan: 1
+                },
+                {
+                    title: "松下",
+                    valign: "middle",
+                    align: "center",
+                    colspan: 2,
+                    rowspan: 1
+                }
+            ],
+            [
+                {
+                    field: 'mideaNum',
+                    title: '数量',
+                    valign: "middle",
+                    align: "center"
+                },
+                {
+                    field: 'mideaPercent',
+                    title: '占比',
+                    valign: "middle",
+                    align: "center"
+                },
+                {
+                    field: 'panasonicNum',
+                    title: '数量',
+                    valign: "middle",
+                    align: "center"
+                },
+                {
+                    field: 'panasonicPercent',
+                    title: '占比',
+                    valign: "middle",
+                    align: "center"
+                }
+            ]
+        ]
+    })
+</script>
+
+
+
+</body>
+</html>

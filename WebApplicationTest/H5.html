@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML 5 对象测试</title>
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<h1>HTML 5 对象测试</h1>
+
+<!--<form id="view-data" name="view-data" method="post" action="">
+    <h3>1.默认整数</h3>
+    <input type="number" id="d1" class="form-control" placeholder="默认整数"/>
+    <input type="number" id="d2" min="0" max="100"/>
+
+    <h3>2.浮点类型</h3>
+    <input type="number" id="d3" min="0.00" max="100.00" step="0.01"/>
+
+
+    <input id="Button1" type="button" value="button" onclick="CheckData()"/>
+    <input type="text" id="d4" name="d4">
+    <input type="text" name="text1">
+
+
+</form>-->
+
+
+<!--<form id="aijquery" name="aijquery">
+    <input type="text" name="text">
+    <select type="select" name="select">
+        <option value="select1">select1</option>
+        <option value="select2">select2</option>
+    </select>
+    <input type="checkbox" name="checkbox" value="checkbox1">checkbox1
+    <input type="checkbox" name="checkbox" value="checkbox2">checkbox2
+    <input type="checkbox" name="checkbox" value="checkbox3">checkbox3
+    <input type="radio" name="radio" value="radio1">radio1
+    <input type="radio" name="radio" value="radion2">radion2
+    <input type="radio" name="radion" value="radio3">radio3
+    <button id="get" type="button">获取JSON</button>
+</form>-->
+
+<!--
+<form id="form1" name="form1" method="post" action="">
+    <p>
+        进货人 :
+        <label for="name"></label>
+        <input type="text" name="name" id="name"/>
+    </p>
+    <p>
+        性别:
+        <label for="sex"></label>
+        <select name="sex" size="1" id="sex">
+            <option value="1">男</option>
+            <option value="2">女</option>
+        </select>
+    </p>
+    <table width="708" border="1">
+        <tr>
+            <td width="185">商品名</td>
+            <td width="205">商品数量</td>
+            <td width="296">商品价格</td>
+        </tr>
+        <tr>
+            <td>
+                <label for="pro_name"></label>
+                <input type="text" name="pro_name" id="pro_name"/>
+            </td>
+            <td>
+                <label for="pro_num"></label>
+                <input type="text" name="pro_num" id="pro_num"/>
+            </td>
+            <td>
+                <label for="pro_price"></label>
+                <input type="text" name="pro_price" id="pro_price"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="pro_name2" id="pro_name2"/>
+            </td>
+            <td>
+                <input type="text" name="pro_num2" id="pro_num2"/>
+            </td>
+            <td>
+                <input type="text" name="pro_price2" id="pro_price2"/>
+            </td>
+        </tr>
+    </table>
+    <p> </p>
+    <input type="button" name="submit" onclick="onClik();" value="提交"/>
+</form>-->
+
+<form class="form-horizontal" id="view-edit-data">
+    <input name="viewId" id="viewId" type="hidden"> <input name="baseId" id="baseId" type="hidden"> <input name="Id" id="Id" type="hidden"><input name="CreateTime" id="CreateTime" type="hidden"><input name="CreatorId" id="CreatorId" type="hidden"><input name="Creator" id="Creator" type="hidden">
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="UserName">用户姓名</label>
+        <div class="col-sm-4 col-group">
+            <input name="UserName" class="form-control" id="UserName" type="text" placeholder="用户姓名">
+        </div> <label class="col-sm-2 control-label" for="Sex">性别</label>
+        <div class="col-sm-4 col-group">
+            <select name="Sex" class="form-control" id="Sex">
+                <option value="0">男</option><option value="1">女</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="Birthday">出生年月</label>
+        <div class="col-sm-4 col-group">
+            <div class="input-group date form_date" data-link-format="yyyy-mm-dd" data-link-field="txtBirthday" data-date-format="yyyy-mm-dd" data-date="">
+                <input class="form-control" type="text" size="16" readonly="" placeholder="选择出生年月..." value=""> <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>                                </div> <input name="Birthday" id="Birthday" type="hidden" value="">
+        </div> <label class="col-sm-2 control-label" for="Salary">工资标准</label>
+        <div class="col-sm-4 col-group">
+            <input name="Salary" class="form-control" id="Salary" type="number" placeholder="工资标准">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="PaySocialSecurity">是否缴纳社保</label>
+        <div class="col-sm-4 col-group">
+            <select name="PaySocialSecurity" class="form-control" id="PaySocialSecurity">
+                <option value="0">是</option><option value="1">否</option>
+            </select>
+        </div> <label class="col-sm-2 control-label" for="Education">最高学历</label>
+        <div class="col-sm-4 col-group">
+            <input name="Education" class="form-control" id="Education" type="text" placeholder="最高学历">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="Resume">简历</label>
+        <div class="col-sm-10 col-group">
+            <textarea name="Resume" class="form-control" id="Resume" placeholder="简历" rows="3">简历</textarea>
+        </div>
+    </div>
+
+    <input type="button" name="submit" onclick="onClik();" value="提交"/>
+</form>
+
+
+Jquery 的serialize()方法
+<div id="result"></div><br>
+Jquery 的serializeArray()方法
+<div id="result2"></div><br>
+<!--Jquery serializeArray()方法的数据转json
+<div id="show3"></div><br>-->
+
+<script type="text/javascript">
+    function CheckData(parameters) {
+        var data = form2JsonString("view-data");
+
+        alert(data.length);
+    }
+
+
+    /** 表单序列化成json字符串的方法  */
+
+    function form2JsonString(formId) {
+
+        var paramArray = $('#' + formId).serializeArray();
+
+        /*请求参数转json对象*/
+
+        var jsonObj = {};
+
+        $(paramArray).each(function() {
+
+            jsonObj[this.name] = this.value;
+
+        });
+
+        console.log(jsonObj);
+
+        // json对象再转换成json字符串
+
+        return JSON.stringify(jsonObj);
+
+    }
+
+    //var register = $("#register");
+    ////返回字符串xxx=xxx&yyy=yyy;
+    //var formData = register.serialize();
+    //$("#show").html(formData);
+    //// 返回的是json数组[{xxx:xxx},{yyy:yyy}]
+    //formData = register.serializeArray();
+    //$("#show2").html(JSON.stringify(formData));
+
+    ////将json数组转为json 对象
+    //var jsons = transformToJson(formData);
+    //$("#show3").html(JSON.stringify(jsons));
+
+    //// 转为json数据格式
+    //function transformToJson(formData) {
+    //    var obj = {};
+    //    for (var i in formData) {
+    //        /*[{"name":"user","value":"hpc"},{"name":"pwd","value":"123"},{"name":"sex","value":"M"},{"name":"age","value":"100"},{"name":"phone","value":"13011112222"},{"name":"email","value":"xxx@xxx.com"}]
+    //        */
+    //        //下标为的i的name做为json对象的key，下标为的i的value做为json对象的value
+    //        obj[formData[i].name] = formData[i]['value'];
+    //    }
+    //    return obj;
+    //}
+
+    var v_json = $("form").serializeArray();
+
+    var v_json = $("form").serializeArray();
+    $("#result").html(JSON.stringify(v_json));
+    $("#result2").html($.param(v_json));
+    ////将json数组转为json 对象
+    //var jsons = transformToJson(formData);
+    //$("#show3").html(JSON.stringify(jsons));
+
+    //$.fn.serializeObject = function () {
+    //    var o = {};
+    //    var a = this.serializeArray();
+    //    $.each(a, function () {
+    //        if (o[this.name]) {
+    //            if (!o[this.name].push) {
+    //                o[this.name] = [o[this.name]];
+    //            }
+    //            o[this.name].push(this.value || '');
+    //        } else {
+    //            o[this.name] = this.value || '';
+    //        }
+    //    });
+    //    return o;
+    //};
+
+    function onClik() {
+        //var data = $("#form1").serializeArray(); //自动将form表单封装成json
+        //alert(JSON.stringify(data));
+        var jsonuserinfo = $('form').toJson();
+        alert(JSON.stringify(jsonuserinfo));
+    }
+
+    $(function () {
+        ////将form表单转换为json数据			
+        //$.fn.serializeJson = function () {
+        //    var serializeObj = {};
+        //    var array = this.serializeArray();
+        //    //将form表单序列化数组对象 	            
+        //    var str = this.serialize();
+        //    //将form表单序列化字符串	            
+        //    $(array).each(function () {
+        //        //遍历表单数组拼接json串	                
+        //        if (serializeObj[this.name]) {
+        //            if ($.isArray(serializeObj[this.name])) {
+        //                serializeObj[this.name].push(this.value);
+        //            } else {
+        //                serializeObj[this.name] = [serializeObj[this.name], this.value];
+        //            }
+        //        } else {
+        //            serializeObj[this.name] = this.value;
+        //        }
+        //    });
+        //    return serializeObj;
+        //};
+
+
+
+
+
+
+
+
+
+        var idx = "/Date(1554739200000)/".indexOf("/Date(");
+        alert(idx);
+
+        var t = typeof (idx);
+        alert(t);
+
+
+        //把表单转换出json对象
+        $.fn.toJson = function () {
+            var self = this,
+                json = {},
+                push_counters = {},
+                patterns = {
+                    "validate": /^[a-zA-Z][a-zA-Z0-9_]*(?:\[(?:\d*|[a-zA-Z0-9_]+)\])*$/,
+                    "key": /[a-zA-Z0-9_]+|(?=\[\])/g,
+                    "push": /^$/,
+                    "fixed": /^\d+$/,
+                    "named": /^[a-zA-Z0-9_]+$/
+                };
+
+            this.build = function (base, key, value) {
+                base[key] = value;
+                return base;
+            };
+
+            this.push_counter = function (key) {
+                if (push_counters[key] === undefined) {
+                    push_counters[key] = 0;
+                }
+                return push_counters[key]++;
+            };
+
+            $.each($(this).serializeArray(), function () {
+                // skip invalid keys
+                if (!patterns.validate.test(this.name)) {
+                    return;
+                }
+
+                var k,
+                    keys = this.name.match(patterns.key),
+                    merge = this.value,
+                    reverse_key = this.name;
+
+                while ((k = keys.pop()) !== undefined) {
+                    // adjust reverse_key
+                    reverse_key = reverse_key.replace(new RegExp("\\[" + k + "\\]$"), '');
+
+                    // push
+                    if (k.match(patterns.push)) {
+                        merge = self.build([], self.push_counter(reverse_key), merge);
+                    }
+
+                        // fixed
+                    else if (k.match(patterns.fixed)) {
+                        merge = self.build([], k, merge);
+                    }
+
+                        // named
+                    else if (k.match(patterns.named)) {
+                        merge = self.build({}, k, merge);
+                    }
+                }
+
+                json = $.extend(true, json, merge);
+            });
+
+            return json;
+        };
+
+
+        //将josn对象赋值给form
+        $.fn.loadData = function (obj) {
+            var key, value, tagName, type, arr;
+
+            this.reset();
+
+            for (var x in obj) {
+                if (obj.hasOwnProperty(x)) {
+                    key = x;
+                    value = obj[x];
+
+                    this.find("[name='" + key + "'],[name='" + key + "[]']").each(function () {
+                        tagName = $(this)[0].tagName.toUpperCase();
+                        type = $(this).attr('type');
+                        if (tagName == 'INPUT') {
+                            if (type == 'radio') {
+                                if ($(this).val() == value) {
+                                    $(this).attr('checked', true);
+                                }
+                            } else if (type == 'checkbox') {
+                                arr = value.split(',');
+                                for (var i = 0; i < arr.length; i++) {
+                                    if ($(this).val() == arr[i]) {
+                                        $(this).attr('checked', true);
+                                        break;
+                                    }
+                                }
+                            } else {
+                                $(this).val(value);
+                            }
+                        } else if (tagName == 'SELECT' || tagName == 'TEXTAREA') {
+                            $(this).val(value);
+                        }
+                    });
+                }
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

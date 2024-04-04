@@ -1,0 +1,116 @@
+﻿<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+
+    <script type="text/javascript">
+        var url = "http://localhost:1845/ReportMgmt/HistoryMgmt/ShowHistoryVersion/4288?processSpaceID=0&modelTypeNum=0&rnd=0.08735134888944285";
+
+        var index = url.toLocaleLowerCase().indexOf("history");
+
+        alert(index);
+
+    </script>
+
+</head>
+<body>
+<form id="upload" action="Handler1.ashx" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend>HTML File Upload</legend>
+        <input type="hidden" value="300000"/>
+        <div>
+            <label for="fileselect">上传的文件:</label>
+            <input type="file" id="fileselect" name="fileselect[]" multiple="multiple"/>
+            <div id="filedrag">将文件拖拽到这里</div>
+        </div>
+        <div id="ListViewFile"></div>
+        <div id="messages">
+            <p>Status Messages</p>
+        </div>
+    </fieldset>
+    <input type="button" value="上传" onclick="Upload();"/>
+    <div id="progressNumber"></div>
+</form>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    var fd = new FormData();
+    var FileIndex = 0;
+    function Upload() {
+        var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", uploadProgress, false);
+        xhr.addEventListener("load", uploadComplete, false);
+        xhr.addEventListener("error", uploadFailed, false);
+        xhr.addEventListener("abort", uploadCanceled, false);
+        xhr.open("POST", "Handler1.ashx");
+        xhr.send(fd);
+    }
+    function uploadProgress(evt) {
+        if (evt.lengthComputable) {
+            var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+            document.getElementById('progressNumber').style.width = percentComplete + '%';
+        }
+        else {
+            document.getElementById('progressNumber').innerHTML = 'unable to compute';
+        }
+    }
+    function uploadComplete(evt) {
+        alert(evt.target.responseText);
+    }
+    function uploadFailed(evt) {
+        alert("上传文件异常.");
+    }
+    function uploadCanceled(evt) {
+        alert("取消.");
+    }
+    (function () {
+
+        function $id(id) {
+            return document.getElementById(id);
+        }
+        function Output(msg) {
+            var m = $id("messages");
+            m.innerHTML = msg + m.innerHTML;
+        }
+        if (window.File && window.FileList && window.FileReader) {
+            Init();
+        }
+        function Init() {
+            var fileselect = $id("fileselect");
+            var filedrag = $id("filedrag")
+            fileselect.addEventListener("change", FileSelectHandler, false);
+            filedrag.addEventListener("dragover", FileDragHover, false);
+            filedrag.addEventListener("dragleave", FileDragHover, false);
+            filedrag.addEventListener("drop", FileSelectHandler, false);
+        }
+        function FileSelectHandler(e) {
+            FileDragHover(e);
+            var files = e.target.files || e.dataTransfer.files;
+            var iMgUil = window.webkitURL.createObjectURL(files[0]);
+            var bigImg = document.createElement("img");
+            bigImg.src = iMgUil;
+            var myDiv = document.getElementById('ListViewFile');
+            myDiv.appendChild(bigImg);
+            for (var i = 0, f; f = files[i]; i++) {
+                FileIndex++;
+                ParseFile(f);
+                fd.append("FileData_" + FileIndex, files[i]);
+            }
+        }
+        function FileDragHover(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            e.target.className = (e.type == "dragover" ? "hover" : "");
+        }
+        function ParseFile(file) {
+            Output(
+                "<p>File information: <strong>" + file.name +
+                "</strong> type: <strong>" + file.type +
+                "</strong> size: <strong>" + file.size +
+                "</strong> bytes</p>"
+            );
+        }
+    })();
+</script>

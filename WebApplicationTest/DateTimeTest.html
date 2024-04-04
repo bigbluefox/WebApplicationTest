@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <script type="text/javascript">
+
+        Date.prototype.Format = function(fmt) {
+            var o = {
+                "M+": this.getMonth() + 1, //月份   
+                "d+": this.getDate(), //日   
+                "h+": this.getHours(), //小时   
+                "m+": this.getMinutes(), //分   
+                "s+": this.getSeconds() //秒   
+            };
+            if (/(y+)/.test(fmt)) { //根据y的长度来截取年  
+                fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            }
+            for (var k in o) {
+                if (o.hasOwnProperty(k)) {
+                    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                }
+            }
+            return fmt;
+        };
+
+        // 调用：   
+        var time1 = new Date().Format("yyyy-MM-dd");
+        console.log(time1);
+
+        var time2 = new Date(1469281964000).Format("yyyy-MM-dd hh:mm:ss");  
+        console.log(time2);
+
+        var time3 = new Date("2018/6/8 20:56:55").Format("MM-dd hh:mm");
+        console.log(time3);
+
+        //其中较经典的就是补零的操作，我们可以拿出来封装为方法 
+        //[javascript] view plain copy
+
+
+ 
+        //function padLeftZero(str) {  
+        //    return ('00' + str).substr(str.length);  
+        //}  
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

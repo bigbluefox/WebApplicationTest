@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EasyUI对话框测试</title>
+
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+    <link href="/Styles/main.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+
+    <script src="/Scripts/Hsp.js"></script>
+    <script src="/Scripts/Hsp.Common.js"></script>
+
+    <style type="text/css">
+        
+        body { margin: 0 auto; }
+    </style>
+
+    <script type="text/javascript">
+
+        var height = 0, width = 0;
+
+        $(function () {
+
+            width = HSP.Common.AvailWidth();
+            height = HSP.Common.AvailHeight();
+
+
+
+        });
+
+        var url;
+        function newUser() {
+            $('#dlg').dialog('open').dialog('center').dialog('setTitle', 'New User');
+            $('#fm').form('clear');
+            //url = 'save_user.php';
+        }
+
+    </script>
+</head>
+<body>
+
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>
+
+
+    <div id="dlg" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
+        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+            <h3>User Information</h3>
+            <div style="margin-bottom:10px">
+                <input name="firstname" class="easyui-textbox" required="true" label="First Name:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="lastname" class="easyui-textbox" required="true" label="Last Name:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="phone" class="easyui-textbox" required="true" label="Phone:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input name="email" class="easyui-textbox" required="true" validType="email" label="Email:" style="width:100%">
+            </div>
+        </form>
+    </div>
+    <div id="dlg-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveUser()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+    </div>
+
+</body>
+</html>

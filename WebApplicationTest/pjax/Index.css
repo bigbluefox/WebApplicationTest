@@ -1,0 +1,29 @@
+﻿body {
+    font: 12px Arial, Verdana, Tahoma, "宋体";
+    text-align: center;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+* li { list-style: none; }
+
+a {
+    color: #20537A;
+    text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+.clearfix:after {
+    clear: both;
+    content: "\0020";
+    display: block;
+    height: 0;
+}
+
+.clearfix { _zoom: 1; }
+
+* + html .clearfix { overflow: auto; }

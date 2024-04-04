@@ -1,0 +1,54 @@
+﻿/*
+ * 公共对话框样式定义    
+ */
+
+.window-div{ background-color: #f1f1f1;}
+.content-div{background-color: #fbfbfb; margin:2px; overflow:hidden; border:1px solid silver;}
+
+.btn-div {margin-top: 0;margin-right: 2px; height: 24px; overflow:hidden; text-align: right;}
+
+.row-div{height:24px;line-height: 24px;vertical-align: middle;}
+.row-div, .row-float-div {margin-left:8px; font-family: 微软雅黑; font-size:12px; margin-top:3px; display: inline-block; float:left;}
+
+.two-columns-input-item {width: 180px;}
+
+.two-columns-left-span {display:table;width: 300px; vertical-align: middle;line-height:22px; float:left;}
+.two-columns-left-label {float:left; font-weight:bold; width:80px; text-align:right; }
+.two-columns-left-item {float:left; display:block; width:220px;height: 22px; line-height:22px; vertical-align: middle; text-align:left; }
+
+.two-columns-right-span {display:table;width: 300px;vertical-align: middle; line-height:22px; float:right;}
+.two-columns-right-label {float:left; font-weight:bold; width:80px; text-align:right; }
+.two-columns-right-item {float:left; width:220px;vertical-align: middle; text-align:left; }
+
+.two-columns-whole-item {float:left; width:520px;vertical-align: middle; line-height:22px; text-align:left; }
+
+.two-columns-whole-item img, 
+.two-columns-left-item img, 
+.two-columns-right-item img { margin-top: 3px; margin-left: 2px; cursor: pointer; }
+
+.properties-row-div { width:610px; height:22px; margin-left:8px; font-family: 微软雅黑; font-size:12px; margin-top:3px; display:block;}
+
+.row-div img{ cursor: pointer;vertical-align: middle; padding-left: 2px; width:16px; height:16px;}
+
+.row-div input[type='text'], 
+.row-float-div textarea { font-size: 1em; }
+
+.row-div input[type='checkbox'], 
+.row-div input[type='radio']{ padding-right: 2px;vertical-align: middle;}
+
+.row-div label, 
+.row-float-div label { display: inline-block; float: left; } /* 不可定义其宽度 */
+
+
+.right-col-div {
+    margin-left: 20px;
+}
+
+.left-col-div, 
+.right-col-div {
+    display: table;
+    float: left;
+    height: 24px;
+    /*width: 240px;*/
+    vertical-align: middle;
+}

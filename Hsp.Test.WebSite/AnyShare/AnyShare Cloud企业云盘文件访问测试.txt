@@ -1,0 +1,46 @@
+﻿AnyShare Cloud企业云盘文件访问测试
+
+http://zhdoc.cecep.cn/
+
+http://zhdoc.cecep.cn:9998/v1/ping
+
+
+http://zhdoc.cecep.cn:9123/v1/file?method=<method>&userid=<userid>&tokenid=<tokenid>
+
+http://zhdoc.cecep.cn:9998/v1/auth2?method=getconfig
+
+http://zhdoc.cecep.cn:9998/v1/auth1?method=getnew
+
+zhdoc.cecep.cn
+
+yuejunjun / cecep@123
+
+interface_test，cecep@123
+
+networkuniversity / P@ssw0rd01!
+
+
+help: anyshare.openapi@eisoo.com
+
+
+https://anyshare.eisoo.com/#/link/E87455FFE80C363457C9B977FB82E40D?_k=ppjv57
+
+
+http://zhdoc.cecep.cn/link/96153D76D76C8620C28034C85EEB5153
+
+http://zhdoc.cecep.cn/link/87D33935A9027BFEC1E798F4D0D06310
+
+http://zhdoc.cecep.cn/link/1EE7454018F98AE7CCF03EAB8693A273
+
+http://zhdoc.cecep.cn/link/FA450132DEA11D243A18EF9AA885BF76
+
+http://zhdoc.cecep.cn/link/E1383F055DD5C0DCAF00CB936092B3CE
+
+http://zhdoc.cecep.cn/link/463CC47C56230C63B4FDCCFDB15F2884
+
+http://zhdoc.cecep.cn/link/AAA4839C9669361EA029D0C3B1DB5C01
+
+http://zhdoc.cecep.cn/link/38A25AF72D6D00474F657FA1BAEC5D0B
+
+
+http://zhdoc.cecep.cn/link/8D462BEB2673A950269228A926094AF8

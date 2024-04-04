@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>list-group</title>
+
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+
+    <link href="/Scripts/bootstrap/css/docs.min.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+
+        .clearfix:after {
+            clear: both;
+            content: ".";
+            display: block;
+            height: 0;
+            visibility: hidden;
+        }
+
+        .clearfix { display: inline-block; }
+
+        * html .clearfix { height: 1%; }
+
+        .clearfix { display: block; }
+
+        /*li dl { border: 1px solid #ff0000; }*/
+
+        /*dt { border: 1px solid #ff0000; }*/
+
+        /*dd { border: 1px solid #00bfff; }*/
+
+        li { list-style: none; }
+
+        li dl {
+            margin-bottom: 0;
+            overflow: hidden;
+            _zoom: 1;
+        }
+
+        li dl dt {
+            float: left;
+            font-weight: normal;
+            overflow: hidden;
+            line-height: 24px;
+        }
+
+        li dl dd {
+            width: 337px;
+            float: right;
+            padding: 0;
+            text-align: right;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+
+        li dl dd label {
+            color: #666;
+            display: block;
+            float: left;
+            font-weight: 400;
+            line-height: 14px;
+            margin-left: 20px;
+            overflow: hidden;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+
+        .list-title { font-weight: 600; }
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1>你好，Bootstrap！</h1>
+    </div>
+
+<ul class="list-group">
+    <li class="list-group-item active">
+        <span class="badge">14</span><span class="list-title">Cras justo odio</span></li>
+    <li class="list-group-item"><span class="badge">14</span>Dapibus ac facilisis in</li>
+    <li class="list-group-item"><span class="badge">14</span>Morbi leo risus</li>
+    <li class="list-group-item"><span class="badge">14</span>Vestibulum at eros</li>
+    <li class="list-group-item active"><span class="badge">14</span>Porta ac consectetur ac</li>
+
+    <!--组织机构管理『/EnterpriseRegister/OrganSetupPage.a...』 权限菜单 启用用户菜单 排除用户菜单-->
+
+    <li class="list-group-item">
+
+        <dl attr="政治面貌">
+            <dt>组织机构管理『/EnterpriseRegister/OrganSetupPage.a...』</dt>
+            <dd>
+                <label for="cbxPoliticalStatus_3"><input name="cbxPoliticalStatus" id="cbxPoliticalStatus_3" type="checkbox" value="3"/>权限菜单</label>
+                <label for="cbxPoliticalStatus_2">
+                    <input name="cbxPoliticalStatus" id="cbxPoliticalStatus_2" type="checkbox" value="2"/>
+                    启用用户菜单
+                </label>
+                <label for="cbxPoliticalStatus_4">
+                    <input name="cbxPoliticalStatus" id="cbxPoliticalStatus_4" type="checkbox" value="4"/>
+                    排除用户菜单
+                </label>
+
+            </dd>
+        </dl>
+
+    </li>
+
+    <li class="list-group-item">
+        <dl attr="学历">
+            <dt>组织机构管理『/EnterpriseRegister/OrganSetupPage.a...』</dt>
+            <dd>
+                <label for="cbxEducation_6">
+                    <input name="cbxEducation" id="cbxEducation_6" type="checkbox" value="6"/>
+                    权限菜单
+                </label>
+                <label for="cbxEducation_5">
+                    <input name="cbxEducation" id="cbxEducation_5" type="checkbox" value="5"/>
+                    启用用户菜单
+                </label>
+                <label for="cbxEducation_4">
+                    <input name="cbxEducation" id="cbxEducation_4" type="checkbox" value="4"/>
+                    排除用户菜单
+                </label>
+
+            </dd>
+        </dl>
+    </li>
+
+    <li class="list-group-item">
+        <dl attr="学历">
+            <dt>组织机构管理『/EnterpriseRegister/OrganSetupPage.a...』</dt>
+            <dd>
+                <label for="cbxPoliticalStatus_1">
+                    <input name="cbxPoliticalStatus" id="cbxPoliticalStatus_1" type="checkbox" value="1"/>
+                    权限菜单
+                </label>
+                <label for="cbxEducation_3">
+                    <input name="cbxEducation" id="cbxEducation_3" type="checkbox" value="3"/>
+                    启用用户菜单
+                </label>
+                <label for="cbxEducation_2">
+                    <input name="cbxEducation" id="cbxEducation_2" type="checkbox" value="1,2"/>
+                    排除用户菜单
+                </label>
+            </dd>
+        </dl>
+    </li>
+
+
+</ul>
+
+
+</div>
+
+<label id="lblRst"></label>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+<script src="../Scripts/jquery/jquery-1.12.4.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="js/bootstrap.min.js"></script>-->
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+<script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+
+    $(function() {
+
+        var width = $(".list-group li").width();
+        width -= 345;
+        $("li dl dt").css("width", width + "px");
+        //$("#lblRst").html(width);
+
+
+        // 检查页面上是否加载了bootstrap.js
+        // Will be true if bootstrap is loaded, false otherwise
+        var bootstrap_enabled = (typeof $().modal == 'function');
+
+        //alert(bootstrap_enabled);
+
+        if (typeof ($.fn.popover) != 'undefined') {
+            // your stuff here
+
+            //alert('undefined');
+        }
+
+        if (typeof $.fn.popover == 'function') {
+            // your stuff here
+
+            //alert('function');
+        }
+
+        //var ss = "Hello, world, he,he,";
+        //ss = ss.rTrim(",");
+
+        //console.log(ss);
+        //alert(ss);
+
+        //var abc = "";
+        ////abc = abc.encodeQuotes();
+        ////abc = null;
+        ////abc = abc.encodeQuotes();
+        ////abc = undefined;
+        ////abc = abc.encodeQuotes();
+        //abc = $("#abc").val();
+        ////abc = abc.encodeQuotes();
+
+        //console.log(abc);
+
+    });
+
+
+</script>
+
+
+</body>
+</html>

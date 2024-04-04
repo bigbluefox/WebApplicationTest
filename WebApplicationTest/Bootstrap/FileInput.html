@@ -1,0 +1,586 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>bootstrap-file-input</title>
+
+    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+    <link href="/Scripts/fileinput/css/fileinput.css" rel="stylesheet"/>
+    <!--<link href="/Scripts/fileinput/themes/explorer-fa/theme.css" rel="stylesheet"/>-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+    <script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../Scripts/fileinput/js/fileinput.js"></script>
+    <script src="../Scripts/fileinput/js/fileinput-zh-CN.js"></script>
+<!--    <script src="../Scripts/fileinput/js/plugins/sortable.js"></script>
+    <script src="../Scripts/fileinput/themes/explorer-fa/theme.js"></script>
+    <script src="../Scripts/fileinput/themes/fa/theme.js"></script>-->
+
+    <style type="text/css">
+
+        body { padding: 15px; }
+
+        textarea {
+            margin-top: 10px;
+            width: 100%;
+            height: 30px;
+            display: inline-block;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+
+        var $uploadfile = $('#File1');
+
+        var iconAddUrl = "/Handler/IconsHandler.ashx?OP=GLYPHICONS"; // 添加图标地址
+
+        $(function () {
+
+            $uploadfile = $('#File1');
+
+            //$("#btnProIcons").click(function () {
+            //    $("#iconsModelLabel").html("专业菜单图标选择");
+            //    $('#iconsModel').modal('toggle'); // 弹出选择窗体            
+            //});
+
+            //$("#btnTypeIcons").click(function () {
+            //    $("#filetypesIconModalLabel").html("文件类型图标选择");
+            //    $('#filetypesIconModal').modal('toggle'); // 弹出选择窗体            
+            //});
+
+            //$("#btnList").click(function () {
+            //    var iconClass = "", icons = "";
+            //    $(".bs-glyphicons li span").each(function () {
+            //        var s = this.className; //this.childNodes[1].getAttribute("class");
+            //        iconClass += '<li title="' + s + '"><span class="' + s + '" aria-hidden="true"></span></li>\n';
+            //        icons += s + ",";
+            //    });
+            //    $("#TextArea1").val(iconClass);
+
+            //    // 保存图标数据
+            //    $.post(iconAddUrl, { type: 1, icons: icons },
+            //        function (data) {
+            //            if (data && data.success) {
+            //                $.messager.alert("操作提示", data.Message, "info");
+            //            } else {
+            //                alert(data.Message);
+            //            }
+            //        });
+
+            //});
+
+            //$("#btnProList").click(function () {
+            //    var iconClass = "", icons = "";
+            //    $(".glyphicons-demo span i").each(function () {
+
+            //        //debugger;
+
+            //        var s = this.className;
+            //        icons += s + ",";
+            //        iconClass += '<span title="' + s + '"><i class="' + s + '"></i></span>\n';
+            //        //iconClass += '<li title="' + s + '"><span class="' + s + '" aria-hidden="true"></span></li>\n';
+            //    });
+            //    $("#TextArea1").val(iconClass);
+
+            //    // 保存图标数据
+            //    $.post(iconAddUrl, { type: 2, icons: icons },
+            //        function (data) {
+            //            if (data && data.success) {
+            //                $.messager.alert("操作提示", data.Message, "info");
+            //            } else {
+            //                alert(data.Message);
+            //            }
+            //        });
+            //});
+
+            //$("#btnTypeList").click(function () {
+            //    var iconClass = "", icons = "";
+            //    $("#filetypes li span").each(function () {
+
+            //        //debugger;
+
+            //        var s = this.className;
+            //        icons += s + ",";
+            //        iconClass += '<span title="' + s + '"><i class="' + s + '"></i></span>\n';
+            //        //iconClass += '<li title="' + s + '"><span class="' + s + '" aria-hidden="true"></span></li>\n';
+            //    });
+            //    $("#TextArea1").val(iconClass);
+
+            //    if (icons.length > 0) {
+            //        // 保存图标数据
+            //        $.post(iconAddUrl, { type: 3, icons: icons },
+            //            function (data) {
+            //                if (data && data.success) {
+            //                    $.messager.alert("操作提示", data.Message, "info");
+            //                } else {
+            //                    alert(data.Message);
+            //                }
+            //            });
+            //    }
+            //});
+
+
+
+            $uploadfile.fileinput({
+
+                language: 'zh', //设置语言
+                uploadUrl: '/Handler/FileInputHandler.ashx', //上传的地址
+                allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+                uploadExtraData:{"id": 1, "fileName":'123.mp3'},
+
+                uploadAsync: true, //默认异步上传
+                showUpload: true, //是否显示上传按钮
+                showRemove: true, //显示移除按钮
+                showPreview: true, //是否显示预览
+                showCaption: false,//是否显示标题
+                browseClass: "btn btn-primary", //按钮样式
+                dropZoneEnabled: false,//是否显示拖拽区域
+                //minImageWidth: 50, //图片的最小宽度
+                //minImageHeight: 50,//图片的最小高度
+                //maxImageWidth: 1000,//图片的最大宽度
+                //maxImageHeight: 1000,//图片的最大高度
+                //maxFileSize:0,//单位为kb，如果为0表示不限制文件大小
+                //minFileCount: 0,
+
+                maxFileCount: 10, //表示允许同时上传的最大文件个数
+                enctype: 'multipart/form-data',
+                validateInitialCount: true,
+                previewFileIcon: "<iclass='glyphicon glyphicon-king'></i>",
+                msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+
+            }).on("fileuploaded", function (event, data, previewId, index) {
+
+                alert(data);
+
+            });
+
+        });
+
+        var b = function (bytes) {
+            var i = Math.floor(Math.log(bytes) / Math.log(1024)),
+                sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+            return (bytes / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + sizes[i];
+        }
+
+    </script>
+
+</head>
+<body>
+
+<!-- 主体区域 -->
+<div class="container-fluid">
+<div class="row" style="display: none;">
+    <button type="button" class="btn btn-primary" id="btnIcons">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> 图标选择
+    </button>
+    <!--
+    <button type="button" class="btn btn-primary" id="btnProIcons">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> 专业图标
+    </button>
+    <button type="button" class="btn btn-primary" id="btnTypeIcons">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> 文件图标
+    </button>
+
+    <button type="button" class="btn btn-primary" id="btnList">
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 图标列表
+    </button>
+    <button type="button" class="btn btn-primary" id="btnProList">
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 专业图标列表
+    </button>
+    <button type="button" class="btn btn-primary" id="btnTypeList">
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> 文件图标列表
+    </button>-->
+
+</div>
+
+<div class="row" style="display: none;">
+    <textarea id="TextArea1" cols="20" rows="2"></textarea>
+</div>
+
+<label class="col-sm-2 control-label">图片上传</label>
+<!--//后台的接受名为file,要相同名字，id为初始化文件框-->
+<input id="file-pic" name="file_data" type="file" multiple>
+<form id="form1">
+    图片id<input type="text" name="id" id="picid">
+    图片名称:<input type="text" name="picName">
+    <button type="button" id="savePic">保存</button>
+</form>
+
+<!--
+<input type="file" name="image" class="projectfile" value="${deal.image}"/>
+
+1. type=file和class=projectfile，指明其为input file类型。 
+2. name指定其在后台的获取key。 
+3. value指定其在展示的时候图片路径。
+    -->
+
+
+<script type="text/javascript">
+
+    $(function() {
+        $('#file-pic').fileinput({//初始化上传文件框
+            showUpload: false,
+            showRemove: false,
+            uploadAsync: true,
+            uploadLabel: "上传",//设置上传按钮的汉字
+            uploadClass: "btn btn-primary",//设置上传按钮样式
+            showCaption: false,//是否显示标题
+            language: "zh",//配置语言
+            uploadUrl: "/Handler/FileInputHandler.ashx",
+            maxFileSize: 0,
+            maxFileCount: 1,/*允许最大上传数，可以多个，当前设置单个*/
+            enctype: 'multipart/form-data',
+            //allowedPreviewTypes : [ 'image' ], //allowedFileTypes: ['image', 'video', 'flash'],
+            allowedFileExtensions: ["jpg", "png", "gif"],/*上传文件格式*/
+            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+            dropZoneTitle: "请通过拖拽图片文件放到这里",
+            dropZoneClickTitle: "或者点击此区域添加图片",
+            //uploadExtraData: {"id": "id"},//这个是外带数据
+            showBrowse: false,
+            browseOnZoneClick: true,
+            slugCallback: function (filename) {
+                return filename.replace('(', '_').replace(']', '_');
+            }
+            //, uploadExtraData: function (previewId, index) {
+            //    //注意这里，传参是json格式,后台直接使用对象属性接收，比如employeeCode，我在RatingQuery 里面直接定义了employeeCode属性，然后最重要的也是
+            //    //最容易忽略的，传递多个参数时，不要忘记里面大括号{}后面的分号，这里可以直接return {a:b}; 或者{a:b}都可以，但必须要有大括号包裹
+            //    var data = {
+            //        employeeCode : employeeCode,
+            //        result_id:"",
+            //        month:month
+            //    };
+            //    return data;
+            //},
+        });
+        //上传文件成功，回调函数 
+        $('#file-pic').on("fileuploaded", function (event, data, previewId, index) {
+
+            //debugger;
+
+
+            var result = data.response; //后台返回的json
+            //console.log(result.status);
+            //console.log(result.id);
+            $('#picid').val(result.id);//拿到后台传回来的id，给图片的id赋值序列化表单用
+            //如果是上传多张图
+            /*
+            //计数标记，用于确保全部图片都上传成功了，再提交表单信息
+            var fileCount = $('#file-pic').fileinput('getFilesCount');
+            if(fileCount==1){
+            $.ajax({//上传文件成功后再保存图片信息
+                url:'BannerPicAction!savaForm.action',
+                data:$('#form1').serialize(),//form表单的值
+                success:function(data,status){
+                    ...
+                },
+                cache:false,                    //不缓存
+            });
+            }
+            */
+            $.ajax({//上传文件成功后再保存图片信息
+                url: '/Handler/FileInputHandler.ashx',
+                type: 'post',
+                dataType: 'json',
+                data: $('#form1').serialize(),//form表单的值
+                success: function (data, status) {
+                    if (status == "success") {
+
+                        if (data.status == "success") {//提交成功
+
+                            //跳转回添加页面
+
+                        } else {
+                            alert("添加失败,编码的错误!");
+                        }
+
+                    } else {
+                        alert("添加失败,ajax请求返回失败!");
+                    }
+                },
+                cache: false                    //不缓存
+            });
+        });
+
+        $('#savePic').on('click', function () {// 提交图片信息 //
+            //先上传文件，然后在回调函数提交表单
+            $('#file-pic').fileinput('upload');
+
+        });
+    });
+
+
+</script>
+
+
+
+
+
+<div class="bs-section">
+<h1 class="page-header">Basic Example 1</h1>
+    Automatically convert a file input to a bootstrap file input widget by setting its class as <code>file</code>. Note that a drag and drop zone is enabled by default for browsers like Chrome and Mozilla even for form based uploads (since release v4.4.8).
+    <form action="/Handler/FileInputHandler.ashx" method="post" enctype="multipart/form-data">
+        <input id="input-b1" name="input-b1" type="file" class="file">
+    </form>
+</div>
+
+
+<div class="bs-section">
+    <h1 class="page-header">Basic Example 2</h1>
+    Hide file preview thumbnails.
+    <div class="file-loading">
+        <input id="File1" name="input-b2" type="file" class="file" data-show-preview="false">
+    </div>
+    <div id="file1_upload_errors"></div>
+    <script>
+        $(document).on('ready', function() {
+            //$("#File1").fileinput({
+            //    //showPreview: false,
+            //    //showUpload: false,
+            //    elErrorContainer: '#file1_upload_errors',
+            //    //allowedFileExtensions: ["jpg", "png", "gif"],
+            //    uploadUrl: '/Handler/FileInputHandler.ashx',
+            //    uploadExtraData:{"abc":1, "ddd":2}
+
+
+            //});
+
+            $("#File1").fileinput("upload");
+        });
+
+        $('#File1').on('change', function (event) {
+            console.log("change");
+        });
+
+        $('#File1').on('fileselect', function (event, numFiles, label) {
+            console.log("fileselect");
+        });
+
+        $('#File1').on('filepreajax', function (event, previewId, index) {
+            console.log('File pre ajax triggered');
+        });
+
+        $('#File1').on('filepreupload', function (event, data, previewId, index) {
+            var form = data.form, files = data.files, extra = data.extra,
+                response = data.response, reader = data.reader;
+            console.log('File pre upload triggered');
+        });
+
+        $('#File1').on('fileuploaded', function (event, data, previewId, index) {
+            var form = data.form, files = data.files, extra = data.extra,
+                response = data.response, reader = data.reader;
+            console.log('File uploaded triggered');
+        });
+
+        $('#File1').on('filebatchpreupload', function (event, data) {
+            var form = data.form, files = data.files, extra = data.extra,
+                response = data.response, reader = data.reader;
+            console.log('File batch pre upload');
+        });
+        $('#File1').on('filebatchuploadsuccess', function (event, data) {
+            var form = data.form, files = data.files, extra = data.extra,
+                response = data.response, reader = data.reader;
+            console.log('File batch upload success');
+        });
+
+        $('#File1').on('filebatchuploadcomplete', function (event, files, extra) {
+            console.log('File batch upload complete');
+        });
+
+        $('#File1').on('fileerror', function (event, data, msg) {
+            console.log(data.id);
+            console.log(data.index);
+            console.log(data.file);
+            console.log(data.reader);
+            console.log(data.files);
+            // get message
+            alert(msg);
+        });
+
+        $('#File1').on('fileuploaderror', function (event, data, msg) {
+            var form = data.form, files = data.files, extra = data.extra,
+                response = data.response, reader = data.reader;
+            console.log('File upload error');
+            // get message
+            alert(msg);
+        });
+
+
+    </script>
+</div>
+
+
+<div class="bs-section">
+    <h1 class="page-header">Basic Example 3</h1>
+    Use file input attributes (e.g. multiple upload) for setting input behavior and data attributes to control plugin options. For example, hide/show display of upload button and caption. Note that for multiple inputs, your server code must receive an array of file objects (e.g. for PHP server code, you must use the array naming convention for your input).
+This example also shows how you can control the placeholder text initially shown by setting the msgPlaceholder property.
+<input id="input-b3" name="input-b3[]" type="file" class="file" multiple 
+    data-show-upload="false" data-show-caption="true" data-msg-placeholder="Select {files} for upload...">
+</div>
+
+
+<div class="bs-section">
+    <h1 class="page-header">Basic Example 4</h1>
+    Set the file input widget to be readonly or disabled. 
+<label for="input-b4a">Readonly Input</label>
+<input id="input-b4a" name="input-b4a" type="file" class="file" readonly="true">
+<br>
+<label for="input-b4b">Disabled Input</label>
+<input id="input-b4b" name="input-b4b" type="file" class="file" disabled="true">
+</div>
+
+
+<div class="bs-section">
+    <h1 class="page-header">Basic Example 5</h1>
+    Initialize file input widget via javascript. Hide the caption and display widget with only buttons (and hide the drop zone by setting dropZoneEnabled to false). You can envelop the input within a container with the file-loading class to show a spinning indicator, while the plugin loads. 
+<label class="control-label">Select File</label>
+<input id="input-b5" name="input-b5[]" type="file" multiple>
+<script>
+    $(document).on('ready', function () {
+        $("#input-b5").fileinput({ showCaption: false, dropZoneEnabled: false });
+    });
+</script>
+</div>
+
+
+
+<div class="bs-section">
+    <h1 class="page-header">Basic Example 6</h1>
+    Change size of whole widget (e.g. bootstrap input group styling) and set max files count allowed to 10. 
+<div class="file-loading"> 
+    <input id="input-b6" name="input-b6[]" type="file" multiple>
+</div>
+<script>
+    $(document).on('ready', function () {
+        $("#input-b6").fileinput({
+            showUpload: false,
+            dropZoneEnabled: false,
+            maxFileCount: 10,
+            mainClass: "input-group-lg"
+        });
+    });
+</script>
+</div>
+
+
+<div class="bs-section">
+    <h1 class="page-header">Basic Example 7</h1>
+    Using data attributes to configure the entire widget. This example shows how you can pass json within data attributes in the HTML markup (check data-allowed-file-extensions which basically sets the plugin property allowedFileExtensions) 
+<div class="file-loading">
+    <input id="input-b7" name="input-b7[]" multiple type="file" class="file" data-allowed-file-extensions='["csv", "txt","doc", "docx", "xls","xlsx","ppt", "pptx", "pdf"]'>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="bs-section">
+    <h1 class="page-header">Basic Example 9</h1>
+    An example of rendering the file input widget inside a bootstrap modal with showPreview and showUpload set to false. The example also shows how you can render the errors (without a preview) in a custom error container by setting the elErrorContainer property.
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch Modal
+</button>
+ 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="file-loading">
+          <input id="input-b9" name="file_data" multiple type="file">
+        </div>
+        <div id="kartik-file-errors"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="glyphicon glyphicon-floppy-remove"></i> 退出</button>
+        <button type="button" id="save9" class="btn btn-primary" title="Your custom upload logic"><i class="glyphicon glyphicon-floppy-saved"></i> 保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 
+<script>
+    $(document).on('ready', function () {
+        $("#input-b9").fileinput({
+            showPreview: false,
+            showUpload: false,
+            uploadAsync: true,
+            enctype: 'multipart/form-data',
+            elErrorContainer: '#kartik-file-errors',
+            allowedFileExtensions: ["jpg", "png", "gif"],
+            uploadUrl: '/Handler/FileInputHandler.ashx'
+        });
+
+        $("#save9").click(function () {
+
+            //$("#exampleModal").modal("hide");
+
+
+            $('#input-b9').fileinput('upload');
+
+
+          
+        }); // 保存文件
+
+
+    $('#input-b9').on('fileuploaded', function (event, data, previewId, index) {
+        var form = data.form, files = data.files, extra = data.extra,
+            response = data.response, reader = data.reader;
+        console.log('File uploaded triggered');
+
+        $("#exampleModal").modal("hide");
+    });
+
+
+    });
+
+
+
+
+
+</script>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+</body>
+</html>

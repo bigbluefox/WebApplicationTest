@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="author" content="Yeeku.H.Lee(CrazyIt.org)"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!--[if lt IE 9]>
+        <script src="Scripts/html5.js"></script>
+    <![endif]-->
+    <title> 计算质数 </title>
+</head>
+<body>
+<p>已经发现的所有质数【<span id="msg"></span>】：
+</p>
+<div id="result"></div>
+<script>
+    // 使用Worker启动多线程来计算、收集质数
+
+    //debugger;
+
+    if (typeof (Worker) !== "undefined") {
+        if (typeof (worker) == "undefined") {
+            worker = new Worker("Scripts/Work/Test.js");
+        }
+        //worker.onmessage = function (event) {
+
+        //    //debugger;
+        //    //var rst = eval("(" + event.data + ")");
+        //    //alert(rst.Date);
+
+        //    //alert(rst.Date);
+
+        //    document.getElementById("result").innerHTML = event.data;
+        //};
+
+        var para = { "Date": "2016-5-6", "Name": "Tom", "Age": 20, "Company": "IBM" };
+
+        worker.postMessage(["getResult", para]);     //向worker发送数据
+        worker.onmessage = function (evt) {     //接收worker传过来的数据函数
+            console.log(evt.data);              //输出worker发送来的数据
+            console.log(eval("(" + evt.data + ")"));
+
+            //var rst = evt.data;
+            //var str = "";
+            //if (rst.length > 0) {
+            //    for (var i = 0; i < rst.length; i++) {
+            //        str += "Name：" + rst[i].Name + "，Date：" + rst[i].Date + "，Age：" + rst[i].Age + "，Company：" + rst[i].Company + "\n";
+            //    }
+
+            //}
+            //alert(str);
+            //console.log(str);
+
+            // { "Date": "2016-5-6", "Name": "Tom", "Age": 20, "Company": "IBM" };
+        }
+
+        document.getElementById('msg').innerHTML = "支持 HTML5 javascript多线程解决方案";
+    } else {
+        document.getElementById('msg').innerHTML = "不支持 HTML5 javascript多线程解决方案";
+        //document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+    }
+
+
+    try {
+        //document.getElementById('msg').innerHTML = "支持 HTML5 javascript多线程解决方案";
+        //var worker = new Worker('Scripts/Work/worker.js');
+        //worker.onmessage = function(event) {
+        //    document.getElementById('result').innerHTML += event.data + ", ";
+        //};
+
+
+    } catch (e) {
+        //document.getElementById('msg').innerHTML = "不支持 HTML5 javascript多线程解决方案";
+        //var n = 1;
+        //search:
+        //    while (n < 99999) {
+        //        // 开始搜寻下一个质数
+        //        n += 1;
+        //        for (var i = 2; i <= Math.sqrt(n); i++) {
+        //            // 如果除以n的余数为0，开始判断下一个数字。
+        //            if (n % i == 0) {
+        //                continue search;
+        //            }
+        //        }
+        //        document.getElementById('result').innerHTML += (n + ", ");
+        //    }
+    }
+
+    var d = (new Date()).valueOf();
+    //alert(d);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title></title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link href="../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+    <link href="../Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <!--<link href="../Scripts/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/>-->
+    <link href="datetimepicker/v1.90/css/bootstrap-datepicker.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+    <script src="../Scripts/jquery/jquery-1.12.4.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+    <script src="../Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="../Scripts/bootstrap/js/bootstrap-datetimepicker.min.js"></script>-->
+    <!--<script src="../Scripts/bootstrap/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>-->
+    
+    <script src="datetimepicker/v1.90/js/bootstrap-datepicker.js"></script>
+    <script src="datetimepicker/v1.90/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+
+    <style type="text/css">
+
+        
+    </style>
+
+    <script type="text/javascript">
+
+
+    
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+    <form action="" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="dtp_input2" class="col-md-2 control-label">Date Picking1</label>
+            <div class="input-group date form_date col-md-5"data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input1" data-link-format="yyyy-mm-dd">
+                <input class="form-control" size="16" type="text" value="" readonly="readonly">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+            <input type="hidden" id="dtp_input1" value=""/><br/>
+        </div>
+        <div class="form-group">
+            <label for="dtp_input2" class="col-md-2 control-label">Date Picking2</label>
+            <div class="input-group date form_date col-md-5" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                <input class="form-control" size="16" type="text" value="" readonly="readonly">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+            <input type="hidden" id="dtp_input2" value=""/><br/>
+        </div>
+
+        <div class="form-group">
+            <label for="dtp_input3" class="col-md-2 control-label">Date Picking3</label>
+            <div id="dtp_input_div3" class="input-group date form_date col-md-5" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input3" data-link-format="yyyy-mm-dd">
+                <input class="form-control" size="16" type="text" value="" readonly="readonly">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+            <input type="hidden" id="dtp_input3" value=""/><br/>
+        </div>
+
+
+        <div class="form-group">
+            <label for="dtp_input4" class="control-label">Date Picking4</label>
+            <div class="input-group date form_date" data-date="2013-12-21T15:25:00Z" data-date-format="yyyy-mm-dd" data-link-field="dtp_input4" data-link-format="yyyy-mm-dd">
+                <input class="form-control" size="16" type="text" value="2013-12-21T15:25:00Z" readonly="readonly">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+            </div>
+            <input type="hidden" id="dtp_input4" value=""/><br/>
+        </div>
+
+    </form>
+
+    <input id="Button1" type="button" value="清空日期4" onclick="ClearDate();"/>
+
+</div>
+
+<script type="text/javascript">
+
+    function ClearDate() {
+        $("#dtp_input4").prev().find("input").val(""); // 电子版出版日期
+        $('.form_date').datetimepicker('update');
+    }
+
+    //$(".form_datetime").datetimepicker({
+    //    format: "yyyy-mm-dd",
+    //    autoclose: true,
+    //    todayBtn: true,
+    //    startDate: "2013-02-14",
+    //    minuteStep: 10
+    //});
+
+    //$(".form_datetime").datetimepicker({
+    //    language: 'zh-CN',
+    //    format: 'yyyy-mm-dd',
+    //    weekStart: 1,
+    //    todayBtn: 1,
+    //    autoclose: 1,
+    //    todayHighlight: 1,
+    //    startView: 2,
+    //    minView: 2,
+    //    forceParse: 0
+    //});
+
+    //$('.form_date').datetimepicker({
+    //    language: 'zh-CN',
+    //    format: 'yyyy-mm-dd',
+    //    weekStart: 1,
+    //    todayBtn: 1,
+    //    autoclose: 1,
+    //    todayHighlight: 1,
+    //    startView: 2,
+    //    minView: 2,
+    //    forceParse: 0
+    //});
+
+    $(".form_date").datepicker({
+        language: "zh-CN",
+        autoclose: true, //选中之后自动隐藏日期选择框
+        clearBtn: true, //清除按钮
+        todayBtn: true, //今日按钮
+        format: "yyyy-mm-dd" //日期格式，详见 http://bootstrap-datepicker.readthedocs.org/en/release/options.html#format
+    });
+
+    //$("#dtp_input_div3").attr("data-date", "2016-03-14");
+    //$("#dtp_input_div3").datetimepicker({ initialDate: "2016-03-14" });
+
+    //$("#dtp_input2").val("2017-03-14");
+    //$("#dtp_input2").prev().find("input").val("2017-03-14");
+
+    $("#dtp_input3").val("2016-03-14");
+    $("#dtp_input_div3 input").val("2016-03-14");
+
+    ////$("#dtp_input4").val("2016-03-14");
+    //$('.form_date').datetimepicker('update');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <title>jquery.jOrgChart</title>
+    <link href="../Scripts/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../Scripts/jquery/jOrgChart/jquery.jOrgChart.css" rel="stylesheet"/>
+    <!--<link href="../Scripts/jquery/jOrgChart/custom.css" rel="stylesheet"/>-->
+    <!--<link href="../Scripts/jquery/jOrgChart/prettify.css" rel="stylesheet"/>-->
+
+    <!--<script src="../Scripts/jquery/jOrgChart/prettify.js"></script>-->
+    <script src="../Scripts/jquery/jquery-1.12.4.js"></script>
+    <script src="../Scripts/jquery/jOrgChart/jquery.jOrgChart.js"></script>
+
+    <style type="text/css">
+        
+        .jOrgChart {
+            margin: 10px;
+            padding: 20px;
+        }
+
+        .node a {
+            color: #000;
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Tahoma, Arial, Roboto, "Droid Sans", "Helvetica Neue", "Droid Sans Fallback", "Heiti SC", sans-self;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .jOrgChart .node {
+            -ms-border-radius: 4px;
+            background-color: #F0F0F0;
+            border: 2px solid black;
+            border-radius: 4px;
+            height: 36px;
+            line-height: 32px;
+            margin: 0 8px;
+            width: 120px;
+        }
+
+        a i{ padding-right: 5px;}
+    </style>
+
+    <script type="text/javascript">
+
+        var data = {
+            "data": [
+                {
+                    "id": 1,
+                    "name": "企业主体信用得分",
+                    "pid": null,
+                    "childrens": [
+                        {
+                            "id": 2,
+                            "name": "企业素质",
+                            "pid": 1,
+                            "childrens": [
+                                {
+                                    "id": 5,
+                                    "name": "基本信息",
+                                    "pid": 2,
+                                    "childrens": [
+                                        {
+                                            "id": 10,
+                                            "name": "企业主体信息识别",
+                                            "pid": 5,
+                                            "childrens": [
+                                            ]
+                                        },
+                                        {
+                                            "id": 11,
+                                            "name": "企业持续注册时间",
+                                            "pid": 5,
+                                            "childrens": [
+                                            ]
+                                        },
+                                        {
+                                            "id": 12,
+                                            "name": "注册资本",
+                                            "pid": 5,
+                                            "childrens": [
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 6,
+                                    "name": "管理认证",
+                                    "pid": 2,
+                                    "childrens": [
+                                        {
+                                            "id": 13,
+                                            "name": "国际性管理认证",
+                                            "pid": 6,
+                                            "childrens": [
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "name": "履约记录",
+                            "pid": 1,
+                            "childrens": [
+                                {
+                                    "id": 7,
+                                    "name": "税务执行情况",
+                                    "pid": 3,
+                                    "childrens": [
+                                        {
+                                            "id": 14,
+                                            "name": "是否按时缴纳税款",
+                                            "pid": 7,
+                                            "childrens": [
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": 8,
+                                    "name": "网贷情况",
+                                    "pid": 3,
+                                    "childrens": [
+                                        {
+                                            "id": 15,
+                                            "name": "网贷逾期",
+                                            "pid": 8,
+                                            "childrens": [
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "id": 4,
+                            "name": "公共监督",
+                            "pid": 1,
+                            "childrens": [
+                                {
+                                    "id": 9,
+                                    "name": "行政处罚",
+                                    "pid": 4,
+                                    "childrens": [
+                                        {
+                                            "id": 16,
+                                            "name": "处罚信息",
+                                            "pid": 9,
+                                            "childrens": [
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+
+    </script>
+
+</head>
+<body>
+<!--显示组织架构图-->
+<div id="jOrgChart"></div>
+<a class="btn btn-primary" href="#"><i class="glyphicon glyphicon-user"></i>User</a>
+<i class="glyphicon glyphicon-trash"></i>
+<i class="glyphicon glyphicon-stats"></i>
+<i class="glyphicon glyphicon-trash"></i>
+
+<div id="Div1"></div>
+
+<script type="text/javascript">
+
+    $(function() {
+        //数据返回
+        //$.ajax({
+        //    url: "test.json",
+        //    type: 'GET',
+        //    dataType: 'JSON',
+        //    data: { action: 'org_select' },
+        //    success: function(result) {
+        //        var showlist = $("<ul id='org' style='display:none'></ul>");
+        //        showall(result.data, showlist);
+        //        $("#jOrgChart").append(showlist);
+        //        $("#org").jOrgChart({
+        //            chartElement: '#jOrgChart', //指定在某个dom生成jorgchart
+        //            dragAndDrop: false //设置是否可拖动
+        //        });
+
+        //    }
+        //});
+
+        $("#jOrgChart").empty();
+
+        //数据返回
+        $.ajax({
+            url: "test.json",
+            type: 'GET',
+            dataType: 'JSON',
+            data: { action: 'org_select' },
+            success: function(result) {
+
+                var showlist = $("<ul id='org' style='display:none'></ul>");
+                ShowOrganChart(result.data, showlist);
+                $("#jOrgChart").append(showlist);
+                $("#org").jOrgChart({
+                    chartElement: '#jOrgChart', //指定在某个dom生成jorgchart
+                    dragAndDrop: false //设置是否可拖动
+                });
+
+            }
+        });
+
+        $("#Div1").empty();
+
+        var showlist = $("<ul id='org1' style='display:none'></ul>");
+        ShowOrganChart(data.data, showlist);
+        $("#Div1").append(showlist);
+        $("#org1").jOrgChart({
+            chartElement: '#Div1', //指定在某个dom生成jorgchart
+            dragAndDrop: false //设置是否可拖动
+        });
+
+    });
+
+    //menu_list为json数据
+    //parent为要组合成html的容器
+    // onclick=getOrgId(" + val.id + "); onclick=getOrgId(" + val.id + ");
+    function ShowOrganChart(list, parent) {
+        $.each(list, function(index, val) {
+            var $li = $("<li></li>");
+            var name = val.name, title = "";
+            if (name.length > 7) {
+                title = " title='" + name + "'";
+                name = name.substr(0, 6) + "…";
+            }
+            if (val.childrens.length > 0) {
+                $li.append("<a href='javascript:void(0)'" + title + ">" + name + "</a>").append("<ul></ul>").appendTo(parent);
+                //递归显示
+                ShowOrganChart(val.childrens, $($li).children().eq(1));
+            } else {
+                $li.append("<a href='javascript:void(0)'" + title + ">" + name + "</a>").appendTo(parent);
+            }
+        });
+
+    }
+
+    function getOrgId(id) {
+
+    }
+
+</script>
+
+</body>
+</html>

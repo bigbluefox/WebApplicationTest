@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Flex Layout</title>
+
+    <script src="../Scripts/jquery/jquery-1.8.3.js"></script>
+    <script src="../Scripts/Hsp.js"></script>
+    <script src="../Scripts/Hsp.Common.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .box1 {
+            display: -webkit-flex; /* Safari */
+            display: flex;
+        }
+
+        .flex-container1 {
+            background-color: #00bfff;
+            /*border: 1px solid #1e90ff;*/
+            height: 300px;
+            /*margin: 0 auto;*/
+            width: 800px;
+        }
+
+        .flex-item1 {
+            /*align-items: center;*/
+            /*align-content: center;*/
+            background-color: #00ffff;
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            flex: auto;
+            /*-ms-flex-wrap: nowrap;
+            -webkit-flex-wrap: nowrap;
+            flex-wrap: nowrap;*/
+            flex-flow: row nowrap;
+            /*border: 1px solid #f0f8ff;*/
+            /*-ms-flex-direction: row;
+            -webkit-flex-direction: row;
+            flex-direction: row;*/
+            height: 60px;
+            justify-content: center;
+            width: 120px;
+        }
+
+
+        .flex-container {
+
+            padding-right: 30px;
+
+            /*align-content: space-between;*/
+            display: flex;
+            flex-direction: row;
+            justify-content:flex-end;
+            align-items: center;
+
+            /*flex-wrap: wrap;*/
+            /*justify-content: space-between;*/
+
+            width: 900px;
+        }
+
+        /* 以下为辅助样式 */
+
+        .flex-container { background-color: #F0f0f0; }
+
+        .flex-container .flex-item {
+            background-color: #B1FF84;
+            height: 60px;
+            padding: 20px;
+            width: 120px;
+        }
+
+        .flex-container .flex-item:first-child { background-color: #F5DE25; }
+
+        .flex-container .flex-item:last-child { background-color: #90D9F7; }
+
+        /*.flex-bottom { align-self: flex-end; }*/
+    </style>
+
+    <script type="text/javascript">
+
+        //虽然 Flexbox 非常适合缩放，对齐和重新排序元素，但以下情况应该尽量避免使用 Flexbox 布局：
+        //整体页面布局
+        //完全支持旧浏览器的网站
+
+        //设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。
+
+        //采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。
+        //它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"。
+
+        //容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。
+        //主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；
+        //交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+        //项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。
+
+        //http://www.css88.com/archives/7760
+
+        var width = 0, height = 0;
+
+        $(function() {
+            //alert(HSP.Common.AvailHeight());
+
+            height = HSP.Common.AvailHeight();
+
+            $(".flex-container").css("height", height + "px");
+
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+<div class="box flex-container" title="容器">
+
+    <div class="flex-item" title="项目">1</div>
+    <div class="flex-item flex-bottom" style="background-color: #7b68ee;">2</div>
+    <div class="flex-item">3</div>
+<!--    <div class="flex-item">4</div>
+    <div class="flex-item">5</div>
+    <div class="flex-item">6</div>-->
+
+</div>
+
+<div class="wrap" style="display: none;">
+    <div class="div" style="order: 4">
+        <h2>item 1</h2>
+    </div>
+    <div class="div" style="order: 2">
+        <h2>item 2</h2>
+    </div>
+    <div class="div" style="order: 3">
+        <h2>item 3</h2>
+    </div>
+    <div class="div" style="order: 1">
+        <h2>item 4</h2>
+    </div>
+</div>
+
+<div class="wrap" style="display: none;">
+    <div class="div" style="flex-basis: 80px">
+        <h2>item 1</h2>
+    </div>
+    <div class="div" style="flex-basis: 160px">
+        <h2>item 2</h2>
+    </div>
+    <div class="div" style="flex-basis: 240px">
+        <h2>item 3</h2>
+    </div>
+    <input type="checkbox" onclick=""/>
+</div>
+
+</body>
+</html>

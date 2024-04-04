@@ -1,0 +1,1301 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title></title>
+<link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+<link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+<link href="../Styles/common-window.css" rel="stylesheet" />
+<!--<link href="/Scripts/themes/mobile.css" rel="stylesheet"/>-->
+<!--<link href="/Styles/main.css" rel="stylesheet"/>-->
+
+<!--<script src="/Scripts/jquery-1.12.4.min.js"></script>-->
+<!--<script src="/Scripts/jquery-migrate-1.4.1.min.js"></script>-->
+
+<!--<script src="/Scripts/jquery-1.8.3.min.js"></script>-->
+
+<script src="/Scripts/jquery/jquery-1.7.1.min.js"></script>
+
+<script src="/Scripts/jquery.easyui.min.js"></script>
+<!--<script src="/Scripts/jquery.easyui.mobile.js"></script>-->
+<script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
+<script src="/Scripts/My97DatePicker/WdatePicker.js"></script>
+<script src="/Scripts/Hsp.js"></script>
+<script src="/Scripts/Hsp.Common.js"></script>
+
+<style type="text/css">
+    * { font-family: 微软雅黑; }
+
+    html, body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .window-div { width: 648px; }
+
+    /*.window-div { background-color: #f1f1f1; }
+
+
+
+
+    .content-div {
+        background-color: #fbfbfb;
+        border: 1px solid silver;
+        margin: 2px;
+        overflow: hidden;
+        padding-bottom: 0;
+    }*/
+
+
+    /*.btn-div {margin-top: 0px; height: 24px; line-height: 24px; overflow:hidden; text-align: right;}*/
+
+    /*.btn-div {
+        height: 24px;
+        margin-top: 0px;
+        overflow: hidden;
+        text-align: right;
+    }*/
+
+    /*.row-div {
+        display: block;
+        float: left;
+        font-family: 微软雅黑;
+        font-size: 12px;
+        height: 24px;
+        margin-left: 8px;
+        margin-top: 3px;
+    }
+
+    .row-float-div {
+        display: block;
+        float: left;
+        font-family: 微软雅黑;
+        font-size: 12px;
+        margin-left: 8px;
+        margin-top: 3px;
+    }
+
+    .two-columns-input-item { width: 180px; }
+
+    .two-columns-left-span {
+        display: table;
+        float: left;
+        line-height: 22px;
+        vertical-align: middle;
+        width: 300px;
+    }
+
+    .two-columns-left-label {
+        float: left;
+        font-weight: bold;
+        text-align: right;
+        width: 80px;
+    }
+
+    .two-columns-left-item {
+        display: block;
+        float: left;
+        height: 22px;
+        line-height: 22px;
+        text-align: left;
+        vertical-align: middle;
+        width: 220px;
+    }
+
+    .two-columns-right-span {
+        display: table;
+        float: right;
+        line-height: 22px;
+        vertical-align: middle;
+        width: 300px;
+    }
+
+    .two-columns-right-label {
+        float: left;
+        font-weight: bold;
+        text-align: right;
+        width: 80px;
+    }
+
+    .two-columns-right-item {
+        float: left;
+        text-align: left;
+        vertical-align: middle;
+        width: 220px;
+    }
+
+    .two-columns-whole-item {
+        float: left;
+        line-height: 22px;
+        text-align: left;
+        vertical-align: middle;
+        width: 520px;
+    }
+
+    .two-columns-whole-item img, .two-columns-left-item img, .two-columns-right-item img {
+        cursor: pointer;
+        margin-left: 2px;
+        margin-top: 3px;
+    }*/
+
+    /*.selectcommon-div{ height: 25px;margin: 10px 2px 5px 2px;}
+    .selectcommomtree-div{ width:381px; height:271px; overflow:auto; }
+    .selectcommon-input { width:120px;height:24px; float:left; }
+    .selectcommomtree-div-width{ width:421px; height:271px; overflow:auto; }*/
+
+
+
+    /*.properties-row-div {
+        display: block;
+        font-family: 微软雅黑;
+        font-size: 12px;
+        height: 22px;
+        margin-left: 8px;
+        margin-top: 3px;
+        width: 610px;
+    }
+
+    .row-div img {
+        cursor: pointer;
+        height: 16px;
+        padding-left: 2px;
+        vertical-align: middle;
+        width: 16px;
+    }
+
+    .row-div input[type='text'], .row-float-div textarea { font-size: 1em; }
+
+    .row-div input[type='checkbox'], .row-div input[type='radio'] { padding-right: 2px; }*/
+
+
+
+
+
+
+    /*
+    .content-div label {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: bold;
+        padding-top: 2px;
+        text-align: right;
+        vertical-align: top;
+        width: 80px;
+    }*/
+
+    /*.content-div textarea {
+        height: 90px;
+        width: 462px;
+    }*/
+
+
+
+    .user-info {
+        clear: both;
+        float: left;
+        height: 24px;
+        line-height: 24px;
+        margin: 2px 0 2px 8px;
+        width: 530px;
+
+        /*padding-top: 10px;*/
+    }
+
+    .user-info label {
+        display: inline-block;
+        float: left;
+        font-size: 12px;
+        line-height: 24px;
+        text-align: right;
+        font-weight: bold;
+        width: 80px;
+
+        border: 1px solid #00bfff;
+    }
+
+    .user-info input
+    , .user-Info .input-group {
+        display: inline-block;
+        float: left;
+    }
+
+    /*.user-Info .input-group {
+        display: inline-block;
+        float: left;
+    }*/
+
+
+    .user-info input[type='text'], .user-info input[type='password'] {
+        border: #a4bed4 1px solid;
+        height: 24px;
+        line-height: 24px;
+    }
+
+
+    .half-input {
+        padding-left: 4px;
+        width: 160px;
+    }
+
+    .half-icon-input {
+        padding-left: 4px;
+        width: 140px;
+    }
+
+    
+    .full-input {
+        padding-left: 4px;
+        width: 412px;
+    }
+
+    .full-icon-input {
+        padding-left: 4px;
+        width: 395px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*.two-columns-left-label { display: block; }
+
+    .two-columns-whole-item {
+        display: block;
+        width: 320px;
+    }
+
+    .two-columns-whole-item input[type="text"] { width: 278px; }
+
+    #postNameOrNo, #NameOrCode {
+        border: 1px solid lightgray;
+        height: 23px;
+        margin-top: 1px;
+        padding-left: 3px;
+        padding-top: 1px;
+    }
+
+    .selectcommon-div {
+        height: 25px;
+        margin: 5px 2px 5px 2px;
+        width: 520px;
+    }
+
+    .selectcommomtree-div {
+        height: 270px;
+        overflow: auto;
+        width: 379px;
+    }
+
+    .selectcommon-input {
+        float: left;
+        height: 22px;
+        width: 120px;
+    }*/
+
+    /*防止弹出窗体出现横向滚动条*/
+    .panel-body { overflow-x: hidden; }
+
+
+
+    /*select, textarea, input[type='text'], input[type='button'] { border: 1px solid #a4bed4; }*/
+
+
+
+
+</style>
+
+<style type="text/css">
+
+
+
+
+
+
+    .login-input {
+        /*border: #a4bed4 1px solid;*/
+        /*height: 24px;*/
+        /*line-height: 24px;*/
+        padding-left: 4px;
+        width: 200px;
+    }
+
+    .half-input {
+        /*border: #a4bed4 1px solid;*/
+        /*height: 24px;*/
+        /*line-height: 24px;*/
+        /*padding-left: 4px;*/
+        /*width: 160px;*/
+    }
+
+    .login-input2 {
+        /*border: #a4bed4 1px solid;*/
+        /*height: 24px;*/
+        /*line-height: 24px;*/
+        /*padding-left: 4px;*/
+        /*width: 120px;*/
+    }
+
+    .login-input3 {
+        /*border: #a4bed4 1px solid;*/
+        /*height: 24px;*/
+        /*line-height: 24px;*/
+        padding-left: 4px;
+        width: 35px;
+    }
+
+
+
+
+
+/*
+     .user-info input[type='text'] {
+         display: inline-block;
+         float: left;
+         width: 163px;
+     }
+
+    .user-info input[type='password'] {
+        display: inline-block;
+        float: left;
+        width: 163px;
+    }*/
+
+    /*
+    .user-info img {
+        cursor: pointer;
+        margin-left: 5px;
+        margin-top: 5px;
+        position: absolute;
+        vertical-align: middle;
+    }
+
+    .user-info select {
+        display: inline-block;
+        float: left;
+        height: 30px;
+        vertical-align: middle;
+        width: 170px;
+    }
+
+    #usertype-div {
+        background-color: white;
+        border: 1px solid black;
+        display: none;
+        margin: 0;
+        padding: 5px;
+        position: absolute;
+        width: 152px;
+        z-index: 9999999999;
+    }
+
+    #usertype-div input[type='checkbox'] {
+        float: none;
+        margin-left: 2px;
+    }
+
+    .textarea-div {
+        float: left;
+        margin-left: 8px;
+    }
+
+    .textarea-div label {
+        display: inline-block;
+        float: left;
+        font-size: 12px;
+        line-height: 30px;
+        text-align: right;
+        width: 80px;
+    }
+
+    .textarea-div textarea {
+        float: left;
+        width: 415px;
+    }
+
+    #usertype-div input { display: block; }
+        */
+</style>
+
+<script type="text/javascript">
+
+    $(function() {
+        var $tabs = $("#user-tabs");
+        //var $party = $('<div title="党员信息" style="padding: 10px">abcdef</div>');
+        //$party.appendTo($tabs);
+
+        //debugger;
+
+        var $dis = $('<div title="纪检信息1" style="padding: 10px">abcdef</div>');
+        $dis.appendTo($tabs);
+
+        //alert($dis[0].outerHTML);
+
+        $.parser.parse('#div_UserMainWin');
+
+        // tabs的高度与宽度自适应处理
+        $tabs.tabs();
+
+        //var $dis2 = $('<div title="纪检信息2" style="padding: 10px">abcdef</div>');
+        //$dis.appendTo($dis2);
+        //$.parser.parse('#div_UserMainWin');
+
+        //// tabs的高度与宽度自适应处理
+        //$tabs.tabs({ width: 'auto', height: 'auto' });
+        var disciplineInfo = '<div title="纪检信息2" style="padding: 10px">abc纪检信息2def</div>';
+        addTab($tabs, "纪检信息2", 425, disciplineInfo);
+
+
+        $('#user-tabs').tabs('select', "员工信息");
+
+        // 根据政治面貌选择来显示或者隐藏党员信息标签
+        $("#selPoliticalStatus").change(function() {
+            alert(this.value);
+
+            if (this.value == 0) {
+                var tab = $tabs.tabs('getTab', "党员信息");
+                var index = $tabs.tabs('getTabIndex', tab);
+                $tabs.tabs('close', index);
+            } else {
+                var partyInfo = '<div title="党员信息" style="padding: 10px">abc党员信息def</div>';
+                addTab($tabs, "党员信息", 425, partyInfo);
+            }
+        });
+
+        //var tab = $('#user-tabs').tabs('getTab', "党员信息");
+        ////var tab = $('#user-tabs').tabs('getSelected');
+        //var index = $('#user-tabs').tabs('getTabIndex', tab);
+        //alert(index);
+
+    });
+
+    //function addPanel() {
+    //    $('#user-tabs').tabs('add', {
+    //        width: 'auto',
+    //        height: 425,
+    //        title: '纪检信息2',
+    //        content: '<div title="纪检信息2" style="padding: 10px">abcdef</div>',
+    //        closable: false
+    //    });
+    //}
+
+    /// <summary>
+    /// 添加EasyUI Tab页
+    /// </summary>
+    function addTab(tabObj, title, height, content) {
+        if (tabObj.tabs('exists', title)) {
+            tabObj.tabs('select', title);
+        } else {
+            tabObj.tabs('add', {
+                width: 'auto',
+                height: height,
+                title: title,
+                closable: true,
+                content: content
+            });
+        }
+    }
+
+</script>
+
+<!--class="easyui-tabs"-->
+</head>
+<body>
+
+<div id="div_UserMainWin" class="window-div">
+    <div class="content-div">
+        <div id="user-tabs" style="height: 390px; width: auto;">
+            <div title="员工信息" style="padding: 10px">
+                <div class="row-div" style="margin-top: 10px;">
+                    <label for="userCode">账号：</label>
+                    <input class="half-input" type="text" id="userCode"/>
+                    <label for="userName">姓名：</label>
+                    <input class="half-input" type="text" id="userName"/>
+                </div>
+                <div class="row-div">
+                    <label for="userPaw">密码：</label>
+                    <input class="half-input" type="password" id="userPaw"/>
+                    <label for="isavailable">有效：</label>
+                    <select class="half-input" id="isavailable" style="width: 166px;">
+                        <option value="1" selected="selected">有效</option>
+                        <option value="0">无效</option>
+                    </select>
+                </div>
+                <div class="row-div">
+                    <label for="telephone">办公电话：</label>
+                    <input class="half-input" type="text" id="telephone"/>
+                    <label for="mobilephone">手机：</label>
+                    <input class="half-input" type="text" id="mobilephone"/>
+                </div>
+                <div class="row-div">
+                    <label for="txtHomeTel">家庭电话：</label>
+                    <input class="half-input" type="text" id="txtHomeTel"/>
+                    <label for="userorder">排序：</label>
+                    <input class="half-input" type="text" id="userorder"/>
+                </div>
+                <div class="row-div">
+                    <label for="selUserRights">权限：</label>
+                    <select id="selUserRights" name="selUserRights" style="width: 414px;"></select>
+                </div>
+                <div class="row-div">
+                    <label for="enterpriseID">企业：</label>
+                    <input type="hidden" id="enterpriseID"/>
+                    <input class="full-input" type="text" id="enterpriseName" readonly="readonly"/>
+                </div>
+                <div class="row-div">
+                    <label for="userOrganNo">部门：</label>
+                    <input type="hidden" id="userOrganNo"/>
+                    <input class="full-icon-input" style="width: 395px;" type="text" id="userOrganName" readonly="readonly"/>
+                    <img id="selectOrgan" src="/Content/images/imgfolder.gif" title="选择部门"/>
+                </div>
+                <div class="row-float-div" style="margin-top: 5px;">
+                    <label for="nodePath">组织路径：</label>
+                    <textarea name="nodePath" style="height: 45px; width: 412px;" id="nodePath" readonly="readonly"></textarea>
+                </div>
+                <div class="row-float-div" style="margin-top: 5px;">
+                    <label for="txtRemark">备注：</label>
+                    <textarea name="message" style="height: 60px; width: 412px;" id="txtRemark"></textarea>
+                </div>
+                <div style="display: none;">
+                    <label for="defaultProcessSpaceID">缺省空间：</label>
+                    <input type="hidden" id="defaultProcessSpaceID"/>
+                    <input class="half-input" type="text" id="defaultProcessSpaceName" style="width: 147px;" readonly="readonly"/>
+                    <img id="selectDefaultProcessSpace" src="/Content/images/imgfolder.gif" title="选择"/>
+                    <label for="issuper" style="width: 68px;">超级用户：</label>
+                    <select class="half-input" id="issuper" style="width: 166px;">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <div style="display: inline-block; float: left; vertical-align: middle;">
+                        <div style="display: block; height: 26px;">
+                            <input class="half-input" type="text" id="usertype-txt" userTypeSum="0" readonly="readonly" style="display: none; vertical-align: middle; width: 412px;" value="普通浏览"/>
+                        </div>
+                        <div id="usertype-div" style="">
+                            <div>
+                                <input type="checkbox" value="0" style="margin-top: 2px;" des="普通浏览" checked="checked" disabled="disabled"/>普通浏览
+                            </div>
+                            <div>
+                                <input type="checkbox" value="1" des="高级浏览"/>高级浏览
+                            </div>
+                            <div>
+                                <input type="checkbox" value="2" des="流程编制"/>流程编制
+                            </div>
+                            <div>
+                                <input type="checkbox" value="4" des="流程审批"/>流程审批
+                            </div>
+                            <div>
+                                <input type="checkbox" value="8" des="流程管理"/>流程管理
+                            </div>
+                            <div>
+                                <input type="checkbox" value="16" des="文档编制"/>文档编制
+                            </div>
+                            <div>
+                                <input type="checkbox" value="32" des="文档审批"/>文档审批
+                            </div>
+                            <div>
+                                <input type="checkbox" value="64" des="文档管理"/>文档管理
+                            </div>
+                            <div>
+                                <input type="checkbox" value="128" des="系统管理"/>系统管理
+                            </div>
+                            <div>
+                                <input type="button" id="saveUserType-btn" value="确定"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div title="个人信息" style="padding: 10px">
+                <div class="row-div" style="margin-top: 10px;">
+                    <label for="txtBirthday">出生日期：</label>
+                    <input class="half-input" type="text" id="txtBirthday"/>
+                    <label for="txtAge">年龄：</label>
+                    <input class="half-input" type="text" id="txtAge" disabled="disabled"/>
+                </div>
+                <div class="row-div">
+                    <label for="txtIdCardNo">身份证号：</label>
+                    <input class="half-input" type="text" id="txtIdCardNo" placeholder="身份证号"/>
+                    <label for="selSex">性别：</label>
+                    <select class="half-input" id="selSex" style="width: 166px;">
+                        <option value="0" selected="selected">男</option>
+                        <option value="1">女</option>
+                    </select>
+                </div>
+                <div class="row-div">
+                    <label for="txtPoliticalStatus">政治面貌：</label>
+                    <div class="input-group">
+                        <input type="hidden" id="txtPoliticalStatusId"/>
+                        <input class="half-icon-input" type="text" id="txtPoliticalStatus" readonly="readonly"/>
+                        <img id="btnPoliticalStatus" src="/Content/images/imgfolder.gif" title="选择政治面貌"/>
+                    </div>
+
+<!--                    <select class="half-input" id="selPoliticalStatus" style="width: 166px;">
+                        <option value="" selected="selected">请选择政治面貌...</option>
+                        <option value="0">革命群众</option>
+                        <option value="1">中共党员</option>
+                    </select>-->
+                    <label for="txtNation">民族：</label>
+                    <!-- <select class="half-input" id="selNation" style="width: 166px;">
+                        <option value="" selected="selected">请选择民族...</option>
+                    </select>-->
+
+                    <div class="input-group">
+                        <input type="hidden" id="txtNationId"/>
+                        <input class="half-icon-input" type="text" id="txtNation" readonly="readonly"/>
+                        <img id="btnNation" src="/Content/images/imgfolder.gif" title="选择政治面貌"/>
+                    </div>
+
+
+                </div>
+                <div class="row-div">
+                    <label for="txtNationPlace">籍贯：</label>
+                    <input class="full-input" type="text" id="txtNationPlace" placeholder="籍贯"/>
+                </div>
+                <div class="row-div">
+                    <label for="txtHomeAddr">现住址：</label>
+                    <input class="full-input" type="text" id="txtHomeAddr" placeholder="现住址"/>
+                </div>
+                <div class="row-div">
+                    <label for="txtRegisteredResidence" title="户口所在地">户口所在地：</label>
+                    <input class="full-input" type="text" id="txtRegisteredResidence" placeholder="户口所在地..."/>
+                </div>
+                <div class="row-div">
+                    <label for="txtArchivesLocation" title="档案所在地">档案所在地：</label>
+                    <input class="full-input" type="text" id="txtArchivesLocation" placeholder="档案所在地..."/>
+                </div>
+                <div class="row-div">
+                    <label for="email">邮箱地址：</label>
+                    <input class="half-input" type="text" id="email" placeholder="邮箱地址"/>
+                    <label for="txtPostalCode">邮政编码：</label>
+                    <input class="half-input" type="text" id="txtPostalCode" placeholder="邮政编码"/>
+                </div>
+                <div class="user-Info">
+                    <label for="email">员工学历情况：</label>
+                    <table id="userEducationList" title="员工学历情况"></table>
+                </div>
+            </div>
+            <div title="工作信息" style="padding: 10px">
+                <div class="row-div" style="margin-top: 10px;">
+                    <label for="txtEntryCompanyTime" title="本公司入职时间">入职时间：</label>
+                    <input class="half-input" type="text" id="txtEntryCompanyTime" placeholder="本公司入职时间..."/>
+                    <label for="txtCompanyLength">司龄：</label>
+                    <input class="half-input" type="text" id="txtCompanyLength" disabled="disabled"/>
+                </div>
+                <div class="row-div">
+                    <label for="txtEntryServiceTime" title="参加工作时间">工作时间：</label>
+                    <input class="half-input" type="text" id="txtEntryServiceTime" placeholder="参加工作时间..."/>
+                    <label for="txtServiceLength">工龄：</label>
+                    <input class="half-input" type="text" id="txtServiceLength" disabled="disabled"/>
+                </div>
+                <div class="row-div">
+                    <label for="selStaffCategory">员工类别：</label>
+                    <select class="half-input" id="selStaffCategory" style="width: 166px;">
+                        <option value="" selected="selected">请选择员工类别...</option>
+                    </select>
+                    <label for="selHireStatus">雇佣状态：</label>
+                    <select class="half-input" id="selHireStatus" style="width: 166px;">
+                        <option value="" selected="selected">请选择雇佣状态...</option>
+                    </select>
+                </div>
+                <div class="user-Info">
+                    <table id="userExperienceList" title="员工工作经历"></table>
+                </div>
+            </div>
+            <div title="培训信息" style="padding: 10px">
+                <div class="user-Info">
+                    <table id="userTrainlingList" title="员工培训信息"></table>
+                </div>
+            </div>
+            <div title="纪检信息" style="padding: 10px">
+                <div class="user-Info">
+                    <table id="userDisciplineList" title="员工纪检信息"></table>
+                </div>
+            </div>
+            <div title="党员信息" style="padding: 10px">
+                <div class="user-Info">
+                    党员信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-div">
+        <input id="userTypeSum" type="hidden"/>
+        <input type="button" value="确定" id="btnUserWinOk" style="margin-right: 3px; width: 74px;"/>
+        <input type="button" value="取消" id="btnUserWinCancel" style="width: 74px;"/>
+    </div>
+</div>
+
+
+<!--
+<div id="div_UserMainWin" class="window-div">
+    <div class="content-div">
+        <div class="easyui-tabs" style="height: 390px; width: auto;">
+            <div title="基本信息" style="padding: 10px">
+                <div class="user-info">
+                    <label for="userCode">登录账号：</label>
+                    <input class="half-input" type="text" id="userCode"/>
+                    <label for="userName">用户姓名：</label>
+                    <input class="half-input" type="text" id="userName"/>
+                </div>
+                <div class="user-info">
+                    <label for="userPaw">登录密码：</label>
+                    <input class="half-input" type="password" id="userPaw"/>
+                    <label for="usertype-txt">用户权限：</label>
+                    <div style="display: inline-block; float: left; vertical-align: middle; width: 160px;">
+                        <div style="display: block; height: 26px;">
+                            <input class="half-input" type="text" id="usertype-txt" userTypeSum="0" readonly="readonly" style="display: block; vertical-align: middle;" value="普通浏览"/>
+                        </div>
+                        <div id="usertype-div">
+                            <div><input type="checkbox" value="0" style="margin-top: 2px;" des="普通浏览" checked="checked" disabled="disabled"/>普通浏览</div>
+                            <div><input type="checkbox" value="1" title="高级浏览"/>高级浏览</div>
+                            <div><input type="checkbox" value="2" title="流程编制"/>流程编制</div>
+                            <div><input type="checkbox" value="4" title="流程审批"/>流程审批</div>
+                            <div><input type="checkbox" value="8" title="流程管理"/>流程管理</div>
+                            <div><input type="checkbox" value="16" title="文档编制"/>文档编制</div>
+                            <div><input type="checkbox" value="32" title="文档审批"/>文档审批</div>
+                            <div><input type="checkbox" value="64" title="文档管理"/>文档管理</div>
+                            <div><input type="checkbox" value="128" title="体系管理"/>体系管理</div>
+                            <div><input type="checkbox" value="256" title="文章审批"/>文章审批</div>
+                            <div><input type="checkbox" value="512" title="系统管理"/>系统管理</div>
+                            <div>
+                                <input type="button" style="float: none; margin-left: 2px; margin-top: 2px; width: 74px;" id="saveUserType-btn" value="确定"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-info">
+                    <label for="enterpriseID">所属企业：</label>
+                    <input class="login-input3" type="hidden" id="enterpriseID"/>
+                    <input class="half-input" type="text" id="enterpriseName" readonly="readonly"/>
+                    <label for="defaultProcessSpaceID">缺省空间：</label>
+                    <input class="login-input3" type="hidden" id="defaultProcessSpaceID"/>
+                    <input class="half-input" type="text" id="defaultProcessSpaceName" style="width: 147px;" readonly="readonly"/>
+                    <img id="selectDefaultProcessSpace" src="/Content/images/imgfolder.gif" title="选择缺省空间"/>
+                </div>
+                <div class="user-info">
+                    <label for="telephone">电话号码：</label>
+                    <input class="half-input" type="text" id="telephone"/>
+                    <label for="mobilephone">手机号码：</label>
+                    <input class="half-input" type="text" id="mobilephone"/>
+                </div>
+                <div class="user-info">
+                    <label for="email">邮箱地址：</label>
+                    <input class="half-input" type="text" id="email"/>
+                    <label for="userorder">排&nbsp;&nbsp;序&nbsp;&nbsp;号：</label>
+                    <input class="half-input" type="text" id="userorder"/>
+                </div>
+                <div class="user-info">
+                    <label for="isavailable">是否有效：</label>
+                    <select class="half-input" id="isavailable">
+                        <option value="1" selected="selected">有效</option>
+                        <option value="0">无效</option>
+                    </select>
+                    <label for="issuper">超级用户：</label>
+                    <select class="half-input" id="issuper">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+                <div id="divUserOrgan" class="user-info" style="padding-top: 5px;">
+                    <label for="userOrganNo">所属部门：</label>
+                    <input class="login-input3" type="hidden" id="userOrganNo"/>
+                    <input class="half-input" style="float: left; width: 395px;" type="text" id="userOrganName" readonly="readonly"/>
+                    <img id="selectOrgan" src="/Content/images/imgfolder.gif" title="选择所属部门"/>
+                </div>
+                <div class="textarea-div" style="display: none;">
+                    <label for="nodePath">所属路径：</label>
+                    <textarea name="nodePath" style="height: 35px;" id="nodePath" readonly="readonly"></textarea>
+                </div>
+                <div class="textarea-div" style="padding-top: 5px;">
+                    <label for="txtRemark">用户备注：</label>
+                    <textarea name="message" style="height: 60px;" id="txtRemark"></textarea>
+                </div>
+            </div>
+            <div title="专家信息" style="padding: 10px">
+                <div class="user-info">
+                    <label for="isExpert">是否专家：</label>
+                    <select class="half-input" id="isExpert">
+                        <option value="0" selected="selected">否</option>
+                        <option value="1">是</option>
+                    </select>
+                    <label for="sex">专家性别：</label>
+                    <select class="half-input" id="sex">
+                        <option value="0" selected="selected">男</option>
+                        <option value="1">女</option>
+                    </select>
+                </div>
+                <div class="user-info">
+                    <label for="birthday">出生日期：</label>
+                    <input class="half-input" type="text" id="birthday" onclick="WdatePicker();" readonly="readonly"/>
+                    <label for="joinDate">工作时间：</label>
+                    <input class="half-input" type="text" id="joinDate" onclick="WdatePicker();" readonly="readonly"/>
+                </div>
+                <div class="user-info">
+                    <label for="graduateSchool">毕业院校：</label>
+                    <input class="half-input" type="text" id="graduateSchool"/>
+                    <label for="highestDegree">最高学历：</label>
+                    <input class="half-input" type="text" id="highestDegree"/>
+                </div>
+                <div class="user-info">
+                    <label for="technicalTitle">技术职称：</label>
+                    <input class="half-input" type="text" id="technicalTitle"/>
+                    <label for="declareMajor">申报专业：</label>
+                    <select class="half-input" id="declareMajor">
+                        <option value="0" selected="selected">AAA</option>
+                        <option value="1">BBB</option>
+                    </select>
+                </div>
+                <div class="textarea-div" style="height: 90px; padding-top: 5px;">
+                    <label for="workResume">工作简历：</label>
+                    <textarea name="message" style="height: 75px;" id="workResume"></textarea>
+                </div>
+                <div class="textarea-div">
+                    <label for="achievement">主要业绩：</label>
+                    <textarea name="message" style="height: 75px;" id="achievement"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-div">
+        <input id="userTypeSum" type="hidden"/>
+        <input type="button" value="确定" id="btnUserWinOk" style="margin-right: 3px; width: 74px;"/>
+        <input type="button" value="取消" id="btnUserWinCancel" style="width: 74px;"/>
+    </div>
+</div>
+//-->
+
+
+<style type="text/css">
+
+    /*.right-col-div {
+        float: left;
+        height: 24px;
+        margin-left: 20px;
+        width: 235px;
+    }
+
+    .left-col-div {
+        display: table;
+        float: left;
+        height: 24px;
+        width: 235px;
+    }
+
+    .label-span {
+        display: block;
+        float: left;
+        font-weight: bold;
+        line-height: 24px;
+        text-align: right;
+        width: 70px;
+    }
+
+    .middlelabel-span {
+        display: block;
+        float: left;
+        line-height: 24px;
+        text-align: center;
+        width: 30px;
+    }
+
+    .input-text-span {
+        display: block;
+        float: left;
+        width: 150px;
+    }
+
+    .input-datetext-span {
+        display: block;
+        float: left;
+        width: 60px;
+    }
+
+
+    .window-div { width: 532px; }
+
+
+    .row-float-div textarea { width: 405px; }
+
+    .left-col-div input[type='text'], .right-col-div input[type='text'] { width: 150px; }
+
+    .left-col-div select, .right-col-div select { width: 150px; }
+
+    .left-col-div span, .left-col-div label, .left-col-div input, .left-col-div select { display: inline-block; }
+
+    .right-col-div span, .right-col-div label, .right-col-div input, .right-col-div select { display: inline-block; }*/
+    
+    
+    </style>
+
+<!--
+<div class="easyui-layout" style="height: 600px;">
+    <div region="center" border="false" style="overflow-x: hidden; padding: 10px;">
+        <div class="easyui-tabs content-div" data-options="fit:true" style="width: auto;">
+            <div title="基本属性" style="overflow: hidden; padding: 0;">
+                <div class="row-float-div">
+                    <div class="row-label">
+                        <span class="row-header">分类：&nbsp;</span></div>
+                    <div>
+                        <input type="text" id="txtCategoryName" style="width: 444px;" placeholder="所属栏目名称"/>
+                        <input type="hidden" id="txtCategoryId" title="栏目编号"/>
+                        <input type="hidden" id="txtCategoryType" title="业务分类"/>
+                        <img id="btnBizTypeSelect" title="所属分类选择" alt="所属分类选择" src="/Content/images/edit.png"/>
+                    </div>
+                </div>
+                <div class="row-float-div">
+                    <div class="row-label">
+                        <span class="row-header">标题：&nbsp;</span></div>
+                    <div>
+                        <input type="text" id="txtTitle" style="width: 444px;" placeholder="文章标题"/>
+                        <span style="display: none;">&nbsp;&nbsp;高亮 &nbsp;<input type="checkbox" id="chkd"/></span>
+                    </div>
+                </div>
+                <div class="row-float-div">
+                    <div class="row-label">
+                        <span class="row-header">标签：&nbsp;</span></div>
+                    <div id="noticeTag" style="width: 882px;"></div>
+                </div>
+                <div class="row-float-div">
+                    <div class="row-label">
+                        <span class="row-header">作者：&nbsp;</span></div>
+                    <div>
+                        <input type="text" id="txtAuthor" style="width: 444px;" placeholder="文章作者，多个作者用顿号（、）隔开"/>
+                    </div>
+                </div>
+                <div class="row-float-div">
+                    <div class="row-label">
+                        <span class="row-header">部门：&nbsp;</span></div>
+                    <div>
+                        <input type="text" id="txtSource" style="width: 444px;" placeholder="所属部门"/>
+                        <input type="hidden" id="txtDeptId"/>
+                        <img id="btnDeptSelect" title="所属部门选择" alt="所属部门选择" src="/Content/images/edit.png"/>
+                    </div>
+                </div>
+                <div class="row-float-div">
+                    <div class="row-label">
+                        <span class="row-header">排序：&nbsp;</span></div>
+                    <div>
+                        <input type="text" id="txtIdx" style="width: 444px;" placeholder="排序" value="999"/>
+                    </div>
+                </div>
+                <div class="row-float-div">
+                    <div class="row-label">
+                        <span class="row-header">发布日期：&nbsp;</span></div>
+                    <div>
+                        <input id="txtReleaseDate" class="easyui-datebox" type="text" style="width: 444px;" placeholder="发布日期"/>
+                        <span>&nbsp;不选择默认当前发布日期</span>
+                    </div>
+                </div>
+            </div>
+            <div title="高级属性" style="overflow: hidden; padding: 0;">
+                <div class="row-float-div">
+                    <div class="row-label">
+                        <span class="row-header">内容：&nbsp;</span></div>
+                    <div style="width: 964px;">
+                        <textarea id="txtContent" style="height: 260px; width: 100%;" class="ckeditor"></textarea>
+                    </div>
+                </div>
+                <div class="row-float-div">
+                    <div class="row-label">
+                        <span class="row-header">摘要：&nbsp;</span></div>
+                    <div>
+                        <textarea id="txtAbstract" style="height: 60px; width: 960px;" placeholder="文章摘要"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div title="扩展属性" style="overflow: hidden; padding: 0;">
+                <div style="height: 138px; width: auto;">
+                    <div id="tbImageList" title="图片列表"></div>
+                </div>
+                <div>&nbsp;</div>
+                <div style="height: 138px; width: auto;">
+                    <div id="tbFileList" title="附件列表"></div>
+                </div>
+                <div>&nbsp;</div>
+                <div style="height: 138px; width: auto;">
+                    <div id="tbLinkList" title="相关资料"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div region="south" split="true" border="false" style="height: 40px; overflow: hidden; padding: 0;">
+        <div id="label" style="float: left; margin: 5px;"></div>
+        <div class="button" style="float: right; margin: 5px;">
+            <a href="javascript:void(0);" id="btnPortal" class="easyui-linkbutton">门户数据</a>
+            <a href="javascript:void(0);" id="btnAddTag" class="easyui-linkbutton">添加标签</a>
+            <a href="javascript:void(0);" id="btnAddImg" class="easyui-linkbutton">添加图片</a>
+            <a href="javascript:void(0);" id="btnAddFile" class="easyui-linkbutton">添加附件</a>
+            <a href="javascript:void(0);" id="btnAddLink" class="easyui-linkbutton">添加资料</a>
+            <a href="javascript:void(0);" id="btnTemporary" class="easyui-linkbutton">暂存</a>
+            <a href="javascript:void(0);" id="btnPreview" class="easyui-linkbutton">预览</a>
+            <a href="javascript:void(0);" id="btnPublish" class="easyui-linkbutton">发布</a>
+            <a href="javascript:void(0);" id="btnCancel" class="easyui-linkbutton">取消</a>
+        </div>
+    </div>
+</div>
+-->
+
+<!--
+<div id="documentEdit" class="window-div" style="overflow: hidden;">
+<div id="documentTab" class="easyui-tabs content-div" data-options="fit:true" style="height: 390px; width: auto;">
+<div title="基本属性" style="overflow: hidden; padding: 0px;">
+    <div class="row-div">
+        <div style="height: 50px; overflow: hidden; padding: 1px; width: 480px;">
+            <input id="file_upload_1" type="file"/>
+            <div id="fileQueue"></div>
+        </div>
+    </div>
+    <div style="margin-top: 10px;">
+        <div class="row-div">
+            <span class="label-span">文档名称：</span>
+            <span class="input-text-span">
+                        <input type="text" style="width: 405px;" id="documentName" />
+                    </span>
+        </div>
+        <div class="row-div">
+            <div class="left-col-div">
+                <span class="label-span">文档目录：</span>
+                <span class="input-text-span">
+				            <input type="text" style="width: 130px;" id="CatalogName" readonly="readonly" />
+				            <img id="selectCatalog" src="/Content/images/imgfolder.gif" alt="选择所属目录" title="选择所属目录" />
+				        </span>
+            </div>
+            <div class="right-col-div">
+                <span class="label-span">排&nbsp;&nbsp;序&nbsp;&nbsp;号：</span>
+                <span class="input-text-span">
+                            <input type="text" id="sortNumber" placeholder="排序号" />
+                        </span>
+            </div>
+        </div>
+        <div class="row-div">
+            <div class="left-col-div">
+                <span class="label-span">文档编码：</span>
+                <span class="input-text-span">
+                            <input type="text" id="documentCode" placeholder="文档编码" onpropertychange="changeStandardType(this.value);" />
+                        </span>
+            </div>
+            <div class="right-col-div">
+                <span class="label-span">标准类型：</span>
+                <span class="input-text-span">
+                            <select id="standardType" >
+                                <option value="999">请选择</option>
+                                <option value="99">其他标准</option>
+                                <option value="1">国家标准</option>
+                                <option value="2">安全行业标准</option>
+                                <option value="25">电力行业标准</option>
+                                <option value="30">地方标准</option>
+                                <option value="40">企业标准</option>
+                                <option value="50">国际标准</option>
+                                <option value="51">国际电工组织</option>
+                                <option value="52">国际电信组织</option>
+                                <option value="10">煤炭行业标准</option>
+                                <option value="11">建筑材料行业标准</option>
+                                <option value="12">环境保护行业标准</option>
+                                <option value="13">机械行业标准</option>
+                                <option value="14">水利行业标准</option>
+                                <option value="15">化工行业标准</option>
+                                <option value="16">物资行业标准</option>
+                                <option value="17">档案行业标准</option>
+                                <option value="18">劳动和劳动安全行业标准</option>
+                                <option value="19">电子行业标准</option>
+                                <option value="20">公共安全行业标准</option>
+                                <option value="21">教育行业标准</option>
+                                <option value="22">铁路运输行业标准</option>
+                                <option value="23">交通行业标准</option>
+                                <option value="24">土地管理行业标准</option>
+                            </select>
+                        </span>
+            </div>
+        </div>
+        <div class="row-div">
+            <div class="left-col-div">
+                <span class="label-span">责&nbsp;&nbsp;任&nbsp;&nbsp;人：</span>
+                <span class="input-text-span">
+                            <input type="text" id="responsor" placeholder="责任人" />
+                        </span>
+            </div>
+            <div class="right-col-div">
+                <span class="label-span"><label for="organName">所属部门：</label></span>
+                <input type="hidden" id="organID"/>
+                <input style="float: left; width: 130px;" type="text" id="organName" readonly="readonly"/>
+                <img id="selectOrgan" src="/Content/images/imgfolder.gif" alt="选择"/>
+            </div>
+        </div>
+        <div class="row-div">
+            <div class="left-col-div">
+                <span class="label-span">审&nbsp;&nbsp;核&nbsp;&nbsp;人：</span>
+                <span class="input-text-span">
+                            <input type="text" id="auditor" placeholder="审核人" />
+                        </span>
+            </div>
+            <div class="right-col-div">
+                <span class="label-span"><label for="manager">审&nbsp;&nbsp;批&nbsp;&nbsp;人：</label></span>
+                <input type="hidden" id="managerID"/>
+                <input type="text" style="width: 130px;" id="manager" readonly="readonly"/>
+                <img id="selectManager" src="/Content/images/imgfolder.gif" alt="选择审批人" title="选择审批人"/>
+            </div>
+        </div>
+        <div class="row-div">
+            <div class="left-col-div">
+                <span class="label-span">生效日期：</span>
+                <span class="input-text-span">
+                            <input type="text" id="effectiveDate" onclick="WdatePicker();" />
+                        </span>
+            </div>
+            <div class="right-col-div">
+                <span class="label-span">复制内容：</span>
+                <span class="input-text-span">
+                            <input id="isNoCopy" type="checkbox" />不允许复制内容
+                        </span>
+            </div>
+        </div>
+        <div class="row-div">
+            <div class="left-col-div">
+                <span class="label-span">保存地点：</span>
+                <span class="input-text-span">
+                            <input type="text" id="savePlace" placeholder="保存地点" />
+                        </span>
+            </div>
+            <div class="right-col-div">
+                <span class="label-span">保存期限：</span>
+                <span class="input-text-span">
+                            <input type="text" id="saveTerm" placeholder="保存期限" />
+                        </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div title="高级属性" style="overflow: hidden; padding: 0px;">
+    <div class="row-div">
+        <div class="left-col-div">
+            <span class="label-span">文档类型：</span>
+            <span class="input-text-span">
+                        <select id="isMaster" ></select>
+                    </span>
+        </div>
+        <div class="right-col-div">
+            <span class="label-span">文档状态：</span>
+            <span class="input-text-span">
+                        <select id="documentStatus" >
+                            <option value="0">起草中</option>
+                            <option value="6">征求意见中</option>
+                            <option value="7">征求意见完成</option>
+                            <option value="8">送审中</option>
+                            <option value="9">送审完成</option>
+                            <option value="10">报批中</option>
+                            <option value="11">报批完成</option>
+                            <option value="4">已发布</option>
+                            <option value="5">已作废</option>
+                        </select>
+                    </span>
+        </div>
+    </div>
+    <div class="row-div">
+        <div class="left-col-div">
+            <span class="label-span">文档版本：</span>
+            <span class="input-text-span">
+                        <input type="text" id="version" readonly="readonly" disabled="disabled" />
+                    </span>
+        </div>
+        <div class="right-col-div">
+            <span class="label-span"><label for="creatorName">编&nbsp;&nbsp;制&nbsp;&nbsp;者：</label></span>
+            <input type="hidden" id="creatorID"/>
+            <input style="width: 130px;" type="text" id="creatorName" readonly="readonly"/>
+            <img id="selectCreator" src="/Content/images/imgfolder.gif" alt="选择"/>
+        </div>
+    </div>
+    <div class="row-div">
+        <div class="left-col-div">
+            <span class="label-span">文档大小：</span>
+            <span class="input-text-span">
+                        <input type="hidden" id="fileSize" value="0" />
+                        <input type="text" style="width: 120px;" id="fileSizeShow" readonly="readonly" disabled="disabled"/>&nbsp(KB)
+                    </span>
+        </div>
+        <div class="right-col-div">
+            <span class="label-span">文档格式：</span>
+            <span class="input-text-span">
+                        <input type="text" id="documentExtName" readonly="readonly" disabled="disabled"/>
+                    </span>
+        </div>
+    </div>
+    <div class="row-div">
+        <div class="left-col-div">
+            <span class="label-span">创建日期：</span>
+            <span class="input-text-span">
+                        <input type="text" id="createDate" readonly="readonly" disabled="disabled"/>
+                    </span>
+        </div>
+        <div class="right-col-div">
+            <span class="label-span">状态日期：</span>
+            <span class="input-text-span">
+                        <input type="text" id="statusDate" readonly="readonly" disabled="disabled"/>
+                    </span>
+        </div>
+        <div class="right-col-div" style="display: none;">
+            <span class="label-span">项目编号：</span>
+            <input type="text" style="width: 130px;" id="itemName" readonly="readonly" disabled="disabled"/>
+            <input type="hidden" id="itemNumber"/>
+            <img id="selectItemNumber" src="/Content/images/imgfolder.gif" alt="选择"/>
+        </div>
+    </div>
+    <div class="row-div">
+        <span class="label-span">关&nbsp;&nbsp;键&nbsp;&nbsp;字：</span>
+        <span class="input-text-span">
+                    <input type="text" id="keyword-txt" title="多个关键字请用空格分隔" placeholder="多个关键字请用空格分隔" style="color: gray; width: 405px;"/>
+                </span>
+    </div>
+    <div class="row-float-div">
+        <span class="label-span">文档描述：</span>
+        <span style="display: block; float: left;">
+                    <textarea style="height: 58px;" id="memo" rows="3"></textarea>
+                </span>
+    </div>
+    <div class="row-float-div">
+        <span class="label-span">文档路径：</span>
+        <span class="input-text-span">
+                    <textarea name="nodePath" maxlength="1024" style="height: 65px;" readonly="readonly" id="nodePath"></textarea>
+                </span>
+    </div>
+</div>
+<div title="授权策略" style="overflow: hidden; padding: 0px;">
+    <div class="row-div" style="margin-left: 5px; margin-top: 3px;">
+        <span style="display: block;">授权策略：
+                    <input type="radio" name="accessPolicy" value="缺省允许所有人访问" checked="checked" id="AllowAccess" />缺省允许所有人访问
+                    <input type="radio" name="accessPolicy" value="缺省拒绝所有人访问" id="RefuseAccess" />缺省拒绝所有人访问
+                </span>
+    </div>
+    <div style="margin: 10px;">
+        <input type="button" style="margin-bottom: 10px; width: 95px;" value="添加授权岗位" id="addAccessPosition"/>
+        <div>
+            <div id="documentAccessGrid"></div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="btn-div">
+    <input type="hidden" id="Hidden1" value="0"/>
+    <input type="button" style="width: 74px;" value="确定" id="okBtn"/>
+    <input type="button" style="width: 74px;" value="取消" id="cancelBtn"/>
+</div>
+</div>
+-->
+
+
+</body>
+</html>

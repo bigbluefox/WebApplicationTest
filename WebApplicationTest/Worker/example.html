@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+
+    <!--https://www.cnblogs.com/peakleo/p/6218823.html-->
+
+</head>
+<body>
+
+<script type="text/javascript">
+    
+    var myWorker = new Worker("example.js");
+
+    myWorker.onmessage = function (event) {
+        console.log("Called back by the worker!\n");
+    };
+
+    myWorker = new Worker("example.js");
+
+    myWorker.addEventListener("message", function (event) {
+        console.log("Worker said : " + event.data);
+    }, false);
+
+    myWorker.postMessage("hello my worker"); // start the worker.
+
+    myWorker.addEventListener("message", function (evt) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "serviceUrl"); //serviceUrl为后端返回json数据的接口
+        xhr.onload = function () {
+            postMessage(xhr.responseText);
+        };
+        xhr.send();
+    }, false);
+
+    myWorker.addEventListener("error", function (evt) {
+        alert("Line #" + evt.lineno + " - " + evt.message + " in " + evt.filename);
+    }, false);
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=IE8"/>-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1"/>-->
+    <title>Upload Folder With Webkitdirectory </title>
+<!--    <link href="/Scripts/themes/default/easyui.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.css" rel="stylesheet"/>
+
+    <script src="/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>-->
+
+    <style type="text/css">
+            @import url(http://fonts.googleapis.com/css?family=Questrial);
+	
+	
+	#holder {
+		font-family: Arial;
+		width: 500px;
+		margin: 100px auto;
+		text-align:center;
+        border:1px solid red;
+	}
+	
+	#output {
+		padding-top: 20px;
+		font-size: 11px;
+	}
+    </style>
+
+    <script type="text/javascript">
+        /**
+*
+*	Script by Sapphion.com
+*
+*	Enjoy.
+*
+*/
+
+
+
+        window.onload = function () {
+            var output = document.getElementById('output');
+
+            // Detect when the value of the files input changes.
+            document.getElementById('files').onchange = function (e) {
+                // Retrieve the file list from the input element
+                uploadFiles(e.target.files);
+
+                // Outputs file names to div id "output"
+                output.innerText = "";
+                for (var i in e.target.files)
+                    output.innerText = output.innerText + e.target.files[i].webkitRelativePath + "\n";
+            }
+        }
+
+
+        function uploadFiles(files) {
+
+            // Create a new HTTP requests, Form data item (data we will send to the server) and an empty string for the file paths.
+            xhr = new XMLHttpRequest();
+            data = new FormData();
+            paths = "";
+
+            // Set how to handle the response text from the server
+            xhr.onreadystatechange = function (ev) {
+                console.debug(xhr.responseText);
+            };
+
+            // Loop through the file list
+            for (var i in files) {
+                // Append the current file path to the paths variable (delimited by tripple hash signs - ###)
+                paths += files[i].webkitRelativePath + "###";
+                // Append current file to our FormData with the index of i
+                data.append(i, files[i]);
+            };
+            // Append the paths variable to our FormData to be sent to the server
+            // Currently, As far as I know, HTTP requests do not natively carry the path data
+            // So we must add it to the request manually.
+            data.append('paths', paths);
+
+            // Open and send HHTP requests to upload.php
+            xhr.open('POST', "upload.php", true);
+            xhr.send(this.data);
+
+        }
+    </script>
+
+</head>
+<body>
+        <div id="holder">
+            <input type="file" id="files" name="files[]" multiple="" webkitdirectory="">​
+        <div id="output"></div>
+        </div>
+
+<script type="text/javascript">
+    //var input = document.getElementById('files');
+    //var output = document.getElementById('output');
+
+    //input.onchange = function (e) {
+    //    var files = e.target.files; // FileList
+    //    for (var i = 0, f; f = files[i]; ++i) {
+    //        console.debug(files[i].webkitRelativePath);
+    //        output.innerText = output.innerText + files[i].webkitRelativePath + "\n";
+    //    }
+    //}
+</script>
+</body>
+</html>

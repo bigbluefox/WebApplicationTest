@@ -1,0 +1,773 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="YKAh38j3c7Dp_d0eyeh8GfCdUrRwNrHWGf5ewXGXmtMBkW-YuLUY4N7Q7y__2zAqx-gwwUVSgYl1xxWOM_DiqQ==">
+    <!--<link rel="shortcut icon" href="/images/krajee-logo.ico" type="image/x-icon">-->
+    <!--<link rel="icon" href="/images/krajee-logo.ico" type="image/x-icon">-->
+    <title>Bootstrap File Input Avatar Upload Demo - &copy; Kartik</title>
+    <!--<link href="/assets/prod/all-krajee.min.css?ver=201710271504" rel="stylesheet">-->
+    <!--<link href="/assets/ac7bbcb6/css/fileinput.min.css?ver=201804061549" rel="stylesheet">-->
+    <link href="public/css/all-krajee.min.css" rel="stylesheet" />
+    <link href="../Scripts/bootstrap/css/bootstrap-fileinput.css" rel="stylesheet"/>
+
+    <style>
+        .kv-avatar .krajee-default.file-preview-frame, .kv-avatar .krajee-default.file-preview-frame:hover {
+            border: none;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .kv-avatar { display: inline-block; }
+
+        .kv-avatar .file-input {
+            display: table-cell;
+            width: 213px;
+        }
+
+        .kv-reqd {
+            color: red;
+            font-family: monospace;
+            font-weight: normal;
+        }
+
+        .opened#wrapper{ padding-left: 0;}
+    </style>
+
+    <script src="https://buttons.github.io/buttons.js" async></script>
+
+</head>
+<body onload="prettyPrint()">
+
+<div id="wrapper" class="opened">
+
+<!-- Page Content -->
+<div id="page-content-wrapper">
+<div id="page-content-inner" class="container-fluid">
+<div id="top" class="kv-title-box">
+    <div class="row">
+        <div class="col-lg-7 kv-title-text">
+            <h2 class="kv-main-title">
+                <span class="fa fa-folder-open"></span>
+                Avatar Upload Demo
+            </h2>
+        </div>
+        <div class="col-lg-5 kv-title-pills">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="http://webtips.krajee.com/tag/bootstrap-fileinput" title="bootstrap-fileinput web tips"><span class="fa fa-bell-o kv-animated-bell"></span> Tips</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://github.com/kartik-v/bootstrap-fileinput" title="bootstrap-fileinput github repository"><span class="fa fa-cloud"></span> Source</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/file-input" title="bootstrap-fileinput documentation"><span class="fa fa-book"></span> Docs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/file-input/demo#avatar-upload" title="bootstrap-fileinput demonstration"><span class="fa fa-play"></span> Demo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/file-avatar-upload-demo" title="Avatar Upload"><span class="fa fa-play"></span> Avatar U&hellip;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="kv-crumb-bar">
+    <div class="row">
+        <div class="col-lg-5 kv-crumbs">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/file-input">Bootstrap File Input</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/file-input/demo#avatar-upload">Demos</a>
+                </li>
+                <li class="breadcrumb-item active">Avatar Upload</li>
+            </ol>
+        </div>
+        <div class="col-lg-7 kv-buttons">
+            <a class="github-button" href="https://github.com/kartik-v/bootstrap-fileinput/subscription" title="Watch" data-show-count="true" aria-label="Watch kartik-v/bootstrap-fileinput on GitHub">Watch</a> <a class="github-button" href="https://github.com/kartik-v/bootstrap-fileinput" data-show-count="true" title="aria-label="Star kartik-v/bootstrap-fileinput on GitHub">Star</a> <a class="github-button" href="https://github.com/kartik-v/bootstrap-fileinput/fork" data-show-count="true" aria-label="Fork kartik-v/bootstrap-fileinput on GitHub">Fork</a> <a class="github-button" href="https://github.com/kartik-v/bootstrap-fileinput/issues" data-show-count="true" aria-label="Issue kartik-v/bootstrap-fileinput on GitHub">Issue</a> <a class="github-button" href="https://github.com/kartik-v" data-show-count="true" aria-label="Follow @kartik-v on GitHub">@kartik-v</a>
+        </div>
+    </div>
+</div>
+<div class="adblock-msg alert alert-danger" style="display: none;">
+    <button class="close text-right pull-right float-right">&times;</button>
+    <div style="float: left; font-size: 18px; margin-right: 20px">
+        <i class="fa fa-exclamation-triangle fa-4x"></i>
+    </div><h4>Oops!</h4>
+    Your browser seems to have an ad-blocking plugin enabled. It is recommended if you can add this domain to your adblocker's whitelist to enable a seamless viewing experience
+    of the jQuery plugin demos on this site. If you still feel that you find specific content intrusive or inappropriate, please <a href="mailto:feedback@krajee.com" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-envelope"></i> mail us</a>
+</div>
+<div class="my-2">
+    <table class="kv-paypal-table" style="margin: auto">
+        <tr class="text-warning small">
+            <td>Thankful to Krajee!</td>
+            <td>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="margin: 0; padding: 0">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="hosted_button_id" value="EUGR9JMMXUB96">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Donate to Krajee using PayPal">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </td>
+            <td>to get more out of us.</td>
+            <td>
+                <button id="pop" type="button" class="btn btn-xs btn-info kv-paypal" title="    <b>Why donate?</b>
+    <button type='button' class='close' onclick='closepop()' style='margin-top:-5px'>&times;</button>" data-html="true" data-animation="true" data-container="body" data-toggle="popover" data-placement="right" data-content="<div class='small text-justify'><p>We strive hard in creating high quality JQuery plugins for the community as <b>free</b> open source code, and maintaining this demonstration site.</p><p>
+Any donation would help us maintain our resources better and help improve our plugins or create new ones.</p><p>Even, if it does not fulfil our 
+resource needs, it will still be a nice way to thank us and buy us a <i class='fa fa-coffee'></i>. <p>We accept donations through 
+<a href='http://www.paypal.com' target='_blank'>PayPal</a>. You can also <a href='http://krajee.com/contact/'>send us your details</a> for us to acknowledge your 
+contribution.</p></div>"><i class="fa fa-info-circle"></i> Learn</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="text-center" style="overflow: hidden">
+
+    <!-- Leaderboard -->
+    <ins class="adsbygoogle"
+         style="display: inline-block; height: 90px; width: 728px;"
+         data-ad-client="ca-pub-4718928441117602"
+         data-ad-slot="4893266174">
+    </ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="text-justify">
+    <p class="lead">An example to show how you can use the plugin to manage an user profile picture upload (or an avatar). This is achieved with a simple form based upload scenario. The example shows how you can set a default user profile picture (or a previously saved picture) using <code>defaultPreviewContent</code>. Next, you can show a quick avatar upload widget by setting <code>showCaption</code> to <code>false</code>. The <code>main1</code> layout is thus disabled and <code>main2</code> layout is used. The close button for preview can be hidden by setting <code>showClose</code> to <code>false</code>. You can then tweak other labels and CSS class properties. You can also add your own custom buttons to the <code>layoutTemplates.main2</code> template for managing the picture. A custom error container identifier can be set to display your file validation errors.
+    </p>
+    <div class="bs-callout bs-callout-warning">
+        <h4>Tip</h4>
+        <p>Not seeing the updated content on this page! Hard refresh your browser to clean cache for this page (e.g. <kbd>SHIFT-F5</kbd> on Windows Chrome)
+        </p>
+    </div>
+</div>
+<div class="text-center">
+    <div style="padding: 4px">
+        <!-- Horizontal Medium Link -->
+        <ins class="adsbygoogle"
+             style="display: inline-block; height: 15px; width: 468px;"
+             data-ad-client="ca-pub-4718928441117602"
+             data-ad-slot="4827070579">
+        </ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+</div>
+
+<div class="bs-section">
+    <div class="page-header bs-header">
+        <h1 id="avatar-upload-1" class="display-4">
+            <a class="kv-anchor" title="Permalink" href="#avatar-upload-1" data-toggle="tooltip">
+                <span class="fa fa-link"></span></a>
+            Avatar Upload Example 1 <small></small>
+
+        </h1>
+    </div>
+    Example of viewing and managing an user profile picture in forms. The demo example includes other form inputs along with the file input for capturing picture and a form submit button to test the form submission. However note that the submission of form data to the server has not been enabled for this demo.
+    <div class="bs-example">
+        <div>
+
+            <!-- the avatar markup -->
+            <form class="form form-vertical" action="/avatar_upload.php" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <div class="kv-avatar">
+                            <div class="file-loading">
+                                <input id="avatar-1" name="avatar-1" type="file" required>
+                            </div>
+                        </div>
+                        <div class="kv-avatar-hint">
+                            <small>Select file < 1500 KB</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="email">Email Address<span class="kv-reqd">*</span></label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="pwd">Password<span class="kv-reqd">*</span></label>
+                                    <input type="password" class="form-control" name="pwd" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="fname">First Name</label>
+                                    <input type="text" class="form-control" name="fname" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="lname">Last Name</label>
+                                    <input type="text" class="form-control" name="lname" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <hr>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div id="kv-avatar-errors-1" class="center-block" style="display: none; width: 800px;"></div>
+        </div>
+    </div>
+
+    <pre class="prettyprint linenums">&lt;!-- some CSS styling changes and overrides --&gt;
+&lt;style&gt;
+.kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.kv-avatar {
+    display: inline-block;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    width: 213px;
+}
+.kv-reqd {
+    color: red;
+    font-family: monospace;
+    font-weight: normal;
+}
+&lt;/style&gt;
+
+&lt;!-- markup --&gt;
+&lt;!-- note: your server code `avatar_upload.php` will receive `$_FILES[&#039;avatar&#039;]` on form submission --&gt;
+&lt;!-- the avatar markup --&gt;
+&lt;form class=&quot;form form-vertical&quot; action=&quot;/avatar_upload.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-4 text-center&quot;&gt;
+            &lt;div class=&quot;kv-avatar&quot;&gt;
+                &lt;div class=&quot;file-loading&quot;&gt;
+                    &lt;input id=&quot;avatar-1&quot; name=&quot;avatar-1&quot; type=&quot;file&quot; required&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;kv-avatar-hint&quot;&gt;&lt;small&gt;Select file &lt; 1500 KB&lt;/small&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-sm-8&quot;&gt;
+          &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;email&quot;&gt;Email Address&lt;span class=&quot;kv-reqd&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+                &lt;input type=&quot;email&quot; class=&quot;form-control&quot; name=&quot;email&quot; required&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;pwd&quot;&gt;Password&lt;span class=&quot;kv-reqd&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+                &lt;input type=&quot;password&quot; class=&quot;form-control&quot; name=&quot;pwd&quot; required&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;fname&quot;&gt;First Name&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;fname&quot; required&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;lname&quot;&gt;Last Name&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;lname&quot; required&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+            &lt;hr&gt;
+            &lt;div class=&quot;text-right&quot;&gt; 
+              &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;div id=&quot;kv-avatar-errors-1&quot; class=&quot;center-block&quot; style=&quot;width:800px;display:none&quot;&gt;&lt;/div&gt;
+
+&lt;!-- the fileinput plugin initialization --&gt;
+&lt;script&gt;
+var btnCust = &#039;&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; title=&quot;Add picture tags&quot; &#039; + 
+    &#039;onclick=&quot;alert(\&#039;Call your custom code here.\&#039;)&quot;&gt;&#039; +
+    &#039;&lt;i class=&quot;glyphicon glyphicon-tag&quot;&gt;&lt;/i&gt;&#039; +
+    &#039;&lt;/button&gt;&#039;; 
+$(&quot;#avatar-1&quot;).fileinput({
+    overwriteInitial: true,
+    maxFileSize: 1500,
+    showClose: false,
+    showCaption: false,
+    browseLabel: &#039;&#039;,
+    removeLabel: &#039;&#039;,
+    browseIcon: &#039;&lt;i class=&quot;glyphicon glyphicon-folder-open&quot;&gt;&lt;/i&gt;&#039;,
+    removeIcon: &#039;&lt;i class=&quot;glyphicon glyphicon-remove&quot;&gt;&lt;/i&gt;&#039;,
+    removeTitle: &#039;Cancel or reset changes&#039;,
+    elErrorContainer: &#039;#kv-avatar-errors-1&#039;,
+    msgErrorClass: &#039;alert alert-block alert-danger&#039;,
+    defaultPreviewContent: &#039;&lt;img src=&quot;/Bootstrap/public/img/default_avatar_male.jpg&quot; alt=&quot;Your Avatar&quot;&gt;&#039;,
+    layoutTemplates: {main2: &#039;{preview} &#039; +  btnCust + &#039; {remove} {browse}&#039;},
+    allowedFileExtensions: [&quot;jpg&quot;, &quot;png&quot;, &quot;gif&quot;]
+});
+&lt;/script&gt;</pre>
+</div>
+<div class="bs-section">
+    <div class="page-header bs-header">
+        <h1 id="avatar-upload-2" class="display-4">
+            <a class="kv-anchor" title="Permalink" href="#avatar-upload-2" data-toggle="tooltip">
+                <span class="fa fa-link"></span></a>
+            Avatar Upload Example 2 <small></small>
+
+        </h1>
+    </div>
+    Variation of avatar upload scenario # 1. This involves hiding the browse button by setting <samp>
+        <a href="/file-input/plugin-options#showBrowse">showBrowse</a>
+    </samp> to <code>false</code> and enabling the file selection by clicking the file preview zone (via <samp>
+        <a href="/file-input/plugin-options#browseOnZoneClick">browseOnZoneClick</a>
+    </samp>). For an example of CLICK TO SELECT for ajax uploads, view the <a href="http://plugins.krajee.com/file-input-ajax-demo/12">ajax upload scenario # 12</a>. The demo includes a form submit button to test the form submission. But submission of form data to the server has not been enabled for this demo.
+    <div class="bs-example">
+        <div>
+            <!-- the avatar markup -->
+            <div id="kv-avatar-errors-2" class="center-block" style="display: none; width: 800px;"></div>
+            <form class="form form-vertical" action="/avatar_upload.php" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <div class="kv-avatar">
+                            <div class="file-loading">
+                                <input id="avatar-2" name="avatar-2" type="file" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="email">Email Address<span class="kv-reqd">*</span></label>
+                                    <input type="email" class="form-control" name="email" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="pwd">Password<span class="kv-reqd">*</span></label>
+                                    <input type="password" class="form-control" name="pwd" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="fname">First Name</label>
+                                    <input type="text" class="form-control" name="fname" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="lname">Last Name</label>
+                                    <input type="text" class="form-control" name="lname" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <hr>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <pre class="prettyprint linenums">&lt;!-- some CSS styling changes and overrides --&gt;
+&lt;style&gt;
+.kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.kv-avatar {
+    display: inline-block;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    width: 213px;
+}
+.kv-reqd {
+    color: red;
+    font-family: monospace;
+    font-weight: normal;
+}
+&lt;/style&gt;
+
+&lt;!-- markup --&gt;
+&lt;!-- note: your server code `avatar_upload.php` will receive `$_FILES[&#039;avatar&#039;]` on form submission --&gt;
+&lt;!-- the avatar markup --&gt;
+&lt;div id=&quot;kv-avatar-errors-2&quot; class=&quot;center-block&quot; style=&quot;width:800px;display:none&quot;&gt;&lt;/div&gt;
+&lt;form class=&quot;form form-vertical&quot; action=&quot;/avatar_upload.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-4 text-center&quot;&gt;
+            &lt;div class=&quot;kv-avatar&quot;&gt;
+                &lt;div class=&quot;file-loading&quot;&gt;
+                    &lt;input id=&quot;avatar-2&quot; name=&quot;avatar-2&quot; type=&quot;file&quot; required&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;col-sm-8&quot;&gt;
+                  &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;email&quot;&gt;Email Address&lt;span class=&quot;kv-reqd&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+                &lt;input type=&quot;email&quot; class=&quot;form-control&quot; name=&quot;email&quot; required&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;pwd&quot;&gt;Password&lt;span class=&quot;kv-reqd&quot;&gt;*&lt;/span&gt;&lt;/label&gt;
+                &lt;input type=&quot;password&quot; class=&quot;form-control&quot; name=&quot;pwd&quot; required&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;row&quot;&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;fname&quot;&gt;First Name&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;fname&quot; required&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;col-sm-6&quot;&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label for=&quot;lname&quot;&gt;Last Name&lt;/label&gt;
+                &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;lname&quot; required&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;form-group&quot;&gt;
+            &lt;hr&gt;
+            &lt;div class=&quot;text-right&quot;&gt; 
+              &lt;button type=&quot;submit&quot; class=&quot;btn btn-primary&quot;&gt;Submit&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;!-- the fileinput plugin initialization --&gt;
+&lt;script&gt;
+var btnCust = &#039;&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; title=&quot;Add picture tags&quot; &#039; + 
+    &#039;onclick=&quot;alert(\&#039;Call your custom code here.\&#039;)&quot;&gt;&#039; +
+    &#039;&lt;i class=&quot;glyphicon glyphicon-tag&quot;&gt;&lt;/i&gt;&#039; +
+    &#039;&lt;/button&gt;&#039;; 
+$(&quot;#avatar-2&quot;).fileinput({
+    overwriteInitial: true,
+    maxFileSize: 1500,
+    showClose: false,
+    showCaption: false,
+    showBrowse: false,
+    browseOnZoneClick: true,
+    removeLabel: &#039;&#039;,
+    removeIcon: &#039;&lt;i class=&quot;glyphicon glyphicon-remove&quot;&gt;&lt;/i&gt;&#039;,
+    removeTitle: &#039;Cancel or reset changes&#039;,
+    elErrorContainer: &#039;#kv-avatar-errors-2&#039;,
+    msgErrorClass: &#039;alert alert-block alert-danger&#039;,
+    defaultPreviewContent: &#039;&lt;img src=&quot;/Bootstrap/public/img/default_avatar_male.jpg&quot; alt=&quot;Your Avatar&quot;&gt;&lt;h6 class=&quot;text-muted&quot;&gt;Click to select&lt;/h6&gt;&#039;,
+    layoutTemplates: {main2: &#039;{preview} &#039; +  btnCust + &#039; {remove} {browse}&#039;},
+    allowedFileExtensions: [&quot;jpg&quot;, &quot;png&quot;, &quot;gif&quot;]
+});
+&lt;/script&gt;</pre>
+</div>
+<div class="bs-section">
+    <div id="comments">
+        <div class="page-header bs-header">
+            <h1 id="comments-heading" class="display-4">
+                <a class="kv-anchor" title="" href="#comments" data-toggle="tooltip"
+                   data-original-title="Permalink">
+                    <span class="fa fa-link"></span></a>
+                Comments & Discussion
+            </h1>
+        </div>
+        <div class="bs-callout bs-callout-info">
+            <h4><i class="fa fa-exclamation-circle"></i> Note</h4>
+            <p>
+                You can now visit the <a href="http://webtips.krajee.com/questions">Krajee Webtips Q & A forum</a>
+                for searching OR asking questions OR helping programmers with answers on these extensions and plugins.
+                For asking a question <a href="http://webtips.krajee.com/ask-question">click here</a>. Select the
+                appropriate <b>question category</b> (i.e. <i>Krajee Plugins</i>) and choose this current page plugin
+                in the <b>question related to</b> field.
+            </p>
+            <p>
+                <small>
+                    The comments and discussion section below are intended for generic discussions or
+                    feedback for this plugin. Developers may not be able to search or lookup here
+                    specific questions or tips on usage for this plugin.
+                </small>
+            </p>
+        </div>
+        <div class="clearfix">&nbsp;</div>
+        <div class="page-comments">
+            <div id="disqus_thread"></div>
+
+            <!--[if (gt IE 8)]><!-->
+            <script type="text/javascript">
+                var disqus_config = function() {
+                    this.page.url = 'http://plugins.krajee.com/file-avatar-upload-demo';
+                };
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://krajee.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <!--<![endif]-->
+
+            <!--[if (lt IE 9)]>
+                <div class="alert alert-warning"><strong>Note:</strong> Please use an updated browser to view comments.</div>
+            <![endif]-->
+            <noscript>
+                <div class="alert alert-danger">Please enable JavaScript to view the .</div>
+            </noscript>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+<!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+
+<div id="kv-gs-results-cont" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fa fa-search"></i> Search Results:
+                    <samp class="text-info"></samp>
+                </h3>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <gcse:searchresults-only>
+                    <div class="kv-loading-big mx-auto align-middle" style="height: 200px; width: 200px"></div>
+                </gcse:searchresults-only>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<style>
+    #kv-gs-query { border-color: #fff }
+
+    #kv-gs-query:focus { border-color: #80bdff }
+
+    .gsc-control-cse {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .gsc-adBlock { margin: 0 0 0 -5px }
+
+    .gsc-above-wrapper-area, .gsc-thumbnail-inside, .gsc-url-top { padding: 0 }
+
+    .gs-result .gs-title, .gs-result .gs-title * {
+        -webkit-text-decoration-skip: objects;
+        background-color: transparent;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .gs-result .gs-title :hover, .gs-result .gs-title:hover {
+        color: #0056b3;
+        text-decoration: underline
+    }
+
+    .gsc-result .gs-title { height: 1.4em }
+
+    .gsc-result-info { padding-left: 0 }
+
+    .gsc-results .gsc-cursor-box { margin: 5px 0 0 }
+
+    .gsc-results .gsc-cursor-box .gsc-cursor-page {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #007bff;
+        display: block;
+        float: left;
+        line-height: 1.25;
+        margin: 0 0 0 -1px;
+        padding: .5rem .75rem;
+    }
+
+    .gsc-results .gsc-cursor-box .gsc-cursor-page:focus, .gsc-results .gsc-cursor-box .gsc-cursor-page:hover {
+        background-color: #e9ecef;
+        border-color: #ddd;
+        color: #0056b3;
+        text-decoration: none;
+    }
+
+    .gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }
+
+    .gsc-cursor-page:first-child {
+        border: 1px solid #ddd;
+        border-bottom-left-radius: .25rem;
+        border-top-left-radius: .25rem;
+        margin-left: 0;
+    }
+
+    .gsc-cursor-page:last-child {
+        border-bottom-right-radius: .25rem;
+        border-top-right-radius: .25rem
+    }
+
+    .gs-error-result .gs-snippet, .gs-no-results-result .gs-snippet {
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+        border-radius: .25rem;
+        color: #856404;
+        margin: 0;
+        padding: 15px 20px;
+    }
+
+    .gsc-selected-option-container { border-radius: .25rem }
+</style>
+
+<!--<script src="/assets/ac7bbcb6/js/plugins/purify.min.js"></script>-->
+<!--<script src="/assets/prod/all-krajee.min.js?ver=201710271504"></script>-->
+<!--<script src="/assets/ac7bbcb6/js/plugins/sortable.min.js"></script>-->
+<!--<script src="/assets/ac7bbcb6/js/fileinput.min.js?ver=201804061549"></script>-->
+
+<script src="../Scripts/fileinput/js/plugins/purify.js"></script>
+    <script src="public/js/all-krajee.min.js"></script>
+<script src="../Scripts/fileinput/js/plugins/sortable.js"></script>
+
+<script src="../Scripts/bootstrap/js/bootstrap-fileinput.js"></script>
+<script src="../Scripts/fileinput/js/fileinput-zh-CN.js"></script>
+
+<script>
+    jQuery(function($) {
+        var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' +
+            'onclick="alert(\'Call your custom code here.\')">' +
+            '<i class="glyphicon glyphicon-tag"></i>' +
+            '</button>';
+        $("#avatar-1").fileinput({
+            overwriteInitial: true,
+            maxFileSize: 1500,
+            showClose: false,
+            showCaption: false,
+            browseLabel: '',
+            removeLabel: '',
+            browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>',
+            removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+            removeTitle: 'Cancel or reset changes',
+            elErrorContainer: '#kv-avatar-errors-1',
+            msgErrorClass: 'alert alert-block alert-danger',
+            defaultPreviewContent: '<img src="/Bootstrap/public/img/default_avatar_male.jpg" alt="Your Avatar">',
+            layoutTemplates: { main2: '{preview} ' + btnCust + ' {remove} {browse}' },
+            allowedFileExtensions: ["jpg", "png", "gif"]
+        });
+        var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' +
+            'onclick="alert(\'Call your custom code here.\')">' +
+            '<i class="glyphicon glyphicon-tag"></i>' +
+            '</button>';
+        $("#avatar-2").fileinput({
+            overwriteInitial: true,
+            maxFileSize: 1500,
+            showClose: false,
+            showCaption: false,
+            showBrowse: false,
+            browseOnZoneClick: true,
+            removeLabel: '',
+            removeIcon: '<i class="glyphicon glyphicon-remove"></i>',
+            removeTitle: 'Cancel or reset changes',
+            elErrorContainer: '#kv-avatar-errors-2',
+            msgErrorClass: 'alert alert-block alert-danger',
+            defaultPreviewContent: '<img src="/Bootstrap/public/img/default_avatar_male.jpg" alt="Your Avatar"><h6 class="text-muted">Click to select</h6>',
+            layoutTemplates: { main2: '{preview} ' + btnCust + ' {remove} {browse}' },
+            allowedFileExtensions: ["jpg", "png", "gif"]
+        });
+        $('a.navigate').on('click', function(e) {
+            var hash = this.hash, h = hash == '#top' ? 0 : $('body').height();
+            $('body, html').animate({ scrollTop: h }, 800);
+        });
+        $(function() {
+            $("[data-toggle=\'tooltip\']").tooltip();
+        });
+        $('body').on('click', function(e) {
+            //did not click a popover toggle or popover
+            if ($(e.target).data('toggle') !== 'popover'
+                && $(e.target).parents('.popover.in').length === 0) {
+                $('[data-toggle="popover"]').popover('hide');
+            }
+        });
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("opened");
+        });
+        var initSideMenu = function() {
+            var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            $('#wrapper').removeClass('opened');
+            if (width > 767) {
+                $('#wrapper').addClass('opened');
+            }
+        };
+        $(window).on('resize', function() {
+            initSideMenu();
+            var $tip = $('.kv-animated-bell');
+            if ($tip.length) {
+                $tip.removeClass('kv-animated-bell');
+                setTimeout(function() {
+                    $tip.addClass('kv-animated-bell');
+                }, 200);
+            }
+        });
+        initSideMenu();
+        $('body').scrollspy({ target: $('#sidebar-wrapper'), offset: 80 });
+        $('.sidebar-brand .nav-link').on('click', function(e) {
+            e.preventDefault();
+            $(this).removeClass('active');
+        });
+        $(".kv-scroll").each(function() {
+            $(this).perfectScrollbar();
+        });
+        loadAdversal('w5', '3808879', '300x1050', '300', '1050', '300x600,160x600,120x600,300x250,250x250,200x200,180x150');
+        setTimeout(function() {
+            if ($.trim($('.adsbygoogle').html()).length < 10) {
+                $('.adblock-msg').slideDown('slow');
+            }
+        }, 1000);
+        $('.adblock-msg .close').on('click', function(e) {
+            $('.adblock-msg').slideUp('slow');
+        });
+    });
+</script>
+</body>
+</html>

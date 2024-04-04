@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB6469A6-7C04-4742-949B-C1261DCE00AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hsp.Test.DataAccess</RootNamespace>
+    <AssemblyName>Hsp.Test.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Hsp.Dll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArticleRepository.cs" />
+    <Compile Include="AttachmentRepository.cs" />
+    <Compile Include="AudioRepository.cs" />
+    <Compile Include="BookRepository.cs" />
+    <Compile Include="ImageRepository.cs" />
+    <Compile Include="MediaRepository.cs" />
+    <Compile Include="PictureRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StandardFileRepository.cs" />
+    <Compile Include="StandardRepository.cs" />
+    <Compile Include="UserRepository.cs" />
+    <Compile Include="VideoRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hsp.Test.Common\Hsp.Test.Common.csproj">
+      <Project>{49674ef1-2899-40a2-b752-49f999dbd6c6}</Project>
+      <Name>Hsp.Test.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.Test.DBUtility\Hsp.Test.DBUtility.csproj">
+      <Project>{e8b6a4e8-289b-4540-b9b9-ffa52a8515d2}</Project>
+      <Name>Hsp.Test.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.Test.IDataAccess\Hsp.Test.IDataAccess.csproj">
+      <Project>{a7768ed9-fc17-49ec-9f5c-2a281c1264b6}</Project>
+      <Name>Hsp.Test.IDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.Test.Model\Hsp.Test.Model.csproj">
+      <Project>{92394a52-524e-453f-9500-a5a2b42d5913}</Project>
+      <Name>Hsp.Test.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

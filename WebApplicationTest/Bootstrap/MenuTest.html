@@ -1,0 +1,821 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu Test</title>
+    <link href="../Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../Scripts/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+    <link href="css/nav-theme.css" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--<script src="../Scripts/jquery/jquery-1.12.4.min.js"></script>-->
+    <script src="../Scripts/jquery/jquery-2.2.4.js"></script>
+    <script src="../Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery/jquery.mobile-events.min.js"></script>
+
+    <style type="text/css">
+
+/*
+ * 菜单图标样式
+ */
+
+
+#main-nav .navigation > .nav > li > a [class^='glyphicon-'],
+#main-nav .navigation > .nav > li > a [class*=' glyphicon-'] {
+    color: #6e6e6e;
+    font-size: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 25px;
+    -webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;
+}
+
+#main-nav .navigation > .nav > li .nav > li > a [class^='glyphicon-'],
+#main-nav .navigation > .nav > li .nav > li > a [class*=' glyphicon-'] {
+    display: inline-block;
+    text-align: center;
+    width: 25px;
+}
+
+#main-nav .navigation > .nav > li > a [class^='fa-'],
+#main-nav .navigation > .nav > li > a [class*=' fa-'] {
+    color: #6e6e6e;
+    font-size: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 25px;
+    -webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;
+}
+
+#main-nav .navigation > .nav > li .nav > li > a [class^='fa-'],
+#main-nav .navigation > .nav > li .nav > li > a [class*=' fa-'] {
+    display: inline-block;
+    text-align: center;
+    width: 25px;
+}
+
+
+#main-nav .badge {
+    background-color: #0163ac !important;
+    color: #fff !important;
+    float: right;
+    margin-top: 12px;
+    text-shadow: none!important;
+}
+
+.nav > li.active .badge {
+    color: #fff !important;
+}
+
+/*#main-nav .navigation > .nav > li > a .icon-angle-down {
+    float: right;
+    line-height: 40px;
+    margin-right: 0px;
+    -webkit-transition: all 100ms ease;
+    -moz-transition: all 100ms ease;
+    -o-transition: all 100ms ease;
+    transition: all 100ms ease;
+}*/
+
+
+ .navigation > .nav > li:hover > a [class^="glyphicon-"], 
+ .navigation > .nav > li:hover > a [class*=" glyphicon-"], 
+ .navigation > .nav > li:focus > a [class^="glyphicon-"], 
+ .navigation > .nav > li:focus > a [class*=" glyphicon-"], 
+ .navigation > .nav > li.active > a [class^="glyphicon-"], 
+ .navigation > .nav > li.active > a [class*=" glyphicon-"] {
+    color: #0163ac !important;
+}
+
+ .navigation > .nav > li:hover > a [class^="fa-"], 
+ .navigation > .nav > li:hover > a [class*=" fa-"], 
+ .navigation > .nav > li:focus > a [class^="fa-"], 
+ .navigation > .nav > li:focus > a [class*=" fa-"], 
+ .navigation > .nav > li.active > a [class^="fa-"], 
+ .navigation > .nav > li.active > a [class*=" fa-"] {
+    color: #0163ac !important;
+}
+
+
+/*.down { margin-left: 23px; margin-right: 5px;}*/
+
+/*.down { float: right; }*/
+
+/*.fa { margin-right: 5px; }*/
+
+
+/*li a{ border: 1px solid #00bfff;}*/
+
+
+        #main-nav .navigation > .nav > li > .nav > li > a {
+          padding-left: 20px; }
+        #main-nav .navigation > .nav > li > .nav > li > .nav > li > a {
+          padding-left: 30px; }
+        #main-nav .navigation > .nav > li > .nav > li > .nav > li > .nav > li > a {
+          padding-left: 40px; }
+
+    </style>
+
+</head>
+<body class="contrast-sea-blue">
+
+
+<div id='wrapper'>
+
+
+<!-- 左侧区域 -->
+<div id='main-nav-bg'></div>
+<nav class="" id="main-nav">
+<div class="navigation">
+
+<ul class="nav nav-stacked">
+<li class="">
+    <a id="_4BE8B70C-7F08-486A-8679-FF6A3641EA5C" href="/BMS/Backlog.aspx">
+        <i class="icon-laptop"></i>
+        <span>待办</span>
+        <span class=""></span>
+        <span class="badge">999</span>
+    </a>
+</li>
+<li class="">
+    <a class="dropdown-collapse" id="_84CB18D4-BA1D-4787-98C1-7C9B5E64412A" href="/BMS/MyInitiateTaskList.aspx">
+        <i class="icon-location-arrow"></i>
+        <span>发起</span>
+        <span class=""></span>
+        <span class="badge"></span>
+        <i class="icon-angle-down angle-down"></i>
+    </a>
+    <ul class="nav nav-stacked">
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=0&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A">
+                <i class="icon-caret-right"></i>
+                <span>常用</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=5&name=%e6%88%98%e7%95%a5%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>战略管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=1981&name=%e5%b8%82%e5%9c%ba%e6%8a%95%e8%b5%84&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>市场投资</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=1982&name=%e5%9f%ba%e5%bb%ba%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>基建管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=1983&name=%e8%bf%90%e8%90%a5%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>运营管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=4&name=%e9%87%87%e8%b4%ad%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>采购管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=9&name=%e5%ae%89%e5%81%a5%e7%8e%af%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>安健环管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=12&name=%e4%ba%ba%e5%8a%9b%e8%b5%84%e6%ba%90&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>人力资源</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=13&name=%e8%b4%a2%e5%8a%a1%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>财务管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=6396&name=%e9%a3%8e%e6%8e%a7%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>风控管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=20&name=%e5%ae%a1%e8%ae%a1%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>审计管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=17&name=%e7%bb%bc%e5%90%88%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>综合管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=15816&name=%e9%80%9a%e7%94%a8%e5%ae%a1%e6%89%b9&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>通用审批</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/MyInitiateTaskList.aspx?actionId=-1&type=16478&name=%e5%8d%8f%e5%8a%9e%e7%ae%a1%e7%90%86&mid=84CB18D4-BA1D-4787-98C1-7C9B5E64412A" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>协办管理</span>
+            </a>
+        </li>
+    </ul>
+</li><li class="">
+    <a id="_A894CE93-B266-4815-B981-A3146B47DB31" href="/BMS/DoneTask.aspx" target="self">
+        <i class="fa fa-check-square-o"></i>
+        <span>已办</span>
+        <span class=""></span>
+        <span class="badge"></span>
+    </a>
+</li><li class="">
+    <a id="_49B5C695-51AA-4110-A013-69C203560030" href="/BMS/CopyTask.aspx" target="self">
+        <i class="icon-signin"></i>
+        <span>抄送</span>
+        <span class=""></span>
+        <span class="badge"></span>
+    </a>
+</li><li class="">
+    <a id="_864D3ADD-8793-48BB-904F-34702FD7CF2B" href="/BMS/FCMessageList.aspx">
+        <i class="fa fa-commenting-o"></i>
+        <span>消息</span>
+        <span class=""></span>
+        <span class="badge"></span>
+    </a>
+</li><li class="">
+    <a class="dropdown-collapse" id="_48933293-E1E8-416A-A73F-DE79BAD94B42" href="#">
+        <i class="fa fa-product-hunt"></i>
+        <span>项目</span>
+        <span class=""></span>
+        <span class="badge"></span>
+        <i class="icon-angle-down angle-down"></i>
+    </a>
+    <ul class="nav nav-stacked">
+        <li class="">
+            <a href="/PMS/Pages/PMSPortal.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>项目管控矩阵</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSProjectInformation.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>项目管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSArchivingAndGrading.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>建档定级</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSProjectEstablishment.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>立项</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSContractSigning.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42" target="_self">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>投资协议签署</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSFranchiseAgreement.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>特许经营签署</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSProjectCompanyApplication.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>项目公司成立</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSFeasibilityReport.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>可研评审</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSProjectApproval.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>项目核准</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSInfrastructurePlanning.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>基建策划</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSPreliminaryDesign.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>初步设计</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSConstructionDrawingDesign.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>施工图设计</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>施工建设</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSFinalAccountCompleted.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>竣工决算</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSProjectSummary.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>项目总结</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/PMSPostProjectEvaluation.aspx?mid=48933293-E1E8-416A-A73F-DE79BAD94B42">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <span>项目后评价</span>
+            </a>
+        </li>
+    </ul>
+</li><li class="">
+    <a class="dropdown-collapse" id="_5DD98303-F83F-4790-8722-3DD3026CAFB6" href="#">
+        <i class="fa fa-pie-chart"></i>
+        <span>数据</span>
+        <span class=""></span>
+        <span class="badge"></span>
+        <i class="icon-angle-down angle-down"></i>
+    </a>
+    <ul class="nav nav-stacked">
+        <li class="">
+            <a href="/PMS/Pages/DataClassification.aspx?dt=1&mid=5DD98303-F83F-4790-8722-3DD3026CAFB6">
+                <i class="fa fa-database"></i>
+                <span>规划类</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/DataClassification.aspx?dt=2&mid=5DD98303-F83F-4790-8722-3DD3026CAFB6">
+                <i class="fa fa-database"></i>
+                <span>计划类</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/DataClassification.aspx?dt=3&mid=5DD98303-F83F-4790-8722-3DD3026CAFB6">
+                <i class="fa fa-database"></i>
+                <span>方案类</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/DataClassification.aspx?dt=4&mid=5DD98303-F83F-4790-8722-3DD3026CAFB6">
+                <i class="fa fa-database"></i>
+                <span>协议类</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/DataClassification.aspx?dt=5&mid=5DD98303-F83F-4790-8722-3DD3026CAFB6">
+                <i class="fa fa-database"></i>
+                <span>制度类</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/DataClassification.aspx?dt=6&mid=5DD98303-F83F-4790-8722-3DD3026CAFB6">
+                <i class="fa fa-database"></i>
+                <span>合同类</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PMS/Pages/DataClassification.aspx?dt=7&mid=5DD98303-F83F-4790-8722-3DD3026CAFB6">
+                <i class="fa fa-database"></i>
+                <span>报告类</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/DataCenterMgmt/CommonData/ReportList/?mid=5DD98303-F83F-4790-8722-3DD3026CAFB6" target="_self">
+                <i class="glyphicon glyphicon-list"></i>
+                <span>报表填报</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/DataCenterMgmt/CommonData/BusinessReport/?mid=5DD98303-F83F-4790-8722-3DD3026CAFB6" target="_self">
+                <i class="glyphicon icon-notes-2"></i>
+                <span>企业报表</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/DataClassificationMgmt/GMOverseeParticularDataClassification.aspx?mid=5DD98303-F83F-4790-8722-3DD3026CAFB6" target="_self">
+                <i class="fa fa-database"></i>
+                <span>督办单</span>
+            </a>
+        </li>
+        <li class="">
+            <a class="dropdown-collapse" href="#" target="_self">
+                <i class="glyphicon icon-projector"></i>
+                <span>测试子菜单</span>
+                <i class="icon-angle-down angle-down"></i>
+            </a>
+        </li>
+        <ul class="nav nav-stacked">
+            <li class="">
+                <a href="/?mid=B5DD02BF-729B-4FBF-AD5F-AA732C05ADAC" target="_self">
+                    <i class="icon-caret-right"></i>
+                    <span>测试(3-1)</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="#?mid=B5DD02BF-729B-4FBF-AD5F-AA732C05ADAC" target="_self">
+                    <i class="icon-caret-right"></i>
+                    <span>测试(3-2)</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="#?mid=B5DD02BF-729B-4FBF-AD5F-AA732C05ADAC" target="_self">
+                    <i class="icon-caret-right"></i>
+                    <span>测试(3-3)</span>
+                </a>
+            </li>
+        </ul>
+    </ul>
+</li><li class="">
+    <a class="dropdown-collapse" id="_9DD7C687-DA02-4324-BA41-7928ED9C1A9D" href="#">
+        <i class="fa fa-leanpub"></i>
+        <span>标准</span>
+        <span class=""></span>
+        <span class="badge"></span>
+        <i class="icon-angle-down angle-down"></i>
+    </a>
+    <ul class="nav nav-stacked">
+        <li class="">
+            <a href="/Default.aspx?PID=146&NavID=160&mid=9DD7C687-DA02-4324-BA41-7928ED9C1A9D">
+                <i class="glyphicon glyphicon-bookmark"></i>
+                <span>基础标准</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/Default.aspx?PID=146&NavID=161&mid=9DD7C687-DA02-4324-BA41-7928ED9C1A9D">
+                <i class="glyphicon glyphicon-bookmark"></i>
+                <span>技术标准</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/Default.aspx?PID=146&NavID=147&mid=9DD7C687-DA02-4324-BA41-7928ED9C1A9D">
+                <i class="glyphicon glyphicon-bookmark"></i>
+                <span>管理标准</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/Default.aspx?PID=146&NavID=148&mid=9DD7C687-DA02-4324-BA41-7928ED9C1A9D">
+                <i class="glyphicon glyphicon-bookmark"></i>
+                <span>工作标准</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/FCMgmt/DocumentSystemList.aspx?mid=9DD7C687-DA02-4324-BA41-7928ED9C1A9D">
+                <i class="glyphicon icon-more-items"></i>
+                <span>制度</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/Default.aspx?PID=146&NavID=159&mid=9DD7C687-DA02-4324-BA41-7928ED9C1A9D">
+                <i class="fa fa-balance-scale"></i>
+                <span>法律法规</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/Default.aspx?PID=146&NavID=157&mid=9DD7C687-DA02-4324-BA41-7928ED9C1A9D">
+                <i class="fa fa-image"></i>
+                <span>体系结构图</span>
+            </a>
+        </li>
+    </ul>
+</li><li class="">
+    <a id="_AAB619E0-2F80-4F6C-98AF-11D52FB715ED" href="/BMS/Personnel.aspx">
+        <i class="fa fa-user-circle-o"></i>
+        <span>人员</span>
+        <span class=""></span>
+        <span class="badge"></span>
+    </a>
+</li><li class="">
+    <a class="dropdown-collapse" id="_BD893E49-FDD5-4D36-8D3B-0BB0808542DA" href="#" target="self">
+        <i class="fa fa-handshake-o"></i>
+        <span>他方</span>
+        <span class=""></span>
+        <span class="badge"></span>
+        <i class="icon-angle-down angle-down"></i>
+    </a>
+    <ul class="nav nav-stacked">
+        <li class="">
+            <a href="#?mid=BD893E49-FDD5-4D36-8D3B-0BB0808542DA">
+                <i class="fa fa-group"></i>
+                <span>合作方</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/PCHMgmt/LongTermList.aspx?mid=BD893E49-FDD5-4D36-8D3B-0BB0808542DA">
+                <i class="fa fa-group"></i>
+                <span>长名单</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/BMS/PCHMgmt/ShortList.aspx?mid=BD893E49-FDD5-4D36-8D3B-0BB0808542DA">
+                <i class="fa fa-group"></i>
+                <span>短名单</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PartnerMgmt/Expert/ExpertView?mid=BD893E49-FDD5-4D36-8D3B-0BB0808542DA">
+                <i class="fa fa-user"></i>
+                <span>专家</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/PartnerMgmt/BidAgency/?mid=BD893E49-FDD5-4D36-8D3B-0BB0808542DA">
+                <i class="glyphicon icon-bank"></i>
+                <span>招标代理机构</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="#" target="self">
+                <i class="fa fa-group"></i>
+                <span>协会</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="#" target="self">
+                <i class="fa fa-bank"></i>
+                <span>政府/单位</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="#" target="self">
+                <i class="fa fa-group"></i>
+                <span>设计单位</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="#" target="self">
+                <i class="fa fa-group"></i>
+                <span>监理单位</span>
+            </a>
+        </li>
+    </ul>
+</li><li class="">
+    <a class="dropdown-collapse" id="_319CD6AC-968F-4489-AE01-550EB19923C7" href="#">
+        <i class="icon-cog"></i>
+        <span>设置</span>
+        <span class=""></span>
+        <span class="badge"></span>
+        <i class="icon-angle-down angle-down"></i>
+    </a>
+    <ul class="nav nav-stacked">
+        <li class="">
+            <a href="/BMS/Map.aspx?mid=319CD6AC-968F-4489-AE01-550EB19923C7" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>地图</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/SystemMgmt/AuthMenu/?mid=319CD6AC-968F-4489-AE01-550EB19923C7" target="_blank">
+                <i class="glyphicon glyphicon-list"></i>
+                <span>菜单管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/SystemMgmt/AuthRight/?mid=319CD6AC-968F-4489-AE01-550EB19923C7" target="_blank">
+                <i class="glyphicon glyphicon-lock"></i>
+                <span>权限管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/OrganMgmt/User/Menu/?mid=319CD6AC-968F-4489-AE01-550EB19923C7">
+                <i class="fa fa-address-card-o"></i>
+                <span>用户菜单配置</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/AdminDefault.aspx?PID=8098B33B-9000-4ADB-B103-64D0146061C5&NavID=639E5181-69DA-4720-B511-A60B7F39535E&mid=319CD6AC-968F-4489-AE01-550EB19923C7">
+                <i class="glyphicon glyphicon-list-alt"></i>
+                <span>公告发布</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/Default.aspx?PID=40&NavID=56&mid=319CD6AC-968F-4489-AE01-550EB19923C7">
+                <i class="glyphicon glyphicon-paperclip"></i>
+                <span>系统日志</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/Default.aspx?mid=319CD6AC-968F-4489-AE01-550EB19923C7" target="_blank">
+                <i class="glyphicon glyphicon-cog"></i>
+                <span>后台管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/AdminDefault.aspx?PID=8098B33B-9000-4ADB-B103-64D0146061C5&NavID=4EE3270A-58C3-403C-8FA4-F96F3EA7F8FE&mid=319CD6AC-968F-4489-AE01-550EB19923C7">
+                <i class="fa fa-database"></i>
+                <span>数据中心</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/DataCenterMgmt/CommonTable/Tables/?mid=319CD6AC-968F-4489-AE01-550EB19923C7" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>通用库表管理</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="/DataCenterMgmt/CommonView/Views/?mid=319CD6AC-968F-4489-AE01-550EB19923C7" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>通用视图管理</span>
+            </a>
+        </li>
+    </ul>
+</li><li class="">
+    <a class="dropdown-collapse" id="_B9185F5A-023C-4003-99F5-92DBB2A8684F" href="#" target="_self">
+        <i class="icon-caret-right"></i>
+        <span>一级菜单</span>
+        <span class=""></span>
+        <span class="badge"></span>
+        <i class="icon-angle-down angle-down"></i>
+    </a>
+    <ul class="nav nav-stacked">
+        <li class="">
+            <a class="dropdown-collapse" href="#?mid=B9185F5A-023C-4003-99F5-92DBB2A8684F" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>二级菜单(1)</span>
+                <i class="icon-angle-down angle-down"></i>
+            </a>
+
+            <ul class="nav nav-stacked">
+                <li class="">
+                    <a href="#?mid=7B0236F5-F0AF-45CD-B9AB-FB32BE321D9B" target="_self">
+                        <i class="icon-caret-right"></i>
+                        <span>三级菜单(1-1)</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#?mid=7B0236F5-F0AF-45CD-B9AB-FB32BE321D9B" target="_self">
+                        <i class="icon-caret-right"></i>
+                        <span>三级菜单(1-2)</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#?mid=7B0236F5-F0AF-45CD-B9AB-FB32BE321D9B" target="_self">
+                        <i class="icon-caret-right"></i>
+                        <span>三级菜单(1-3)</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="">
+            <a class="dropdown-collapse" href="#?mid=B9185F5A-023C-4003-99F5-92DBB2A8684F" target="_self">
+                <i class="icon-caret-right"></i>
+                <span>二级菜单(2)</span>
+                <i class="icon-angle-down angle-down"></i>
+            </a>
+
+            <ul class="nav nav-stacked">
+                <li class="">
+                    <a href="#?mid=D4FE59E3-44F3-4B44-A570-B67B9EC23955" target="_self">
+                        <i class="icon-caret-right"></i>
+                        <span>三级菜单(2-1)</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#?mid=D4FE59E3-44F3-4B44-A570-B67B9EC23955" target="_self">
+                        <i class="icon-caret-right"></i>
+                        <span>三级菜单(2-2)</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#?mid=D4FE59E3-44F3-4B44-A570-B67B9EC23955" target="_self">
+                        <i class="icon-caret-right"></i>
+                        <span>三级菜单(2-3)</span>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+
+    </ul>
+</li>
+</ul>
+
+
+</div>
+</nav>
+
+
+<!--<div class="col-sm-9 col-md-9 col-lg-10"></div>-->
+    <section id="content">
+        <div class="container-fluid">
+            <div class="row-fluid" id="content-wrapper">
+                <!-- 页面内容区域 -->
+                &nbsp;
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+<script type="text/javascript">
+
+
+    $(function() {
+
+        var body, content, nav, nav_closed_width, nav_open, nav_toggler;
+
+        nav_toggler = $("header .toggle-nav");
+        nav = $("#main-nav");
+        content = $("#content");
+        body = $("body");
+        nav_closed_width = 50;
+        nav_open = body.hasClass("main-nav-opened") || nav.width() > nav_closed_width;
+        $("#main-nav .dropdown-collapse").on("click", function (e) {
+            var link, list;
+
+            e.preventDefault();
+            link = $(this);
+            list = link.parent().find("> ul");
+            if (list.is(":visible")) {
+                if (body.hasClass("main-nav-closed") && link.parents("li").length === 1) {
+                    return false;
+                } else {
+                    link.removeClass("in");
+                    list.slideUp(300, function () {
+                        return $(this).removeClass("in");
+                    });
+                }
+            } else {
+                link.addClass("in");
+                list.slideDown(300, function () {
+                    return $(this).addClass("in");
+                });
+            }
+            return false;
+        });
+        nav.swiperight(function (event, touch) {
+            return $(document).trigger("nav-open");
+        });
+        nav.swipeleft(function (event, touch) {
+            return $(document).trigger("nav-close");
+        });
+        nav_toggler.on("click", function () {
+            if (nav_open) {
+                $(document).trigger("nav-close");
+            } else {
+                $(document).trigger("nav-open");
+            }
+            return false;
+        });
+        $(document).bind("nav-close", function (event, params) {
+            body.removeClass("main-nav-opened").addClass("main-nav-closed");
+            return nav_open = false;
+        });
+        return $(document).bind("nav-open", function (event, params) {
+            body.addClass("main-nav-opened").removeClass("main-nav-closed");
+            return nav_open = true;
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

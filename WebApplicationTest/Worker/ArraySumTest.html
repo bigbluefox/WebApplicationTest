@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script type="text/javascript">
+        var a = new Array();
+        for (var i = 0; i < 100; i++) {
+            a.push(i * Math.random());
+        }
+        console.info(new Date().getTime());
+        console.info(eval(a.join("+")));
+        console.info(new Date().getTime());
+        var b = new Array();
+        for (var i = 0; i < 100000; i++) {
+            b.push(i * 12);
+        }
+
+        console.info(new Date().getTime());
+        console.info(eval(b.join("+")));
+        console.info(new Date().getTime());
+        var x = 0;
+        for (var i = 0; i < b.length; i++) {
+            x += b[i];
+        }
+        console.info(x);
+        console.info(new Date().getTime());
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>模块化(Module)</title>
+    <link href="css/es.css" rel="stylesheet" />
+    <!--<script src="./js/test.js" type="module"></script>-->
+    <script type="text/javascript">
+
+        //console.log(age);
+
+    </script>
+    <!--<script src="./js/myModule.js" type="module"></script>-->
+    <script type="text/javascript">
+
+        // 只能直接引入，不能间接引入
+        //setModuleName("es9 Module");
+        //console.log(getModuleName());
+
+    </script>
+    <script src="./js/main.js" type="module"></script>
+
+    <script type="text/javascript">
+
+        // 只能直接引入，不能间接引入
+        //setModuleName("es9 Module");
+        //console.log(getModuleName());
+
+    </script>
+
+</head>
+<body>
+    <div class="row-fluid">
+        <h5>模块化(Module)</h5>
+        <p style="font-weight:bold;">如何理解模块化？</p>
+        <p>将若干份小的js文件合并在一起，其表现形式为js中引入其他的js文件，作用是简化html结构，增加代码的独立性与复用性，小的js文件需要暴露内容，总的js文件需要引入模块。</p>
+        <p>module模块引入方法：</p>
+        <p>1、默认引入</p>
+<pre><code>
+    &lt;script type="module">
+    //引入模块
+    import * as m1 from './module1.js';   //m1是起了个别名
+    console.log(m1.add(1, 2));
+
+    import * as m2 from './module2.js';
+    console.log(m2);
+
+    import * as m3 from './module3.js';
+    console.log(m3);
+    &lt;/script>
+</code></pre>
+
+        <p>2、通过解构赋值引入 </p>
+
+<pre><code>
+    import {getName} from './module2.js';
+    console.log(getName());
+</code></pre>
+
+
+        <h5>暴露方法</h5>
+        <p style="font-weight:bold;">1、直接在变量或函数前添加export，就可以暴露到m1中，m1是个对象</p>
+<pre><code>
+    export let ok = 1;
+
+    export let add = function(a,b){
+        return a+b;
+    }
+</code></pre>
+
+        <script type="module">
+
+            import * as main from './js/main.js';
+            console.log(main.ok);
+            console.log(main.add(3, 5));
+            console.log(main.sayHello());
+
+            //默认导入的语法： import 接收名称 from '模块标识符'
+            import mm from './js/main.js';
+            console.log("****************");
+            console.log(mm);
+
+        </script>
+
+        <p style="font-weight:bold;">2、集中式暴露</p>
+<pre><code>
+    let yes = 2;
+
+    let getName = function(){
+        return 'Bob';
+    }
+
+    export{yes,getName};
+</code></pre>
+
+        <script type="module">
+
+            import * as main from './js/main.js';
+            console.log(main.yes);
+            console.log(main.getName());
+
+        </script>
+
+        <p style="font-weight:bold;">
+            3、默认暴露（最常用的暴露方法）
+        </p>
+<pre><code>
+    let add1 = function(a,b){
+        return a+b
+    }
+
+    class Ball{
+        constructor(){}
+    }
+
+    // 一、默认导出语法: export default 默认导出的成员
+    // 默认导出需要注意：每个模块中，只允许使用唯一的一次 export default，否则会报错！
+    export default{
+        add1,Ball
+    }
+</code></pre>
+        <script type="module">
+
+            // 默认导入的语法： import 接收名称 from '模块标识符'
+            //默认导入时的接收名称可以任意名称，只要是合法的成员名称即可
+            import ma from './js/main.js';
+            console.log(ma.name);
+
+            import mb from './js/main.js';
+            console.log(mb.age);
+
+
+            import * as main from './js/main.js';
+            console.log(main.default.add1(1, 2));
+            console.log(main.default.Ball);
+
+            console.log(main.sayHello("Tom"));
+
+        </script>
+
+
+        <p>ES5不支持原生的模块化，在ES6中模块作为重要的组成部分被添加进来。模块的功能主要由 export 和 import 组成。每一个模块都有自己单独的作用域，模块之间的相互调用关系是通过 export 来规定模块对外暴露的接口，通过import来引用其它模块提供的接口。同时还为模块创造了命名空间，防止函数的命名冲突。</p>
+
+        <p>ES6允许在一个模块中使用export来导出多个变量或函数。</p>
+
+        <p>
+            心得：ES6不仅支持变量的导出，也支持常量的导出。export const sqrt = Math.sqrt导出常量
+
+
+        </p>
+        <p>ES6将一个文件视为一个模块，上面的模块通过 export 向外输出了一个变量。一个模块也可以同时往外面输出多个变量。</p>
+        <p>
+            定义好模块的输出以后就可以在另外一个模块通过import引用。
+
+        </p>
+
+
+        <p>心得:一条import 语句可以同时导入默认函数和其它变量。</p>
+        <p>import defaultMethod, { otherMethod } from 'xxx.js';</p>
+
+        <script type="text/javascript">
+
+            //模块js
+            (function (window) {
+                let _moduleName = 'module';
+                function setModuleName(name) {
+                    _moduleName = name;
+                }
+                function getModuleName() {
+                    return _moduleName;
+                }
+                window.moduleA = { setModuleName, getModuleName }
+            })(window);
+
+            //调用js
+            moduleA.setModuleName('html-module');
+            console.log(moduleA.getModuleName());
+            console.log(moduleA._moduleName);//模块不暴露，无法访问模块内属性方法
+
+        </script>
+
+        <p>ES6中的模块化在CommonJS的基础上有所不同，关键字有import，export，default，as，from。</p>
+
+        <script type="text/javascript">
+
+            ////调用js
+            //console.log(myModule.getFullName());
+            //myModule.first_name = 'img.';
+            //console.log(myModule.getFullName());
+
+        </script>
+
+        <script type="module">
+
+            // 1、默认引入模块
+            import * as m1 from './js/myModule.js';//m1是起了个别名
+            m1.setModuleName("es7 Module");
+            console.log(m1.getModuleName());
+            console.info(m1.sayHello("T"));
+
+            // 2、通过解构赋值引入
+            import { getModuleName, setModuleName } from './js/myModule.js';
+            setModuleName("es8 Module");
+            console.log(getModuleName());
+
+        </script>
+
+        <script type="module">
+
+            import * as m2 from './js/test.js';
+            console.log(m2);
+            console.log(m2.name);
+            console.info(m2.age);
+
+            import * as test from './js/test.js';
+            //echo("a", "b");
+            console.info("#############");
+            console.info(test.age);
+
+            //import  sayHello   from './js/test.js';
+            //console.info(test.default.sayHello("TTT"));
+
+            import * as m3 from './js/test.js';
+            //console.info(m2.sayHello("TTT"));
+
+        </script>
+
+        <script type="module">
+
+            // 3、简介表示（最常用的引入方法）
+            // 按需导入的语法： import { s1 } from '模块标识符'
+            import { name, age, title } from './js/test.js';
+            console.log(name);
+            console.log(age);
+            console.log(title);
+
+            import { myModule1 } from './js/myModule.js';
+            console.log(myModule1.first_name);
+            console.log(myModule1.first_name);
+            console.log(myModule1.second_name);
+            myModule1.first_name = 'email.'; // 全局性的
+            console.log(myModule1.getFullName());
+
+            import * as myModule from './js/myModule.js';
+            //import mModule3 from './js/main.js';
+
+            //调用js
+            console.log(myModule.myModule1.first_name);
+            console.log(myModule.myModule1.second_name);
+            myModule.myModule1.first_name = 'img.';
+            console.log(myModule.myModule1.getFullName());
+
+        </script>
+
+        <p style="font-weight:bold;">按需导出与按需导入的注意事项 ：</p>
+        <p>1、每个模块中可以使用多次按需导出</p>
+        <p>2、按需导入的成员名称必须和按需导出的名称保持一致</p>
+        <p>3、按需导入时，可以使用 as 关键字进行重命名</p>
+        <p>4、按需导入可以和默认导入一起使用</p>
+
+        <p style="font-weight:bold;">直接导入并执行模块中的代码：</p>
+        <p>如果 只想单纯地执行某个模块中的代码 ，并不需要得到模块中向外共享的成员。此时，可以直接导入并执行模块代码：</p>
+<pre><code>
+    import './js/myModule.js';
+</code></pre>
+
+        <script type="module">
+            import './js/myModule.js';
+        </script>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+<p style="font-weight:bold;"></p>
+<p></p>
+<pre><code>
+    
+</code></pre>
+<script type="module">
+
+</script>
+
+<script type="text/javascript">
+
+</script>

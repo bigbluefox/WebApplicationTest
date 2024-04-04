@@ -1,0 +1,272 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NavBar.master.cs" Inherits="WebApplicationTest.PageMaster.NavBar" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server"/>
+    </title>
+
+    <link href="/Scripts/themes/default/easyui.min.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/icon.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/flexslider.min.css" rel="stylesheet"/>
+    <link href="/Scripts/themes/dropkick.min.css" rel="stylesheet"/>
+
+    <!--<script src="/Scripts/jquery-2.2.4.min.js"></script>-->
+    <!--<script src="/Scripts/jquery-1.8.3.min.js"></script>-->
+
+    <script src="/Scripts/jquery-1.11.1.min.js"></script>
+    <script src="/Scripts/jquery-migrate-1.4.1.min.js"></script>
+
+    <script src="/Scripts/jquery.easyui.min.js"></script>
+    <script src="/Scripts/locale/easyui-lang-zh_CN.min.js"></script>
+
+    <script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Scripts/bootstrap/js/bootstrap-hover-dropdown.min.js"></script>
+
+    <script src="/Scripts/jquery.flexslider-min.js"></script>
+    <script src="/Scripts/jquery.dropkick.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="ScriptContent" runat="server"/>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+<div class="container-fluid">
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Project name</a>
+</div>
+<div id="Div1" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li>
+            <a style="" href="/Huarun/Index.aspx" target="_self">首页</a>
+        </li><li class="dropdown">
+            <a class="dropdown-toggle" id="Col_2" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown" data-hover="dropdown">关于我们 <span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="Col_2">
+                <li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=12397E30-04F6-4281-ADC0-90A8666545B4&amp;title=公司使命" target="_self">公司使命</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=17580050-95C4-4969-AFC5-1557044BEB08&amp;title=核心价值观" target="_self">核心价值观</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=47596464-22AE-4681-A44E-AE348522F964&amp;title=文化活动" target="_self">文化活动</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=4B42B029-93C3-4A0E-8F47-AFB1E0E80DCE&amp;title=公司LOGO" target="_self">公司LOGO</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=4F41E053-A609-4DA8-8237-70ABD97D35A9&amp;title=公司精神" target="_self">公司精神</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=5D729C10-732C-4251-9F9A-A4E1B0271AD5&amp;title=主要业绩" target="_self">主要业绩</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=836E113B-379F-426D-BA8D-DBA682DA2A04&amp;title=公司简介" target="_self">公司简介</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=90AFE666-6E17-4FEC-882F-6D5DCE3145AC&amp;title=公司定位" target="_self">公司定位</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=9492A141-D145-4FDE-A186-3FAC5C3A5522&amp;title=运营模式" target="_self">运营模式</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=BCFBFAD4-1C01-44C9-BA91-0D64E856CB94&amp;title=管理团队" target="_self">管理团队</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=E20F72CC-1C24-47D5-9403-19CEBFD0B87C&amp;title=文化传承" target="_self">文化传承</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=E73A9F75-B636-4FA2-A6FA-F87E9A47C202&amp;title=公司愿景" target="_self">公司愿景</a>
+                </li><li>
+                    <a href="/Huarun/CRPSystemNews.aspx?id=EC741A6A-0697-455C-8FD6-45A37185617F&amp;title=未来展望" target="_self">未来展望</a>
+                </li>
+            </ul>
+        </li><li class="dropdown">
+            <a class="dropdown-toggle" id="Col_3" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown" data-hover="dropdown">党建之窗 <span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="Col_3">
+                <li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=9" target="_self">党团天地</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=11" target="_self">公司党建</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=12" target="_self">团青工作</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=26" target="_self">党务知识</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=27" target="_self">党史导读</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=36" target="_self">学习心得</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=37" target="_self">党内规则</a>
+                </li><li>
+                    <a href="/" target="_self">公司党建</a>
+                </li><li>
+                    <a href="/" target="_self">学习园地</a>
+                </li><li>
+                    <a href="/" target="_self">群团工作</a>
+                </li><li>
+                    <a href="/" target="_self">纪检监察</a>
+                </li><li>
+                    <a href="/" target="_self">党员之家</a>
+                </li><li>
+                    <a href="/" target="_self">滚动专题</a>
+                </li>
+            </ul>
+        </li><li class="dropdown">
+            <a class="dropdown-toggle" id="Col_4" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown" data-hover="dropdown">标准化 <span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="Col_4">
+                <li>
+                    <a href="/" target="_self">组织机构</a>
+                </li><li>
+                    <a href="/Huarun/StandardList.aspx?documentTypeID=0D3668DF-5D32-4E0D-9C49-0F15D541AFA8&amp;standRange=1&amp;standardType=1&amp;keyWords=" target="_blank">法律法规</a>
+                </li><li>
+                    <a href="/Huarun/StandardList.aspx?documentTypeID=0697E2DE-472F-4257-BB4E-3C04BA0ADD58&amp;standRange=1&amp;standardType=1&amp;keyWords=" target="_blank">政策文件</a>
+                </li><li>
+                    <a href="/Huarun/StandardList.aspx?documentTypeID=60866167-D22E-4B0E-BBFE-86EE71D24124&amp;standRange=1&amp;standardType=1&amp;keyWords=" target="_blank">技术标准</a>
+                </li><li>
+                    <a href="/Huarun/StandardList.aspx?documentTypeID=A48BC830-32D9-488A-9298-F7ABF81F6F5D&amp;standRange=1&amp;standardType=1&amp;keyWords=" target="_blank">基础标准</a>
+                </li><li>
+                    <a href="/Huarun/StandardList.aspx?documentTypeID=FA7293D0-A08C-4E38-8013-1810CA90DAA9&amp;standRange=1&amp;standardType=1&amp;keyWords=" target="_blank">管理标准</a>
+                </li><li>
+                    <a href="/Huarun/StandardList.aspx?documentTypeID=31CE07C8-BE8A-445E-B3FC-AF709E723031&amp;standRange=1&amp;standardType=1&amp;keyWords=" target="_blank">工作标准</a>
+                </li><li>
+                    <a href="/Huarun/StandardList.aspx?documentTypeID=419CA203-F4EE-41D8-9AD9-B8408CC8EF08&amp;standRange=1&amp;standardType=1&amp;keyWords=" target="_blank">规章制度</a>
+                </li><li>
+                    <a href="http://dls.cec.org.cn/" target="_blank">中电联标准</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=5" target="_blank">标准公告</a>
+                </li><li>
+                    <a href="/Huarun/Knowledge.aspx" target="_blank">知识中心</a>
+                </li>
+            </ul>
+        </li><li class="dropdown">
+            <a class="dropdown-toggle" id="Col_5" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown" data-hover="dropdown">信息服务 <span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="Col_5">
+                <li>
+                    <a href="/" target="_self">计算机知识</a>
+                </li><li>
+                    <a href="/" target="_self">通讯录</a>
+                </li><li>
+                    <a href="/" target="_self">值班表</a>
+                </li><li>
+                    <a href="/" target="_self">信息化建设</a>
+                </li>
+            </ul>
+        </li><li class="dropdown">
+            <a class="dropdown-toggle" id="Col_6" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown" data-hover="dropdown">组织概况 <span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="Col_6">
+                <li>
+                    <a href="/" target="_self">领导介绍</a>
+                </li><li>
+                    <a href="/" target="_self">管理体系</a>
+                </li><li>
+                    <a href="/" target="_self">组织架构</a>
+                </li><li>
+                    <a href="/" target="_self">发展历程</a>
+                </li><li>
+                    <a href="/" target="_self">资质荣誉</a>
+                </li><li>
+                    <a href="/" target="_self">经营业绩</a>
+                </li>
+            </ul>
+        </li><li class="dropdown">
+            <a class="dropdown-toggle" id="Col_7" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown" data-hover="dropdown">新闻动态 <span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="Col_7">
+                <li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=6" target="_self">公司新闻</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=7" target="_self">部门新闻</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=10" target="_self">公司公告</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=41" target="_self">领导讲话</a>
+                </li><li>
+                    <a href="/" target="_self">通知公告</a>
+                </li><li>
+                    <a href="/" target="_self">视频</a>
+                </li>
+            </ul>
+        </li><li class="dropdown">
+            <a class="dropdown-toggle" id="Col_8" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown" data-hover="dropdown">企业文化 <span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="Col_8">
+                <li>
+                    <a href="/" target="_self">公司简介</a>
+                </li><li>
+                    <a href="/" target="_self">企业文化</a>
+                </li><li>
+                    <a href="/" target="_self">公司背景</a>
+                </li><li>
+                    <a href="/" target="_self">公司定位</a>
+                </li><li>
+                    <a href="/" target="_self">企业风采</a>
+                </li>
+            </ul>
+        </li><li class="dropdown">
+            <a class="dropdown-toggle" id="Col_9" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown" data-hover="dropdown">生产信息 <span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="Col_9">
+                <li>
+                    <a href="/" target="_self">生产动态</a>
+                </li><li>
+                    <a href="/" target="_self">实时指标</a>
+                </li><li>
+                    <a href="/" target="_self">运行查询</a>
+                </li><li>
+                    <a href="/" target="_self">检修查询</a>
+                </li><li>
+                    <a href="/" target="_self">发电曲线</a>
+                </li><li>
+                    <a href="/" target="_self">生产实时</a>
+                </li>
+            </ul>
+        </li><li class="dropdown">
+            <a class="dropdown-toggle" id="Col_10" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown" data-hover="dropdown">专题专栏 <span class="caret"></span></a><ul class="dropdown-menu" aria-labelledby="Col_10">
+                <li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=51" target="_self">2015年年会</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=52" target="_self">2016年年会</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=53" target="_self">"两学一做"学习教育</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=54" target="_self">2017年年会</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=44" target="_self">专题聚焦</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=47" target="_self">培训天地专题</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=48" target="_self">2014年年会</a>
+                </li><li>
+                    <a href="/Huarun/CRPNewsList.aspx?bizType=50" target="_self">华润人专题</a>
+                </li><li>
+                    <a href="/" target="_self">重大专题</a>
+                </li><li>
+                    <a href="/" target="_self">企业风采</a>
+                </li><li>
+                    <a href="/" target="_self">宣传月</a>
+                </li><li>
+                    <a href="/" target="_self">影视作品</a>
+                </li><li>
+                    <a href="/" target="_self">展览</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div><!--/.nav-collapse -->
+</div><!--/.container-fluid -->
+</nav>
+
+<!-- Begin page content -->
+<div class="container">
+    <asp:ContentPlaceHolder ID="ContainerContent" runat="server"/>
+</div>
+
+<!--
+模态框 Modal
+模态框经过了优化，更加灵活，以弹出对话框的形式出现，具有最小和最实用的功能集。
+1)不支持同时打开多个模态框
+千万不要在一个模态框上重叠另一个模态框。要想同时支持多个模态框，需要自己写额外的代码来实现。
+2)模态框的 HTML 代码放置的位置
+务必将模态框的 HTML 代码放在文档的最高层级内（也就是说，尽量作为 body 标签的直接子元素），以避免其他组件影响模态框的展现和/或功能。
+-->
+<asp:ContentPlaceHolder ID="ModalContent" runat="server"/>
+
+<footer class="footer">
+    <asp:ContentPlaceHolder ID="FooterContent" runat="server"/>
+</footer>
+
+</body>
+</html>

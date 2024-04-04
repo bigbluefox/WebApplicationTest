@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title></title>
+
+    <link href="/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="/Scripts/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+
+    <link href="bootstrap-table/bootstrap-table.css" rel="stylesheet"/>
+
+    <!--<link href="/Scripts/fileinput/css/fileinput.css" rel="stylesheet"/>-->
+    <!--<link href="../Scripts/bootstrap/css/bootstrap-validator.css" rel="stylesheet"/>-->
+    <!--<link href="../Scripts/bootstrap/css/bootstrap-table.css" rel="stylesheet"/>-->
+    <!--<link href="../Scripts/bootstrap/css/bootstrap-treeview.css" rel="stylesheet"/>-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="../Scripts/html5shiv.min.js"></script>
+        <script src="../Scripts/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/Scripts/jquery/jquery-1.12.4.min.js"></script>
+    <script src="/Scripts/jquery/jquery-migrate-1.4.1.min.js"></script>
+
+    <!--<script src="/Scripts/jquery.easyui.min.js"></script>-->
+    <!--<script src="/Scripts/locale/easyui-lang-zh_CN.js"></script>-->
+    <script src="/Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap-table/tableExport.js"></script>
+
+    <script src="bootstrap-table/bootstrap-table.js"></script>
+    <script src="bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+
+    <!--<script src="../Scripts/bootstrap/js/bootstrap-table.js"></script>-->
+    <!--<script src="../Scripts/bootstrap/js/locales/bootstrap-table-zh-CN.js"></script>-->
+    <!--<script src="../Scripts/bootstrap/js/bootstrap-treeview.js"></script>-->
+    <script src="bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+
+</head>
+<body>
+<div class="bootstrap-table">
+    <div class="fixed-table-toolbar"></div>
+    <div class="fixed-table-container" style="height: 418px; padding-bottom: 41px;">
+        <div class="fixed-table-header" style="margin-right: 17px;">
+            <table id="table" class="table table-hover table-striped" style="width: 1068px;" data-show-export="true" data-toggle="table" data-pagination="true">
+                <thead>
+                <tr>
+                    <th style="text-align: center;" data-field="id">
+                        <div class="th-inner ">编号</div>
+                        <div class="fht-cell" style="width: 44px;"></div>
+                    </th><th data-field="name">
+                        <div class="th-inner ">姓名</div>
+                        <div class="fht-cell" style="width: 294px;"></div>
+                    </th><th style="text-align: center;" data-field="basepay">
+                        <div class="th-inner ">基本工资</div>
+                        <div class="fht-cell" style="width: 86px;"></div>
+                    </th><th style="text-align: center;" data-field="grants">
+                        <div class="th-inner ">补助</div>
+                        <div class="fht-cell" style="width: 78px;"></div>
+                    </th><th style="text-align: center;" data-field="deduction">
+                        <div class="th-inner ">扣减</div>
+                        <div class="fht-cell" style="width: 78px;"></div>
+                    </th><th style="text-align: center;" data-field="totalwages">
+                        <div class="th-inner ">工资总额</div>
+                        <div class="fht-cell" style="width: 86px;"></div>
+                    </th><th style="text-align: center;" data-field="paytaxes">
+                        <div class="th-inner ">缴税</div>
+                        <div class="fht-cell" style="width: 78px;"></div>
+                    </th><th style="text-align: center;" data-field="amount">
+                        <div class="th-inner ">发放金额</div>
+                        <div class="fht-cell" style="width: 86px;"></div>
+                    </th><th style="text-align: center;" data-field="creator">
+                        <div class="th-inner ">添加人编号</div>
+                        <div class="fht-cell" style="width: 87px;"></div>
+                    </th><th style="text-align: center;" data-field="createtime">
+                        <div class="th-inner ">添加时间</div>
+                        <div class="fht-cell" style="width: 156px;"></div>
+                    </th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="fixed-table-body">
+            <div class="fixed-table-loading" style="display: none; top: 1px;">请稍等，正在加载中...</div><table class="table table-hover table-striped" id="preview-table" style="margin-top: -41px;">
+                <thead>
+                <tr>
+                    <th style="text-align: center;" data-field="id">
+                        <div class="th-inner ">编号</div>
+                        <div class="fht-cell"></div>
+                    </th><th data-field="name">
+                        <div class="th-inner ">姓名</div>
+                        <div class="fht-cell"></div>
+                    </th><th style="text-align: center;" data-field="basepay">
+                        <div class="th-inner ">基本工资</div>
+                        <div class="fht-cell"></div>
+                    </th><th style="text-align: center;" data-field="grants">
+                        <div class="th-inner ">补助</div>
+                        <div class="fht-cell"></div>
+                    </th><th style="text-align: center;" data-field="deduction">
+                        <div class="th-inner ">扣减</div>
+                        <div class="fht-cell"></div>
+                    </th><th style="text-align: center;" data-field="totalwages">
+                        <div class="th-inner ">工资总额</div>
+                        <div class="fht-cell"></div>
+                    </th><th style="text-align: center;" data-field="paytaxes">
+                        <div class="th-inner ">缴税</div>
+                        <div class="fht-cell"></div>
+                    </th><th style="text-align: center;" data-field="amount">
+                        <div class="th-inner ">发放金额</div>
+                        <div class="fht-cell"></div>
+                    </th><th style="text-align: center;" data-field="creator">
+                        <div class="th-inner ">添加人编号</div>
+                        <div class="fht-cell"></div>
+                    </th><th style="text-align: center;" data-field="createtime">
+                        <div class="th-inner ">添加时间</div>
+                        <div class="fht-cell"></div>
+                    </th>
+                </tr>
+                </thead><tbody>
+                <tr data-index="0">
+                    <td style="text-align: center;">1</td> <td>
+                        <span title="x:%o!yhKIX&amp;;qt)*=vqE9>X>wK9hBLp0">x:%o!yhKIX&amp;;qt)*=vqE9&gt;X&gt;wK9hBLp0</span></td> <td style="text-align: right;">410529.79</td> <td style="text-align: right;">18697.33</td> <td style="text-align: right;">38784.86</td> <td style="text-align: right;">390442.26</td> <td style="text-align: right;">19522.11</td> <td style="text-align: right;">370920.15</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr><tr data-index="1">
+                    <td style="text-align: center;">2</td> <td>
+                        <span title="Gjs5ys0H}O16:2g_)v-rbu50uTgG4MRg">Gjs5ys0H}O16:2g_)v-rbu50uTgG4MRg</span></td> <td style="text-align: right;">674281.58</td> <td style="text-align: right;">87238.22</td> <td style="text-align: right;">71884.16</td> <td style="text-align: right;">689635.64</td> <td style="text-align: right;">34481.78</td> <td style="text-align: right;">655153.86</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr><tr data-index="2">
+                    <td style="text-align: center;">3</td> <td>
+                        <span title="![[8!Vy(pI+F[)^FU}Q!3Bh@[IgNRp=;">![[8!Vy(pI+F[)^FU}Q!3Bh@[IgNRp=;</span></td> <td style="text-align: right;">762460.79</td> <td style="text-align: right;">20284.38</td> <td style="text-align: right;">81230.58</td> <td style="text-align: right;">701514.59</td> <td style="text-align: right;">35075.73</td> <td style="text-align: right;">666438.86</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr><tr data-index="3">
+                    <td style="text-align: center;">4</td> <td>
+                        <span title="EZqkf@^TFuXT)%#:yfgkDHSZ${OOlRiY">EZqkf@^TFuXT)%#:yfgkDHSZ${OOlRiY</span></td> <td style="text-align: right;">251795.92</td> <td style="text-align: right;">82043.08</td> <td style="text-align: right;">27588.68</td> <td style="text-align: right;">306250.32</td> <td style="text-align: right;">15312.52</td> <td style="text-align: right;">290937.8</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr><tr data-index="4">
+                    <td style="text-align: center;">5</td> <td>
+                        <span title="2OJLWVaYl+kDT9Z]FHLE9);Oc0f9OPp{">2OJLWVaYl+kDT9Z]FHLE9);Oc0f9OPp{</span></td> <td style="text-align: right;">7033.23</td> <td style="text-align: right;">39583.94</td> <td style="text-align: right;">68111.58</td> <td style="text-align: right;">-21494.41</td> <td style="text-align: right;">-1074.72</td> <td style="text-align: right;">-20419.69</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr><tr data-index="5">
+                    <td style="text-align: center;">6</td> <td>
+                        <span title="s/73w@|vkF^D9D)H4su]8h3%Hv{?jkKq">s/73w@|vkF^D9D)H4su]8h3%Hv{?jkKq</span></td> <td style="text-align: right;">100885.05</td> <td style="text-align: right;">65958.46</td> <td style="text-align: right;">70496.17</td> <td style="text-align: right;">96347.34</td> <td style="text-align: right;">4817.37</td> <td style="text-align: right;">91529.97</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr><tr data-index="6">
+                    <td style="text-align: center;">7</td> <td>
+                        <span title="k]ymEeL*2%s}BH[_Zph}1zKHs5?BK8l}">k]ymEeL*2%s}BH[_Zph}1zKHs5?BK8l}</span></td> <td style="text-align: right;">950946.05</td> <td style="text-align: right;">16894.29</td> <td style="text-align: right;">16739.27</td> <td style="text-align: right;">951101.07</td> <td style="text-align: right;">47555.05</td> <td style="text-align: right;">903546.02</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr><tr data-index="7">
+                    <td style="text-align: center;">8</td> <td>
+                        <span title="DbgLUadhU9r/oM$b*@ltQzG!9Ulj^^Wu">DbgLUadhU9r/oM$b*@ltQzG!9Ulj^^Wu</span></td> <td style="text-align: right;">753241</td> <td style="text-align: right;">49546.33</td> <td style="text-align: right;">7025.31</td> <td style="text-align: right;">795762.02</td> <td style="text-align: right;">39788.1</td> <td style="text-align: right;">755973.92</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr><tr data-index="8">
+                    <td style="text-align: center;">9</td> <td>
+                        <span title="+!G2_HRSb.N>%fdj#(PbZVqFy}I?kpaP">+!G2_HRSb.N&gt;%fdj#(PbZVqFy}I?kpaP</span></td> <td style="text-align: right;">307512.37</td> <td style="text-align: right;">87944.86</td> <td style="text-align: right;">22941.32</td> <td style="text-align: right;">372515.91</td> <td style="text-align: right;">18625.8</td> <td style="text-align: right;">353890.11</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr><tr data-index="9">
+                    <td style="text-align: center;">10</td> <td>
+                        <span title="1fWOl^d6j5O63;gC}3t{MX>SW!c;gty&amp;">1fWOl^d6j5O63;gC}3t{MX&gt;SW!c;gty&amp;</span></td> <td style="text-align: right;">446654.89</td> <td style="text-align: right;">41740.51</td> <td style="text-align: right;">21709.43</td> <td style="text-align: right;">466685.97</td> <td style="text-align: right;">23334.3</td> <td style="text-align: right;">443351.67</td> <td style="text-align: center;">4516</td> <td style="text-align: center;">2019-03-25 10:31:13</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="fixed-table-footer" style="display: none;">
+            <table>
+                <tbody>
+                <tr></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="fixed-table-pagination" style="display: block;">
+        <div class="pull-left pagination-detail hidden-xs">
+            <span class="pagination-info">显示第 1 到第 10 条记录，总共 1000 条记录</span><span class="page-list">每页显示 <span class="btn-group dropup"><button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="page-size">10</span> <span class="caret"></span></button><ul class="dropdown-menu" role="menu"><li class="active" role="menuitem"><a href="#">10</a></li><li role="menuitem"><a href="#">20</a></li><li role="menuitem"><a href="#">50</a></li><li role="menuitem"><a href="#">100</a></li><li role="menuitem"><a href="#">200</a></li><li role="menuitem"><a href="#">500</a></li></ul></span> 条记录
+
+            </span></div>
+        <div class="pull-right pagination">
+            <ul class="pagination">
+                <li class="page-item page-pre">
+                    <a class="page-link" href="#">‹</a>
+                </li><li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                </li><li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li><li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li><li class="page-item">
+                    <a class="page-link" href="#">4</a>
+                </li><li class="page-item">
+                    <a class="page-link" href="#">5</a>
+                </li><li class="page-item page-last-separator disabled">
+                    <a class="page-link" href="#">...</a>
+                </li><li class="page-item page-last">
+                    <a class="page-link" href="#">100</a>
+                </li><li class="page-item page-next">
+                    <a class="page-link" href="#">›</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    
+    var $table = $('#table');
+
+    $(function() {
+
+        $table.bootstrapTable('destroy').bootstrapTable({
+            showExport: "true",
+            exportDataType: $(this).val(),
+            exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'excel'],
+        });
+
+        //$('#toolbar').find('select').change(function () {});
+    });
+
+</script>
+
+</body>
+</html>

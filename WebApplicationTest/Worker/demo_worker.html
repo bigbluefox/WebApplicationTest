@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dedicated web worker</title>
+    <script src="demo_worker.js"></script>
+</head>
+<body>
+<p>Count numbers:
+    <output id="result"></output>
+</p>
+<button id="startWorker">startWorker</button>
+<button id="endWorker">stopWorker</button>
+</body>
+<script>
+    (function () {
+        var result = document.querySelector('#result'),
+                startWorker = document.querySelector('#startWorker'),
+                endWorker = document.querySelector('#endWorker'),
+                worker,
+                data = 10;
+        startWorker.addEventListener('click', function (event) {
+            if (typeof Worker !== 'undefined') {
+                if (typeof worker == "undefined") {
+                    worker = new Worker('demo_workers.js');
+                }
+                worker.addEventListener('message', function (event) {
+                    result.innerHTML = event.data;
+                }, false);
+                worker.addEventListener("error", function (event) {
+                    alert("Line #" + event.lineno + " - " + event.message + " in " + event.filename);
+                }, false);
+                worker.postMessage(data);
+                endWorker.addEventListener('click', function () {
+                    worker.terminate();
+                }, false);
+            } else {
+                result.innerHTML = 'sry, your browser does not support Web workers...';
+            }
+        }, false);
+    })();
+</script>
+</html>

@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+        #draggable {
+            width: 200px;
+            height: 20px;
+            text-align: center;
+            background: white;
+            margin: 0 auto;
+        }
+        .dropzone {
+            box-sizing: border-box;
+            width: 400px;
+            height: 60px;
+            background: blueviolet;
+            margin: 10px auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--dropzone:表示可释放的区域-->
+<div class="dropzone">
+    <!--可拖动的元素 draggable="true"-->
+    <div id="draggable" draggable="true" >
+        来拖动我啊
+    </div>
+</div>
+<div class="dropzone"></div>
+<div class="dropzone"></div>
+<div class="dropzone"></div>
+
+<script>
+    /*储存拖动的目标*/
+    var dragged;
+
+
+    /*开始拖动的时触发。 只触发一次*/
+    document.addEventListener("dragstart", function (event) {
+        //        console.log("开始拖动了");
+        // 保存被拖动的元素对象
+        dragged = event.target;
+        // 把拖动元素的该成半透明。
+        event.target.style.opacity = .3;
+    }, false);
+
+    /* 拖动的过程中触发。 只要元素在拖动，会一直重复触发 */
+    document.addEventListener("drag", function (event) {
+        //        console.log("被拖的感觉真爽")
+    }, false);
+
+    /*进入另外一个元素的区域时触发*/
+    document.addEventListener("dragenter", function (event) {
+        // 判断当前的目标是否进入了潜在的 dropzone区域，如果是则高量这个潜在的目标区域
+        if (event.target.className == "dropzone") {
+            //            console.log("进入潜在的目标区域");
+            event.target.style.background = "purple";
+        }
+
+    }, false);
+
+    /* 在潜在目标区域的上方的时候会重复触发 */
+    document.addEventListener("dragover", function (event) {
+        //        console.log("在潜在的目前区域上方");
+        // 因为默认情况下，拖放目标是不允许接受元素的。阻值默认行为，可以随时是否元素。
+        event.preventDefault();  //必须阻止默认行为，否则的后面的drop事件不会触发
+    }, false);
+
+    /*松开鼠标拖放结束。*/
+    document.addEventListener("dragend", function (event) {
+        console.log("拖放结束");
+        // 把元素的透明重新设置为1
+        event.target.style.opacity = "1";
+    }, false);
+
+    /*从潜在目标元素上方离开的时候触发*/
+    document.addEventListener("dragleave", function (event) {
+        console.log("离开目标元素");
+        // 因为进入一个元素的时候更改了目标元素的北京，所以离开的时候要重置背景
+        if (event.target.className == "dropzone") {
+            event.target.style.background = "";
+        }
+
+    }, false);
+
+    /*释放拖动元素的时候触发。  这个事件是在dropend事件触发前触发。*/
+    document.addEventListener("drop", function (event) {
+        console.log("drog.....");
+        // prevent default action (open as link for some elements)
+        event.preventDefault();
+        // 把拖动的元素移动目标区域中
+        if (event.target.className == "dropzone") {
+            event.target.style.background = "";
+            //把拖动元素从他原来的父节点中移除。
+            dragged.parentNode.removeChild(dragged);
+            //插入到目标元素中。
+            event.target.appendChild(dragged);
+        }
+
+    }, false);
+</script>
+</body>
+</html>
